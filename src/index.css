@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'PopiSemiBold';
+    src: local('PopiSemiBold'), url(./assets/fonts/Poppins/Poppins-SemiBold.ttf) format('truetype');
+ 
+    font-family: 'PopiExtraLight';
+    src: local('PopiExtraLight'), url(./assets/fonts/Poppins/Poppins-ExtraLight.ttf) format('truetype');
+}

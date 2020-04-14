@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
+// FONTS :
+import './assets/fonts/Poppins/Poppins-SemiBold.ttf';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-
-import './App.css';
 
 
 /* APP COMPONENTS */ 
+import Header from './app/navigation/Header';
+
 import Posts from './app/Posts';
 import Users from './app/Users';
 import About from './app/About';
@@ -25,26 +30,14 @@ export class App extends Component {
         <div>
           
           {/* NAVBAR */}
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-              <li>
-                <Link to="/posts">Posts</Link>
-              </li>
-            </ul>
-          </nav>
+            <Header />
           {/* ./NAVBAR */}
 
           {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
           <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
             <Route path="/posts">
               <Posts />
             </Route>
@@ -53,9 +46,6 @@ export class App extends Component {
             </Route>
             <Route path="/about">
               <About />
-            </Route>
-            <Route path="/">
-              <Home />
             </Route>
           </Switch>
 
