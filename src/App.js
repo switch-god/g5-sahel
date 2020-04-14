@@ -14,14 +14,18 @@ import {
 } from "react-router-dom";
 
 
-/* APP COMPONENTS */ 
+/* =================== APP COMPONENTS =================== */ 
 import Header from './app/navigation/Header';
 
-import Posts from './app/Posts';
-import Users from './app/Users';
-import About from './app/About';
-import Home from './app/Home';
+/* $$$$$$$$$$$$$$$$$$$ HOME PAGE$$$$$$$$$$$$$$$$$$$ */ 
+   import Home from './app/home/Home';
+  
 
+/* $$$$$$$$$$$$$$$$$$$ ./HOME PAGE$$$$$$$$$$$$$$$$$$$ */ 
+
+
+
+/* =================== ./APP COMPONENTS =================== */ 
 export class App extends Component {
   
   render() {
@@ -35,18 +39,11 @@ export class App extends Component {
 
           {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
           <Switch>
+            
             <Route path="/">
               <Home />
             </Route>
-            <Route path="/posts">
-              <Posts />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
+            
           </Switch>
 
           {/* FOOTER */}

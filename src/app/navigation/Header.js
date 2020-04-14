@@ -25,7 +25,7 @@ export default class Header extends Component {
     render() {
         return (
             <Container fluid>
-                <Row> 
+                <Row > 
                     <Col />
                     <Col />
                     <Col>
@@ -111,7 +111,7 @@ export default class Header extends Component {
                         </nav>
                     </Col>
                 </Row>
-                <hr style={{marginTop : -5 + "px", borderColor : '##BCBCBC'}} />
+                <hr style={{marginTop : -5 + "px", borderColor : '##BCBCBC', marginBottom : 50 + "px"}} />
             </Container>
         )
     }
