@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Global Config :
-   import { config, HOME_BLOC1_IMGS } from '../../constants/AppConfig';
+   import { config, HOME_BLOC1_IMGS,POSTS,EVENTS } from '../../constants/AppConfig';
 
 
 export const getImagesBloc = () => async (dispatch) => {
@@ -20,18 +20,32 @@ export const getImagesBloc = () => async (dispatch) => {
         });
   
 
-}
+};
 
-export const Name = () => async (dispatch) => {
+export const getLatestNews = () => async (dispatch) => {
   
-  axios.get(`${config.url}/posts/categories=${HOME_BLOC1_IMGS}`)
-        .then(posts => {
+  axios.get(`${config.url}posts?categories=${POSTS}`)
+        .then(response => {
           dispatch({
-              type : 'FETCH_POSTS',
-              payload : posts.data,
+              type : 'GET_LATEST_POSTS',
+              payload : response.data,
           });
         })
         .catch(error => {
-          console.log("erreur axios app component");
+          console.log("erreur axios getLatestNews/PostsActions");
         });
-}
+};
+
+export const getLatestEvents = () => dispatch => {
+
+  axios.get(`${config.url}posts?categories=${EVENTS}`)
+        .then(response => {
+          dispatch({
+              type : 'GET_LATEST_EVENTS',
+              payload : response.data,
+          });
+        })
+        .catch(error => {
+          console.log("erreur axios getLatestNews/PostsActions");
+        });
+};

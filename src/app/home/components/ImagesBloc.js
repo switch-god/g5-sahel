@@ -15,10 +15,6 @@ import moment from 'moment';
 
 // Images & Styling :
     import '../Home.css';
-    import Image1 from '../../../assets/images/Home/1.png';
-    import Image2 from '../../../assets/images/Home/2.png';
-    import Image3 from '../../../assets/images/Home/3.png';
-
 
 class ImagesBloc extends Component {
     constructor(props) {
@@ -30,12 +26,9 @@ class ImagesBloc extends Component {
 
 
     render() { 
-        console.log(this.props.imagesBloc);
-        
         const { imagesBloc } = this.props;
-        console.log(imagesBloc[2]);
+       
         return (
-            <Container fluid>
                 <Row>
                     <Col />
 
@@ -90,9 +83,7 @@ class ImagesBloc extends Component {
             
                     <Col />
                 </Row>
-
-            </Container>
-        )
+        );
     }
 }
 
