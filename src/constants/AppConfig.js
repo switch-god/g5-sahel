@@ -8,6 +8,7 @@
     const POSTS = 13;
     const EVENTS = 14;
     const HOME_BLOC1_IMGS = 15;
+    const ACTIVITES = 16;
 
 // Config :
    const config = {
@@ -19,4 +20,5 @@ export {
     POSTS,
     EVENTS,
     HOME_BLOC1_IMGS,
+    ACTIVITES,
 };

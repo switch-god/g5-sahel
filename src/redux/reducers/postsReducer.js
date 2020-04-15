@@ -2,11 +2,18 @@ const initialState = {
     imagesBloc : [],
     posts : [],
     events : [],
+    activites : [],
 };
 
 const postsReducer = (state = initialState, action) => {
     switch(action.type) {
         
+        case 'GET_ACTIVITES' : 
+            return {
+                ...state,
+                activites : action.payload,
+            }
+
         case 'GET_LATEST_EVENTS' : 
             return {
                 ...state,

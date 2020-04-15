@@ -7,4 +7,7 @@
     
     font-family: 'PopiBold';
     src: local('PopiBold'), url(./assets/fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+    
+    font-family: 'PopiMed';
+    src: local('PopiMed'), url(./assets/fonts/Poppins/Poppins-Medium.ttf) format('truetype');
 }

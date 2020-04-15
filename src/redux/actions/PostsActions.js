@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Global Config :
-   import { config, HOME_BLOC1_IMGS,POSTS,EVENTS } from '../../constants/AppConfig';
+   import { config, HOME_BLOC1_IMGS,POSTS,EVENTS,ACTIVITES } from '../../constants/AppConfig';
 
 
 export const getImagesBloc = () => async (dispatch) => {
@@ -42,6 +42,20 @@ export const getLatestEvents = () => dispatch => {
         .then(response => {
           dispatch({
               type : 'GET_LATEST_EVENTS',
+              payload : response.data,
+          });
+        })
+        .catch(error => {
+          console.log("erreur axios getLatestNews/PostsActions");
+        });
+};
+
+export const getActivities = () => dispatch => {
+
+  axios.get(`${config.url}posts?categories=${ACTIVITES}`)
+        .then(response => {
+          dispatch({
+              type : 'GET_ACTIVITES',
               payload : response.data,
           });
         })
