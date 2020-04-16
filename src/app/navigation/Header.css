@@ -1,18 +1,63 @@
+
+.mobileVisible {
+  display: none;
+}
+
+.mobileInvisible {
+  display: inline;
+}
+
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Extra small devices  */
+@media (max-width: 575px) { 
+  .mobileVisible {
+    display: inline;
+    text-align: center;
   }
   
-  .dropdown-content {
+  .mobileInvisible {
     display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
+    text-align: center;
   }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
   
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+ 
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  
+}
+
+

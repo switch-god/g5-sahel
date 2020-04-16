@@ -1,23 +1,256 @@
-.container {
-    position: relative;
-}
-  
-  .container .content {
-    position: absolute; /* Position the background text */
-    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-    background: rgb(0, 0, 0); /* Fallback color */
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-    color: #f1f1f1; /* Grey text */
-    width: 96.5%; /* Full width */
-    padding: 20px; /* Some padding */
+/* Extra small devices  */
+@media (max-width: 575px) { 
+    .container-for-img {
+        position: relative;
+        margin-bottom: 50px;
+    }
+      
+      .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 7px; /* Some padding */
+    }
+
+    .container-for-img .content h3 {
+        font-size: 14px;
+    }
+
+    .container-for-img .content p {
+        font-size: 9px;
+    }
+
+    
+    .container-for-img .content-1 {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color:white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 5px; /* Some padding */
+    }  
+    
+    .container-for-img .content-1 h3 {
+        font-size: 12px;
+    }
+
+    .container-for-img .content-1 p {
+        font-size: 8px;
+    }
+
+    .responsiveTitleForm {
+        color : white
+    }
+
+    .responsiveInputForm {
+        margin-bottom: 20px;
+    }
+
+    .responsiveButtonForm {
+        width: 70%
+    }
 }
 
-.container .content-1 {
-    position: absolute; /* Position the background text */
-    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-    background: rgb(0, 0, 0); /* Fallback color */
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-    color: #f1f1f1; /* Grey text */
-    width: 92.8%; /* Full width */
-    padding: 10px; /* Some padding */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .container-for-img {
+        position: relative;
+    }
+      
+    .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 3px; /* Some padding */
+    }
+
+    .container-for-img .content h3 {
+        font-size: 15px;
+    }
+
+    .container-for-img .content p {
+        font-size: 11px;
+    }
+
+    .container-for-img .content-1 {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color:white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 2px; /* Some padding */
+    }  
+    
+    .container-for-img .content-1 h3 {
+        font-size: 9px;
+    }
+
+    .container-for-img .content-1 p {
+        font-size: 7px;
+    }
+
+    .responsiveTitleForm {
+        color : white
+    }
 }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .container-for-img {
+        position: relative;
+    }
+      
+      .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: White; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 2px; /* Some padding */
+    }
+
+    .container-for-img .content h3 {
+        padding : 5px;
+        font-size: 16px;
+    }
+
+    .container-for-img .content p {
+        font-size: 12px;
+    }
+
+    
+    .container-for-img .content-1 {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color:white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 2px; /* Some padding */
+    }  
+    
+    .container-for-img .content-1 h3 {
+        padding: 2px;
+        font-size: 11px;
+    }
+
+    .container-for-img .content-1 p {
+        font-size: 10px;
+    }
+
+    .responsiveTitleForm {
+        color : white
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .container-for-img {
+        position: relative;
+    }
+      
+      .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 3px; /* Some padding */
+    }
+
+    .container-for-img .content h3 {
+        padding : 5px;
+        font-size: 20px;
+    }
+
+    .container-for-img .content p {
+        font-size: 15px;
+    }
+
+    
+    .container-for-img .content-1 {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color:white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 2px; /* Some padding */
+    }  
+    
+    .container-for-img .content-1 h3 {
+        padding: 2px;
+        font-size: 13px;
+    }
+
+    .container-for-img .content-1 p {
+        font-size: 13px;
+    }
+
+    .responsiveTitleForm {
+        color : white
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+    .container-for-img {
+        position: relative;
+    }
+      
+      .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 7px; /* Some padding */
+    }
+
+    .container-for-img .content h3 {
+        padding : 5px;
+        font-size: 25px;
+    }
+
+    .container-for-img .content p {
+        font-size: 15px;
+    }
+
+    
+    .container-for-img .content-1 {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color:white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 5px; /* Some padding */
+    }  
+    
+    .container-for-img .content-1 h3 {
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    .container-for-img .content-1 p {
+        font-size: 12px;
+    }
+
+    .responsiveTitleForm {
+        color : white
+    }
+}
+
+

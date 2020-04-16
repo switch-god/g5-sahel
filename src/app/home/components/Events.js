@@ -26,23 +26,14 @@ class Events extends Component {
 
     render() { 
         const { events } = this.props;
-
-        console.log(events);
-
+        
         return (
             <>
             
             <div>
                 {/* TITLE */}
-                <Row>
-                    <Col> 
-                        <Col lg={6}>
-                            <h4  style={styles.Title} >Upcoming Events</h4>
-                        </Col>
-                        <Col />
-                        <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '83%' ,borderWidth : 5+"px" }}/>
-                    </Col>
-                </Row>            
+                    <h4  style={styles.Title} >Upcoming Events</h4>
+                    <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '83%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />          
                 {/* ./TITLE */}
                 
                 {/* LATEST NEWS */}
@@ -50,7 +41,7 @@ class Events extends Component {
                         events[0] &&
                         <div>
                         <Row>
-                            <Col lg={11}>
+                            <Col md={11}>
                                 <Image src={events[0].fimg_url} fluid style={{ marginBottom : 30+"px", marginTop : 30+"px" }} />
                         
                                 <h3 style={{fontFamily : 'PopiBold',fontSize : 15}}>
@@ -74,7 +65,7 @@ class Events extends Component {
                                 </p>
                                 <hr />
                             </Col>
-                            <Col lg={1} />
+                            <Col md={1} />
                         </Row>
                         </div>
                     }
@@ -87,11 +78,11 @@ class Events extends Component {
                     events[1] &&
                     <div style={{marginBottom : 10+"px"}}>
                     <Row>
-                        <Col lg={4}>
+                        <Col md={4}>
                             <Image src={events[1].fimg_url} fluid style={{ resizeMode : 'contain' }} />
                         </Col> 
 
-                        <Col lg={8}>
+                        <Col md={8}>
                         <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
                                 {
                                     events[1].title.rendered.length > 111 
@@ -123,11 +114,11 @@ class Events extends Component {
                     events[2] &&
                     <div style={{marginBottom : 10+"px"}}>
                     <Row>
-                        <Col lg={4}>
+                        <Col md={4}>
                             <Image src={events[2].fimg_url} fluid style={{ resizeMode : 'contain' }} />
                         </Col> 
 
-                        <Col lg={8}>
+                        <Col md={8}>
                         <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
                                 {
                                     events[2].title.rendered.length > 111 
@@ -158,11 +149,11 @@ class Events extends Component {
                     events[3] &&
                     <div style={{marginBottom : 10+"px"}}>
                     <Row>
-                        <Col lg={4}>
+                        <Col md={4}>
                             <Image src={events[3].fimg_url} fluid style={{ resizeMode : 'contain' }} />
                         </Col> 
 
-                        <Col lg={8}>
+                        <Col md={8}>
                             <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
                                 {
                                     events[3].title.rendered.length > 111 
@@ -201,6 +192,7 @@ class Events extends Component {
 
 const styles = {
     Title : {
+        width : '40%',
         color : '#fff',
         fontFamily : 'PopiBold',
         backgroundColor : 'black',
@@ -208,7 +200,7 @@ const styles = {
         paddingBottom: 20+"px", 
         borderWidth : 10+"px",
         textAlign : 'center',
-    }
+    },
 }
 
 const mapStateToProps = state => ({

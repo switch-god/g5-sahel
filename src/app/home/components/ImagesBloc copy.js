@@ -7,13 +7,6 @@ import {
     Image
 } from 'react-bootstrap';
 
-import {
-    BrowserView,
-    MobileView,
-    isBrowser,
-    isMobile
-  } from "react-device-detect";
-
 import moment from 'moment';
 
 // Connect to redux : 
@@ -22,7 +15,7 @@ import moment from 'moment';
 
 // Images & Styling :
     import '../Home.css';
-   
+
 class ImagesBloc extends Component {
     constructor(props) {
         super(props);
@@ -39,50 +32,51 @@ class ImagesBloc extends Component {
                 <Row>
                     <Col />
 
-                    <Col md={10}>
+                    <Col xs md="auto" lg={10}>
                         <Row>
-                            <Col sm={8} md={8}>
-                                <div className="container-for-img">    
+                            <Col lg={8}>
+                                <div className="container">    
                                     {
                                         imagesBloc[2] &&
                                         <>
-                                        <Image src={imagesBloc[2].fimg_url} fluid   />
+                                        <Image src={imagesBloc[2].fimg_url} fluid style={{width:'100%'}}  />
                                         <div className="content">
-                                            <h3 style={{ fontFamily : 'PopiBold' }}>{imagesBloc[2].title.rendered}</h3>
-                                            <p style={{ fontFamily : 'PopiSemiBold' }}>{moment(imagesBloc[2].date).format("DD MMMM YYYY")}</p>
+                                            <h3 style={{fontFamily : 'PopiBold'}}>{imagesBloc[2].title.rendered}</h3>
+                                            <p style={{fontFamily : 'PopiSemiBold', fontSize : 15}}>{moment(imagesBloc[2].date).format("DD MMMM YYYY")}</p>
                                         </div>
                                         </>
                                     }
                                 </div>
                             </Col>
                             
-                            <Col sm={4} md={4}>
+                            <Col lg={4}>
                                 
-                                <div className="container-for-img">
+                                <div className="container">
                                     {
                                         imagesBloc[1] &&
                                         <>
-                                        <Image src={imagesBloc[1].fimg_url} fluid />
+                                        <Image src={imagesBloc[1].fimg_url} fluid style={{width:'100%'}}  />
                                         <div className="content-1">
-                                            <h3 style={{ fontFamily : 'PopiBold' }}>{imagesBloc[1].title.rendered}</h3>
-                                            <p style={{ fontFamily : 'PopiSemiBold' }}>{moment(imagesBloc[1].date).format("DD MMMM YYYY")}</p>
+                                            <h6 style={{fontFamily : 'PopiBold'}}>{imagesBloc[1].title.rendered}</h6>
+                                            <p style={{fontFamily : 'PopiSemiBold', fontSize : 15}}>{moment(imagesBloc[1].date).format("DD MMMM YYYY")}</p>
                                         </div>
                                         </>
                                     }
                                 </div>
                                 
-                                <div className="container-for-img" style={{marginTop : 26 + "px"}}>
+                                <div className="container" style={{marginTop : 46 + "px"}}>
                                     {
                                         imagesBloc[0] &&
                                         <>
                                         <Image src={imagesBloc[0].fimg_url} fluid style={{width:'100%'}}  />
                                         <div className="content-1">
-                                            <h3 style={{ fontFamily : 'PopiBold' }}>{imagesBloc[0].title.rendered}</h3>
-                                            <p style={{ fontFamily : 'PopiSemiBold' }}>{moment(imagesBloc[0].date).format("DD MMMM YYYY")}</p>
+                                            <h6 style={{fontFamily : 'PopiBold'}}>{imagesBloc[0].title.rendered}</h6>
+                                            <p style={{fontFamily : 'PopiSemiBold', fontSize : 15}}>{moment(imagesBloc[0].date).format("DD MMMM YYYY")}</p>
                                         </div>
                                         </>
                                     }
                                 </div>
+
                             </Col>
                         </Row>
                     </Col>

@@ -33,15 +33,9 @@ class News extends Component {
             
             <div>
                 {/* TITLE */}
-                <Row>
-                    <Col> 
-                        <Col lg={4}>
-                            <h4  style={styles.Title} >Latest News</h4>
-                        </Col>
-                        <Col />
-                        <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '83%' ,borderWidth : 5+"px" }}/>
-                    </Col>
-                </Row>            
+                <h4  style={styles.Title} >Nos activités</h4>
+                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '83%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
+            
                 {/* ./TITLE */}
                 
                 {/* LATEST NEWS */}
@@ -49,7 +43,7 @@ class News extends Component {
                         posts[0] &&
                         <div>
                         <Row>
-                            <Col lg={11}>
+                            <Col md={11}>
                                 <Image src={posts[0].fimg_url} fluid style={{ marginBottom : 30+"px", marginTop : 30+"px" }} />
                         
                                 <h3 style={{fontFamily : 'PopiBold',fontSize : 15}}>
@@ -73,7 +67,7 @@ class News extends Component {
                                 </p>
                                 <hr />
                             </Col>
-                            <Col lg={1} />
+                            <Col md={1} />
                         </Row>
                         </div>
                     }
@@ -86,11 +80,11 @@ class News extends Component {
                     posts[1] &&
                     <div style={{marginBottom : 10+"px"}}>
                     <Row>
-                        <Col lg={4}>
+                        <Col md={4}>
                             <Image src={posts[1].fimg_url} fluid style={{ resizeMode : 'contain' }} />
                         </Col> 
 
-                        <Col lg={8}>
+                        <Col md={8}>
                             
                             <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
                                 {
@@ -123,11 +117,11 @@ class News extends Component {
                     posts[2] &&
                     <div style={{marginBottom : 10+"px"}}>
                     <Row>
-                        <Col lg={4}>
+                        <Col md={4}>
                             <Image src={posts[2].fimg_url} fluid style={{ resizeMode : 'contain' }} />
                         </Col> 
 
-                        <Col lg={8}>
+                        <Col md={8}>
                             <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
                                 {
                                     posts[2].title.rendered.length > 111 
@@ -159,11 +153,11 @@ class News extends Component {
                     posts[3] &&
                     <div style={{marginBottom : 10+"px"}}>
                     <Row>
-                        <Col lg={4}>
+                        <Col md={4}>
                             <Image src={posts[3].fimg_url} fluid style={{ resizeMode : 'contain' }} />
                         </Col> 
 
-                        <Col lg={8}>
+                        <Col md={8}>
                             <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
                                 {
                                     posts[3].title.rendered.length > 111 
@@ -202,6 +196,7 @@ class News extends Component {
 
 const styles = {
     Title : {
+        width : '30%',
         color : '#fff',
         fontFamily : 'PopiBold',
         backgroundColor : 'black',
@@ -209,7 +204,7 @@ const styles = {
         paddingBottom: 20+"px", 
         borderWidth : 10+"px",
         textAlign : 'center',
-    }
+    },
 }
 
 const mapStateToProps = state => ({

@@ -26,8 +26,6 @@ class NosActivites extends Component {
 
         const { activites } = this.props;
 
-        console.log(activites);
-
         return (
             <>
               <h4  style={styles.Title} >Nos activités</h4>

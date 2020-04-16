@@ -28,13 +28,13 @@ export default class Home extends Component {
                 <Row style={{marginTop : 50 + "px", marginBottom : 50+"px"}}>
                     <Col />
 
-                    <Col xs={10}>
+                    <Col md={10}>
                         <Row>
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <News />
                             </Col>
                             
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <Events />
                             </Col>
                         </Row>
@@ -47,15 +47,15 @@ export default class Home extends Component {
                 <Row>
                     <Col />
                     
-                    <Col xs={10}>
+                    <Col md={10}>
                         <NosActivites />  
                         <Newsletter />
 
                         {/* VIDEO */}
-                            <Row>
+                            <Row style={{marginBottom : 50+"px"}}>
                                 <Col />
 
-                                <Col style={{textAlign : 'center'}} xs={8}>
+                                <Col style={{textAlign : 'center'}} md={8}>
                                     <p style={styles.activityTitle}>G5 Sahel pour une prospérité partagée</p>
                                     <hr style={{ borderColor : '#DEDEDE', marginTop : 13+"px",width : '80%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />
                                     <Player playsInline src="https://www.youtube.com/watch?v=f11pRhSVQ6U">

@@ -16,27 +16,27 @@ class Newsletter extends Component {
             <>
                 <hr style={{ borderColor : '#DEDEDE', marginBottom : 40+"px", borderWidth : 3+"px" }}/>
 
-                <Col style={{backgroundColor : 'black', marginTop : 20+"px", marginBottom: 20+"px", paddingTop : 30+"px", paddingBottom : 25+"px", textAlign : 'center'}} xs={12}>
+                <Col style={{backgroundColor : 'black', marginTop : 20+"px", marginBottom: 20+"px", paddingTop : 30+"px", paddingBottom : 25+"px", textAlign : 'center'}} md={12}>
                     <Row>
-                        <Col xs={5}>
-                            <h3 style={styles.title}>Subscribe to our newsletter</h3>
+                        <Col md={4}>
+                            <h3 style={styles.title} className="responsiveTitleForm">Subscribe to our newsletter</h3>
                         </Col>
                         
                         <Col/>
                         
-                        <Col xs={5}>
+                        <Col md={6}>
                             <Form>
                                 <Form.Row>
                                     <Col>
-                                        <input style={styles.input} placeholder="Name" />
+                                        <input style={styles.input} className="responsiveInputForm" placeholder="Name" />
                                     </Col>
 
                                     <Col>
-                                        <input style={styles.input} placeholder="Email" />
+                                        <input style={styles.input} className="responsiveInputForm" placeholder="Email" />
                                     </Col>
                                     
                                     <Col>
-                                        <Button style={styles.button}>
+                                        <Button style={styles.button} className="responsiveButtonForm" >
                                              Subscribe
                                         </Button>
                                     </Col>
@@ -59,7 +59,6 @@ class Newsletter extends Component {
 const styles = {
     title : {
         fontFamily : 'PopiBold',
-        color : 'white',
         marginTop : 10+"px"
     },
     input : {
@@ -76,9 +75,9 @@ const styles = {
         color : 'black',
         paddingTop : 10+"px",
         paddingBottom : 10+"px",
-        width : '100%',
         borderWidth : 1+"px",
         borderColor : 'lightGray',
+        // width : '100%',
 
     }
 }
