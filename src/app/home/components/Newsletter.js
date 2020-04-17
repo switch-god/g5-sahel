@@ -46,9 +46,6 @@ class Newsletter extends Component {
                     </Row>
 
                 </Col>
-
-
-
                 <hr style={{ borderColor : '#DEDEDE', marginTop : 40+"px",borderWidth : 3+"px" }}/>
      
             </>

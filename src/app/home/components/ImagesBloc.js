@@ -7,12 +7,6 @@ import {
     Image
 } from 'react-bootstrap';
 
-import {
-    BrowserView,
-    MobileView,
-    isBrowser,
-    isMobile
-  } from "react-device-detect";
 
 import moment from 'moment';
 

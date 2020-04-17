@@ -1,0 +1,80 @@
+
+.no-border {
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    border-left:0 ;
+    border-bottom: 2 solid gray;
+    background:transparent;
+}
+
+
+.no-border:focus {
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    border-left:0 ;
+    border-bottom: 2 solid gray;
+    background:transparent;
+}
+
+.button {
+    padding : 12px;
+    background-color: black;
+    color: white;
+    border-radius: 0;
+    border : 0;
+    width: 200px;
+}
+
+.button:hover {
+    border : 1px solid black;
+    padding-left: 20;
+    padding-right: 20;
+    background-color: white;
+    color: black;
+    border-radius: 0;
+    width: 200px;
+}
+
+.buttonBlue {
+    padding : 12px;
+    background-color: #0099CC;
+    color: white;
+    border-radius: 0;
+    border : 0;
+    width: 150px;
+}
+
+.buttonBlue:hover {
+    border : 1px solid #0099CC;
+    padding-left: 20;
+    padding-right: 20;
+    background-color: white;
+    color: #0099CC;
+    border-radius: 0;
+    width: 150px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 5px solid #DEDEDE;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}
+
+.justify-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -19,11 +19,16 @@ import {
 import Header from './app/navigation/Header';
 import Footer from './app/navigation/Footer';
 
-/* $$$$$$$$$$$$$$$$$$$ HOME PAGE$$$$$$$$$$$$$$$$$$$ */ 
+/* $$$$$$$$$$$$$$$$$$$ PAGES $$$$$$$$$$$$$$$$$$$ */ 
+   
    import Home from './app/home/Home';
-  
+   import Presentation from './app/presentation/Presentation';
+   import News from './app/news/News';
+   import Events from './app/events/Events';
+   import Contact from './app/contact/Contact';
 
-/* $$$$$$$$$$$$$$$$$$$ ./HOME PAGE$$$$$$$$$$$$$$$$$$$ */ 
+
+/* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
 
 
 
@@ -42,8 +47,24 @@ export class App extends Component {
           {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
           <Switch>
             
-            <Route path="/">
+            <Route exact path="/">
               <Home />
+            </Route>
+            
+            <Route exact path="/presentation">
+              <Presentation />
+            </Route>
+
+            <Route exact path="/actualites">
+              <News />
+            </Route>
+
+            <Route exact path="/events">
+              <Events />
+            </Route>
+            
+            <Route exact path="/contact-g5">
+              <Contact />
             </Route>
             
           </Switch>
