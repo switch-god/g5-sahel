@@ -8,8 +8,8 @@ import {
 } from 'react-bootstrap';
 
 // Components : 
-    import Layout from '../Layout';
-    import Newsletter from '../home/components/Newsletter';
+    import Layout from '../../components/Layout';
+    import Newsletter from '../../components/Newsletter';
 
 // Redux :
     import { connect } from 'react-redux';

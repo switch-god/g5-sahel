@@ -11,8 +11,8 @@ import moment from 'moment';
     import { connect } from 'react-redux';
     import { getLatestNews } from '../../redux/actions/PostsActions';
 // Components :
-    import Layout from '../Layout';
-    import Newsletter from '../home/components/Newsletter';
+    import Layout from '../../components/Layout';
+    import Newsletter from '../../components/Newsletter';
 
 // Icons :
 import {FaFacebookF,FaYoutube,FaLinkedinIn,FaTwitter} from 'react-icons/fa';

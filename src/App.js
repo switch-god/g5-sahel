@@ -26,8 +26,10 @@ import Footer from './app/navigation/Footer';
    import News from './app/news/News';
    import Events from './app/events/Events';
    import Contact from './app/contact/Contact';
-
-
+   import NosActivites from './app/activites/NosActivites';
+   import Documentation from './app/documentation/Documentation';
+   import Recrutement from './app/recrutement/Recrutement';
+   
 /* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
 
 
@@ -62,9 +64,21 @@ export class App extends Component {
             <Route exact path="/events">
               <Events />
             </Route>
+
+            <Route exact path="/nos-activites">
+              <NosActivites />
+            </Route>
             
             <Route exact path="/contact-g5">
               <Contact />
+            </Route>
+           
+            <Route exact path="/documentation">
+              <Documentation />
+            </Route>
+
+            <Route exact path="/recrutement">
+              <Recrutement />
             </Route>
             
           </Switch>

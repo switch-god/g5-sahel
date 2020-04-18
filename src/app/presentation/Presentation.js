@@ -9,9 +9,9 @@ import {
     Form,
 } from 'react-bootstrap';
 
-import Newsletter from '../home/components/Newsletter';
-import ContactForm from './components/ContactForm';
-import Map from './components/Map';
+import Newsletter from '../../components/Newsletter';
+import ContactForm from '../../components/ContactForm';
+import Map from '../../components/Map';
 
 import Image1 from '../../assets/images/Home/3.png';
 

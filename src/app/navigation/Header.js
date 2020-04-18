@@ -31,7 +31,7 @@ export default class Header extends Component {
                     <Col />
                     <Col >
                         <Link style={styles.TopBarLinks} to="/"> Appel d'offre </Link>
-                        <Link style={styles.TopBarLinks} to="/"> Recrutement </Link>
+                        <Link style={styles.TopBarLinks} to="/recrutement"> Recrutement </Link>
                         <Link style={styles.TopBarLinks} to="/contact-g5"> Contact </Link>
                     </Col>
                 </Row>
@@ -130,12 +130,12 @@ export default class Header extends Component {
                                 </div>
                                 
                                 <div className="dropdown">
-                                    <Link style={styles.MainMenuLinks} to="/"> Nos Activités <img src={ARROW} height={7} /></Link>
+                                    <Link style={styles.MainMenuLinks} to="/nos-activites"> Nos Activités <img src={ARROW} height={7} /></Link>
                                     <div className="dropdown-content">
                                         {/* NESTED LINKS */}
-                                        <Link style={styles.MainMenuLinks} to="/"> NosActivités </Link>
-                                        <Link style={styles.MainMenuLinks} to="/"> NosActivités </Link>
-                                        <Link style={styles.MainMenuLinks} to="/"> NosActivités </Link>
+                                        <Link style={styles.MainMenuLinks} to="/nos-activites"> NosActivités </Link>
+                                        <Link style={styles.MainMenuLinks} to="/nos-activites"> NosActivités </Link>
+                                        <Link style={styles.MainMenuLinks} to="/nos-activites"> NosActivités </Link>
                                         {/* NESTED LINKS */}
                                     </div>
                                 </div>
@@ -163,12 +163,12 @@ export default class Header extends Component {
                                 </div>
                                 
                                 <div className="dropdown">
-                                    <Link style={styles.MainMenuLinks} to="/"> Documentation <img src={ARROW} height={7} /> </Link>
+                                    <Link style={styles.MainMenuLinks} to="/documentation"> Documentation <img src={ARROW} height={7} /> </Link>
                                     <div className="dropdown-content">
                                         {/* NESTED LINKS */}
-                                        <Link style={styles.MainMenuLinks} to="/"> Documentation </Link>
-                                        <Link style={styles.MainMenuLinks} to="/"> Documentation </Link>
-                                        <Link style={styles.MainMenuLinks} to="/"> Documentation </Link>
+                                        <Link style={styles.MainMenuLinks} to="/documentation"> Documentation </Link>
+                                        <Link style={styles.MainMenuLinks} to="/documentation"> Documentation </Link>
+                                        <Link style={styles.MainMenuLinks} to="/documentation"> Documentation </Link>
                                         {/* NESTED LINKS */}
                                     </div>
                                 </div>

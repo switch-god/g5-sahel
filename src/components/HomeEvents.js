@@ -11,12 +11,12 @@ import moment from 'moment';
 
 // Connect to redux : 
     import { connect } from 'react-redux';
-    import { getLatestEvents } from '../../../redux/actions/PostsActions';
+    import { getLatestEvents } from '../redux/actions/PostsActions';
 
 // Images & Styling :
-    import '../Home.css';
+    import '../app/home/Home.css';
 
-class Events extends Component {
+class HomeEvents extends Component {
     constructor(props) {
         super(props);
         
@@ -207,5 +207,5 @@ const mapStateToProps = state => ({
     events : state.postsR.events,
 });
 
-export default connect(mapStateToProps,{ getLatestEvents })(Events);
+export default connect(mapStateToProps,{ getLatestEvents })(HomeEvents);
 

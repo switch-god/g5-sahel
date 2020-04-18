@@ -10,7 +10,7 @@ import { IoIosPin } from "react-icons/io";
 import { MdPhone  } from "react-icons/md";
 import {FaEnvelope} from 'react-icons/fa';
 
-import MapImg from '../../../assets/images/Presentation/map.png';
+import MapImg from '../assets/images/Presentation/map.png';
 
 export default class Map extends Component {
     render() {

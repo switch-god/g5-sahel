@@ -8,8 +8,8 @@ import {
     Image,
 } from 'react-bootstrap';
 
-import Layout from '../Layout';
-import Newsletter from '../home/components/Newsletter';
+import Layout from '../../components/Layout';
+import Newsletter from '../../components/Newsletter';
 
 // Images & styling :
     import MAP_IMG from '../../assets/images/Contact/mapBig.png';

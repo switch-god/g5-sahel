@@ -11,12 +11,12 @@ import moment from 'moment';
 
 // Connect to redux : 
     import { connect } from 'react-redux';
-    import { getLatestNews } from '../../../redux/actions/PostsActions';
+    import { getLatestNews } from '../redux/actions/PostsActions';
 
 // Images & Styling :
-    import '../Home.css';
+    import '../app/home/Home.css';
 
-class News extends Component {
+class HomeNews extends Component {
     constructor(props) {
         super(props);
         
@@ -211,5 +211,5 @@ const mapStateToProps = state => ({
     posts : state.postsR.posts,
 });
 
-export default connect(mapStateToProps,{ getLatestNews })(News);
+export default connect(mapStateToProps,{ getLatestNews })(HomeNews);
 

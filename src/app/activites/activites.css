@@ -1,0 +1,24 @@
+.justify-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonBlue {
+    padding : 12px;
+    background-color: #0099CC;
+    color: white;
+    border-radius: 0;
+    border : 0;
+    width: 150px;
+}
+
+.buttonBlue:hover {
+    padding : 12px;
+    background-color: white;
+    color: #0099CC;
+    border-radius: 0;
+    border : 0;
+    width: 150px;
+    border : 1px solid #0099CC;
+}

@@ -9,9 +9,9 @@ import {
 
 // REDUX :
     import {connect} from 'react-redux';
-    import { getActivities } from '../../../redux/actions/PostsActions';
+    import { getActivities } from '../redux/actions/PostsActions';
 
-class NosActivites extends Component {
+class HomeNosActivites extends Component {
 
     constructor(props) {
         super(props);
@@ -77,4 +77,4 @@ const mapStateToProps = state => ({
     activites : state.postsR.activites,
 });
 
-export default connect(mapStateToProps,{ getActivities })(NosActivites);
+export default connect(mapStateToProps,{ getActivities })(HomeNosActivites);

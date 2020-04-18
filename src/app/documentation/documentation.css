@@ -1,0 +1,123 @@
+@media (max-width: 767px) { 
+    .stickyNavbar {
+        background-color: #F5F5F5;
+        margin-top : -50px;
+        height: 100%;
+        text-align: center;
+    }
+    
+    .stickyNavbarLink {
+        color: #666666;
+        margin-bottom: 10px;
+    }
+
+    .mtNavbar {
+        margin-top: 10px;
+    }
+    
+    .stickyNavbarLink:hover {
+        color: #0099CC;
+        margin-bottom: 10px;
+    }
+    
+    .boxTitle {
+        color: #666666;
+    }
+    
+    .boxDesc {
+        color: #666666;
+    }
+    
+    .boxButton {
+        background-color: white;
+        color: #666666;
+        border: 0;
+    }
+    
+    .box {
+        background-color: white;
+        border: 1px solid #E3E3E3;
+        border-radius: 0;
+    }
+    
+    .box:hover {
+        background-color: white;
+        border: 0;
+        border-left: 5px solid #0099CC;
+        border-radius: 0;
+        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);   
+    }
+    .box:hover .boxTitle{
+        color: #0099CC;
+    }
+    
+    .box:hover .boxButton {
+        background-color: transparent;
+        color: #0099CC;
+    }
+}
+
+@media (min-width: 768px) { 
+
+.stickyNavbar {
+    background-color: #F5F5F5;
+    margin-top : -50px;
+    height: 100%;
+    padding-bottom: 500px
+}
+
+.stickyNavbarLink {
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+
+.mtNavbar {
+    margin-top: 100px;
+}
+
+.stickyNavbarLink:hover {
+    color: #0099CC;
+    margin-bottom: 10px;
+}
+
+.boxTitle {
+    color: #666666;
+}
+
+.boxDesc {
+    color: #666666;
+}
+
+.boxButton {
+    background-color: white;
+    color: #666666;
+    border: 0;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid #E3E3E3;
+    border-radius: 0;
+}
+
+.box:hover {
+    background-color: white;
+    border: 0;
+    border-left: 5px solid #0099CC;
+    border-radius: 0;
+    box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);   
+}
+.box:hover .boxTitle{
+    color: #0099CC;
+}
+
+.box:hover .boxButton {
+    background-color: transparent;
+    color: #0099CC;
+}
+
+}
+
+
+

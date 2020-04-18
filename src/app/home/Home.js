@@ -8,11 +8,13 @@ import {
 import { Player, BigPlayButton} from 'video-react';
 
 /* COMPONENTS */
-import ImagesBloc from './components/ImagesBloc';
-import News from './components/News';
-import Events from './components/Events';
-import NosActivites from './components/NosActivites';
-import Newsletter from './components/Newsletter';
+
+import HomeImagesBloc from '../../components/HomeImagesBloc';
+import HomeNews from '../../components/HomeNews';
+import HomeEvents from '../../components/HomeEvents';
+import HomeNosActivites from '../../components/HomeNosActivites';
+import Newsletter from '../../components/Newsletter';
+
 /* ./COMPONENTS */
 
 
@@ -21,7 +23,7 @@ export default class Home extends Component {
     render() {
         return (
             <Container fluid>
-                <ImagesBloc />
+                <HomeImagesBloc />
 
 
                 {/* NEW & EVENTS */}
@@ -31,11 +33,11 @@ export default class Home extends Component {
                     <Col md={10}>
                         <Row>
                             <Col md={6}>
-                                <News />
+                                <HomeNews />
                             </Col>
                             
                             <Col md={6}>
-                                <Events />
+                                <HomeEvents />
                             </Col>
                         </Row>
                     </Col>
@@ -48,7 +50,7 @@ export default class Home extends Component {
                     <Col />
                     
                     <Col md={10}>
-                        <NosActivites />  
+                        <HomeNosActivites />  
                         <Newsletter />
 
                         {/* VIDEO */}
