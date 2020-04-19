@@ -106,7 +106,7 @@ class News extends Component {
                             {/* LATEST 3 NEWS */}
                             
                             <div>
-                                <h4 style={styles.Title} >This week</h4>
+                                <h4 style={styles.Title} >Ce mois</h4>
                                 <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
                             {
                             

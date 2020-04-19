@@ -10,6 +10,7 @@ import {
 
 import Layout from '../../components/Layout';
 import Newsletter from '../../components/Newsletter';
+import ContactForm from '../../components/ContactForm';
 
 // Images & styling :
     import MAP_IMG from '../../assets/images/Contact/mapBig.png';
@@ -125,50 +126,7 @@ export default class Contact extends Component {
 
         return (
            <div style={{padding: 100+"px", backgroundColor : '#F9F9F9'}}>
-                <Form>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail"> 
-                            <Form.Control type="text" placeholder="First name" />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Control type="text" placeholder="Last name" />
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Control type="email" placeholder="Email address" />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridState">
-                            <Form.Control as="select" value="...">
-                                <option>Subject...</option>
-                                <option>Subject 1</option>
-                                <option>Subject 2</option>
-                                <option>Subject 3</option>
-                            </Form.Control>
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="exampleForm.ControlTextarea1">
-                            <Form.Control as="textarea" rows="3" placeholder="Message" />
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="exampleForm.ControlTextarea1">
-                            {/* <Form.Control as="textarea" rows="3" placeholder="Message" /> */}
-                        </Form.Group>
-                        <Button variant="primary">
-                            Envoyer
-                        </Button>
-                        <Form.Group as={Col} controlId="exampleForm.ControlTextarea1">
-                            {/* <Form.Control as="textarea" rows="3" placeholder="Message" /> */}
-                        </Form.Group>
-                    </Form.Row>
-                </Form>
+               <ContactForm menuEnabled={false} />
            </div>
         );
     };

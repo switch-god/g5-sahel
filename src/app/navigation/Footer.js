@@ -37,27 +37,27 @@ export default class Footer extends Component {
 
                                 <Row style={{marginTop : 10+"px", marginBottom : 20+"px"}}>
                                     <Col>
-                                        <Link to="/">
+                                        <a href="https://www.facebook.com" target="_blank">
                                             <Image src={fb} width={35} />
-                                        </Link>
+                                        </a>
                                     </Col>
                                     
                                     <Col>
-                                        <Link>
+                                        <a href="https://twitter.com" target="_blank">
                                             <Image src={twitter} width={35} style={{marginTop : 4+"px"}}/>
-                                        </Link>
+                                        </a>
                                     </Col>
                                     
                                     <Col>
-                                        <Link>
+                                        <a href="https://www.linkedin.com" target="_blank">
                                             <Image src={linkedIn} width={35} />
-                                        </Link>
+                                        </a>
                                     </Col>
                                     
                                     <Col>
-                                        <Link>
+                                        <a href="https://www.youtube.com" target="_blank">
                                             <Image src={youtube} width={35} style={{marginTop : 4+"px"}}/>
-                                        </Link>
+                                        </a>
                                     </Col>
                                 </Row>
                             </Col>
@@ -69,7 +69,7 @@ export default class Footer extends Component {
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
                                         <Link to="#" style={styles.link}>Conditions d’utilisation</Link>
                                         <Link to="#" style={styles.link}>Confidentialité de l’information</Link>
-                                        <Link to="#" style={styles.link}>Contactez-nous</Link>
+                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/contact-g5" style={styles.link}>Contactez-nous</Link>
                                         <Link to="#" style={styles.link}>Plan de site</Link>
                                         <Link to="#" style={styles.link}>FAQ</Link>
                                     </Nav>
@@ -81,11 +81,11 @@ export default class Footer extends Component {
                                     <h2 style={styles.footerTitle}> SITEMAP </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link to="#" style={styles.link}>Présentation</Link>
-                                        <Link to="#" style={styles.link}>Nos activités</Link>
-                                        <Link to="#" style={styles.link}>Actualités</Link>
-                                        <Link to="#" style={styles.link}>Evénements</Link>
-                                        <Link to="#" style={styles.link}>Documentations</Link>
+                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/presentation" style={styles.link}>Présentation</Link>
+                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/nos-activites" style={styles.link}>Nos activités</Link>
+                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/actualites" style={styles.link}>Actualités</Link>
+                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/events" style={styles.link}>Evénements</Link>
+                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/documentation" style={styles.link}>Documentations</Link>
                                     </Nav>
                                 </div>
                             </Col>

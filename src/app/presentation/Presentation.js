@@ -189,7 +189,7 @@ gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum d
         renderFormAndMap = () => (
             <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>
                 <Col md={6}>
-                    <ContactForm />
+                    <ContactForm menuEnabled={true} />
                 </Col>
 
                 <Col md={6}>

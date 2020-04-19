@@ -1,0 +1,26 @@
+.formInput {
+    border-radius: 0;
+}
+
+select:not([multiple]) {
+    -webkit-appearance: none;
+}
+
+.buttonContactForm {
+    padding: 12px;
+    background-color: #0099CC;
+    color: white;
+    border-radius: 0;
+    border : 0;
+    width: 300px;
+}
+
+.buttonContactForm:hover {
+    padding: 12px;
+    background-color: white;
+    color: #0099CC;
+    border-radius: 0;
+    border : 0;
+    border : 1px solid #0099CC;
+    width: 300px;
+}
