@@ -6,11 +6,12 @@ import {
 } from 'react-bootstrap';
 
 import { Link } from "react-router-dom";
+import Layout from '../../components/Layout';
 
 // IMAGES & STYLING :
 import './Header.css';
-import LOGO from '../../assets/images/Header/logo.png';
-import LOGO2 from '../../assets/images/Header/logo2.png';
+import LOGO from '../../assets/images/Header/logo3.png';
+// import LOGO2 from '../../assets/images/Header/logo2.png';
 import ARROW from '../../assets/images/Header/downArrow.png';
 
 export default class Header extends Component {
@@ -29,7 +30,8 @@ export default class Header extends Component {
                 <Row> 
                     <Col />
                     <Col />
-                    <Col >
+                    <Col />
+                    <Col style={{marginRight : 50+"px"}} >
                         <Link style={styles.TopBarLinks} to="#"> Appel d'offre </Link>
                         <Link style={styles.TopBarLinks} to="/recrutement"> Recrutement </Link>
                         <Link style={styles.TopBarLinks} to="/contact-g5"> Contact </Link>
@@ -37,35 +39,18 @@ export default class Header extends Component {
                 </Row>
                 <hr style={{marginBottom : -5 + "px",borderColor : '##BCBCBC'}} />
                 <Row>
-                    <Col />
-                    <Col md={10}>
+                    <Col md={1}/>
+                    <Col>
                         <nav className="navbar">
 
-                            <Col className="mobileVisible" xs={12}>
+                            <Col className="mobileInvisible">
                                 <Link className="navbar-brand" to="/">
-                                    <img
-                                        src={LOGO2}
-                                        height={65}
-                                        className="d-inline-block align-top"
-                                    />                            
+                                    <img src={LOGO} height={80} className="d-inline-block align-top" />                            
                                 </Link>
                             </Col>
-
-                            <Col className="mobileInvisible" md={4}>
-                                <Link className="navbar-brand" to="/">
-                                    <img src={LOGO} height={65} className="d-inline-block align-top"  />                            
-                                </Link>
-                            </Col>
-
-                            {/* MOBILE MENU */}
-                            <Col className="mobileVisible" xs={12}>
-                                {this.renderMenuElements()}      
-                            </Col>
-                             {/* ./MOBILE MENU */}
-                            
 
                             {/* DESKTOP MENU */}
-                            <Col className="mobileInvisible" md={8}>
+                            <Col className="mobileInvisible">
                                 {this.renderMenuElements()}    
                             </Col>
                         </nav>

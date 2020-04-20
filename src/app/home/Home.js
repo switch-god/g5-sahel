@@ -104,7 +104,7 @@ class Home extends Component {
                                         <>
                                         <Image src={imagesBloc[2].fimg_url} fluid   />
                                         <div className="content">
-                                            <h3 style={styles.imageBigText}>{imagesBloc[2].title.rendered}</h3>
+                                            <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[2].title.rendered}</h3>
                                             <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[2].date).format("DD MMMM YYYY")}</p>
                                         </div>
                                         </>

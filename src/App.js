@@ -16,6 +16,8 @@ import {
 import Header from './app/navigation/Header';
 import Footer from './app/navigation/Footer';
 
+import Loading from './app/loading/Loading';
+
 /* $$$$$$$$$$$$$$$$$$$ PAGES $$$$$$$$$$$$$$$$$$$ */ 
    
    import Home from './app/home/Home';
@@ -33,58 +35,72 @@ import Footer from './app/navigation/Footer';
 
 /* =================== ./APP COMPONENTS =================== */ 
 export class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading : false,
+    };
+
+  }
   
   render() {
+    let { loading } = this.state;
+
     return (
-      <Router>
-        
+        loading 
+        ?
+          <Loading />
+        :
+        <Router>
           
-          {/* NAVBAR */}
-            <Header />
-          {/* ./NAVBAR */}
+            {/* NAVBAR */}
+              <Header />
+            {/* ./NAVBAR */}
 
-          {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
-          <Switch>
+            {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
+            <Switch>
+              
+              <Route exact path="/">
+                <Home />
+              </Route>
+              
+              <Route exact path="/presentation">
+                <Presentation />
+              </Route>
+
+              <Route exact path="/actualites">
+                <News />
+              </Route>
+
+              <Route exact path="/events">
+                <Events />
+              </Route>
+
+              <Route exact path="/nos-activites">
+                <NosActivites />
+              </Route>
+              
+              <Route exact path="/contact-g5">
+                <Contact />
+              </Route>
             
-            <Route exact path="/">
-              <Home />
-            </Route>
-            
-            <Route exact path="/presentation">
-              <Presentation />
-            </Route>
+              <Route exact path="/documentation">
+                <Documentation />
+              </Route>
 
-            <Route exact path="/actualites">
-              <News />
-            </Route>
+              <Route exact path="/recrutement">
+                <Recrutement />
+              </Route>
+              
+            </Switch>
 
-            <Route exact path="/events">
-              <Events />
-            </Route>
-
-            <Route exact path="/nos-activites">
-              <NosActivites />
-            </Route>
-            
-            <Route exact path="/contact-g5">
-              <Contact />
-            </Route>
-           
-            <Route exact path="/documentation">
-              <Documentation />
-            </Route>
-
-            <Route exact path="/recrutement">
-              <Recrutement />
-            </Route>
-            
-          </Switch>
-
-          {/* FOOTER */}
-            <Footer />
-          {/* ./FOOTER */}
-        
-      </Router>
+            {/* FOOTER */}
+              <Footer />
+            {/* ./FOOTER */}
+          
+        </Router>
     );
   }
 
