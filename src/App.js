@@ -5,9 +5,6 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'video-react/dist/video-react.css';
 
-// FONTS :
-import './assets/fonts/Poppins/Poppins-SemiBold.ttf';
-
 import {
   BrowserRouter as Router,
   Switch,

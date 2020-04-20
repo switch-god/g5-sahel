@@ -167,14 +167,15 @@ const styles = {
     TopBarLinks : {
         color : 'black', 
         fontSize : 13, 
-        fontFamily : 'Roboto',
-        marginRight : 20,
+        fontFamily : 'Poppins Light',
+        marginRight : 20+"px",
     },
     MainMenuLinks : {
         backgroundColor : 'transparent',
         borderWidth : 0,
         fontSize : 14, 
-        fontFamily : 'PopiExtraLight',
+        fontFamily : 'Poppins Light',
+        fontWeight : '200',
         color : 'black', 
         marginRight : 20,
     },

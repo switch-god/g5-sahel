@@ -11,6 +11,16 @@ import {
 } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
+import {
+    Grid,
+} from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import InputLabel from '@material-ui/core/InputLabel';
+
 
 // Components :
     import Layout from '../../components/Layout';
@@ -23,7 +33,24 @@ import {Link} from 'react-router-dom';
     import JOB from '../../assets/images/Recrutement/job.png';
     import './recrutement.css';
 
+    const age = 19;
+    const handleChange = () => {
+
+    };
+    const classes = {
+
+    }
+
 export default class Recrutement extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            choix : 2,
+        };
+    }
+    
     render() {
         return (
             <>    
@@ -32,7 +59,7 @@ export default class Recrutement extends Component {
                         <Col/>
 
                         <Col>
-                            <h1 style={{fontFamily : 'PopiSemiBold'}}>Browse career resources</h1>
+                            <h1 style={{fontFamily : 'Poppins SemiBold'}}>Browse career resources</h1>
                         </Col>
 
                         <Col/>
@@ -103,31 +130,52 @@ export default class Recrutement extends Component {
 
         return (
             <>
-            <div className="d-flex justify-content-between bd-highlight mb-3">
-                <div className="p-2 bd-highlight">2269 Jobs found</div>
-               
-                <div className="p-2 bd-highlight">
-                    <Row>
-                        <Col>
-                            <p>Sort By</p> 
-                        </Col>
-
-                        <Col>
-                            <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Control as="select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                </Form.Control>
-                            </Form.Group>
-                        </Col>
-                    </Row>
+            <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="center"
+                style={{marginTop : 30+"px", marginBottom : 30+"px"}}
+            >
+                <div>
+                    <h5 style={{fontFamily : 'Poppins Light'}}>9 JOBS FOUND</h5>
                 </div>
-            </div>
-            <hr />
 
+                <div>
+
+                    <Grid
+                        container
+                        direction="row"
+                        justify="space-between"
+                        alignItems="center" 
+                    >
+                        <div>
+                            <p style={{fontFamily : 'Poppins Light'}}>Sort By</p>
+                        </div>
+
+                        <div>
+                            <FormControl variant="outlined" style={{width : 200+"px",marginLeft : 20+"px",marginTop : -14+"px"}}>
+                                <InputLabel htmlFor="outlined-age-native-simple"></InputLabel>
+                                <Select
+                                    native
+                                    value={2}
+                                    onChange={(choix) => this.setState({choix : choix})}
+                                    inputProps={{
+                                        name: 'age',
+                                        id: 'outlined-age-native-simple',
+                                    }}
+                                >
+                                    <option aria-label="None" value="" />
+                                    <option value={1}>Last month</option>
+                                    <option value={2}>Last two months</option>
+                                    <option value={3}>Last tree months</option>
+                                </Select>
+                            </FormControl>
+                        </div>
+                    </Grid>
+                </div>
+            </Grid>
+            <hr style={{marginTop : -20+"px", borderColor : '#666666'}} />
             </>
         );
     };
@@ -146,12 +194,14 @@ export default class Recrutement extends Component {
                                <FaRegClock size={25} /> &nbsp; Published 11 months ago
                             </p>
                             <Row>
-                                <Col>
-                                    <p>FULL TIME</p>
+                                <Col md={5}>
+                                    <p className="TimePartJob">FULL TIME</p>
                                 </Col>
 
-                                <Col>
-                                    <p>
+                                <Col/>
+
+                                <Col md={5}>
+                                    <p className="TimePartJobDate">
                                         12 Sep - 12 Oct
                                     </p>
                                 </Col>
@@ -171,12 +221,14 @@ export default class Recrutement extends Component {
                                <FaRegClock size={25} /> &nbsp; Published 11 months ago
                             </p>
                             <Row>
-                                <Col>
-                                    <p>FULL TIME</p>
+                                <Col md={5}>
+                                    <p className="TimePartJob">FULL TIME</p>
                                 </Col>
 
-                                <Col>
-                                    <p>
+                                <Col/>
+
+                                <Col md={5}>
+                                    <p className="TimePartJobDate">
                                         12 Sep - 12 Oct
                                     </p>
                                 </Col>
@@ -184,12 +236,11 @@ export default class Recrutement extends Component {
 
                             </Row>
                     </Jumbotron>
-                    
                 </Col>
 
 
                 <Col>
-                 <Jumbotron  className="box justify-elements">
+                    <Jumbotron  className="box justify-elements">
                             <h4 className="boxTitle">ASSISTANT AU COORDONNATEUR REGIONAL </h4>
                             <p className="boxDesc">
                               <IoMdPin size={30} /> &nbsp;nouakchott mauritanie
@@ -198,12 +249,14 @@ export default class Recrutement extends Component {
                                <FaRegClock size={25} /> &nbsp; Published 11 months ago
                             </p>
                             <Row>
-                                <Col>
-                                    <p>FULL TIME</p>
+                                <Col md={5}>
+                                    <p className="TimePartJob">FULL TIME</p>
                                 </Col>
 
-                                <Col>
-                                    <p>
+                                <Col/>
+
+                                <Col md={5}>
+                                    <p className="TimePartJobDate">
                                         12 Sep - 12 Oct
                                     </p>
                                 </Col>
@@ -211,6 +264,7 @@ export default class Recrutement extends Component {
 
                             </Row>
                     </Jumbotron>
+
                 </Col>
             </Row>
         );

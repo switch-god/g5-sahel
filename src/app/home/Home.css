@@ -41,18 +41,6 @@
     .container-for-img .content-1 p {
         font-size: 8px;
     }
-
-    .responsiveTitleForm {
-        color : white
-    }
-
-    .responsiveInputForm {
-        margin-bottom: 20px;
-    }
-
-    .responsiveButtonForm {
-        width: 70%
-    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -97,9 +85,6 @@
         font-size: 7px;
     }
 
-    .responsiveTitleForm {
-        color : white
-    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -146,10 +131,6 @@
     .container-for-img .content-1 p {
         font-size: 10px;
     }
-
-    .responsiveTitleForm {
-        color : white
-    }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -188,18 +169,6 @@
         padding: 2px; /* Some padding */
     }  
     
-    .container-for-img .content-1 h3 {
-        padding: 2px;
-        font-size: 13px;
-    }
-
-    .container-for-img .content-1 p {
-        font-size: 13px;
-    }
-
-    .responsiveTitleForm {
-        color : white
-    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -248,9 +217,6 @@
         font-size: 12px;
     }
 
-    .responsiveTitleForm {
-        color : white
-    }
 }
 
 

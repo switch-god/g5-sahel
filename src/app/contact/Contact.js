@@ -21,7 +21,7 @@ export default class Contact extends Component {
         return (
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
-                    <h1>Contact G5 Sahel</h1>
+                    <h1 style={{fontFamily : 'Poppins SemiBold'}}>Contact G5 Sahel</h1>
                 </div>   
 
                 <Layout>
@@ -30,7 +30,7 @@ export default class Contact extends Component {
                     <hr style={{marginTop : 30+"px", marginBottom :30+"px"}} />
 
                     <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
-                        <h1>Contactez Nous</h1>
+                        <h1 style={{fontFamily : 'Poppins SemiBold'}}>Contactez Nous</h1>
                     </div>  
                 </Layout>
 
@@ -146,7 +146,7 @@ const styles = {
     Title : {
         width : '40%',
         color : '#fff',
-        fontFamily : 'PopiBold',
+        fontFamily : 'Poppins SemiBold',
         backgroundColor : 'black',
         paddingTop : 15+"px",
         paddingBottom: 15+"px", 
@@ -156,13 +156,16 @@ const styles = {
     grayText : {
         fontSize : 16+"px",
         color : '#666666',
+        fontFamily : 'Poppins Light',
     },
     blueText : {
         fontSize : 16+"px",
         color : '#0099CC',
+        fontFamily : 'Poppins Light',
     },
     mapTitle : {
         marginLeft : 40+"px",
-        marginRight : 40+"px"
+        marginRight : 40+"px",
+        fontFamily : 'Poppins SemiBold'
     }
 }

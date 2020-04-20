@@ -27,7 +27,7 @@ export default class NosActivites extends Component {
         return (
            <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
-                    <h1>Nos activités</h1>
+                    <h1 style={{fontFamily : 'Poppins SemiBold'}}>Nos activités</h1>
                 </div>   
 
                 <Layout>
@@ -76,7 +76,7 @@ export default class NosActivites extends Component {
                 <Col>
                     <Image src={DFS} fluid />
                      <div style={{ marginTop : 20+"px" }}>
-                        <h3>Les chefs d’Etat-Major des pays du G5 Sahel rendent plus opérationnelle la Force Conjointe</h3>   
+                        <h3 style={styles.postTitleBig}>Les chefs d’Etat-Major des pays du G5 Sahel rendent plus opérationnelle la Force Conjointe</h3>   
                         <p style={styles.dateBig}>Aujourd’hui à 9:21</p>
                         <p style={styles.descBig}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet…</p>
                      </div>
@@ -120,7 +120,7 @@ export default class NosActivites extends Component {
                         </Col>
                     </Row>
 
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px"}}>
+                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}>
                          VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
                     </Button>
 
@@ -150,8 +150,8 @@ export default class NosActivites extends Component {
                     <div className="container-for-img">             
                         <Image src={GENRE} fluid style={{resizeMode : 'contain',width : '100%' }}/>
                         <div className="content">
-                            <h5 style={{ fontFamily : 'PopiBold',fontWeight : 'bold',padding : 10+"px" }}>Formation sur la prévention de la radicalisation et de  l’extrémisme violent dans l’espace G5 Sahel par le Collège Sahélien de Sécurité</h5>
-                            <p style={{ fontFamily : 'PopiSemiBold',paddingLeft : 10+"px" }}>Aujourd’hui à 9:21</p>
+                            <h5 style={{ fontFamily : 'Poppins Bold',fontWeight : 'bold',padding : 10+"px" }}>Formation sur la prévention de la radicalisation et de  l’extrémisme violent dans l’espace G5 Sahel par le Collège Sahélien de Sécurité</h5>
+                            <p style={{ fontFamily : 'Poppins SemiBold',paddingLeft : 10+"px" }}>Aujourd’hui à 9:21</p>
                         </div>
                     </div>
                 </Col>
@@ -194,12 +194,12 @@ export default class NosActivites extends Component {
 
             <Row style={{marginTop : 20+"px"}}>
                 <Col>
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px"}}>
+                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily: 'Poppins Light'}}>
                          VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
                     </Button>
                 </Col>
                 <Col>
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px"}}>
+                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily: 'Poppins Light'}}>
                          VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
                     </Button>
                 </Col>
@@ -216,7 +216,7 @@ export default class NosActivites extends Component {
                 <Col>
                     <Image src={INFRA} fluid />
                     <div style={{marginTop : 20+"px"}}>
-                        <h5>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
+                        <h5 style={styles.titleMedium}>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
                         <p style={styles.dateSmall}>Aujourd’hui à 9:21</p>
                         <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
                     </div>
@@ -225,7 +225,7 @@ export default class NosActivites extends Component {
                 <Col>
                     <Image src={INFRA} fluid />
                     <div style={{marginTop : 20+"px"}}>
-                        <h5>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
+                        <h5 style={styles.titleMedium}>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
                         <p style={styles.dateSmall}>Aujourd’hui à 9:21</p>
                         <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
                     </div>
@@ -234,7 +234,7 @@ export default class NosActivites extends Component {
                 <Col>
                     <Image src={INFRA} fluid />
                     <div style={{marginTop : 20+"px"}}>
-                        <h5>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
+                        <h5 style={styles.titleMedium}>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
                         <p style={styles.dateSmall}>Aujourd’hui à 9:21</p>
                         <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
                     </div>
@@ -287,7 +287,7 @@ export default class NosActivites extends Component {
                         </Col>
                     </Row>
 
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px"}}>
+                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily : 'Poppins Light'}}>
                          VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
                     </Button>
 
@@ -310,31 +310,44 @@ const styles = {
     Title : {
         width : '20%',
         color : '#fff',
-        fontFamily : 'PopiBold',
+        fontFamily : 'Poppins Bold',
         backgroundColor : 'black',
         paddingTop : 20+"px",
         paddingBottom: 20+"px", 
         borderWidth : 10+"px",
         textAlign : 'center',
     },
+    postTitleBig : {
+        fontFamily : 'Poppins Bold',
+    },
+    titleMedium : {
+        fontSize : 17+"px",
+        fontFamily : 'Poppins Bold',
+    },
     titleSmall : {
-        fontSize : 15+"px"
+        fontSize : 15+"px",
+        fontFamily : 'Poppins Bold',
     },
     descSmall : {
-        fontSize : 12+"px"
+        fontSize : 12+"px",
+        fontFamily : 'Poppins Light',
     },
     dateSmall : {
         fontSize : 11+"px",
         color : '#0099CC',
+        fontFamily : 'Poppins Light',
     },
     dateBig : {
         color : '#0099CC',
         fontSize : 14+"px",
+        fontFamily : 'Poppins Light'
     },
     descBig : {
         fontSize : 14+"px",
+        fontFamily : 'Poppins Light'
     },
     gouvernanceTitle : {
         color : '#0099CC',
+        fontFamily : 'Poppins Bold',
     },
 }

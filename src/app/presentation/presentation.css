@@ -6,3 +6,9 @@
 ul {
     list-style-image: url('../../assets/images/Presentation/square_small.png');
 }
+
+.justify-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

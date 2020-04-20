@@ -124,27 +124,21 @@ export default class Footer extends Component {
 }
 
 const styles = {
-    activityTitle : {
-        color : '#0099CC',
-        fontSize : 17,
-        fontFamily : 'PopiBold',
-        marginTop : 10+"px",
-    },
     footerTitle : {
         color : '#BCBCBC',
-        fontFamily : 'PopiBold',
+        fontFamily : 'Poppins SemiBold',
         fontSize : 20,
         textAlign : 'left',
     },
     link : {
         color : '#BCBCBC',
-        fontFamily : 'PopiMed',
+        fontFamily : 'Poppins Medium',
         fontSize : 13,
         marginTop : 6+"px", 
         marginBottom : 6+"px",
     },
     footerSign : {
-        fontFamily : 'PopiSemiBold',
+        fontFamily : 'Poppins SemiBold',
         fontSize : 15,
         color : '#BCBCBC',
     }

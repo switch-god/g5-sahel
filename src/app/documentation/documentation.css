@@ -9,6 +9,7 @@
     .stickyNavbarLink {
         color: #666666;
         margin-bottom: 10px;
+        font-family: 'Poppins Light';
     }
 
     .mtNavbar {
@@ -18,20 +19,24 @@
     .stickyNavbarLink:hover {
         color: #0099CC;
         margin-bottom: 10px;
+        font-family: 'Poppins Light';
     }
     
     .boxTitle {
         color: #666666;
+        font-family: 'Poppins SemiBold';
     }
     
     .boxDesc {
         color: #666666;
+        font-family: 'Poppins Light';
     }
     
     .boxButton {
         background-color: white;
         color: #666666;
         border: 0;
+        font-family: 'Poppins Light';
     }
     
     .box {
@@ -69,6 +74,7 @@
 .stickyNavbarLink {
     color: #666666;
     margin-bottom: 10px;
+    font-family: 'Poppins Light';
 }
 
 
@@ -79,20 +85,24 @@
 .stickyNavbarLink:hover {
     color: #0099CC;
     margin-bottom: 10px;
+    font-family: 'Poppins Light';
 }
 
 .boxTitle {
     color: #666666;
+    font-family: 'Poppins SemiBold';
 }
 
 .boxDesc {
     color: #666666;
+    font-family: 'Poppins Light';
 }
 
 .boxButton {
     background-color: white;
     color: #666666;
     border: 0;
+    font-family: 'Poppins Light';
 }
 
 .box {

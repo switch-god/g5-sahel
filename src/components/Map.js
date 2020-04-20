@@ -24,7 +24,7 @@ export default class Map extends Component {
                 
                     <Col>
                         <IoIosPin size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
-                        <p style={{fontSize : 14+"px"}}>
+                        <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
                             Ilot A 742 Bis 
                             – Route des Ambassades –
                             Nouakchott - Mauritanie
@@ -32,14 +32,14 @@ export default class Map extends Component {
                     </Col>
                     <Col>
                         <MdPhone size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
-                        <p style={{fontSize : 14+"px"}}>
+                        <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
                             +222 45 25 77 30
                         </p>
                     </Col>
 
                     <Col>
                         <FaEnvelope size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
-                        <p style={{fontSize : 14+"px"}}>
+                        <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
                             contact@g5sahel.org
                         </p>
                     </Col>

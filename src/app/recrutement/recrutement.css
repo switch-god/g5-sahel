@@ -28,6 +28,7 @@
     border-radius: 0;
     border : 0;
     width: 200px;
+    font-family: 'Poppins SemiBold';
 }
 
 .button:hover {
@@ -38,6 +39,7 @@
     color: #0099CC;
     border-radius: 0;
     width: 200px;
+    font-family: 'Poppins SemiBold';
 }
 
 
@@ -45,16 +47,19 @@
    
     .boxTitle {
         color: #666666;
+        font-family: 'Poppins SemiBold';
     }
     
     .boxDesc {
         color: #666666;
+        font-family: 'Poppins Light';
     }
     
     .boxButton {
         background-color: white;
         color: #666666;
         border: 0;
+        font-family: 'Poppins Light';
     }
     
     .box {
@@ -77,6 +82,22 @@
     .box:hover .boxButton {
         background-color: transparent;
         color: #0099CC;
+    }
+
+    .TimePartJob {
+        background-color: #B3E1F0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        width: 120px;
+        color: #0099CC;
+        font-family: 'Poppins Light';
+    }
+
+    .TimePartJobDate {
+        margin-top: 25px;
+        color: black;
+        font-family: 'Poppins Light';
     }
 }
 
@@ -84,16 +105,19 @@
 
     .boxTitle {
         color: #666666;
+        font-family: 'Poppins SemiBold';
     }
-
+    
     .boxDesc {
         color: #666666;
+        font-family: 'Poppins Light';
     }
-
+    
     .boxButton {
         background-color: white;
         color: #666666;
         border: 0;
+        font-family: 'Poppins Light';
     }
 
     .box {
@@ -116,6 +140,22 @@
     .box:hover .boxButton {
         background-color: transparent;
         color: #0099CC;
+    }
+
+    .TimePartJob {
+        background-color: #B3E1F0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        width: 120px;
+        color: #0099CC;
+        font-family: 'Poppins Light';
+    }
+
+    .TimePartJobDate {
+        margin-top: 25px;
+        color: black;
+        font-family: 'Poppins Light';
     }
 
 }

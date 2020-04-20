@@ -25,6 +25,7 @@
     border-radius: 0;
     border : 0;
     width: 200px;
+    font-family: 'Poppins SemiBold';
 }
 
 .button:hover {
@@ -35,6 +36,7 @@
     color: black;
     border-radius: 0;
     width: 200px;
+    font-family: 'Poppins SemiBold';
 }
 
 .buttonBlue {

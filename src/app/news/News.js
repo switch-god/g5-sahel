@@ -34,7 +34,7 @@ class News extends Component {
         return (
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
-                    <h1>Actualités</h1>
+                    <h1 style={{fontFamily : 'Poppins SemiBold'}}>Actualités</h1>
                 </div>
 
                 {this.renderBloc1()}
@@ -70,8 +70,8 @@ class News extends Component {
                         <div className="container-for-img">    
                             <Image src={Image1} fluid   />
                             <div className="content">
-                                <h3 style={{ fontFamily : 'PopiBold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
-                                <p style={{ fontFamily : 'PopiSemiBold' }}>19 Septembre 2019</p>
+                                <h3 style={{ fontFamily : 'Poppins Bold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
+                                <p style={{ fontFamily : 'Poppins SemiBold' }}>19 Septembre 2019</p>
                             </div>
                         </div>
                     </Col>
@@ -84,21 +84,21 @@ class News extends Component {
 
                         <Row style={{marginBottom : 10+"px"}}>
                             <Col>
-                                <a style={{fontSize : 20+"px"}}><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
                             </Col>
 
                             <Col>
-                                <a style={{fontSize : 20+"px"}}><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
                             </Col>
                         </Row>
                         
                         <Row style={{marginBottom : 10+"px"}}>
                             <Col>
-                                <a style={{fontSize : 20+"px"}}><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
                             </Col>
                             
                             <Col>
-                                <a style={{fontSize : 20+"px"}}><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
                             </Col>
                         </Row>
 
@@ -107,7 +107,7 @@ class News extends Component {
                             
                             <div>
                                 <h4 style={styles.Title} >Ce mois</h4>
-                                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
+                                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 19+"px" }} />  
                             {
                             
                             posts[1] &&
@@ -119,17 +119,17 @@ class News extends Component {
 
                                 <Col md={8}>
                                     
-                                    <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
+                                    <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
                                         {
-                                            posts[1].title.rendered.length > 111 
+                                            posts[1].title.rendered.length > 100 
                                             ?
-                                            posts[1].title.rendered.substr(1,110) + "..."
+                                            posts[1].title.rendered.substr(1,99) + "..."
                                             :
                                             posts[1].title.rendered                                
                                         }
                                     </h5>
                                     
-                                    <p style={{fontFamily : 'PopiSemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[1].date).format("DD MMMM YYYY")}</p>
+                                    <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[1].date).format("DD MMMM YYYY")}</p>
                                 </Col>   
 
                                 {/* <Col /> */}
@@ -147,7 +147,7 @@ class News extends Component {
                                 </Col> 
 
                                 <Col md={8}>
-                                    <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
+                                    <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
                                         {
                                             posts[2].title.rendered.length > 111 
                                             ?
@@ -157,7 +157,7 @@ class News extends Component {
                                         }
                                     </h5>
                                     
-                                    <p style={{fontFamily : 'PopiSemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[2].date).format("DD MMMM YYYY")}</p>
+                                    <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[2].date).format("DD MMMM YYYY")}</p>
                                 </Col>   
 
                                 {/* <Col /> */}
@@ -175,7 +175,7 @@ class News extends Component {
                                 </Col> 
 
                                 <Col md={8}>
-                                    <h5 style={{fontFamily : 'PopiBold',fontSize : 15}}>
+                                    <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
                                         {
                                             posts[3].title.rendered.length > 111 
                                             ?
@@ -185,7 +185,7 @@ class News extends Component {
                                         }
                                     </h5>
                                     
-                                    <p style={{fontFamily : 'PopiSemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[3].date).format("DD MMMM YYYY")}</p>
+                                    <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[3].date).format("DD MMMM YYYY")}</p>
                                 </Col>   
 
                                 {/* <Col /> */}
@@ -306,7 +306,7 @@ const styles = {
     Title : {
         width : '30%',
         color : '#fff',
-        fontFamily : 'PopiBold',
+        fontFamily : 'Poppins Bold',
         backgroundColor : 'black',
         paddingTop : 15+"px",
         paddingBottom: 15+"px", 
@@ -316,7 +316,7 @@ const styles = {
     Title2 : {
         width : '20%',
         color : '#fff',
-        fontFamily : 'PopiBold',
+        fontFamily : 'Poppins Bold',
         backgroundColor : 'black',
         paddingTop : 15+"px",
         paddingBottom: 15+"px", 
@@ -324,9 +324,9 @@ const styles = {
         textAlign : 'center',
     },
     TitleLarge : {
-        width : '40%',
+        width : '50%',
         color : '#fff',
-        fontFamily : 'PopiBold',
+        fontFamily : 'Poppins Bold',
         backgroundColor : 'black',
         paddingTop : 15+"px",
         paddingBottom: 15+"px", 
@@ -336,13 +336,13 @@ const styles = {
     activityTitle : {
         color : 'black',
         fontSize : 17,
-        fontFamily : 'PopiBold',
+        fontFamily : 'Poppins Bold',
         marginTop : 10+"px",
     },
     activityDesc : {
         color : '#0099CC',
         fontSize : 13,
-        fontFamily : 'PopiSemiBold',
+        fontFamily : 'Poppins SemiBold',
     },
 }
 

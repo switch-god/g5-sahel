@@ -30,7 +30,7 @@ class Events extends Component {
         return (
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
-                    <h1>LES ÉVÈNEMENTS À VENIR</h1>
+                    <h1 style={{fontFamily : 'Poppins SemiBold'}}>LES ÉVÈNEMENTS À VENIR</h1>
                 </div>
 
                 <Layout columns={7}>
@@ -127,24 +127,29 @@ class Events extends Component {
 const styles = {
     searchTitle : {
         color : '#666666',
-        
+        fontFamily : 'Poppins SemiBold',
     },
     eventDateTitle : {
         fontSize : 40+"px",
         color : '#0099CC',
         marginRight : 20+"px",
-        marginLeft : 20+"px"
+        marginLeft : 20+"px",
+        fontFamily : 'Poppins SemiBold',
     },
     eventTitle : {
         fontSize : 17+"px",
+        fontFamily : 'Poppins SemiBold',
+        
     },
     eventDate : {
         fontSize : 11+"px",
         color : '#0099CC',
+        fontFamily : 'Poppins Light',
     },
     eventDesc : {
         color : 'black',
         fontSize : 11+"px",
+        fontFamily : 'Poppins Light',
     }
 
 }
