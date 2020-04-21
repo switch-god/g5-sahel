@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'sweetalert2/src/sweetalert2.scss'
 import App from './App';
 import store from './redux/store';
 import { Provider } from 'react-redux';

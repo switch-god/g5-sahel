@@ -12,7 +12,8 @@
 
 // Config :
    const config = {
-        url : 'https://g5sahel.switch.tn/wp-json/wp/v2/',
+        url : 'https://g5sahel.switch.tn/wp-json/',
+        newsletterApiKey : 'g5-sahel',
    };
 
 export {

@@ -10,7 +10,13 @@ import {
 
 import {
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
+
+import {
+    Grid
+} from '@material-ui/core';
+
+
 // Images : 
     import LOGO from '../../assets/images/Footer/Logo.png';
     import fb from '../../assets/images/Footer/fb.png';
@@ -22,7 +28,7 @@ export default class Footer extends Component {
     render() {
         return (
             <>
-            <span className="d-block p-1 bg-primary text-white"></span>
+            <span className="d-block p-1 text-white" style={{backgroundColor : '#0099CC'}}></span>
             <Container style={{backgroundColor : '#313131'}} fluid>
 
                 <Row>
@@ -32,10 +38,43 @@ export default class Footer extends Component {
                         <Row style={{marginTop : 20+"px"}}>
                             <Col>
                                 <Link>
-                                    <Image src={LOGO} width={220}  />
+                                    <Image src={LOGO} width={180} style={{marginTop : 20+"px"}}  />
                                 </Link>
 
-                                <Row style={{marginTop : 10+"px", marginBottom : 20+"px"}}>
+                                <Grid
+                                    container
+                                    direction="row"
+                                    // justify="space-around"
+                                    justify="space-evenly"
+                                    alignItems="center"
+                                    style={{marginTop : 10+"px", marginBottom : 20+"px"}}
+                                >
+                                    <div>
+                                        <a href="https://www.facebook.com" target="_blank">
+                                            <Image src={fb} width={35} />
+                                        </a>
+                                    </div>
+                                   
+                                    <div>
+                                        <a href="https://twitter.com" target="_blank">
+                                            <Image src={twitter} width={35} style={{marginTop : 4+"px"}}/>
+                                        </a>
+                                    </div>
+                                   
+                                    <div>
+                                        <a href="https://www.linkedin.com" target="_blank">
+                                            <Image src={linkedIn} width={35} />
+                                        </a>
+                                    </div>
+                                   
+                                    <div>
+                                        <a href="https://www.youtube.com" target="_blank">
+                                            <Image src={youtube} width={35} style={{marginTop : 4+"px"}}/>
+                                        </a>
+                                    </div>
+                                </Grid>
+
+                                {/* <Row style={{marginTop : 10+"px", marginBottom : 20+"px"}}>
                                     <Col>
                                         <a href="https://www.facebook.com" target="_blank">
                                             <Image src={fb} width={35} />
@@ -59,7 +98,8 @@ export default class Footer extends Component {
                                             <Image src={youtube} width={35} style={{marginTop : 4+"px"}}/>
                                         </a>
                                     </Col>
-                                </Row>
+                                </Row> */}
+
                             </Col>
 
                             <Col>

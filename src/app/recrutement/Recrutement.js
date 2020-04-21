@@ -20,7 +20,11 @@ import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
+import moment from 'moment';
 
+// Redux : 
+    import { connect } from 'react-redux';
+    import { getJobs } from '../../redux/actions/PostsActions';
 
 // Components :
     import Layout from '../../components/Layout';
@@ -40,8 +44,7 @@ import InputLabel from '@material-ui/core/InputLabel';
     const classes = {
 
     }
-
-export default class Recrutement extends Component {
+class Recrutement extends Component {
 
     constructor(props) {
         super(props);
@@ -49,12 +52,17 @@ export default class Recrutement extends Component {
         this.state = {
             choix : 2,
         };
+
+        // getting jobs :
+        this.props.getJobs();
     }
     
     render() {
+        const { jobs } = this.props;
+            
         return (
             <>    
-                <div className="bg-overlay justify-elements">
+                <div className="bg-overlay header-justify-elements">
                     <div className="row text-center">
                         <Col/>
 
@@ -69,14 +77,12 @@ export default class Recrutement extends Component {
                 <Layout columns={9}>
                     {this.renderSearchContainer()}
 
-                    {this.renderSortBar()}
+                    {this.renderSortBar(jobs)}
                 </Layout>
 
 
                 <Layout>
-                    {this.renderJobs()}
-                    {this.renderJobs()}
-                    {this.renderJobs()}
+                    {this.renderJobs(jobs)}
 
                     <div style={{marginTop : 50+"px",marginBottom : 50+"px"}}>
                         <Newsletter />
@@ -126,7 +132,7 @@ export default class Recrutement extends Component {
         );
     };
 
-    renderSortBar = () => {
+    renderSortBar = (jobs) => {
 
         return (
             <>
@@ -138,7 +144,7 @@ export default class Recrutement extends Component {
                 style={{marginTop : 30+"px", marginBottom : 30+"px"}}
             >
                 <div>
-                    <h5 style={{fontFamily : 'Poppins Light'}}>9 JOBS FOUND</h5>
+                    <h5 style={{fontFamily : 'Poppins Light'}}>{jobs.length} JOBS FOUND</h5>
                 </div>
 
                 <div>
@@ -180,92 +186,83 @@ export default class Recrutement extends Component {
         );
     };
 
-    renderJobs = () => {
-
+    renderJobs = (jobs) => {
+     
         return (
-            <Row>
-                <Col>
-                    <Jumbotron  className="box justify-elements">
-                            <h4 className="boxTitle">ASSISTANT AU COORDONNATEUR REGIONAL </h4>
-                            <p className="boxDesc">
-                              <IoMdPin size={30} /> &nbsp;nouakchott mauritanie
-                            </p>
-                            <p className="boxDesc">
-                               <FaRegClock size={25} /> &nbsp; Published 11 months ago
-                            </p>
-                            <Row>
-                                <Col md={5}>
-                                    <p className="TimePartJob">FULL TIME</p>
-                                </Col>
-
-                                <Col/>
-
-                                <Col md={5}>
-                                    <p className="TimePartJobDate">
-                                        12 Sep - 12 Oct
+            <Row style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
+                {
+                    jobs.map(BigJob => {
+                        
+                        let ChangedJob = JSON.stringify(BigJob).replace('job-types','type');
+                        let job = JSON.parse(ChangedJob);
+                        let now = moment();
+                        let jobDate = moment(job.date);
+                        let jobMonthsDiff = now.diff(jobDate, 'months');
+                        let jobYearsDiff = jobMonthsDiff > 11 ? (now.diff(jobDate, 'years')).toFixed() : null;
+                        
+                    return ( 
+                        <Col md={4}>
+                            <Jumbotron  className="box justify-elements">
+                                <Row>
+                                    <h5 className="boxTitle">{job.title.rendered}</h5>
+                                </Row>
+                                
+                                <Row>
+                                    <p className="boxDesc">
+                                    <IoMdPin size={30} style={{marginRight : 10+"px"}} />{job.meta._job_location}
                                     </p>
-                                </Col>
+                                </Row>
 
-
-                            </Row>
-                    </Jumbotron>
-                </Col>
-
-                <Col>
-                    <Jumbotron  className="box justify-elements">
-                            <h4 className="boxTitle">ASSISTANT AU COORDONNATEUR REGIONAL </h4>
-                            <p className="boxDesc">
-                              <IoMdPin size={30} /> &nbsp;nouakchott mauritanie
-                            </p>
-                            <p className="boxDesc">
-                               <FaRegClock size={25} /> &nbsp; Published 11 months ago
-                            </p>
-                            <Row>
-                                <Col md={5}>
-                                    <p className="TimePartJob">FULL TIME</p>
-                                </Col>
-
-                                <Col/>
-
-                                <Col md={5}>
-                                    <p className="TimePartJobDate">
-                                        12 Sep - 12 Oct
+                                <Row>
+                                    <p className="boxDesc">
+                                        <FaRegClock size={25} style={{marginRight : 13+"px"}} />
+                                        {
+                                            jobYearsDiff 
+                                            ? 
+                                                `Published ${jobYearsDiff} year(s) ago` 
+                                            : 
+                                            jobMonthsDiff == 0
+                                            ?
+                                                "Published this month"
+                                            :
+                                                `Published ${jobMonthsDiff} month(s) ago`
+                                        }
+                                        
                                     </p>
-                                </Col>
+                                </Row>
 
-
-                            </Row>
-                    </Jumbotron>
-                </Col>
-
-
-                <Col>
-                    <Jumbotron  className="box justify-elements">
-                            <h4 className="boxTitle">ASSISTANT AU COORDONNATEUR REGIONAL </h4>
-                            <p className="boxDesc">
-                              <IoMdPin size={30} /> &nbsp;nouakchott mauritanie
-                            </p>
-                            <p className="boxDesc">
-                               <FaRegClock size={25} /> &nbsp; Published 11 months ago
-                            </p>
-                            <Row>
-                                <Col md={5}>
-                                    <p className="TimePartJob">FULL TIME</p>
-                                </Col>
-
-                                <Col/>
-
-                                <Col md={5}>
-                                    <p className="TimePartJobDate">
-                                        12 Sep - 12 Oct
+                                <Row>
+                                    <p className="TimePartJob">
+                                        {
+                                            job.type == 17
+                                            ? 
+                                                "FULL TIME"
+                                            :
+                                            job.type == 18
+                                            ?
+                                                "PART TIME"
+                                            :
+                                            job.type ==  19
+                                            ?
+                                                "TEMPORARY"
+                                            :
+                                            job.type == 20
+                                            ?
+                                                "FREELANCE"
+                                            :
+                                                "INTERSHIP"
+                                        }
                                     </p>
-                                </Col>
-
-
-                            </Row>
-                    </Jumbotron>
-
-                </Col>
+                                    {/* <Col md={5}>
+                                        <p className="TimePartJobDate">
+                                            12 Sep - 12 Oct
+                                        </p>
+                                    </Col> */}
+                                </Row>
+                            </Jumbotron>
+                        </Col>
+                    )})
+                }
             </Row>
         );
     };
@@ -277,3 +274,12 @@ const styles = {
         
     },
 }
+
+
+
+const mapStateToProps = state => ({
+    jobs : state.postsR.jobs,
+});
+
+export default connect(mapStateToProps,{ getJobs })(Recrutement);
+

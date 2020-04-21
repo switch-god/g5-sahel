@@ -3,6 +3,8 @@ const initialState = {
     posts : [],
     events : [],
     activites : [],
+    jobs : [],
+    searchStatus : false,
 };
 
 const postsReducer = (state = initialState, action) => {
@@ -20,17 +22,36 @@ const postsReducer = (state = initialState, action) => {
                 events : action.payload,
             }
         
-            case 'GET_LATEST_POSTS' : 
+        case 'GET_LATEST_POSTS' : 
             return {
                 ...state,
                 posts : action.payload,
             }
         
-            case 'GET_HOME_BLOC_IMAGES' : 
+        case 'GET_HOME_BLOC_IMAGES' : 
             return {
                 ...state,
                 imagesBloc : action.payload,
             }
+        
+        case 'GET_JOBS' :
+            return {
+                ...state,
+                jobs : action.payload,
+            }
+
+        case 'TOOGLE_SEARCH' : 
+            return {
+                ...state,
+                searchStatus : true
+            }
+
+        case 'UNTOOGLE_SEARCH' : 
+            return {
+                ...state,
+                searchStatus : false
+            }
+
         default : 
             return state;
     }

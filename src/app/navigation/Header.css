@@ -1,11 +1,22 @@
+.searchIcon {
+  margin-left: 10px;
+}
 
-.mobileVisible {
+.searchIcon:hover {
+  margin-left: 10px;
+  cursor: pointer;
+  color : #0099CC;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black;
+}
+
+.logoMobile {
   display: none;
 }
 
-.mobileInvisible {
-  display: inline;
-}
+
 
 .dropdown {
   position: relative;
@@ -28,36 +39,103 @@
 
 
 /* Extra small devices  */
-@media (max-width: 575px) { 
-  .mobileVisible {
-    display: inline;
-    text-align: center;
-  }
-  
-  .mobileInvisible {
+@media (max-width: 575px) {  
+  .menuWeb {
     display: none;
-    text-align: center;
+  }
+
+  .logoWeb {
+    display: none;
+  }
+
+
+  .logoMobile {
+    display: inline;
+  }
+
+  .menuMobile {
+    display : inline;
   }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
-  
+  .menuWeb {
+    display: none;
+  }
+
+  .logoWeb {
+    display: none;
+  }
+
+
+  .logoMobile {
+    display: inline;
+  }
+
+  .menuMobile {
+    display : inline;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  
+  .menuWeb {
+    display: none;
+  }
+
+  .logoWeb {
+    display: none;
+  }
+
+
+  .logoMobile {
+    display: inline;
+  }
+
+  .menuMobile {
+    display : inline;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
- 
+  .menuWeb {
+    display: inline;
+  }
+
+  .logoWeb {
+    display: none;
+  }
+
+
+  .logoMobile {
+    display: inline;
+  }
+
+  .menuMobile {
+    display : none;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+  .menuWeb {
+    display: inline;
+  }
   
+  .logoWeb {
+    display: inline;
+  }
+
+  .menuMobile {
+    display : none;
+  }
+
+  .logoMobile {
+    display: none;
+  }
+
 }
 
 

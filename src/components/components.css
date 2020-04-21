@@ -28,6 +28,17 @@ select:not([multiple]) {
     font-family: 'Poppins Light';
 }
 
+.buttonContactForm:focus {
+    padding: 12px;
+    background-color: #0099CC;
+    color: white;
+    border-radius: 0;
+    border : 0;
+    width: 300px;
+    font-family: 'Poppins Light';
+}
+
+
 .responsiveTitleForm {
     color : white
 }
@@ -56,3 +67,13 @@ select:not([multiple]) {
     width: 200px;
     border : 1px solid #666666;
 }
+
+.buttonBlack:focus {
+    padding : 11px;
+    background-color: white;
+    color: black;
+    border-radius: 0;
+    border : 0;
+    width: 200px;
+}
+

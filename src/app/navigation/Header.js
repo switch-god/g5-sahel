@@ -3,25 +3,37 @@ import {
    Container,
    Row,
    Col,
+   Navbar,
+   Nav,
+   NavDropdown,
+   Button
 } from 'react-bootstrap';
 
+
+// Connect Redux :
+import { connect } from 'react-redux';
+// import { toogleSearch } from '../../redux/actions/PostsActions';
+
+
 import { Link } from "react-router-dom";
-import Layout from '../../components/Layout';
+import { IoIosSearch } from 'react-icons/io';
+import {AutoComplete} from 'primereact/autocomplete';
 
 // IMAGES & STYLING :
 import './Header.css';
 import LOGO from '../../assets/images/Header/logo3.png';
-// import LOGO2 from '../../assets/images/Header/logo2.png';
+import LOGO2 from '../../assets/images/Header/logo2.png';
 import ARROW from '../../assets/images/Header/downArrow.png';
 
-export default class Header extends Component {
+class Header extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-           
+            brandSuggestions: null
         };
+        this.brands = ['Evenements', 'Actualites', 'Presentation', 'Documentation', 'Contact', 'Recrutement'];
     }
 
     render() {
@@ -31,7 +43,7 @@ export default class Header extends Component {
                     <Col />
                     <Col />
                     <Col />
-                    <Col style={{marginRight : 50+"px"}} >
+                    <Col style={{marginRight : 50+"px"}} className="menuWeb" >
                         <Link style={styles.TopBarLinks} to="#"> Appel d'offre </Link>
                         <Link style={styles.TopBarLinks} to="/recrutement"> Recrutement </Link>
                         <Link style={styles.TopBarLinks} to="/contact-g5"> Contact </Link>
@@ -41,27 +53,37 @@ export default class Header extends Component {
                 <Row>
                     <Col md={1}/>
                     <Col>
-                        <nav className="navbar">
+                        
+                        <Navbar bg={null} expand="lg">
+                            
+                            <Navbar.Brand className="logoMobile" href="/"><img src={LOGO2} height={80} className="d-inline-block align-top" /></Navbar.Brand>
+                            <Navbar.Brand className="logoWeb" href="/"><img src={LOGO} height={80} className="d-inline-block align-top" /></Navbar.Brand>
+                            
+                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            <Navbar.Collapse inline>
+                                <Nav className="ml-auto">
+                                <div className="menuWeb">
+                                    {this.renderWebMenuElements()}   
+                                </div>
 
-                            <Col className="mobileInvisible">
-                                <Link className="navbar-brand" to="/">
-                                    <img src={LOGO} height={80} className="d-inline-block align-top" />                            
-                                </Link>
-                            </Col>
+                                    <div className="menuMobile">
+                                        {this.renderMobileMenuElements()}
+                                    </div>
+                                </Nav>
+                            </Navbar.Collapse>
+                        </Navbar>
 
-                            {/* DESKTOP MENU */}
-                            <Col className="mobileInvisible">
-                                {this.renderMenuElements()}    
-                            </Col>
-                        </nav>
                     </Col>
+                    <Col md={1}/>
                 </Row>
                 <hr style={{marginTop : -5 + "px", borderColor : '##BCBCBC', marginBottom : 50 + "px"}} />
             </Container>
         )
     }
 
-    renderMenuElements = () => (
+    
+
+    renderWebMenuElements = () => (
        <>   
        <div className="dropdown">
             <Link style={styles.MainMenuLinks} to="/presentation"> Présentation <img src={ARROW} height={7} /></Link>
@@ -110,20 +132,21 @@ export default class Header extends Component {
         
         <div className="dropdown">
             <Link style={styles.MainMenuLinks} to="/actualites">Actualités</Link>
-            {/* <div className="dropdown-content">
-                <Link style={styles.MainMenuLinks} to="/"> Actualités </Link>
-                <Link style={styles.MainMenuLinks} to="/"> Actualités </Link>
-                <Link style={styles.MainMenuLinks} to="/"> Actualités </Link>
-            </div> */}
         </div>
         
         <div className="dropdown">
-            <Link style={styles.MainMenuLinks} to="/events">Evenements</Link>
-            {/* <div className="dropdown-content">
-                <Link style={styles.MainMenuLinks} to="/"> Evenements </Link>
-                <Link style={styles.MainMenuLinks} to="/"> Evenements </Link>
-                <Link style={styles.MainMenuLinks} to="/"> Evenements </Link>
-            </div> */}
+            <Link style={styles.MainMenuLinks} to="/events">Evenements <img src={ARROW} height={7} /></Link>
+             <div className="dropdown-content">
+                 {/* NESTED LINKS */}
+                <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
+                    <Link style={styles.MainMenuLinks} to="/events">Prochains événements</Link>
+                </Row>
+
+                <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
+                    <Link style={styles.MainMenuLinks} to="/events">Événements passés</Link>
+                </Row>
+                {/* NESTED LINKS */}  
+            </div>
         </div>
         
         <div className="dropdown">
@@ -144,9 +167,82 @@ export default class Header extends Component {
                 {/* NESTED LINKS */}                
             </div>
         </div>
+        {/* <AutoComplete 
+            value={this.state.brand} 
+            onChange={(e) => this.setState({brand: e.value})}
+            suggestions={this.state.brandSuggestions} 
+            completeMethod={this.suggestBrands.bind(this)} 
+        />
+
+        <IoIosSearch size={25} className="searchIcon" /> */}
        </>
     );
+  
+    renderMobileMenuElements = () => (
+       <>
+            <div style={{textAlign : 'center'}}>
+                <Link style={styles.TopBarLinks} to="#"> Appel d'offre </Link>
+                <Link style={styles.TopBarLinks} to="/recrutement"> Recrutement </Link>
+                <Link style={styles.TopBarLinks} to="/contact-g5"> Contact </Link>
+            </div>
+            
+            <NavDropdown.Divider />
+            <Row>
+                <Col />
+
+                <Col>
+                    <NavDropdown title="Présentation" style={styles.collapsible}>
+                        <NavDropdown.Item style={styles.navItem} href="/presentation">Présentation</NavDropdown.Item>
+                        <NavDropdown.Item style={styles.navItem} href="/presentation">Secrétariat Exécutif</NavDropdown.Item>
+                        <NavDropdown.Item style={styles.navItem} href="/presentation">Communes Nationales De Coordination</NavDropdown.Item>
+                        <NavDropdown.Item style={styles.navItem} href="/presentation">Structures Rattachées</NavDropdown.Item>
+                        <NavDropdown.Item style={styles.navItem} href="/presentation">Organigramme</NavDropdown.Item>
+                    </NavDropdown>
+
+                    <NavDropdown title="Nos Activités" style={styles.collapsible}>
+                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Nos Activités</NavDropdown.Item>
+                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Défense et sécurité</NavDropdown.Item>
+                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Gouvernance</NavDropdown.Item>
+                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Infrastructures</NavDropdown.Item>
+                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Résilience et Développement humain</NavDropdown.Item>
+                    </NavDropdown>
+                    
+                    <NavDropdown title="Actualités" style={styles.collapsible}>
+                        <NavDropdown.Item style={styles.navItem} href="/actualites">Nos actualités</NavDropdown.Item>
+                    </NavDropdown>
+                    
+                    <NavDropdown title="Evenements" style={styles.collapsible}>
+                        <NavDropdown.Item style={styles.navItem} href="/events">Nos événements</NavDropdown.Item>
+                        <NavDropdown.Item style={styles.navItem} href="/events">Prochains événements</NavDropdown.Item>
+                        <NavDropdown.Item style={styles.navItem} href="/events">Événements passés</NavDropdown.Item>
+                    </NavDropdown>
+                    
+                       
+                    <NavDropdown title="Documentation" style={styles.collapsible}>
+                        <NavDropdown.Item  style={styles.navItem}  href="/documentation">Documentation</NavDropdown.Item>
+                        <NavDropdown.Item  style={styles.navItem}  href="/documentation">Règlementation</NavDropdown.Item>
+                        <NavDropdown.Item  style={styles.navItem} href="/documentation">Newsletter</NavDropdown.Item>
+                        <NavDropdown.Item  style={styles.navItem} href="/documentation">SDS, PIP</NavDropdown.Item>
+                    </NavDropdown>
+                    
+                </Col>
+
+                <Col  />
+            </Row>
+            
+       </>
+    );
+
+
+
+    suggestBrands(event) {
+        let results = this.brands.filter((brand) => {
+             return brand.toLowerCase().startsWith(event.query.toLowerCase());
+        });
+        this.setState({ brandSuggestions: results });
+    }   
 }
+
 
 const styles = {
     TopBarLinks : {
@@ -164,5 +260,19 @@ const styles = {
         color : 'black', 
         marginRight : 20,
     },
+    collapsible : {
+        width : '95%',
+        fontFamily : 'Poppins Light',
+        textAlign : 'center',
+        color : 'black'
+    },
+    navItem : {
+        fontSize : 13+"px",
+    },
+};
 
-}
+const mapStateToProps = state => ({
+    searchStatus : state.postsR.searchStatus,
+})
+
+export default connect(mapStateToProps, {})(Header);

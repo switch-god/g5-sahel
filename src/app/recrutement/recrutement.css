@@ -1,7 +1,14 @@
-.justify-elements {
+
+.header-justify-elements {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.justify-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sortRow {
@@ -66,6 +73,7 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
+        height: 350px;
     }
     
     .box:hover {
@@ -124,6 +132,8 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
+        height: 350px;
+        padding: 50px;
     }
 
     .box:hover {
