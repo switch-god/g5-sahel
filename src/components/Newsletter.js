@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
 import {
-    Container,
-    Row,
     Col,
     Form,
     Button,
@@ -27,8 +25,8 @@ class Newsletter extends Component {
 
         this.state = {
             loading : false,
-            email : null,
-            name : null,
+            email : '',
+            name : '',
         };
     }
 

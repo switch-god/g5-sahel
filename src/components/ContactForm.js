@@ -130,7 +130,7 @@ export default class ContactForm extends Component {
         
         // Verification : 
         if(firstName.length < 4) {
-            if(firstName == "") {
+            if(firstName === "") {
                 Swal.fire({
                     icon: 'error',
                     title: 'Le champ PRÉNOM est vide',
@@ -148,7 +148,7 @@ export default class ContactForm extends Component {
             
             return;
         } else if (lastName.length < 4 ) {
-            if(lastName == "") {
+            if(lastName === "") {
                 Swal.fire({
                     icon: 'error',
                     title: 'Le champ NOM est vide',
@@ -165,7 +165,7 @@ export default class ContactForm extends Component {
             });
             return;
         } else if ( !this.verifEmail(email) ) {
-            if(email == "") {
+            if(email === "") {
                 Swal.fire({
                     icon: 'error',
                     title: 'Le champ EMAIL est vide',
@@ -190,7 +190,7 @@ export default class ContactForm extends Component {
             });
             return;
          
-        } else if ( pays === "" || pays == "Pays...") {
+        } else if ( pays === "" || pays === "Pays...") {
             Swal.fire({
                 icon: 'error',
                 title: 'Merci de choisir un pays',
@@ -199,7 +199,7 @@ export default class ContactForm extends Component {
             });
             return;
         } else if ( message.length < 10 ) {
-            if(message == "") {
+            if(message === "") {
                 Swal.fire({
                     icon: 'error',
                     title: 'Le champ MESSAGE est vide',

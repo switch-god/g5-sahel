@@ -7,10 +7,6 @@ import {
 
 export default class Layout extends Component {
     
-    constructor(props) {
-        super(props);
-    };
-
     render() {
         let {columns} = this.props
         return (

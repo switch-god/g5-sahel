@@ -1,5 +1,6 @@
 // Fetching APi's :
 import axios from 'axios';
+import moment from 'moment';
 
 // Global Config :
    import { config, HOME_BLOC1_IMGS,POSTS,EVENTS,ACTIVITES } from '../../constants/AppConfig';
@@ -38,15 +39,948 @@ export const getLatestNews = () => async (dispatch) => {
 
 export const getLatestEvents = () => dispatch => {
 
+const groupPerYears = [
+        {
+          id : 2025,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2024,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2023,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2022,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2021,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2020,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2019,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2018,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2017,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2016,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2015,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2014,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+        {
+          id : 2013,
+          eventsPerYear : [
+            {
+              id : 1,
+              monthName : "Janvier",
+              events : [],
+            },
+            {
+              id : 2,
+              monthName : "Fevrier",
+              events : [],
+            },
+            {
+              id : 3,
+              monthName : "Mars",
+              events : [],
+            },
+            {
+              id : 4,
+              monthName : "Avril",
+              events : [],
+            },
+            {
+              id : 5,
+              monthName : "Mai",
+              events : [],
+            },
+            {
+              id : 6,
+              monthName : "Juin",
+              events : [],
+            },
+            {
+              id : 7,
+              monthName : "Juillet",
+              events : [],
+            },
+            {
+              id : 8,
+              monthName : "Aout",
+              events : [],
+            },
+            {
+              id : 9,
+              monthName : "Septembre",
+              events : [],
+            },
+            {
+              id : 10,
+              monthName : "Octobre",
+              events : [],
+            },
+            {
+              id : 11,
+              monthName : "Novembre",
+              events : [],
+            },
+            {
+              id : 12,
+              monthName : "Decembre",
+              events : [],
+            },
+          ],
+        },
+   ];
+
+  const groupByMonths = [
+    {
+      id : 1,
+      monthName : "Janvier",
+      events : [],
+    },
+    {
+      id : 2,
+      monthName : "Fevrier",
+      events : [],
+    },
+    {
+      id : 3,
+      monthName : "Mars",
+      events : [],
+    },
+    {
+      id : 4,
+      monthName : "Avril",
+      events : [],
+    },
+    {
+      id : 5,
+      monthName : "Mai",
+      events : [],
+    },
+    {
+      id : 6,
+      monthName : "Juin",
+      events : [],
+    },
+    {
+      id : 7,
+      monthName : "Juillet",
+      events : [],
+    },
+    {
+      id : 8,
+      monthName : "Aout",
+      events : [],
+    },
+    {
+      id : 9,
+      monthName : "Septembre",
+      events : [],
+    },
+    {
+      id : 10,
+      monthName : "Octobre",
+      events : [],
+    },
+    {
+      id : 11,
+      monthName : "Novembre",
+      events : [],
+    },
+    {
+      id : 12,
+      monthName : "Decembre",
+      events : [],
+    },
+  ];
+
   axios.get(`${config.url}wp/v2/posts?categories=${EVENTS}`)
         .then(response => {
+          
+          
+          groupPerYears.map(year => {
+              response.data.map((event) => {
+                year.id == parseInt(moment(event.date).format("YYYY"))
+                && 
+                year.eventsPerYear.map(month => {
+
+                  month.id == parseInt(moment(event.date).format("MM")) && year.eventsPerYear[month.id - 1].events.push(event);
+                });
+              });
+          });
+         
+          // groupByMonths.map(month => {
+          //   response.data.map((event) => {
+          //     console.log("YEAAAR",parseInt(moment(event.date).format("YYYY")));
+
+          //       month.id == parseInt(moment(event.date).format("MM")) && groupByMonths[month.id - 1].events.push(event);
+          //   });
+          // });
+         
           dispatch({
               type : 'GET_LATEST_EVENTS',
-              payload : response.data,
+              payload1 : groupPerYears,
+              payload2 : response.data,
           });
         })
         .catch(error => {
-          console.log("erreur axios getLatestNews/PostsActions");
+          console.log("erreur axios getLatestNews/PostsActions",JSON.stringify(error));
         });
 };
 
@@ -60,7 +994,7 @@ export const getActivities = () => dispatch => {
           });
         })
         .catch(error => {
-          console.log("erreur axios getLatestNews/PostsActions");
+          // console.log("erreur axios getLatestNews/PostsActions");
         });
 };
 
@@ -74,7 +1008,7 @@ export const getJobs = () => dispatch => {
           });
         })
         .catch(error => {
-          console.log("erreur axios getLatestNews/PostsActions");
+          // console.log("erreur axios getLatestNews/PostsActions");
         });
 
 
@@ -98,3 +1032,10 @@ export const toogleSearch = (value) => dispatch => {
   };
 
 };
+
+export const setLoading = (value) => dispatch => {
+    dispatch ({
+      type : 'SET_LOADING',
+      payload : value,
+    });
+}

@@ -1,6 +1,8 @@
 const initialState = {
+    loading : false,
     imagesBloc : [],
     posts : [],
+    allEvents : [],
     events : [],
     activites : [],
     jobs : [],
@@ -10,6 +12,12 @@ const initialState = {
 const postsReducer = (state = initialState, action) => {
     switch(action.type) {
         
+        case 'SET_LOADING' : 
+            return {
+                ...state,
+                loading : action.payload,
+            }
+
         case 'GET_ACTIVITES' : 
             return {
                 ...state,
@@ -19,7 +27,8 @@ const postsReducer = (state = initialState, action) => {
         case 'GET_LATEST_EVENTS' : 
             return {
                 ...state,
-                events : action.payload,
+                allEvents : action.payload1,
+                events : action.payload2,
             }
         
         case 'GET_LATEST_POSTS' : 

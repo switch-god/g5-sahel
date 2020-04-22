@@ -1,24 +1,18 @@
 import React, { Component } from 'react'
 
 import {
-    Container,
     Col,
     Row,
-    Image,
     Button,
     Jumbotron,
     Form
 } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 
 import {
     Grid,
 } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
 import moment from 'moment';
 
@@ -34,16 +28,9 @@ import moment from 'moment';
 
 
 // Images & styiling :
-    import JOB from '../../assets/images/Recrutement/job.png';
     import './recrutement.css';
 
-    const age = 19;
-    const handleChange = () => {
 
-    };
-    const classes = {
-
-    }
 class Recrutement extends Component {
 
     constructor(props) {
@@ -393,6 +380,10 @@ class Recrutement extends Component {
 
         
     };
+
+    searchByDate = (dateToSearch) => {
+
+    };
 }
 
 const styles = {
@@ -401,7 +392,6 @@ const styles = {
         
     },
 }
-
 
 
 const mapStateToProps = state => ({

@@ -10,7 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
-    KeyboardTimePicker,
     KeyboardDatePicker,
   } from '@material-ui/pickers';
   
@@ -121,47 +120,52 @@ class Events extends Component {
         );
     };
 
-    renderEvents = (events) => {
-       
-        return (
-            <>
-                <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} class="separator"> <h1 style={styles.eventDateTitle}> AVRIL 2020 </h1> </div>
-                
-                <div style={{marginTop : 20+"px", marginBottom : 20+"px"}} >
-                        {
-                            events.map(event => 
-                                <>
-                                <Row style={{marginTop : 25+"px", marginBottom : 25+"px"}}>
-                                    <Col md={8}>
-                                        <Image src={event.fimg_url} fluid />
-                                    </Col>
+    renderEvents = (eventsYear) => (
+         
+        eventsYear.map(eventYear =>  
+            eventYear.eventsPerYear.map(monthHasEvents => 
+                monthHasEvents.events.length > 0 &&
+                <div>
+                    <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} class="separator"> 
+                        <h1 style={styles.eventDateTitle}> {monthHasEvents.monthName} {eventYear.id} </h1>
+                    </div>
+                    {
+                        
+                        monthHasEvents.events.map((eventToRender,index) =>       
+                            <Row key={index} style={{marginTop : 25+"px", marginBottom : 25+"px"}}>
+                                <Col md={8}>
+                                    <Image src={eventToRender.fimg_url} fluid />
+                                </Col>
 
-                                    <Col className="justify-elements">
-                                        <h4 style={styles.eventTitle}>{event.title.rendered}</h4>
-                                        <p style={styles.eventDate}>{moment(event.date).format("DD MMMM YYYY")}</p>
-                                        <p style={styles.eventDesc}>
-                                            {
-                                                event.content.rendered.length > 198 
-                                                ?
-                                                event.content.rendered.replace(/<[^>]*>?/gm, '').substr(1,198) + "..."
-                                                :
-                                                event.content.rendered.replace(/<[^>]*>?/gm, '')
-                                            
-                                            }
-                                        </p>
+                                <Col className="justify-elements">
+                                    <h4 style={styles.eventTitle}>{ eventToRender.title.rendered}</h4>
+                                    <p style={styles.eventDate}>{moment(eventToRender.date).format("DD MMMM YYYY")}</p>
+                                    <p style={styles.eventDesc}>
+                                        {
+                                            eventToRender.content.rendered.length > 198 
+                                            ?
+                                            eventToRender.content.rendered.replace(/<[^>]*>?/gm, '').substr(1,198) + "..."
+                                            :
+                                            eventToRender.content.rendered.replace(/<[^>]*>?/gm, '')
+                                    
+                                        }
+                                    </p>
 
-                                        <Button className="buttonBlue">
+                                    <Button className="buttonBlue">
                                             Register
-                                        </Button>
-                                    </Col>
-                                </Row>
-                                </>
-                            )
-                        }
+                                    </Button>
+                                </Col>
+                            </Row> 
+                         )
+                    }
+
+
                 </div>
-            </>
-        );
-    }
+            )
+        ) 
+    )
+    
+        
 
     searchByTitle = (evenToSearch) => {
 
@@ -171,7 +175,7 @@ class Events extends Component {
            evenTitle : evenToSearch.target.value,
         });
        
-        if(evenToSearch.target.value == "") {
+        if(evenToSearch.target.value === "") {
             this.setState({searchingEvents : [] });
         } else {
 
@@ -183,6 +187,7 @@ class Events extends Component {
                     if(eventLowercase.indexOf(eventToSearchNow) > -1) {
                         resultSearch.push(event);
                     }
+                return 0;
             });
     
             if(resultSearch.length) {
@@ -236,7 +241,7 @@ const styles = {
 }
 
 const mapStateToProps = state => ({
-    events : state.postsR.events,
+    events : state.postsR.allEvents,
 })
 
 export default connect(mapStateToProps, { getLatestEvents })(Events);

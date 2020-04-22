@@ -15,7 +15,6 @@ import {
 /* =================== APP COMPONENTS =================== */ 
 import Header from './app/navigation/Header';
 import Footer from './app/navigation/Footer';
-import Loading from './app/loading/Loading';
 
 /* $$$$$$$$$$$$$$$$$$$ PAGES $$$$$$$$$$$$$$$$$$$ */ 
    
@@ -39,19 +38,16 @@ export class App extends Component {
     super(props);
 
     this.state = {
-      loading : false,
+      loading : true,
     };
 
   }
   
+
   render() {
-    let { loading } = this.state;
+    
 
     return (
-        loading 
-        ?
-          <Loading />
-        :
         <Router>
           
             {/* NAVBAR */}

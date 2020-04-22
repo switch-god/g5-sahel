@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 import {
     Col,
     Row,
-    Form,
-    Button,
     Image,
 } from 'react-bootstrap';
 
