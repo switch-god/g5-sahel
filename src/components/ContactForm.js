@@ -99,7 +99,7 @@ export default class ContactForm extends Component {
                 </Form.Row>
 
                 <Form.Row>
-                    <Form.Group style={{backgroudColor : 'red'}} as={Col}></Form.Group>
+                    <Form.Group as={Col}></Form.Group>
                     <Button className="buttonContactForm" onClick={() => this.sendForm()}>
                         { loading ? <Spinner  as="span" animation="grow" size="sm" role="status" aria-hidden="true" />  : "Envoyer" }
                     </Button>

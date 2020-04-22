@@ -6,7 +6,14 @@ import {
     Image,
     Button,
 } from 'react-bootstrap';
-
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardTimePicker,
+    KeyboardDatePicker,
+  } from '@material-ui/pickers';
+  
 // Components : 
     import Layout from '../../components/Layout';
     import Newsletter from '../../components/Newsletter';
@@ -23,10 +30,20 @@ class Events extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            evenTitle : '',
+            searchingEvents : [],
+            selectedDate : moment(),
+        };
+
         this.props.getLatestEvents();
     }   
 
     render() {
+
+        const { events } = this.props;
+        let { searchingEvents } = this.state;
+
         return (
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
@@ -38,7 +55,15 @@ class Events extends Component {
                 </Layout>
 
                 <Layout columns={6}>
-                    {this.renderEvents()}
+                    
+                    {
+                        searchingEvents.length > 0
+                        ?
+                            this.renderEvents(searchingEvents)
+                        :
+                            this.renderEvents(events)
+                    
+                    }
                 </Layout>
 
                 <Layout>
@@ -59,18 +84,34 @@ class Events extends Component {
                     
                     <Col md="4">
                         <h6 style={styles.searchTitle}>ÉVÈNEMENTS À PARTIR DE</h6>
-                        <input type="text" className="form-control no-border" placeholder="22-03-2020" />
+                        {/* <input type="text" className="form-control no-border" placeholder="22-03-2020" /> */}
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <Grid container justify="space-around">
+                                <KeyboardDatePicker
+                                disableToolbar
+                                variant="inline"
+                                format="MM/dd/yyyy"
+                                margin="normal"
+                                id="date-picker-inline"
+                                value={this.state.selectedDate}
+                                onChange={this.handleDateChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change date',
+                                }}
+                                />
+                            </Grid>
+                            </MuiPickersUtilsProvider>
                     </Col>
                     
                     <Col md="4">
                         <h6 style={styles.searchTitle}>RECHERCHE</h6>
-                        <input type="text" class="form-control no-border" placeholder="Mot Clé" />
+                        <input type="text" class="form-control no-border-input" placeholder="Titre événement..." value={this.state.evenTitle} onChange={evenTitle => this.searchByTitle(evenTitle)}  />
                     </Col>
 
                     <Col />
                     
                     <Col className="align-self-center">
-                        <Button className="button">
+                        <Button className="button-search">
                             Rechercher
                         </Button>
                     </Col>
@@ -80,8 +121,8 @@ class Events extends Component {
         );
     };
 
-    renderEvents = () => {
-        const { events } = this.props;
+    renderEvents = (events) => {
+       
         return (
             <>
                 <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} class="separator"> <h1 style={styles.eventDateTitle}> AVRIL 2020 </h1> </div>
@@ -121,6 +162,46 @@ class Events extends Component {
             </>
         );
     }
+
+    searchByTitle = (evenToSearch) => {
+
+        const { events } = this.props;
+        
+        this.setState({ 
+           evenTitle : evenToSearch.target.value,
+        });
+       
+        if(evenToSearch.target.value == "") {
+            this.setState({searchingEvents : [] });
+        } else {
+
+            let resultSearch = [];
+            
+            events.filter(event => {
+                let eventLowercase = (event.title.rendered).toLowerCase();
+                    let eventToSearchNow = evenToSearch.target.value.toLowerCase();
+                    if(eventLowercase.indexOf(eventToSearchNow) > -1) {
+                        resultSearch.push(event);
+                    }
+            });
+    
+            if(resultSearch.length) {
+                this.setState({
+                    searchingEvents : resultSearch
+                });
+            } else {
+                this.setState({searchingEvents : [] });
+            }
+            
+        }
+
+        
+    };
+
+    handleDateChange = (date) => {
+        console.log(date);
+        console.log(moment(date).format());
+    };
 
 }
 

@@ -50,7 +50,10 @@ class Recrutement extends Component {
         super(props);
 
         this.state = {
-            choix : 2,
+            jobTitle : '',
+            pays : 0,
+            jobType : 0,
+            searchingJobs : [],
         };
 
         // getting jobs :
@@ -59,6 +62,7 @@ class Recrutement extends Component {
     
     render() {
         const { jobs } = this.props;
+        let { searchingJobs } = this.state;
             
         return (
             <>    
@@ -76,14 +80,19 @@ class Recrutement extends Component {
 
                 <Layout columns={9}>
                     {this.renderSearchContainer()}
-
+                    {this.state.jobTitle}
                     {this.renderSortBar(jobs)}
                 </Layout>
 
 
                 <Layout>
-                    {this.renderJobs(jobs)}
-
+                    {
+                        searchingJobs.length > 0
+                        ?
+                            this.renderJobs(searchingJobs)
+                        :
+                            this.renderJobs(jobs)
+                    }
                     <div style={{marginTop : 50+"px",marginBottom : 50+"px"}}>
                         <Newsletter />
                     </div>
@@ -104,21 +113,41 @@ class Recrutement extends Component {
                 <Row style={{padding : 25+"px",backgroundColor : '#F6F6F6',marginTop : -20+"px"}}>
                     
                     <Col style={{marginTop : 15+"px"}}>
-                        <input type="text" className="form-control no-border" placeholder="Jobs Titles, keywords…" />
+                        <input type="text" className="form-control no-border-input-recrutement " placeholder="Titre du job" value={this.state.jobTitle} onChange={jobTitle => this.searchByTitle(jobTitle)} />
                     </Col>
                     
                     <Col style={{marginTop : 15+"px"}}>
-                        <input type="text" className="form-control no-border" placeholder="City, State or ZIP" />
+                        <Form.Group as={Col}>
+                            <Form.Control 
+                                className="no-border-input-recrutement " 
+                                as="select" 
+                                value={this.state.pays} 
+                                onChange={pays => this.searchByCountry(pays)} 
+                            >
+                                <option value={0}>Tous les pays...</option>
+                                <option>Burkina Faso</option>
+                                <option>Mali</option>
+                                <option>Mauritanie</option>
+                                <option>Niger</option>
+                                <option>Tchad</option>
+                            </Form.Control>
+                        </Form.Group>
                     </Col>
 
                     <Col style={{marginTop : 15+"px"}}>
                         <Form.Group as={Col}>
-                            <Form.Control className="no-border" as="select" value="...">
-                                <option>Select Sector...</option>
-                                <option>Sector 1</option>
-                                <option>Sector 2</option>
-                                <option>Sector 3</option>
-                                <option>Sector 4</option>
+                            <Form.Control 
+                                className="no-border-input-recrutement " 
+                                as="select" 
+                                value={this.state.jobType} 
+                                onChange={jobType => this.searchByJobType(jobType)} 
+                            >
+                                <option value={0}>Tous types...</option>
+                                <option value={17}>FULL TIME</option>
+                                <option value={18}>PART TIME</option>
+                                <option value={20}>FREELANCE</option>
+                                <option value={19}>TEMPORARY</option>
+                                <option value={21}>INTERSHIP</option>
                             </Form.Control>
                         </Form.Group>
                     </Col>
@@ -133,7 +162,7 @@ class Recrutement extends Component {
     };
 
     renderSortBar = (jobs) => {
-
+        let { searchingJobs } = this.state;
         return (
             <>
             <Grid
@@ -144,7 +173,17 @@ class Recrutement extends Component {
                 style={{marginTop : 30+"px", marginBottom : 30+"px"}}
             >
                 <div>
-                    <h5 style={{fontFamily : 'Poppins Light'}}>{jobs.length} JOBS FOUND</h5>
+                    <h5 style={{fontFamily : 'Poppins Light'}}>
+
+                        {
+                            searchingJobs.length > 0
+                            ?
+                                searchingJobs.length
+                            :
+                                jobs.length
+                        } JOBS FOUND
+                    
+                    </h5>
                 </div>
 
                 <div>
@@ -164,7 +203,7 @@ class Recrutement extends Component {
                                 <InputLabel htmlFor="outlined-age-native-simple"></InputLabel>
                                 <Select
                                     native
-                                    value={2}
+                                    value={1}
                                     onChange={(choix) => this.setState({choix : choix})}
                                     inputProps={{
                                         name: 'age',
@@ -172,9 +211,7 @@ class Recrutement extends Component {
                                     }}
                                 >
                                     <option aria-label="None" value="" />
-                                    <option value={1}>Last month</option>
-                                    <option value={2}>Last two months</option>
-                                    <option value={3}>Last tree months</option>
+                                    <option value={1}>This month</option>
                                 </Select>
                             </FormControl>
                         </div>
@@ -265,6 +302,96 @@ class Recrutement extends Component {
                 }
             </Row>
         );
+    };
+
+    searchByJobType = (typeSelected) => {
+        const { jobs } = this.props;
+        let resultSearch = [];
+        
+        this.setState({ 
+            jobType: typeSelected.target.value,
+            pays: 0,
+            jobTitle : "",
+        });
+        
+        jobs.filter(BigJob => {
+            let ChangedJob = JSON.stringify(BigJob).replace('job-types','type');
+            let job = JSON.parse(ChangedJob);
+
+            job.type[0] == typeSelected.target.value && resultSearch.push(job);
+        });
+
+        if(resultSearch.length > 0) {
+            this.setState({ searchingJobs : resultSearch });
+        } else {
+            this.setState({ searchingJobs : [] });
+        }
+            
+       
+    };
+
+    searchByCountry = (countrySelected) => {
+        
+        const { jobs } = this.props;
+        let resultSearch = [];
+
+        this.setState({ 
+            pays: countrySelected.target.value,
+            jobTitle : "",
+            jobType : 0,
+        });
+        
+        jobs.filter(job => {
+            // let ChangedJob = JSON.stringify(BigJob).replace('job-types','type');
+            // let job = JSON.parse(ChangedJob);
+
+            job.meta._job_location == countrySelected.target.value && resultSearch.push(job);
+        });
+
+        if(resultSearch.length > 0) {
+            this.setState({ searchingJobs : resultSearch });
+        } else {
+            this.setState({ searchingJobs : [] });
+        }
+            
+       
+    };
+
+    searchByTitle = (jobToSearch) => {
+
+        const { jobs } = this.props;
+        
+        this.setState({ 
+            jobTitle : jobToSearch.target.value,
+            pays : 0,
+            jobType : 0,
+        });
+       
+        if(jobToSearch.target.value == "") {
+            this.setState({searchingJobs : [] });
+        } else {
+
+            let resultSearch = [];
+            
+            jobs.filter(job => {
+                let jobLowercase = (job.title.rendered).toLowerCase();
+                    let jobToSearchNow = jobToSearch.target.value.toLowerCase();
+                    if(jobLowercase.indexOf(jobToSearchNow) > -1) {
+                        resultSearch.push(job);
+                    }
+            });
+    
+            if(resultSearch.length) {
+                this.setState({
+                    searchingJobs : resultSearch
+                });
+            } else {
+                this.setState({searchingJobs : [] });
+            }
+            
+        }
+
+        
     };
 }
 

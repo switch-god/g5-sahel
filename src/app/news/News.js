@@ -71,7 +71,7 @@ class News extends Component {
                             <Image src={Image1} fluid   />
                             <div className="content">
                                 <h3 style={{ fontFamily : 'Poppins Bold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
-                                <p style={{ fontFamily : 'Poppins SemiBold' }}>19 Septembre 2019</p>
+                                <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>19 Septembre 2019</p>
                             </div>
                         </div>
                     </Col>
@@ -111,7 +111,7 @@ class News extends Component {
                             {
                             
                             posts[1] &&
-                            <div style={{marginBottom : 10+"px"}}>
+                            <div style={{marginBottom : 20+"px",marginTop : 10+"px"}}>
                             <Row>
                                 <Col md={4}>
                                     <Image src={posts[1].fimg_url} fluid style={{ resizeMode : 'contain' }} />
@@ -140,7 +140,7 @@ class News extends Component {
 
                             {
                             posts[2] &&
-                            <div style={{marginBottom : 10+"px"}}>
+                            <div style={{marginBottom : 20+"px"}}>
                             <Row>
                                 <Col md={4}>
                                     <Image src={posts[2].fimg_url} fluid style={{ resizeMode : 'contain' }} />
@@ -168,7 +168,7 @@ class News extends Component {
 
                             {
                             posts[3] &&
-                            <div style={{marginBottom : 10+"px"}}>
+                            <div style={{marginTop : 25+"px"}}>
                             <Row>
                                 <Col md={4}>
                                     <Image src={posts[3].fimg_url} fluid style={{ resizeMode : 'contain' }} />
@@ -217,22 +217,22 @@ class News extends Component {
 
                 <Row>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}} />
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}} />
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid  style={{minHeight : 157+"px"}}/>
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}} />
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>
@@ -254,7 +254,7 @@ class News extends Component {
                     {
                         posts.map(post => 
                             <Col>
-                                <Image src={post.fimg_url} fluid />
+                                <Image src={post.fimg_url} fluid style={{minHeight : 157+"px"}} />
                                 <p style={styles.activityTitle}>{post.title.rendered}</p>
                                 <p style={styles.activityDesc}>{moment(post.date).format("DD MMMM YYYY")}</p>
                             </Col>    
@@ -276,22 +276,22 @@ class News extends Component {
 
                 <Row>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>
                     <Col>
-                        <Image src={IMG_TEST} fluid />
+                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
                         <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
                         <p style={styles.activityDesc}>19 Septembre 2019</p>
                     </Col>

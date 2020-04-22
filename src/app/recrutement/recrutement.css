@@ -1,4 +1,23 @@
 
+.no-border-input-recrutement {
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    border-left:0 ;
+    border-bottom: 2 solid gray;
+    background:transparent;
+}
+
+
+.no-border-input-recrutement:focus {
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    border-left:0 ;
+    border-bottom: 2 solid gray;
+    background:transparent;
+}
+
 .header-justify-elements {
     display: flex;
     flex-direction: column;

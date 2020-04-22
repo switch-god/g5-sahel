@@ -1,5 +1,6 @@
 
-.no-border {
+.no-border-input {
+    margin-top : 18px;
     border-radius: 0;
     border-right: 0;
     border-top: 0;
@@ -9,7 +10,8 @@
 }
 
 
-.no-border:focus {
+.no-border-input:focus {
+    margin-top : 18px;
     border-radius: 0;
     border-right: 0;
     border-top: 0;
@@ -18,9 +20,10 @@
     background:transparent;
 }
 
-.button {
+.button-search {
+    margin-top: 14px;
     padding : 12px;
-    background-color: black;
+    background-color: #0099CC;
     color: white;
     border-radius: 0;
     border : 0;
@@ -28,12 +31,13 @@
     font-family: 'Poppins SemiBold';
 }
 
-.button:hover {
-    border : 1px solid black;
+.button-search:hover {
+    margin-top: 14px;
+    border : 1px solid #0099CC;
     padding-left: 20;
     padding-right: 20;
     background-color: white;
-    color: black;
+    color: #0099CC;
     border-radius: 0;
     width: 200px;
     font-family: 'Poppins SemiBold';
