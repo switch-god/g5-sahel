@@ -1,79 +1,221 @@
-.formInput {
-    border-radius: 0;
-    font-family: 'Poppins Light';
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+
+
+    .newsletterDesktop {
+        display: none;
+    }
+
+    .newsletterMobile {
+        display: flex;
+    }
+
+    .formInput {
+        border-radius: 0;
+        font-family: 'Poppins Light';
+    }
+    
+    select:not([multiple]) {
+        -webkit-appearance: none;
+    }
+    
+    .buttonContactForm {
+        padding: 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    .buttonContactForm:hover {
+        padding: 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        border : 1px solid #0099CC;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    .buttonContactForm:focus {
+        padding: 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    
+    .responsiveTitleForm {
+        color : white;
+    }
+    
+    .responsiveInputForm {
+       width: 200px;
+       color: #666666;
+       margin-top: 20px;
+    }
+    
+    
+    .buttonBlack{
+        padding : 11px;
+        background-color: white;
+        color: black;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        margin-top: 20px;
+    }
+    
+    .buttonBlack:hover {
+        padding : 10px;
+        background-color: #666666;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        border : 1px solid #666666;
+        margin-top: 19px;
+    }
+    
+    .buttonBlack:focus {
+        padding : 11px;
+        background-color: white;
+        color: black;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        margin-top: 20px;
+    }
+    
 }
 
-select:not([multiple]) {
-    -webkit-appearance: none;
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .newsletterDesktop {
+        display: none;
+    }
+
+    .newsletterMobile {
+        display: flex;
+    }
 }
 
-.buttonContactForm {
-    padding: 12px;
-    background-color: #0099CC;
-    color: white;
-    border-radius: 0;
-    border : 0;
-    width: 300px;
-    font-family: 'Poppins Light';
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .newsletterDesktop {
+        display: flex;
+    }
+
+    .newsletterMobile {
+        display: none;
+    }
 }
 
-.buttonContactForm:hover {
-    padding: 12px;
-    background-color: white;
-    color: #0099CC;
-    border-radius: 0;
-    border : 0;
-    border : 1px solid #0099CC;
-    width: 300px;
-    font-family: 'Poppins Light';
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .newsletterDesktop {
+        display: flex;
+    }
+
+    .newsletterMobile {
+        display: none;
+    }
 }
 
-.buttonContactForm:focus {
-    padding: 12px;
-    background-color: #0099CC;
-    color: white;
-    border-radius: 0;
-    border : 0;
-    width: 300px;
-    font-family: 'Poppins Light';
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+    .newsletterDesktop {
+        margin-top: 0px;
+    }
+
+    .newsletterMobile {
+        display: none;
+    }
+
+    .formInput {
+        border-radius: 0;
+        font-family: 'Poppins Light';
+    }
+    
+    select:not([multiple]) {
+        -webkit-appearance: none;
+    }
+    
+    .buttonContactForm {
+        padding: 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    .buttonContactForm:hover {
+        padding: 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        border : 1px solid #0099CC;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    .buttonContactForm:focus {
+        padding: 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    
+    .responsiveTitleForm {
+        color : white
+    }
+    
+    .responsiveInputForm {
+       width: 200px;
+       color: #666666;
+    }
+    
+    
+    .buttonBlack{
+        padding : 11px;
+        background-color: white;
+        color: black;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+    }
+    
+    .buttonBlack:hover {
+        padding : 10px;
+        background-color: #666666;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        border : 1px solid #666666;
+    }
+    
+    .buttonBlack:focus {
+        padding : 11px;
+        background-color: white;
+        color: black;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+    }
+    
 }
-
-
-.responsiveTitleForm {
-    color : white
-}
-
-.responsiveInputForm {
-   width: 200px;
-   color: #666666;
-}
-
-
-.buttonBlack{
-    padding : 11px;
-    background-color: white;
-    color: black;
-    border-radius: 0;
-    border : 0;
-    width: 200px;
-}
-
-.buttonBlack:hover {
-    padding : 10px;
-    background-color: #666666;
-    color: white;
-    border-radius: 0;
-    border : 0;
-    width: 200px;
-    border : 1px solid #666666;
-}
-
-.buttonBlack:focus {
-    padding : 11px;
-    background-color: white;
-    color: black;
-    border-radius: 0;
-    border : 0;
-    width: 200px;
-}
-

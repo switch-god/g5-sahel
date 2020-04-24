@@ -7,8 +7,6 @@ import {
     Image,
 } from 'react-bootstrap';
 
-import { Grid } from '@material-ui/core';  
-
 import { Player, BigPlayButton} from 'video-react';
 import moment from 'moment';
 import Loading from '../loading/Loading';
@@ -47,7 +45,7 @@ class Home extends Component {
     };
 
     render() {
-        let { loading } = this.props;
+        const { loading,events,posts } = this.props;
 
         return (
             loading 
@@ -64,12 +62,12 @@ class Home extends Component {
 
                     <Col md={10}>
                         <Row>
-                            <Col md={6} style={{ paddingRight : '50px',paddingLeft : '30px'}}>
-                                {this.renderNews()}
+                            <Col md={6} className="postsContainerNews">
+                                {this.renderPosts(posts,"Latest News")}
                             </Col>
   
-                            <Col md={6} style={{paddingLeft : '50px',paddingRight : '30px'}}>
-                                {this.renderEvents2()}
+                            <Col md={6} className="postsContainerEvents">
+                                {this.renderPosts(events,"Upcoming Events")}
                             </Col>
                         </Row>
                     </Col>
@@ -161,76 +159,74 @@ class Home extends Component {
         );
     };
 
-    renderNews = () => {
-        const { posts } = this.props;
-
+    
+    renderPosts = (posts,postsTitle) => {
+        
         return (
             <>
+            
             <div>
-                <Row>
                 {/* TITLE */}
+                <Row>
                 <div className="sectionTitleContainer">
-                    <h4 className="sectionTitle">Latest News</h4>
+                    <h4 className="sectionTitle">{postsTitle}</h4>
                 </div>
                 <hr  className="titleSeperator" />  
-                {/* ./TITLE */}
                 </Row>
+                {/* ./TITLE */}
 
                 {/* LATEST NEWS */}
-                    {
-                        posts[0] &&
-                        <div>
-                        <Row>
-                            <Col md={12}>
-                                <Row>
-                                    <Image src={posts[0].fimg_url} fluid className="bigArticleImage" />
-                                </Row>
+                {
+                    posts[0] &&
+                    <>
+                    <Row>
+                        <Col md={12}>
+                            <Row>
+                                <Image src={posts[0].fimg_url} fluid className="bigArticleImage" />
+                            </Row>
 
-                                <Row>
-                                    <div className="articleTitleContainer">
-                                        <h5> {posts[0].title.rendered}</h5>
-                                    </div>
-                                </Row>
+                            <Row>
+                                <div className="articleTitleContainer">
+                                    <h5>{posts[0].title.rendered}</h5>
+                                </div>
+                            </Row>
+                            
+                            <Row>
+                                <p className="articleDate">
+                                    {moment(posts[0].date).format("DD MMMM YYYY")}
+                                </p>
+                            </Row>
 
-                                <Row>
-                                    <p className="articleDate">
-                                        {moment(posts[0].date).format("DD MMMM YYYY")}
-                                    </p>
-                                </Row>
+                            <Row>
+                                <p className="articleContent">
+                                    {posts[0].content.rendered.replace("<p>","").replace('</p>',"")}
+                                </p>
+                            </Row>
 
-                                <Row>
-                                    <p className="articleContent">
-                                        {
-                                            posts[0].content.rendered.replace("<p>","").replace('</p>',"").length > 255
-                                            ?
-                                            posts[0].content.rendered.replace("<p>","").replace('</p>',"").substr(1,253) + "..."
-                                            :
-                                            posts[0].content.rendered.replace("<p>","").replace('</p>',"")
-                                        }
-                                    </p>
-                                </Row>
-                                <hr />
-                            </Col>
-                        </Row>
-                        </div>
-                    }
+                        </Col>
+                    </Row>
+   
+                    <hr className="postsHr"/>
+                    </>
+                }
                 {/* LATEST ./NEWS */}
                 
                 {/* LATEST 3 NEWS */}
-                <>
+                <div>
                 {
-                    posts.map((post,index) => 
-                        index > 0 && index < 4 &&
+                    posts.map((post,index) => (
+                    index > 0 && index < 4 &&
+                    <>
+                    <div key={index} style={{marginBottom : 10+"px"}}>
                         <Row>
-                        <div style={{marginBottom : 10+"px"}}>
-                            <Row>
-                                <Col md={4}>
-                                    <Row>
-                                        <Image src={post.fimg_url} fluid className="smallArticleImage" />
-                                    </Row>
-                                </Col> 
-                                
-                                <Col md={8}>
+                            <Col xs={12} md={4}>
+                                <Row>
+                                    <Image src={post.fimg_url} fluid className="smallArticleImage" />
+                                </Row>
+                            </Col> 
+                            
+                            <Col xs={12} md={8}>
+                                <Row className="textsArticleContainer">
                                     <h5 className="smallArticleTitle">
                                         {
                                             post.title.rendered.length > 111 
@@ -252,105 +248,8 @@ class Home extends Component {
                                     <p className="smallArticleDate">
                                         {moment(post.date).format("DD MMMM YYYY")}
                                     </p>
-                                </Col>   
-                            </Row>
-                        </div>
-                        </Row>
-                    )
-                }
-                </>
-                {/* LATEST 3 NEWS */}
-            </div>
-            </>
-        );
-    };
-
-    renderEvents2 = () => {
-        const { events } = this.props;
-
-        return (
-            <>
-            
-            <div>
-                {/* TITLE */}
-                <Row>
-                <div className="sectionTitleContainer">
-                    <h4 className="sectionTitle">Upcoming Events</h4>
-                </div>
-                <hr  className="titleSeperator" />  
-                </Row>
-                {/* ./TITLE */}
-
-                {/* LATEST NEWS */}
-                {
-                    events[0] &&
-                    <>
-                    <Row>
-                        <Col md={12}>
-                            <Row>
-                                <Image src={events[0].fimg_url} fluid className="bigArticleImage" />
-                            </Row>
-
-                            <Row>
-                                <div className="articleTitleContainer">
-                                    <h5>{events[0].title.rendered}</h5>
-                                </div>
-                            </Row>
-                            
-                            <Row>
-                                <p className="articleDate">
-                                    {moment(events[0].date).format("DD MMMM YYYY")}
-                                </p>
-                            </Row>
-
-                            <Row>
-                                <p className="articleContent">
-                                    {events[0].content.rendered.replace("<p>","").replace('</p>',"")}
-                                </p>
-                            </Row>
-                             <hr />
-                        </Col>
-                    </Row>
-                    </>
-                }
-                {/* LATEST ./NEWS */}
-                
-                {/* LATEST 3 NEWS */}
-                <div>
-                {
-                    events.map((event,index) => (
-                    index > 0 && index < 4 &&
-                    <>
-                    <div style={{marginBottom : 10+"px"}}>
-                        <Row>
-                            <Col md={4}>
-                                <Row>
-                                    <Image src={event.fimg_url} fluid className="smallArticleImage" />
                                 </Row>
-                            </Col> 
-                            
-                            <Col md={8}>
-                                <h5 className="smallArticleTitle">
-                                    {
-                                        event.title.rendered.length > 111 
-                                        ?
-                                        event.title.rendered.substr(1,110) + "..."
-                                        :
-                                        event.title.rendered                                
-                                    }
-                                </h5>
-                                <p className="smallArticleContent">
-                                    {
-                                        event.content.rendered.replace("<p>","").replace('</p>',"").length > 150
-                                        ?
-                                        event.content.rendered.replace("<p>","").replace('</p>',"").substr(1,149) + "..."
-                                        :
-                                        event.content.rendered.replace("<p>","").replace('</p>',"")
-                                    }
-                                </p>
-                                <p className="smallArticleDate">
-                                    {moment(event.date).format("DD MMMM YYYY")}
-                                </p>
+                                
                             </Col>   
                         </Row>
                     </div>
@@ -366,112 +265,25 @@ class Home extends Component {
         );
     };
 
-    renderEvents = () => {
-        const { events } = this.props;
-
-        return (
-            <>
-            
-            <div>
-                {/* TITLE */}
-                    <h4  className="titleInBlack" >Upcoming Events</h4>
-                    <hr  className="titleSeperator" />          
-                {/* ./TITLE */}
-                
-                {/* LATEST NEWS */}
-                    {
-                        events[0] &&
-                        <div>
-                        <Row>
-                            <Col md={11}>
-                                <Image src={events[0].fimg_url} fluid style={{ marginBottom : 30+"px", marginTop : 30+"px" }} />
-                        
-                                <h3 style={{fontFamily : 'Poppins Bold',fontSize : 15}}>
-                                {
-                                    events[0].title.rendered.length > 111 
-                                    ?
-                                    events[0].title.rendered.substr(1,110) + "..."
-                                    :
-                                    events[0].title.rendered                                
-                                }
-                                </h3>
-                                <p style={{fontFamily : 'Poppins SemiBold', fontSize : 15,color : '#0099CC'}}>{moment(events[0].date).format("DD MMMM YYYY")}</p>
-                                <p style={{fontFamily : 'Poppins ExtraLight', fontSize : 13}}>
-                                    {
-                                        events[0].content.rendered.replace("<p>","").replace('</p>',"").length > 250
-                                        ?
-                                        events[0].content.rendered.replace("<p>","").replace('</p>',"").substr(1,250) + "..."
-                                        :
-                                        events[0].content.rendered.replace("<p>","").replace('</p>',"")
-                                    }
-                                </p>
-                                <hr />
-                            </Col>
-                            <Col md={1} />
-                        </Row>
-                        </div>
-                    }
-                {/* LATEST ./NEWS */}
-                
-                {/* LATEST 3 NEWS */}
-                    <div>
-                    {
-                     events.map((event,index) => (
-                        index > 0 && index < 4 &&
-                        <>
-                            <div style={{marginBottom : 10+"px"}}>
-                            <Row>
-                                <Col md={4}>
-                                    <Image src={event.fimg_url} fluid style={{ resizeMode : 'contain' }} />
-                                </Col> 
-
-                                <Col md={8}>
-                                <h5 style={{fontFamily : 'Poppins Bold',fontSize : 15}}>
-                                        {
-                                            event.title.rendered.length > 111 
-                                            ?
-                                            event.title.rendered.substr(1,110) + "..."
-                                            :
-                                            event.title.rendered                                
-                                        }
-                                    </h5>
-                                    <p style={{fontFamily : 'Poppins ExtraLight', fontSize : 13}}>
-                                            {
-                                                event.content.rendered.replace("<p>","").replace('</p>',"").length > 250
-                                                ?
-                                                event.content.rendered.replace("<p>","").replace('</p>',"").substr(1,250) + "..."
-                                                :
-                                                event.content.rendered.replace("<p>","").replace('</p>',"")
-                                            }
-                                        </p>
-                                    <p style={{fontFamily : 'Poppins SemiBold', fontSize : 14,color : '#0099CC'}}>{moment(event.date).format("DD MMMM YYYY")}</p>
-                                </Col>   
-                            </Row>
-                            </div>
-                        </>
-                    ))
-                    }
-                    </div>
-                {/* LATEST 3 NEWS */}
-                
-            </div>
-            
-            </>
-        );
-    };
-
     renderNosActivites = () => {
         const { activites } = this.props;
         return (
             <>
-              <h4  className="titleInBlackSmall" >Nos activités</h4>
-              <hr  className="titleSeperator" />  
+              {/* <h4  className="titleInBlackSmall" >Nos activités</h4>
+              <hr  className="titleSeperator" />   */}
+
+              <Row style={{paddingLeft : '15px', paddingRight: '15px'}}>
+                <div className="sectionTitleContainer">
+                    <h4 className="sectionTitle">Nos activités</h4>
+                </div>
+                <hr  className="titleSeperator" />  
+              </Row>
 
               <Row>
                 {
                     activites.map((activity,index) => 
                         index < 4 &&
-                        <Col key={index}>
+                        <Col xs={12} md={3} key={index}>
                             <Image src={activity.fimg_url} fluid />
                             <p style={styles.activityTitle}>{activity.title.rendered}</p>
                             <p style={styles.activityDesc}>{activity.content.rendered.replace(/<[^>]*>?/gm, '')}</p>

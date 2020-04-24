@@ -57,12 +57,110 @@
         justify-content: center;
     }
 
+    
+
+    /* ******************** */
+
+    .postsContainerEvents {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .postsContainerNews {
+        padding-right: 50px;
+        padding-left: 30px;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: black;
+        display: flex;
+        justify-content: center;    
+    }
+
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        text-align: 'center';
+    }
+    
     .titleSeperator {
         border-color: black; 
-        margin-top: -13px;
+        margin-top: -5px;
         border-width: 5px;
         margin-bottom: 30px; 
         width: 100%;
+    }
+    
+
+    .bigArticleImage {
+       margin-bottom: 30px;
+       margin-top: 30px;
+       min-height: 250px;
+       max-height: 250px; 
+       min-width: 100%;
+    }
+
+    .articleTitleContainer {
+        font-family: 'Poppins Bold';
+        height: 50px;
+        max-height: 50px;
+        margin-bottom: 10px;
+        
+    }
+
+    .articleTitleContainer h5 {
+        font-size: 14px;
+    }
+
+
+    .articleDate {
+        font-family: 'Poppins SemiBold'; 
+        font-size: 16px;
+        color: #0099CC;
+    }
+
+    .articleContent {
+        font-family: 'Poppins ExtraLight';
+        font-size: 13px;
+        height: 70px;
+        max-height: 70px;
+        border-width: 20px;
+        margin-bottom: 30px;
+    }
+
+    .smallArticleImage {
+       min-height: 200px;
+       max-height: 200px; 
+       min-width: 100%;
+    }
+
+    .smallArticleTitle {
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .smallArticleContent {
+        font-family: 'Poppins ExtraLight'; 
+        font-size: 12px;
+    }
+
+    .smallArticleDate {
+        font-family : 'Poppins SemiBold';
+        font-size: 14px;
+        color: #0099CC;
+    }
+
+    .postsHr {
+        margin: 30px -15px 20px;
+        border: 0;
+        border-top: 1px solid #DEDEDE;
     }
 }
 
@@ -306,6 +404,36 @@
         font-size: 12px;
     }
 
+    .titleInBlackSmall {
+        width: 20%;
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        background-color: black;
+        padding-top: 20px;
+        padding-bottom: 20px; 
+        border-width: 10px;
+        text-align: 'center';
+        display: flex;
+        justify-content: center;
+    }
+
+
+  /* ************************** */
+
+    .postsContainerEvents {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .postsContainerNews {
+        padding-right: 50px;
+        padding-left: 30px;
+    }
+
+    .textsArticleContainer {
+        padding-left: 20px;
+    }
 
     .sectionTitleContainer {
         padding-top: 15px;
@@ -323,21 +451,6 @@
         font-size: 20px;
         text-align: 'center';
     }
-    
-    .titleInBlackSmall {
-        width: 20%;
-        color: #fff;
-        font-family: 'Poppins Bold';
-        font-size: 20px;
-        background-color: black;
-        padding-top: 20px;
-        padding-bottom: 20px; 
-        border-width: 10px;
-        text-align: 'center';
-        display: flex;
-        justify-content: center;
-    }
-
 
     .titleSeperator {
         border-color: black; 
@@ -346,6 +459,8 @@
         margin-bottom: 30px; 
         width: 100%;
     }
+    
+    
 
     .bigArticleImage {
        margin-bottom: 30px;
@@ -373,6 +488,7 @@
         font-size: 13px;
         height: 70px;
         max-height: 70px;
+        border-width: 20px;
     }
 
     .smallArticleImage {
@@ -395,6 +511,12 @@
         font-family : 'Poppins SemiBold';
         font-size: 14px;
         color: #0099CC;
+    }
+
+    .postsHr {
+        margin: 30px -15px 20px;
+        border: 0;
+        border-top: 1px solid #DEDEDE;
     }
 
 }

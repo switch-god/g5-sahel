@@ -59,7 +59,7 @@ class Header extends Component {
                             <Link className="navbar-brand logoWeb" to="/"><img src={LOGO} height={80} className="d-inline-block align-top" /></Link>
 
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse inline>
+                            <Navbar.Collapse inline="true">
                                 <Nav className="ml-auto">
                                 <div className="menuWeb">
                                     {this.renderWebMenuElements()}   

@@ -37,7 +37,7 @@ export default class Footer extends Component {
                     <Col style={{textAlign : 'center'}} xs={10}>
                         <Row style={{marginTop : 20+"px"}}>
                             <Col>
-                                <Link>
+                                <Link to="/">
                                     <Image src={LOGO} width={180} style={{marginTop : 20+"px"}}  />
                                 </Link>
 
@@ -73,33 +73,6 @@ export default class Footer extends Component {
                                         </a>
                                     </div>
                                 </Grid>
-
-                                {/* <Row style={{marginTop : 10+"px", marginBottom : 20+"px"}}>
-                                    <Col>
-                                        <a href="https://www.facebook.com" target="_blank">
-                                            <Image src={fb} width={35} />
-                                        </a>
-                                    </Col>
-                                    
-                                    <Col>
-                                        <a href="https://twitter.com" target="_blank">
-                                            <Image src={twitter} width={35} style={{marginTop : 4+"px"}}/>
-                                        </a>
-                                    </Col>
-                                    
-                                    <Col>
-                                        <a href="https://www.linkedin.com" target="_blank">
-                                            <Image src={linkedIn} width={35} />
-                                        </a>
-                                    </Col>
-                                    
-                                    <Col>
-                                        <a href="https://www.youtube.com" target="_blank">
-                                            <Image src={youtube} width={35} style={{marginTop : 4+"px"}}/>
-                                        </a>
-                                    </Col>
-                                </Row> */}
-
                             </Col>
 
                             <Col>
