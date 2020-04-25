@@ -17,31 +17,42 @@ export default class Map extends Component {
         return (
             <>
                 <Row>
-                    <Image src={MapImg} style={{padding : 50+"px"}} fluid/>
+                    {/* <Image src={MapImg} style={{padding : 50+"px"}} fluid/> */}
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe width={'90%'} height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Route%20des%20Ambassades%20%E2%80%93%20Nouakchott%20-%20Mauritanie&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </div>
+                    </div>
                 </Row>
 
-                <Row style={{textAlign : 'center'}}>
-                
-                    <Col>
-                        <IoIosPin size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
-                        <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
-                            Ilot A 742 Bis 
-                            – Route des Ambassades –
-                            Nouakchott - Mauritanie
-                        </p>
-                    </Col>
-                    <Col>
-                        <MdPhone size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
-                        <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
-                            +222 45 25 77 30
-                        </p>
+                <Row className="mapInfosContainer">
+                    <Col xs={12} md={4}>
+                        <center>
+                            <IoIosPin size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
+                            <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
+                                Ilot A 742 Bis 
+                                – Route des Ambassades –
+                                Nouakchott - Mauritanie
+                            </p>
+                        </center>
                     </Col>
 
-                    <Col>
-                        <FaEnvelope size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
-                        <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
-                            contact@g5sahel.org
-                        </p>
+                    <Col xs={12} md={4}>
+                        <center>
+                            <MdPhone size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
+                            <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
+                                +222 45 25 77 30
+                            </p>
+                        </center>
+                    </Col>
+
+                    <Col xs={12} md={4}>
+                        <center>
+                            <FaEnvelope size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
+                            <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
+                                contact@g5sahel.org
+                            </p>
+                        </center>
                     </Col>
                       
                 </Row>

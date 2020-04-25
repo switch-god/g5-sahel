@@ -30,9 +30,11 @@ export default class ContactForm extends Component {
             <>
             {
                 menuEnabled &&
-                <Row>
-                <h4  style={styles.Title} >Contact informations</h4>
-                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '95%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
+                <Row style={{marginLeft : '2px'}}>
+                    <div className="sectionTitleContainer">
+                        <h4 className="sectionTitle">Contact informations</h4>
+                    </div>
+                    <hr  className="titleSeperator" />  
                 </Row>
             }
 

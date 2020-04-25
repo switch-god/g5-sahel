@@ -104,58 +104,59 @@ class Home extends Component {
 
         return (
             <Row>
-                    <Col />
+                <Col />
 
-                    <Col md={10}>
-                        <Row>
-                            <Col sm={8} md={8}>
-                                <div className="container-for-img">    
-                                    {
-                                        imagesBloc[2] &&
-                                        <>
-                                        <Image src={imagesBloc[2].fimg_url} fluid   />
-                                        <div className="content">
-                                            <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[2].title.rendered}</h3>
-                                            <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[2].date).format("DD MMMM YYYY")}</p>
-                                        </div>
-                                        </>
-                                    }
-                                </div>
-                            </Col>
+                <Col md={10}>
+                    
+                    <Row>
+                        <Col xs={12} md={8}>
+                            <div className="container-for-img">    
+                                {
+                                    imagesBloc[2] &&
+                                    <>
+                                    <Image src={imagesBloc[2].fimg_url} fluid   />
+                                    <div className="content">
+                                        <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[2].title.rendered}</h3>
+                                        <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[2].date).format("DD MMMM YYYY")}</p>
+                                    </div>
+                                    </>
+                                }
+                            </div>
+                        </Col>
+                        
+                        <Col xs={12} md={4}>
                             
-                            <Col sm={4} md={4}>
-                                
-                                <div className="container-for-img">
-                                    {
-                                        imagesBloc[1] &&
-                                        <>
-                                        <Image src={imagesBloc[1].fimg_url} fluid />
-                                        <div className="content-1">
-                                            <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[1].title.rendered}</h3>
-                                            <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[1].date).format("DD MMMM YYYY")}</p>
-                                        </div>
-                                        </>
-                                    }
-                                </div>
-                                
-                                <div className="container-for-img" style={{marginTop : 26 + "px"}}>
-                                    {
-                                        imagesBloc[0] &&
-                                        <>
-                                        <Image src={imagesBloc[0].fimg_url} fluid style={{width:'100%'}}  />
-                                        <div className="content-1">
-                                            <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[0].title.rendered}</h3>
-                                            <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[0].date).format("DD MMMM YYYY")}</p>
-                                        </div>
-                                        </>
-                                    }
-                                </div>
-                            </Col>
-                        </Row>
-                    </Col>
-            
-                    <Col />
-                </Row>
+                            <div className="container-for-img">
+                                {
+                                    imagesBloc[1] &&
+                                    <>
+                                    <Image src={imagesBloc[1].fimg_url} fluid />
+                                    <div className="content-1">
+                                        <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[1].title.rendered}</h3>
+                                        <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[1].date).format("DD MMMM YYYY")}</p>
+                                    </div>
+                                    </>
+                                }
+                            </div>
+                            
+                            <div className="container-for-img" style={{marginTop : 26 + "px"}}>
+                                {
+                                    imagesBloc[0] &&
+                                    <>
+                                    <Image src={imagesBloc[0].fimg_url} fluid style={{width:'100%'}}  />
+                                    <div className="content-1">
+                                        <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[0].title.rendered}</h3>
+                                        <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[0].date).format("DD MMMM YYYY")}</p>
+                                    </div>
+                                    </>
+                                }
+                            </div>
+                        </Col>
+                    </Row>
+                </Col>
+        
+                <Col />
+            </Row>
         );
     };
 

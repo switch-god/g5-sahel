@@ -1,6 +1,50 @@
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575px) {
 
+    .mapInfosContainer {
+        text-align: 'center';
+        /* padding-left: 50px; */
+    }
+    .mapouter{
+        position:relative;
+        text-align:right;
+        height:350px;
+        width:100%;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+
+    .gmap_canvas {
+        overflow:hidden;
+        background:none!important;
+        height:350px;
+        width:90%;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: black;
+        display: flex;
+        justify-content: center;    
+    }
+
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        text-align: 'center';
+    }
+    
+    .titleSeperator {
+        border-color: black; 
+        margin-top: -5px;
+        border-width: 5px;
+        margin-bottom: 30px; 
+        width: 100%;
+    }
 
     .newsletterDesktop {
         display: none;
@@ -130,6 +174,50 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+
+    .mapInfosContainer {
+        text-align: 'center';
+        padding-left: 50px;
+    }
+    .mapouter{
+        position:relative;
+        text-align:right;
+        height:350px;
+        width:100%;
+        margin-bottom: 20px;
+    }
+
+    .gmap_canvas {
+        overflow:hidden;
+        background:none!important;
+        height:350px;
+        width:100%;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 30px;
+        padding-right: 30px;
+        background-color: black;
+        display: flex;
+        justify-content: center;    
+    }
+
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        text-align: 'center';
+    }
+
+    .titleSeperator {
+        border-color: black; 
+        margin-top: -2px;
+        border-width: 3px;
+        margin-bottom: 30px; 
+        width: 100%;
+    }
 
     .newsletterDesktop {
         margin-top: 0px;

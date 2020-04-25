@@ -20,7 +20,7 @@ import {
     import RESI from '../../assets/images/Activites/resi.png';
     import RESI_2 from '../../assets/images/Activites/resi2.png';
 
-    import '../home/Home.css';
+    import './activites.css';
 
 export default class NosActivites extends Component {
     render() {
@@ -30,30 +30,49 @@ export default class NosActivites extends Component {
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>Nos activités</h1>
                 </div>   
 
-                <Layout>
-                    <div style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
-                        <h4  style={styles.Title} >Défense et Sécurité</h4>
-                        <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
-                    </div>
+                <Layout xsColumns={10}>
+               
+                    {/* TITLE */}
+                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <div className="sectionTitleContainer">
+                            <h4 className="sectionTitle">Défense et Sécurité</h4>
+                        </div>
+                        <hr  className="titleSeperator" />  
+                    </Row>
+                    {/* ./TITLE */}
 
                     {this.renderDefenseSecurite()}
 
-                    <div style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
-                        <h4  style={styles.Title} >Gouvernance</h4>
-                        <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
-                    </div>
+                    {/* TITLE */}
+                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <div className="sectionTitleContainer">
+                            <h4 className="sectionTitle">Gouvernance</h4>
+                        </div>
+                        <hr  className="titleSeperator" />  
+                    </Row>
+                    {/* ./TITLE */}
+
                     {this.renderGouvernance()}
 
-                    <div style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
-                        <h4  style={styles.Title} >Infrastructure</h4>
-                        <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
-                    </div>
+                    {/* TITLE */}
+                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <div className="sectionTitleContainer">
+                            <h4 className="sectionTitle">Infrastructure</h4>
+                        </div>
+                        <hr  className="titleSeperator" />  
+                    </Row>
+                    {/* ./TITLE */}
                     {this.renderInfra()}
                     
-                    <div style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
-                        <h4  style={styles.Title} >Résilience</h4>
-                        <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
-                    </div>
+                
+                    {/* TITLE */}
+                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <div className="sectionTitleContainer">
+                            <h4 className="sectionTitle">Résilience</h4>
+                        </div>
+                        <hr  className="titleSeperator" />  
+                    </Row>
+                    {/* ./TITLE */}
                     {this.renderResilience()}
 
                     <div style={{marginTop : 40+"px", marginBottom : 40+"px"}}>
@@ -73,50 +92,49 @@ export default class NosActivites extends Component {
 
         return (
             <Row>
-                <Col>
-                    <Image src={DFS} fluid />
+                <Col xs={12} md={12} xl={6}>
+                    <Image src={DFS} fluid className="postImageBig" />
                      <div style={{ marginTop : 20+"px" }}>
-                        <h3 style={styles.postTitleBig}>Les chefs d’Etat-Major des pays du G5 Sahel rendent plus opérationnelle la Force Conjointe</h3>   
-                        <p style={styles.dateBig}>Aujourd’hui à 9:21</p>
-                        <p style={styles.descBig}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet…</p>
+                        <h3 className="postTitleBig">Les chefs d’Etat-Major des pays du G5 Sahel rendent plus opérationnelle la Force Conjointe</h3>   
+                        <p  className="dateBig">Aujourd’hui à 9:21</p>
+                        <p  className="descBig">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet…</p>
                      </div>
                 </Col>
 
                 <Col>
-                    
                     <Row>
-                        <Col>
-                            <Image src={DFS_2} fluid />
+                        <Col xs={12} md={4} xl={6} >
+                            <Image src={DFS_2} fluid className="postImageSmall" />
                         </Col>
 
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
-                            <p style={styles.dateSmall}>19 Septembre 2019</p>
-                        </Col>
-                    </Row>
-                    
-                    <Row style={{marginTop : 20+"px",marginBottom : 20+"px"}}>
-                        <Col>
-                            <Image src={DFS_2} fluid />
-                        </Col>
-
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p  style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
-                            <p  style={styles.dateSmall}>19 Septembre 2019</p>
+                        <Col xs={12} md={6} xl={6} className="justify-elements">
+                            <h4 className="titleSmall">“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
+                            <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
+                            <p  className="dateSmall">19 Septembre 2019</p>
                         </Col>
                     </Row>
 
-                    <Row>
-                        <Col>
-                            <Image src={DFS_2} fluid />
+                    <Row style={{marginTop: '10px', marginBottom: '10px'}}>
+                        <Col xs={12} md={4} xl={6}>
+                            <Image src={DFS_2} fluid className="postImageSmall" />
                         </Col>
 
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p  style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
-                            <p  style={styles.dateSmall}>19 Septembre 2019</p>
+                        <Col xs={12} md={6} xl={6} className="justify-elements">
+                            <h4 className="titleSmall">“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
+                            <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
+                            <p  className="dateSmall">19 Septembre 2019</p>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col xs={12} md={4} xl={6}>
+                            <Image src={DFS_2} fluid className="postImageSmall" />
+                        </Col>
+
+                        <Col xs={12} md={6} xl={6} className="justify-elements">
+                            <h4 className="titleSmall">“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
+                            <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
+                            <p  className="dateSmall">19 Septembre 2019</p>
                         </Col>
                     </Row>
 
@@ -132,80 +150,95 @@ export default class NosActivites extends Component {
     renderGouvernance = () => {
 
         return (
-            <>
-            <Row style={{marginTop : 40+"px"}}>
-                <Col>
-                    <h5 style={styles.gouvernanceTitle}>GENRE</h5>
-                    <hr style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
-                </Col>
-                
-                <Col>   
-                    <h5 style={styles.gouvernanceTitle}>CELLULE ANTI REDICALISATION ET L’EXTREMISME VIOLANT</h5>
-                    <hr  style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
-                </Col>
+            <Row>
+
+            <Col xl={6}>
+                <Row style={{marginTop : 20+"px"}}>
+                    <Col xs={12} xl={12}>
+                        
+                        <Row>
+                            <Col xs={12} xl={12}>   
+                                <h5 style={styles.gouvernanceTitle}>GENRE</h5>
+                                <hr  style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
+                            </Col>
+                        </Row>
+                        
+                        <Row>
+                            <Col xs={12} xl={12}>
+                            <div className="container-for-img">             
+                                <Image src={GENRE} fluid className="genreImage" />
+                                <div className="content">
+                                    <h5>Formation sur la prévention de la radicalisation et de  l’extrémisme violent dans l’espace G5 Sahel par le Collège Sahélien de Sécurité</h5>
+                                    <p>Aujourd’hui à 9:21</p>
+                                </div>
+                            </div>
+                            </Col>
+                        </Row>
+
+                        <Row style={{marginTop :"15px",marginBottom :"15px"}}>
+                            <Col xs={12} xl={12}>
+                                <Button className="buttonBlue">
+                                    VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                                </Button>
+                            </Col>
+                        </Row>
+
+                    </Col>
+                </Row>
+            </Col>
+
+            <Col xl={6}>
+                <Row style={{marginTop : 20+"px"}}>
+                    <Col xs={12} xl={12}>   
+                        <h5 style={styles.gouvernanceTitle}>CELLULE ANTI REDICALISATION ET L’EXTREMISME VIOLANT</h5>
+                        <hr  style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
+                    </Col>
+
+                    <Col>
+                        <Row>
+                            <Col xl={4}>
+                                <Image src={DFS_2} fluid className="postImageSmall"  />
+                            </Col>
+                            <Col className="justify-elements">
+                                <h4 className="titleSmall">“Atlantic Dialogues“ nouveau contrat social est devenu un impératif</h4>
+                                <p  className="dateSmall">19 Septembre 2019</p>
+                            </Col>
+                        </Row>
+                        
+                        <Row style={{marginTop : 20+"px",marginBottom : 20+"px"}}>
+                            <Col xl={4}>
+                                <Image src={DFS_2} fluid className="postImageSmall" />
+                            </Col>
+
+                            <Col className="justify-elements">
+                                <h4 className="titleSmall">“Atlantic Dialogues“ nouveau contrat social est devenu un impératif</h4>
+                                <p  className="dateSmall">19 Septembre 2019</p>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col xl={4}>
+                                <Image src={DFS_2} fluid className="postImageSmall" />
+                            </Col>
+
+                            <Col className="justify-elements">
+                                <h4 className="titleSmall">“Atlantic Dialogues“ nouveau contrat social est devenu un impératif</h4>
+                                <p  className="dateSmall">19 Septembre 2019</p>
+                            </Col>
+                        </Row>
+
+                        <Row style={{marginTop :"15px",marginBottom :"15px"}}>
+                            <Col xs={12} xl={12}>
+                                <Button className="buttonBlue">
+                                    VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Col>
+
             </Row>
-
-            <Row style={{marginTop : 20+"px"}}>
-                <Col >
-                    <div className="container-for-img">             
-                        <Image src={GENRE} fluid style={{resizeMode : 'contain',width : '100%' }}/>
-                        <div className="content">
-                            <h5 style={{ fontFamily : 'Poppins Bold',fontWeight : 'bold',padding : 10+"px" }}>Formation sur la prévention de la radicalisation et de  l’extrémisme violent dans l’espace G5 Sahel par le Collège Sahélien de Sécurité</h5>
-                            <p style={{ fontFamily : 'Poppins SemiBold',paddingLeft : 10+"px" }}>Aujourd’hui à 9:21</p>
-                        </div>
-                    </div>
-                </Col>
-
-                <Col>
-                    <Row>
-                        <Col md={4}>
-                            <Image src={DFS_2} fluid />
-                        </Col>
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p style={styles.dateSmall}>19 Septembre 2019</p>
-                        </Col>
-                    </Row>
-                    
-                    <Row style={{marginTop : 20+"px",marginBottom : 20+"px"}}>
-                        <Col md={4}>
-                            <Image src={DFS_2} fluid />
-                        </Col>
-
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                           <p  style={styles.dateSmall}>19 Septembre 2019</p>
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col md={4}>
-                            <Image src={DFS_2} fluid />
-                        </Col>
-
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p  style={styles.dateSmall}>19 Septembre 2019</p>
-                        </Col>
-                    </Row>
-                </Col>
-
-            </Row>
-
-            <Row style={{marginTop : 20+"px"}}>
-                <Col>
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily: 'Poppins Light'}}>
-                         VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                    </Button>
-                </Col>
-                <Col>
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily: 'Poppins Light'}}>
-                         VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                    </Button>
-                </Col>
-            </Row>
-
-            </>
         );
     };
 
@@ -216,29 +249,29 @@ export default class NosActivites extends Component {
                 <Col>
                     <Image src={INFRA} fluid />
                     <div style={{marginTop : 20+"px"}}>
-                        <h5 style={styles.titleMedium}>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
-                        <p style={styles.dateSmall}>Aujourd’hui à 9:21</p>
-                        <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+                        <h5 className="titleBig" >Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
+                        <p  className="dateSmall">Aujourd’hui à 9:21</p>
+                        <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
                     </div>
                 </Col>
-
                 <Col>
                     <Image src={INFRA} fluid />
                     <div style={{marginTop : 20+"px"}}>
-                        <h5 style={styles.titleMedium}>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
-                        <p style={styles.dateSmall}>Aujourd’hui à 9:21</p>
-                        <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+                        <h5 className="titleBig" >Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
+                        <p  className="dateSmall">Aujourd’hui à 9:21</p>
+                        <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
                     </div>
                 </Col>
-
                 <Col>
                     <Image src={INFRA} fluid />
                     <div style={{marginTop : 20+"px"}}>
-                        <h5 style={styles.titleMedium}>Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
-                        <p style={styles.dateSmall}>Aujourd’hui à 9:21</p>
-                        <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+                        <h5 className="titleBig" >Inauguration des Projets socioéconomiques à impact rapide du G5 Sahel</h5>
+                        <p  className="dateSmall">Aujourd’hui à 9:21</p>
+                        <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
                     </div>
                 </Col>
+
+             
 
 
             </Row>
@@ -249,56 +282,56 @@ export default class NosActivites extends Component {
 
         return (
             <Row>
+
                 <Col>
-                    
                     <Row>
-                        <Col>
-                            <Image src={RESI_2} fluid />
+                        <Col xs={12} xl={6}>
+                            <Image src={RESI_2} fluid className="postImageSmall" />
                         </Col>
 
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
-                            <p style={styles.dateSmall}>19 Septembre 2019</p>
+                        <Col xs={12} xl={6} className="justify-elements">
+                            <h4 className="titleSmall">“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
+                            <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
+                            <p  className="dateSmall">19 Septembre 2019</p>
                         </Col>
                     </Row>
-                    
-                    <Row style={{marginTop : 20+"px",marginBottom : 20+"px"}}>
-                        <Col>
-                            <Image src={RESI_2} fluid />
+
+                    <Row style={{marginTop: '10px', marginBottom: '10px'}}>
+                        <Col xs={12} xl={6}>
+                            <Image src={RESI_2} fluid className="postImageSmall" />
                         </Col>
 
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p  style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
-                            <p  style={styles.dateSmall}>19 Septembre 2019</p>
+                        <Col xs={12} xl={6} className="justify-elements">
+                            <h4 className="titleSmall">“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
+                            <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
+                            <p  className="dateSmall">19 Septembre 2019</p>
                         </Col>
                     </Row>
 
                     <Row>
-                        <Col>
-                            <Image src={RESI_2} fluid />
+                        <Col xs={12} xl={6}>
+                            <Image src={RESI_2} fluid className="postImageSmall" />
                         </Col>
 
-                        <Col className="justify-elements">
-                            <h4 style={styles.titleSmall}>“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
-                            <p  style={styles.descSmall}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
-                            <p  style={styles.dateSmall}>19 Septembre 2019</p>
+                        <Col xs={12} xl={6} className="justify-elements">
+                            <h4 className="titleSmall">“Atlantic Dialogues “ nouveau contrat social est devenu un impératif</h4>
+                            <p  className="descSmall">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat…</p>
+                            <p  className="dateSmall">19 Septembre 2019</p>
                         </Col>
                     </Row>
 
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily : 'Poppins Light'}}>
+                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}>
                          VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
                     </Button>
 
                 </Col>
 
-                <Col>
-                    <Image src={RESI} fluid />
+                <Col xs={12} xl={6}>
+                    <Image src={RESI} fluid className="postImageBig" />
                      <div style={{ marginTop : 20+"px" }}>
-                        <h3>Les chefs d’Etat-Major des pays du G5 Sahel rendent plus opérationnelle la Force Conjointe</h3>   
-                        <p style={styles.dateBig}>Aujourd’hui à 9:21</p>
-                        <p style={styles.descBig}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet…</p>
+                        <h3 className="postTitleBig">Les chefs d’Etat-Major des pays du G5 Sahel rendent plus opérationnelle la Force Conjointe</h3>   
+                        <p  className="dateBig">Aujourd’hui à 9:21</p>
+                        <p  className="descBig">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet…</p>
                      </div>
                 </Col>
             </Row>

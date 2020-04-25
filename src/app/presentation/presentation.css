@@ -12,3 +12,50 @@ ul {
     flex-direction: column;
     justify-content: center;
 }
+
+.presentationDivider {
+    display: none;
+}
+
+/* Extra small devices  */
+@media (max-width: 575px) { 
+   .presentationTitle {
+        font-family: 'Poppins Bold';
+        margin-top: 20px;
+   }
+
+   .presentationDate {
+        color: #0099CC;
+        font-family: 'Poppins Light';
+   }
+
+   .presentationDesc {
+        font-family: 'Poppins Light';
+        font-size: 15px;
+   }
+
+   .presentationDivider {
+       display: flex;
+   }
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+}

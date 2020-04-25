@@ -37,7 +37,11 @@ class News extends Component {
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>Actualités</h1>
                 </div>
 
-                {this.renderBloc1()}
+                
+
+                <Layout xsColumns={12} columns={12}>
+                    {this.renderBloc1()}
+                </Layout>
 
                 {this.renderCommuniquePresse()}
 
@@ -64,141 +68,22 @@ class News extends Component {
         <Row>
             <Col />
 
-            <Col md={10}>
+            <Col xs={10} md={10}>
+
                 <Row>
-                    <Col sm={8} md={8}>
-                        <div className="container-for-img">    
-                            <Image src={Image1} fluid   />
+                    <Col xs={12} md={8}>
+                        <div className="news-big-img"> 
+                            <Row>
+                                <Image src={Image1} fluid  />
+                            </Row>
                             <div className="content">
                                 <h3 style={{ fontFamily : 'Poppins Bold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
                                 <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>19 Septembre 2019</p>
                             </div>
                         </div>
                     </Col>
-                    
-                    <Col sm={4} md={4}>
-                        <Row>
-                            <h4 style={styles.TitleLarge} >Social Networks</h4>
-                            <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
-                        </Row>
-
-                        <Row style={{marginBottom : 10+"px"}}>
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
-                            </Col>
-
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
-                            </Col>
-                        </Row>
-                        
-                        <Row style={{marginBottom : 10+"px"}}>
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
-                            </Col>
-                            
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            {/* LATEST 3 NEWS */}
-                            
-                            <div>
-                                <h4 style={styles.Title} >Ce mois</h4>
-                                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 19+"px" }} />  
-                            {
-                            
-                            posts[1] &&
-                            <div style={{marginBottom : 20+"px",marginTop : 10+"px"}}>
-                            <Row>
-                                <Col md={4}>
-                                    <Image src={posts[1].fimg_url} fluid style={{ resizeMode : 'contain' }} />
-                                </Col> 
-
-                                <Col md={8}>
-                                    
-                                    <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
-                                        {
-                                            posts[1].title.rendered.length > 100 
-                                            ?
-                                            posts[1].title.rendered.substr(1,99) + "..."
-                                            :
-                                            posts[1].title.rendered                                
-                                        }
-                                    </h5>
-                                    
-                                    <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[1].date).format("DD MMMM YYYY")}</p>
-                                </Col>   
-
-                                {/* <Col /> */}
-                            </Row>
-                            </div>
-
-                            }
-
-                            {
-                            posts[2] &&
-                            <div style={{marginBottom : 20+"px"}}>
-                            <Row>
-                                <Col md={4}>
-                                    <Image src={posts[2].fimg_url} fluid style={{ resizeMode : 'contain' }} />
-                                </Col> 
-
-                                <Col md={8}>
-                                    <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
-                                        {
-                                            posts[2].title.rendered.length > 111 
-                                            ?
-                                            posts[2].title.rendered.substr(1,110) + "..."
-                                            :
-                                            posts[2].title.rendered                                
-                                        }
-                                    </h5>
-                                    
-                                    <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[2].date).format("DD MMMM YYYY")}</p>
-                                </Col>   
-
-                                {/* <Col /> */}
-                            </Row>
-                            </div>
-
-                            }
-
-                            {
-                            posts[3] &&
-                            <div style={{marginTop : 25+"px"}}>
-                            <Row>
-                                <Col md={4}>
-                                    <Image src={posts[3].fimg_url} fluid style={{ resizeMode : 'contain' }} />
-                                </Col> 
-
-                                <Col md={8}>
-                                    <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
-                                        {
-                                            posts[3].title.rendered.length > 111 
-                                            ?
-                                            posts[3].title.rendered.substr(1,110) + "..."
-                                            :
-                                            posts[3].title.rendered                                
-                                        }
-                                    </h5>
-                                    
-                                    <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[3].date).format("DD MMMM YYYY")}</p>
-                                </Col>   
-
-                                {/* <Col /> */}
-                            </Row>
-                            </div>
-
-                            }
-                            </div>
-                        {/* LATEST 3 NEWS */}
-                        </Row>
-
-                    </Col>
-                </Row>
+  
+                    </Row>
             </Col>
     
             <Col />

@@ -28,7 +28,9 @@ export default class Presentation extends Component {
                         {this.renderTitle()}
                         
                         {this.renderBloc1()}
-
+                        
+                        <hr className="presentationDivider" />
+                        
                         {this.renderBloc2()}
 
                         {this.renderDescBloc()}
@@ -65,9 +67,9 @@ export default class Presentation extends Component {
 
                 <Col className="justify-elements" md={6}>
                     <div>
-                        <h4 style={{fontFamily : 'Poppins Bold',}}>La Conférence des Chefs d’Etat</h4>
-                        <p style={{color: '#0099CC',fontFamily : 'Poppins Light'}}>15 octobre 2015</p>
-                        <p style={{fontFamily : 'Poppins Light',fontSize : 15+"px"}}>
+                        <h4 className="presentationTitle">La Conférence des Chefs d’Etat</h4>
+                        <p className="presentationDate">15 octobre 2015</p>
+                        <p className="presentationDesc">
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
                             magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd 
                             gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet… Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
@@ -83,9 +85,9 @@ export default class Presentation extends Component {
 
                 <Col className="justify-elements" md={6}>
                     <div>
-                        <h4 style={{fontFamily : 'Poppins Bold',}}>La Conférence des Chefs d’Etat</h4>
-                        <p style={{color: '#0099CC',fontFamily : 'Poppins Light'}}>15 octobre 2015</p>
-                        <p style={{fontFamily : 'Poppins Light',fontSize : 15+"px"}}>
+                        <h4 className="presentationTitle">La Conférence des Chefs d’Etat</h4>
+                        <p className="presentationDate">15 octobre 2015</p>
+                        <p className="presentationDesc">
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
                             magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd 
                             gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet… Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
@@ -121,7 +123,7 @@ export default class Presentation extends Component {
                 
                 <Col md={8}>
                     <Row>
-                        <Col>
+                        <Col xs={12}>
                             <div>
                                 <h3 style={{fontFamily : 'Poppins SemiBold'}}> Le G5 Sahel a pour objet : </h3>
                                 <p style={{fontSize : 13+"px",fontFamily : 'Poppins Light'}}>
@@ -130,7 +132,7 @@ export default class Presentation extends Component {
                             </div>
                         </Col>
 
-                        <Col>
+                        <Col xs={12}>
                             <div>
                                 <h3  style={{fontFamily : 'Poppins SemiBold'}}> Le G5 Sahel a pour objet : </h3>
                                 <p style={{fontSize : 13+"px",fontFamily : 'Poppins Light'}}>

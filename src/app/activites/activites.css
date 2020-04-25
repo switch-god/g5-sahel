@@ -1,24 +1,320 @@
-.justify-elements {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+/* Extra small devices  */
+@media (max-width: 575px) { 
+
+    .container-for-img {
+        position: relative;
+        margin-bottom: 10px;
+    }
+      
+      .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 5px 10px 2px 10px; /* Some padding */
+    }
+
+    .container-for-img .content h5 {
+        font-family: 'Poppins Bold';
+        padding: 5px;
+        font-size: 11px;
+    }
+  
+    .container-for-img .content p {
+        font-family: 'Poppins Bold';
+        padding-left: 5px;
+        font-size: 8px;
+    }
+
+
+    .genreImage {
+        width: 100%;
+        min-height: 220px;
+        max-height: 220px;
+    }
+
+    
+    .postImageBig {
+        min-height: 200px;
+        max-height: 200px; 
+    }
+    
+    .postTitleBig {
+        font-family: 'Poppins Bold';
+        font-size: 17px;
+    }
+
+    .dateBig {
+        color: #0099CC;
+        font-size: 14px;
+        font-family: 'Poppins Light';
+    }
+
+    .descBig {
+        font-size: 12px;
+        font-family: 'Poppins Light';
+        margin-bottom: 40px;
+    }
+
+    .postImageSmall {
+        min-height: 160px;
+        max-height: 160px; 
+        width: 100%;
+    }
+
+    .titleSmall {
+        font-size: 13px;
+        font-family: 'Poppins Bold';
+        margin-top: 10px;
+    }   
+    
+    .descSmall {
+        font-size: 9px;
+        font-family: 'Poppins Light';
+    }
+    
+    .dateSmall {
+        font-size: 9px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+
+    .sectionTitleRow {
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: black;
+        display: flex;
+        justify-content: center; 
+        margin-top: 20px;
+          
+    }
+
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        text-align: 'center';
+    }
+    
+    .titleSeperator {
+        border-color: black; 
+        margin-top: -5px;
+        border-width: 5px;
+        width: 100%;
+        margin-bottom: 30px; 
+    }
+ 
+    .buttonBlue {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: 'Poppins Light';
+    }
+    
+    .buttonBlue:hover {
+        padding : 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        border : 1px solid #0099CC;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        font-family: 'Poppins Light';
+    }
+
 }
 
-.buttonBlue {
-    padding : 12px;
-    background-color: #0099CC;
-    color: white;
-    border-radius: 0;
-    border : 0;
-    width: 150px;
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .buttonBlue {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+    }
+    
+    .buttonBlue:hover {
+        padding : 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        border : 1px solid #0099CC;
+    }
+    
 }
 
-.buttonBlue:hover {
-    padding : 12px;
-    background-color: white;
-    color: #0099CC;
-    border-radius: 0;
-    border : 0;
-    width: 150px;
-    border : 1px solid #0099CC;
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .buttonBlue {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+    }
+    
+    .buttonBlue:hover {
+        padding : 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        border : 1px solid #0099CC;
+    }
+    
 }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .buttonBlue {
+        padding : 17px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+    }
+    
+    .buttonBlue:hover {
+        padding : 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        border : 1px solid #0099CC;
+    }
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+
+    .postTitleBig {
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+    }
+
+    .dateBig {
+        color: #0099CC;
+        font-size: 14px;
+        font-family: 'Poppins Light';
+    }
+
+    .descBig {
+        font-size: 14px;
+        font-family: 'Poppins Light';
+    }
+
+    .titleSmall {
+        font-size: 10px;
+        font-family: 'Poppins Bold';
+    }   
+    
+    .descSmall {
+        font-size: 12px;
+        font-family: 'Poppins Light';
+    }
+    
+    .dateSmall {
+        font-size: 12px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+    
+    
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .buttonBlue {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+    }
+    
+    .buttonBlue:hover {
+        padding : 11px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        border : 1px solid #0099CC;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: black;
+        display: flex;
+        justify-content: center;    
+    }
+
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        text-align: 'center';
+    }
+    
+    .titleSeperator {
+        border-color: black; 
+        margin-top: -5px;
+        border-width: 5px;
+        margin-bottom: 30px; 
+        width: 100%;
+    }
+    
+}
+
+
