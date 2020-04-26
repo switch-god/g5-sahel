@@ -4,6 +4,7 @@ import {
     Col,
     Row,
     Image,
+    Container
 } from 'react-bootstrap';
 import moment from 'moment';
 
@@ -39,9 +40,9 @@ class News extends Component {
 
                 
 
-                <Layout xsColumns={12} columns={12}>
+                <Container fluid>
                     {this.renderBloc1()}
-                </Layout>
+                </Container>
 
                 {this.renderCommuniquePresse()}
 
@@ -53,8 +54,6 @@ class News extends Component {
                     <Newsletter />
                 </Layout>
               <>
-               
-
             </>
 
             </>
@@ -65,31 +64,111 @@ class News extends Component {
         const { posts } = this.props;
 
         return (
-        <Row>
-            <Col />
+            <Row>
+                <Col />
 
-            <Col xs={10} md={10}>
-
-                <Row>
-                    <Col xs={12} md={8}>
-                        <div className="news-big-img"> 
-                            <Row>
-                                <Image src={Image1} fluid  />
-                            </Row>
-                            <div className="content">
-                                <h3 style={{ fontFamily : 'Poppins Bold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
-                                <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>19 Septembre 2019</p>
+                <Col md={10}>
+                    
+                    <Row>
+                        <Col xs={12} xl={8}>
+                            <div className="news-big-img">    
+                                <Image src={Image1} fluid />
+                                <div className="content">
+                                    <h3 style={{ fontFamily : 'Poppins Bold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
+                                    <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>19 Septembre 2019</p>
+                                </div>
                             </div>
-                        </div>
-                    </Col>
-  
+                        </Col>
+                        
+                        <Col xs={10} xl={4}>
+                        {/* <Row>
+                            <h4 style={styles.TitleLarge} >Social Networks</h4>
+                            <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
+                        </Row> */}
+                        {/* TITLE */}
+                        <Row>
+                            <div className="sectionTitleContainer">
+                                <h4 className="sectionTitle">Social Networks</h4>
+                            </div>
+                            <hr  className="titleSeperator" />  
+                        </Row>
+                        {/* ./TITLE */}
+
+                        <Row style={{marginBottom : 10+"px"}}>
+                            <Col>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
+                            </Col>
+
+                            <Col>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
+                            </Col>
+                        </Row>
+                        
+                        <Row style={{marginBottom : 10+"px"}}>
+                            <Col>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
+                            </Col>
+                            
+                            <Col>
+                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                        
+                        {/* LATEST 3 NEWS */}   
+                            <div>
+                                {/* TITLE */}
+                                <Col xs={12} xl={12}>
+                                    <Row>
+                                        <div className="sectionTitleContainer">
+                                            <h4 className="sectionTitle">Ce mois</h4>
+                                        </div>
+                                        <hr  className="titleSeperator" />  
+                                    </Row>
+                                </Col>
+                                {/* ./TITLE */}
+                            {
+                            
+                            posts.map((post,index) => 
+                                index < 3 &&
+                                <Col key={index} xs={12} xl={12} style={{marginBottom : 20+"px",marginTop : 10+"px"}}>
+                                    <Row>
+                                        <Col xs xl={4}>
+                                            <Image src={post.fimg_url} fluid style={{ resizeMode : 'contain' }} />
+                                        </Col> 
+
+                                        <Col xs xl={8}>
+                                            
+                                            <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
+                                                {
+                                                    post.title.rendered.length > 100 
+                                                    ?
+                                                    post.title.rendered.substr(1,99) + "..."
+                                                    :
+                                                    post.title.rendered                                
+                                                }
+                                            </h5>
+                                            
+                                            <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[1].date).format("DD MMMM YYYY")}</p>
+                                        </Col>   
+                                    </Row>
+                                </Col>                            
+                            )
+
+                            }
+                            </div>
+                        {/* LATEST 3 NEWS */}
+                        </Row>    
+                            
+                        </Col>
+
                     </Row>
-            </Col>
-    
-            <Col />
-        </Row>
-    
-    );
+                </Col>
+        
+                <Col />
+            </Row>  
+        );
     };
 
     renderCommuniquePresse = () => {
@@ -137,8 +216,8 @@ class News extends Component {
 
                 <Row>
                     {
-                        posts.map(post => 
-                            <Col>
+                        posts.map((post,index) => 
+                            <Col key={index}>
                                 <Image src={post.fimg_url} fluid style={{minHeight : 157+"px"}} />
                                 <p style={styles.activityTitle}>{post.title.rendered}</p>
                                 <p style={styles.activityDesc}>{moment(post.date).format("DD MMMM YYYY")}</p>

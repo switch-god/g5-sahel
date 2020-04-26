@@ -160,7 +160,6 @@ class Home extends Component {
         );
     };
 
-    
     renderPosts = (posts,postsTitle) => {
         
         return (

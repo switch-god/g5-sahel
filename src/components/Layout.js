@@ -8,7 +8,8 @@ import {
 export default class Layout extends Component {
     
     render() {
-        let {columns,xsColumns} = this.props
+        let {columns,xsColumns} = this.props;
+        
         return (
             <Row style={this.props.style}>
                 <Col />
