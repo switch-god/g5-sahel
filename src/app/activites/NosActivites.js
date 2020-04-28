@@ -58,9 +58,9 @@ class NosActivites extends Component {
 
                 <Layout xsColumns={10}>
 
-                    <ScrollableAnchor id={'defenseSecurite'}><div></div></ScrollableAnchor>
+                    {/* <ScrollableAnchor id={'defenseSecurite'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
-                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                    <Row id="defenseSecurite" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
                             <h4 className="sectionTitle">Défense et Sécurité</h4>
                         </div>
@@ -70,9 +70,9 @@ class NosActivites extends Component {
 
                     {this.renderDefenseSecurite()}
 
-                    <ScrollableAnchor id={'gouvernance'}><div></div></ScrollableAnchor>
+                    {/* <ScrollableAnchor id={'gouvernance'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
-                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                    <Row id="gouvernance" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
                             <h4 className="sectionTitle">Gouvernance</h4>
                         </div>
@@ -82,9 +82,9 @@ class NosActivites extends Component {
 
                     {this.renderGouvernance()}
 
-                    <ScrollableAnchor id={'infrastructure'}><div></div></ScrollableAnchor>
+                    {/* <ScrollableAnchor id={'infrastructure'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
-                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                    <Row id="infrastructure" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
                             <h4 className="sectionTitle">Infrastructure</h4>
                         </div>
@@ -94,9 +94,9 @@ class NosActivites extends Component {
                     {this.renderInfra()}
                     
 
-                    <ScrollableAnchor id={'resilence'}><div></div></ScrollableAnchor>
+                    {/* <ScrollableAnchor id={'resilence'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
-                    <Row style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                    <Row id="resilence" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
                             <h4 className="sectionTitle">Résilience</h4>
                         </div>

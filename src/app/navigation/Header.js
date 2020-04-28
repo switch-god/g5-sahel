@@ -16,6 +16,7 @@ import { connect } from 'react-redux';
 
 
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import { IoIosSearch } from 'react-icons/io';
 import {AutoComplete} from 'primereact/autocomplete';
 
@@ -111,7 +112,7 @@ class Header extends Component {
             <div className="dropdown-content">
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/nos-activites#defenseSecurite">Défense et sécurité</a>
+                    <HashLink style={styles.MainMenuLinks} to="/nos-activites#defenseSecurite">Défense et sécurité</HashLink>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -200,10 +201,10 @@ class Header extends Component {
 
                     <NavDropdown title="Nos Activités" style={styles.collapsible}>
                         <Link style={styles.navItem} className="dropdown-item" to="/nos-activites">Nos Activités</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#defenseSecurite">Défense et sécurité</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#gouvernance">Gouvernance</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#infrastructure">Infrastructures</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#resilence">Résilience & Développement humain</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites">Défense et sécurité</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites">Gouvernance</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites">Infrastructures</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites">Résilience & Développement humain</Link>
                     </NavDropdown>
                     
                     <NavDropdown title="Actualités" style={styles.collapsible}>
