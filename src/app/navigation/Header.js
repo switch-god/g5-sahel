@@ -201,10 +201,10 @@ class Header extends Component {
 
                     <NavDropdown title="Nos Activités" style={styles.collapsible}>
                         <Link style={styles.navItem} className="dropdown-item" to="/nos-activites">Nos Activités</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#defenseSecurite">Défense et sécurité</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#gouvernance">Gouvernance</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#infrastructure">Infrastructures</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#resilence">Résilience & Développement humain</Link>
+                        <HashLink style={styles.navItem} className="dropdown-item" to="/nos-activites#defenseSecurite">Défense et sécurité</HashLink>
+                        <HashLink style={styles.navItem} className="dropdown-item" to="/nos-activites#gouvernance">Gouvernance</HashLink>
+                        <HashLink style={styles.navItem} className="dropdown-item" to="/nos-activites#infrastructure">Infrastructures</HashLink>
+                        <HashLink style={styles.navItem} className="dropdown-item" to="/nos-activites#resilence">Résilience & Développement humain</HashLink>
                     </NavDropdown>
                     
                     <NavDropdown title="Actualités" style={styles.collapsible}>
