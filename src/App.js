@@ -20,7 +20,7 @@ import Footer from './app/navigation/Footer';
    
    import Home from './app/home/Home';
    import Presentation from './app/presentation/Presentation';
-   import News from './app/news/News';
+   import Actualites from './app/actualites/Actualites';
    import Events from './app/events/Events';
    import Contact from './app/contact/Contact';
    import NosActivites from './app/activites/NosActivites';
@@ -66,7 +66,7 @@ export class App extends Component {
               </Route>
 
               <Route exact path="/actualites">
-                <News />
+                <Actualites />
               </Route>
 
               <Route exact path="/events">

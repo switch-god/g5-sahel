@@ -3,7 +3,15 @@ import axios from 'axios';
 import moment from 'moment';
 
 // Global Config :
-   import { config, HOME_BLOC1_IMGS,POSTS,EVENTS,ACTIVITES } from '../../constants/AppConfig';
+  import { 
+    config, 
+    HOME_BLOC1_IMGS,POSTS,EVENTS,ACTIVITES,  
+    DEFENSE_SECURITE,
+    GOUVERNANCE,
+    INFRASTRUCTURE,
+    RESILENCE,
+
+} from '../../constants/AppConfig';
 
 
 export const getImagesBloc = () => async (dispatch) => {
@@ -1039,3 +1047,82 @@ export const setLoading = (value) => dispatch => {
       payload : value,
     });
 }
+
+//**************************//
+// NOS ACTIVITES FUNCTIONS //
+
+export const getDefenseSecurite = () => dispatch => {
+      
+      axios.get(`${config.url}wp/v2/posts?categories=${DEFENSE_SECURITE}`)
+      .then(response => {
+        dispatch({
+            type : 'GET_DEFENSE_SECURITE',
+            payload : response.data,
+        });
+      })
+      .catch(error => {
+        console.log("erreur axios getDefenseSecurite/PostsActions");
+      });
+
+};
+
+export const getGouvernance = () => dispatch => {
+      
+      axios.get(`${config.url}wp/v2/posts?categories=${GOUVERNANCE}`)
+      .then(response => {
+        dispatch({
+            type : 'GET_GOUVERNANCE',
+            payload : response.data,
+        });
+      })
+      .catch(error => {
+        console.log("erreur axios getGouvernance/PostsActions");
+      });
+
+};
+
+export const getInfrastructure = () => dispatch => {
+      
+      axios.get(`${config.url}wp/v2/posts?categories=${INFRASTRUCTURE}`)
+      .then(response => {
+        dispatch({
+            type : 'GET_INFRASTRUCTURE',
+            payload : response.data,
+        });
+      })
+      .catch(error => {
+        console.log("erreur axios getInfrastructure/PostsActions");
+      });
+
+};
+
+export const getResilence = () => dispatch => {
+      
+      axios.get(`${config.url}wp/v2/posts?categories=${RESILENCE}`)
+      .then(response => {
+        dispatch({
+            type : 'GET_RESILENCE',
+            payload : response.data,
+        });
+      })
+      .catch(error => {
+        console.log("erreur axios getResilence/PostsActions");
+      });
+
+};
+
+
+
+// NOS ACTIVITES FUNCTIONS //
+//**************************//
+
+
+
+//**************************//
+// EVENTS FUNCTIONS //
+
+
+
+
+// EVENTS FUNCTIONS //
+//**************************//

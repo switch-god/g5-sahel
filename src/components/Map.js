@@ -18,8 +18,8 @@ export default class Map extends Component {
             <>
                 <Row>
                     {/* <Image src={MapImg} style={{padding : 50+"px"}} fluid/> */}
-                    <div class="mapouter">
-                        <div class="gmap_canvas">
+                    <div className="mapouter">
+                        <div className="gmap_canvas">
                             <iframe width={'90%'} height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Route%20des%20Ambassades%20%E2%80%93%20Nouakchott%20-%20Mauritanie&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </div>

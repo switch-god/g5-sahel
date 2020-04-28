@@ -104,7 +104,7 @@ class Events extends Component {
                     
                     <Col md="4">
                         <h6 style={styles.searchTitle}>RECHERCHE</h6>
-                        <input type="text" class="form-control no-border-input" placeholder="Titre événement..." value={this.state.evenTitle} onChange={evenTitle => this.searchByTitle(evenTitle)}  />
+                        <input type="text" className="form-control no-border-input" placeholder="Titre événement..." value={this.state.evenTitle} onChange={evenTitle => this.searchByTitle(evenTitle)}  />
                     </Col>
 
                     <Col />
@@ -126,7 +126,7 @@ class Events extends Component {
             eventYear.eventsPerYear.map(monthHasEvents => 
                 monthHasEvents.events.length > 0 &&
                 <div>
-                    <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} class="separator"> 
+                    <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} className="separator"> 
                         <h1 style={styles.eventDateTitle}> {monthHasEvents.monthName} {eventYear.id} </h1>
                     </div>
                     {

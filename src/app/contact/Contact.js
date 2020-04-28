@@ -133,7 +133,7 @@ export default class Contact extends Component {
 
         return (
             <>
-            <div style={{marginTop : 60+"px", marginBottom : 60+"px"}} class="separator"> <h2 style={styles.mapTitle}> MAP </h2> </div>
+            <div style={{marginTop : 60+"px", marginBottom : 60+"px"}} className="separator"> <h2 style={styles.mapTitle}> MAP </h2> </div>
             <Image src={MAP_IMG} fluid />
             </>
         );

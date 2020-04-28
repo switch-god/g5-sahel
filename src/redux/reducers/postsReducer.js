@@ -7,10 +7,39 @@ const initialState = {
     activites : [],
     jobs : [],
     searchStatus : false,
+
+    // Nos Activites :
+    defense_securite : [],
+    gouvernance : [],
+    infrastructure : [],
+    resilence : [],
 };
 
 const postsReducer = (state = initialState, action) => {
     switch(action.type) {
+
+        case 'GET_RESILENCE' : 
+            return {
+                ...state,
+                resilence : action.payload,
+            }
+        case 'GET_INFRASTRUCTURE' : 
+            return {
+                ...state,
+                infrastructure : action.payload,
+            }
+
+        case 'GET_GOUVERNANCE' : 
+            return {
+                ...state,
+                gouvernance : action.payload,
+            }
+
+        case 'GET_DEFENSE_SECURITE' :
+            return {
+                ...state,
+                defense_securite : action.payload
+            }
         
         case 'SET_LOADING' : 
             return {

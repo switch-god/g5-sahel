@@ -199,7 +199,7 @@ class Home extends Component {
 
                             <Row>
                                 <p className="articleContent">
-                                    {posts[0].content.rendered.replace("<p>","").replace('</p>',"")}
+                                    {posts[0].content.rendered.replace(/<[^>]*>?/gm, '')}
                                 </p>
                             </Row>
 
@@ -238,11 +238,11 @@ class Home extends Component {
                                     </h5>
                                     <p className="smallArticleContent">
                                         {
-                                            post.content.rendered.replace("<p>","").replace('</p>',"").length > 150
+                                            post.content.rendered.replace(/<[^>]*>?/gm, '').length > 150
                                             ?
-                                            post.content.rendered.replace("<p>","").replace('</p>',"").substr(1,149) + "..."
+                                            post.content.rendered.replace(/<[^>]*>?/gm, '').substr(1,149) + "..."
                                             :
-                                            post.content.rendered.replace("<p>","").replace('</p>',"")
+                                            post.content.rendered.replace(/<[^>]*>?/gm, '')
                                         }
                                     </p>
                                     <p className="smallArticleDate">

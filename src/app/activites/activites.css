@@ -230,7 +230,133 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+
+    /* RESILENCE */
+ 
+    .resiImageBig {
+        min-height: 420px;
+        max-height: 420px;
+        width: 100%;
+    }
+
+    .resiTitleBig {
+        font-size: 20px;
+        font-family: 'Poppins Bold';
+    }   
     
+    .resiDescBig {
+        font-size: 14px;
+        font-family: 'Poppins Light';
+    }
+    
+    .resiDateBig {
+        color: #0099CC;
+        font-size: 14px;
+        font-family: 'Poppins Light';
+    }
+
+    .resilenceRow {
+        margin-bottom: 20px;
+    }
+      
+    .resiImageSmall {
+        min-height: 200px;
+        max-height: 200px;
+        width: 100%;
+    }
+  
+    .resi-justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .resiTitleSmall {
+        font-size: 15px;
+        font-family: 'Poppins Bold';
+    }   
+    
+    .resiDescSmall {
+        font-size: 10px;
+        font-family: 'Poppins Light';
+    }
+    
+    .resiDateSmall {
+        font-size: 12px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+    
+    /* ./RESILENCE */
+
+
+    /* INFRA */
+
+        .infraTitleContainer {
+            min-height: 100px;
+            max-height: 100px;
+        }
+        .infraDateContainer {
+            max-height: 300px;
+        }
+        .infraDescContainer {
+            min-height: 90px;
+            max-height: 90px;
+            
+        }
+        .infraImage {
+            min-height: 250px;
+            max-height: 250px;
+        }
+
+        .infraTitle {
+            font-size: 15px;
+            font-family: 'Poppins Bold';
+        }   
+        
+        
+        .infraDate {
+            font-size: 12px;
+            font-family: 'Poppins Light';
+            color: #0099CC;
+        }
+
+        .infraDesc {
+            font-size: 10px;
+            font-family: 'Poppins Light';
+        }
+
+    /* ./INFRA */
+
+    /* GOUVERNANCE */
+
+        .gouvSmallRow {
+            margin-top: 20px;
+        }
+
+        .gouvImageSmall {
+            min-height: 150px;
+            max-height: 150px;
+        }
+
+        .genreImage {
+            width: 100%;
+            min-height: 420px;
+            max-height: 420px;
+        }
+    
+    
+    /* ./GOUVERNANCE */
+
+
+    .smallArticleRow {
+        margin-bottom: 20px;
+    }
+
+    .postImageBig {
+        min-height: 420px;
+        max-height: 420px; 
+    }
 
     .postTitleBig {
         font-family: 'Poppins Bold';
@@ -248,13 +374,20 @@
         font-family: 'Poppins Light';
     }
 
+    .postImageSmall {
+        min-height: 200px;
+        max-height: 200px; 
+        width: 100%;
+    }
+
+
     .titleSmall {
-        font-size: 10px;
+        font-size: 15px;
         font-family: 'Poppins Bold';
     }   
     
     .descSmall {
-        font-size: 12px;
+        font-size: 10px;
         font-family: 'Poppins Light';
     }
     
@@ -264,6 +397,11 @@
         color: #0099CC;
     }
     
+    .justify-elements-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     
     .justify-elements {
         display: flex;
@@ -303,7 +441,7 @@
     .sectionTitle {
         color: #fff;
         font-family: 'Poppins Bold';
-        font-size: 15px;
+        font-size: 20px;
         text-align: 'center';
     }
     
