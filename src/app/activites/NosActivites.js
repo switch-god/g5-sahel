@@ -228,11 +228,11 @@ class NosActivites extends Component {
                                 <Col xs={12} xl={12}>
                                     <Row className="gouvSmallRow">
                                         <Col xl={4}>
-                                            <Image src={DFS_2} fluid className="gouvImageSmall"  />
+                                            <Image src={gouv.fimg_url !== false ? gouv.fimg_url : GENRE} fluid className="gouvImageSmall"  />
                                         </Col>
                                         <Col className="justify-elements-center">
-                                            <h4 className="titleSmall">“Atlantic Dialogues“ nouveau contrat social est devenu un impératif</h4>
-                                            <p  className="dateSmall">19 Septembre 2019</p>
+                                            <h4 className="titleSmall">{gouv.title.rendred}</h4>
+                                            <p  className="dateSmall">{moment(gouv.date).format("DD MMMM YYYY")}</p>
                                         </Col>
                                     </Row>
                                 </Col>
