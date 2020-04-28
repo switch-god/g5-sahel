@@ -73,7 +73,7 @@ export class App extends Component {
                 <Events />
               </Route>
 
-              <Route exact path="/nos-activites">
+              <Route path="/nos-activites">
                 <NosActivites />
               </Route>
               

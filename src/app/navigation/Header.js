@@ -116,15 +116,15 @@ class Header extends Component {
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/nos-activites">Gouvernance</a>
+                    <HashLink style={styles.MainMenuLinks} to="/nos-activites">Gouvernance</HashLink>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/nos-activites">Infrastructures</a>
+                    <HashLink style={styles.MainMenuLinks} to="/nos-activites#infrastructure">Infrastructures</HashLink>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/nos-activites">Résilience et Développement humain</a>
+                    <HashLink style={styles.MainMenuLinks} to="/nos-activites#resilence">Résilience et Développement humain</HashLink>
                 </Row>
                 {/* NESTED LINKS */}
             </div>
