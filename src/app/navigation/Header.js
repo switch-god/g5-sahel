@@ -112,19 +112,19 @@ class Header extends Component {
             <div className="dropdown-content">
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <HashLink style={styles.MainMenuLinks} to="/nos-activites#defenseSecurite">Défense et sécurité</HashLink>
+                    <HashLink style={styles.MainMenuLinks} to="/nos-activites">Défense et sécurité</HashLink>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/nos-activites#gouvernance">Gouvernance</a>
+                    <a style={styles.MainMenuLinks} href="/nos-activites">Gouvernance</a>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/nos-activites#infrastructure">Infrastructures</a>
+                    <a style={styles.MainMenuLinks} href="/nos-activites">Infrastructures</a>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/nos-activites#resilence">Résilience et Développement humain</a>
+                    <a style={styles.MainMenuLinks} href="/nos-activites">Résilience et Développement humain</a>
                 </Row>
                 {/* NESTED LINKS */}
             </div>
