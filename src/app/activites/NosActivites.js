@@ -109,11 +109,6 @@ class NosActivites extends Component {
                         <Newsletter />
                     </div>
                 </Layout>
-
-                
-
-
-
            </>
         )
     }
@@ -329,7 +324,7 @@ class NosActivites extends Component {
                 {
                     infrastructure.map((infra,index) => 
                     infra && infra.status == "publish" && index < 4 &&
-                        <Col>
+                        <Col xs={12} xl={3}>
                             <Image src={infra.fimg_url} fluid className="infraImage" />
                             <div style={{marginTop : 20+"px"}}>
                                 <div className="infraTitleContainer">

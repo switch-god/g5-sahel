@@ -191,37 +191,38 @@ class Header extends Component {
 
                 <Col>
                     <NavDropdown title="Présentation" style={styles.collapsible}>
-                        <NavDropdown.Item style={styles.navItem} href="/presentation">Présentation</NavDropdown.Item>
-                        <NavDropdown.Item style={styles.navItem} href="/presentation">Secrétariat Exécutif</NavDropdown.Item>
-                        <NavDropdown.Item style={styles.navItem} href="/presentation">Communes Nationales De Coordination</NavDropdown.Item>
-                        <NavDropdown.Item style={styles.navItem} href="/presentation">Structures Rattachées</NavDropdown.Item>
-                        <NavDropdown.Item style={styles.navItem} href="/presentation">Organigramme</NavDropdown.Item>
+                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Présentation</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Secrétariat Exécutif</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Communes Nationales De Coordination</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Structures Rattachées</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Organigramme</Link>
                     </NavDropdown>
 
                     <NavDropdown title="Nos Activités" style={styles.collapsible}>
-                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Nos Activités</NavDropdown.Item>
-                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Défense et sécurité</NavDropdown.Item>
-                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Gouvernance</NavDropdown.Item>
-                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Infrastructures</NavDropdown.Item>
-                        <NavDropdown.Item  style={styles.navItem} href="/nos-activites">Résilience et Développement humain</NavDropdown.Item>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites">Nos Activités</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#defenseSecurite">Défense et sécurité</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#gouvernance">Gouvernance</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#infrastructure">Infrastructures</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/nos-activites#resilence">Résilience & Développement humain</Link>
                     </NavDropdown>
                     
                     <NavDropdown title="Actualités" style={styles.collapsible}>
-                        <NavDropdown.Item style={styles.navItem} href="/actualites">Nos actualités</NavDropdown.Item>
+                        <Link style={styles.navItem} className="dropdown-item" to="/actualites">Nos actualités</Link>
+
                     </NavDropdown>
                     
                     <NavDropdown title="Evenements" style={styles.collapsible}>
-                        <NavDropdown.Item style={styles.navItem} href="/events">Nos événements</NavDropdown.Item>
-                        <NavDropdown.Item style={styles.navItem} href="/events">Prochains événements</NavDropdown.Item>
-                        <NavDropdown.Item style={styles.navItem} href="/events">Événements passés</NavDropdown.Item>
+                        <Link style={styles.navItem} className="dropdown-item" to="/events">Nos événements</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/events">Prochains événements</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/events">Événements passés</Link>
                     </NavDropdown>
                     
                        
                     <NavDropdown title="Documentation" style={styles.collapsible}>
-                        <NavDropdown.Item  style={styles.navItem}  href="/documentation">Documentation</NavDropdown.Item>
-                        <NavDropdown.Item  style={styles.navItem}  href="/documentation">Règlementation</NavDropdown.Item>
-                        <NavDropdown.Item  style={styles.navItem} href="/documentation">Newsletter</NavDropdown.Item>
-                        <NavDropdown.Item  style={styles.navItem} href="/documentation">SDS, PIP</NavDropdown.Item>
+                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">Documentation</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">Règlementation</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">Newsletter</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">SDS, PIP</Link>
                     </NavDropdown>
                     
                 </Col>
