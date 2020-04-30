@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 import React, { Component } from 'react'
 
 import {
@@ -12,6 +13,8 @@ import {
 import {Link} from 'react-router-dom';
 
 // Icons & Images & Styling :
+import ORGANIGRAMME from '../../assets/pdf/organigramme.pdf';
+const URL_PDF = "https://g5sahel.switch.tn/wp-content/uploads/2020/04/images_Docs_Déclaration_Amb._Sidikou_CPS_UA_20Avr20_vf.pdf";
 import PDF_THUMB from '../../assets/images/Documentation/pdf_thumb.png';
 import { IoIosList,IoMdGrid } from 'react-icons/io';
 import { AiOutlineDownload } from 'react-icons/ai';
@@ -33,9 +36,13 @@ export default class Documentation extends Component {
         };
     }
 
+    componentDidMount() {
+;
+    }
+
 
     render() {
-        const { showMode, pageNumber, numPages } = this.state;
+        const { showMode } = this.state;
 
         return (
             <>
@@ -50,6 +57,11 @@ export default class Documentation extends Component {
                     <Col xs={12} xl={10}>
                         <Row className="ml-5">
                             {this.renderShowMode()}
+                        </Row>
+
+
+                        <Row>
+                      
                         </Row>
 
                         {
@@ -135,7 +147,8 @@ export default class Documentation extends Component {
                         <Row>
                             <Col xs={6} xl={3}>
                                 <Row>
-                                    <Image src={PDF_THUMB} fluid className="documentThumb" />
+                                    {/* <Image src={PDF_THUMB} fluid className="documentThumb" /> */}
+                                    <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object>
                                 </Row>
                             </Col>
 
@@ -167,13 +180,14 @@ export default class Documentation extends Component {
                     <Col xs={12} xl={4}>
                         <Jumbotron className="documentGridBox">
                         <Row>
-                            <Col xs={6} xl={3}>
+                            <Col xs={6} xl={4}>
                                 <Row>
-                                    <Image src={PDF_THUMB} fluid className="documentGridThumb" />
+                                    {/* <Image src={PDF_THUMB} fluid className="documentGridThumb" /> */}
+                                    <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object>
                                 </Row>
                             </Col>
 
-                            <Col xs={6} xl={9}>
+                            <Col xs={6} xl={8}>
                                 <h4 className="documentGridTitle">Convention portant création du G5 Sahel </h4>
                               
                                 <p className="documentGridButtonContainer">
