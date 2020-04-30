@@ -8,6 +8,12 @@ const initialState = {
     jobs : [],
     searchStatus : false,
 
+    // Presentation :
+    presentation_bloc_1 : [],
+    presentation_bloc_2 : [],
+    presentation_citation : [],
+    
+
     // Nos Activites :
     defense_securite : [],
     gouvernance : [],
@@ -17,6 +23,12 @@ const initialState = {
 
 const postsReducer = (state = initialState, action) => {
     switch(action.type) {
+
+        case 'GET_PRESENTATION_BLOC_1' :
+            return {
+                ...state,
+                presentation_bloc_1 : action.payload,
+            }
 
         case 'GET_RESILENCE' : 
             return {

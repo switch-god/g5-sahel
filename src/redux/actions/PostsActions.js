@@ -6,6 +6,7 @@ import moment from 'moment';
   import { 
     config, 
     HOME_BLOC1_IMGS,POSTS,EVENTS,ACTIVITES,  
+    PRESENTATION,
     DEFENSE_SECURITE,
     GOUVERNANCE,
     INFRASTRUCTURE,
@@ -1047,6 +1048,32 @@ export const setLoading = (value) => dispatch => {
       payload : value,
     });
 }
+
+//**************************//
+// PRESENTATION FUNCTIONS //
+export const getPresentation = () => dispatch => {
+    getPresentationBloc1();
+
+}
+
+export const getPresentationBloc1 = () => dispatch => {
+  axios.get(`${config.url}wp/v2/posts?categories=${PRESENTATION}`)
+  .then(response => {
+      dispatch({
+          type : 'GET_PRESENTATION_BLOC_1',
+          payload : response.data,
+      });
+  })
+  .catch(error => {
+    console.log("erreur axios getPresentation/PostsActions");
+  });
+}
+
+
+
+
+//**************************//
+
 
 //**************************//
 // NOS ACTIVITES FUNCTIONS //

@@ -305,8 +305,8 @@
             
         }
         .infraImage {
-            min-height: 250px;
-            max-height: 250px;
+            min-height: 200px;
+            max-height: 200px;
         }
 
         .infraTitle {
@@ -335,8 +335,8 @@
         }
 
         .gouvImageSmall {
-            min-height: 150px;
-            max-height: 150px;
+            min-height: 110px;
+            max-height: 110px;
         }
 
         .genreImage {

@@ -1,43 +1,51 @@
-.descriptionContainer {
-    border-left: 8px solid #0099CC;
-    background-color: #F2F2F2;
-}
 
-ul {
-    list-style-image: url('../../assets/images/Presentation/square_small.png');
-}
-
-.justify-elements {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.presentationDivider {
-    display: none;
-}
 
 /* Extra small devices  */
 @media (max-width: 575px) { 
-   .presentationTitle {
-        font-family: 'Poppins Bold';
-        margin-top: 20px;
-   }
+   
+    /* PRSEENATATION IMAGES BLOC 1 & 2 */
 
-   .presentationDate {
-        color: #0099CC;
+    .objetListItem {
+        margin: 10px 0px;
+    }
+
+    .presentationDesc {
         font-family: 'Poppins Light';
-   }
+        font-size: 18px;
+    }
 
-   .presentationDesc {
-        font-family: 'Poppins Light';
-        font-size: 15px;
-   }
+    .presentationImages {
+        min-height: 300px;
+        max-height: 300px;
+        width: 100%;
+    }
+/* ./PRSEENATATION BLOC 1 */
 
-   .presentationDivider {
-       display: flex;
-   }
 
+    /* CITATION */
+        .descriptionContainer {
+            border-left: 8px solid #0099CC;
+            background-color: #F2F2F2;
+        }
+    /* CITATION */
+
+    /* ARTICLES PRESENTATION */
+        .customBulletList {
+            list-style-image: url('../../assets/images/Presentation/square_small.png');
+        }
+
+    /* ARTICLES PRESENTATION */
+
+
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .presentationDivider {
+        display: flex;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -58,4 +66,42 @@ ul {
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
     
+    /* PRSEENATATION IMAGES BLOC 1 & 2 */
+
+        .objetListItem {
+            margin: 10px 0px;
+        }
+   
+        .presentationDesc {
+            font-family: 'Poppins Light';
+            font-size: 18px;
+        }
+
+        .presentationImages {
+            min-height: 400px;
+            max-height: 400px;
+            width: 100%;
+        }
+    /* ./PRSEENATATION BLOC 1 */
+
+
+
+    .descriptionContainer {
+        border-left: 8px solid #0099CC;
+        background-color: #F2F2F2;
+    }
+    
+    .customBulletList {
+        list-style-image: url('../../assets/images/Presentation/square_small.png');
+    }
+    
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .presentationDivider {
+        display: none;
+    }
 }

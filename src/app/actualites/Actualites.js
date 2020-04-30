@@ -63,14 +63,14 @@ class Actualites extends Component {
 
         return (
             <Row>
-                <Col />
+                <Col xs={0} xl={1} />
 
-                <Col md={10}>
+                <Col xs={12} xl={10}>
                     
                     <Row>
                         <Col xs={12} xl={8}>
                             <div className="news-big-img">    
-                                <Image src={Image1} fluid />
+                                <Image src={Image1} fluid className="bigImageBloc1" />
                                 <div className="content">
                                     <h3 style={{ fontFamily : 'Poppins Bold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
                                     <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>19 Septembre 2019</p>
@@ -78,88 +78,91 @@ class Actualites extends Component {
                             </div>
                         </Col>
                         
-                        <Col xs={10} xl={4}>
-                        {/* TITLE */}
-                        <Row className="sectionTitleRowActualites">
-                            <div className="sectionTitleContainerActualites">
-                                <h4 className="sectionTitleActualites">Social Networks</h4>
-                            </div>
-                            <hr  className="titleSeperator" />  
-                        </Row>
-                        {/* ./TITLE */}
-
-                        <Row style={{marginBottom : 10+"px"}}>
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
-                            </Col>
-
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
-                            </Col>
-                        </Row>
-                        
-                        <Row style={{marginBottom : 10+"px"}}>
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
-                            </Col>
+                        <Col xs={12} xl={4}>
                             
-                            <Col>
-                                <a style={{fontSize : 20+"px",fontFamily : 'Poppins Bold'}}><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
-                            </Col>
-                        </Row>
-
-                        <Row>
+                        {/* TITLE */}
+                        <Col xs={12} xl={12}>
+                            <Row>
+                                <div className="sectionTitleContainerActualites">
+                                    <h4 className="sectionTitleActualites">Social Networks</h4>
+                                </div>
+                                <hr  className="titleSeperator" />  
+                            </Row>
+                        </Col>
+                        {/* ./TITLE */}
                         
-                        {/* LATEST 3 NEWS */}   
-                            <div>
-                                {/* TITLE */}
-                                <Col xs={12} xl={12}>
-                                    <Row className="sectionTitleRowActualites">
-                                        <div className="sectionTitleContainerActualites">
-                                            <h4 className="sectionTitleActualites">Ce mois</h4>
-                                        </div>
-                                        <hr  className="titleSeperator" />  
-                                    </Row>
+                        
+                        <Col xs={12} xl={12}>
+                            <Row style={{marginBottom : 10+"px"}}>
+                                <Col xs={6} xl={6}>
+                                    <a className="socialLinka"><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
                                 </Col>
-                                {/* ./TITLE */}
+
+                                <Col xs={6} xl={6}>
+                                    <a className="socialLinka"><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
+                                </Col>
+                            </Row>
+                            
+                            <Row style={{marginBottom : 10+"px"}}>
+                                <Col xs={6} xl={6}>
+                                    <a className="socialLinka"><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
+                                </Col>
+                                
+                                <Col xs={6} xl={6}>
+                                    <a className="socialLinka"><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
+                                </Col>
+                            </Row>
+                        </Col>
+
+
+                        <Col xs={12} xl={12}>
+                            {/* TITLE */}
+                            <Row>
+                                <div className="sectionTitleContainerActualites">
+                                    <h4 className="sectionTitleActualites">Ce mois</h4>
+                                </div>
+                                <hr  className="titleSeperator" />  
+                            </Row>
+                        {/* ./TITLE */}
+                        </Col>
+                        
+                        <Col xs={12} xl={12}>
+                        <Row className="articlesRow">
+                        {/* LATEST 3 NEWS */}   
+                
                             {
                             posts.map((post,index) => 
                                 index < 3 &&
-                                <Col key={index} xs={12} xl={12} style={{marginBottom : 20+"px",marginTop : 10+"px"}}>
-                                    <Row>
-                                        <Col xs={12} xl={4}>
-                                            <Image src={post.fimg_url} fluid style={{ resizeMode : 'contain' }} />
-                                        </Col> 
+                                <Row key={index} className="ceMoisArticleContainer">
+                                    <Col xs={12} xl={5}>
+                                        <Image src={post.fimg_url} fluid className="imageCeMois" />
+                                    </Col> 
 
-                                        <Col xs={12} xl={8}>
-                                            
-                                            <h5 style={{fontFamily : 'Poppins Bold',fontSize : 13+"px"}}>
-                                                {
-                                                    post.title.rendered.length > 100 
-                                                    ?
-                                                    post.title.rendered.substr(1,99) + "..."
-                                                    :
-                                                    post.title.rendered                                
-                                                }
-                                            </h5>
-                                            
-                                            <p style={{fontFamily : 'Poppins SemiBold', fontSize : 12,color : '#666666'}}>{moment(posts[1].date).format("DD MMMM YYYY")}</p>
-                                        </Col>   
-                                    </Row>
-                                </Col>                            
+                                    <Col xs={12} xl={7}>
+                                        <h5 className="titleCeMois">
+                                            {
+                                                post.title.rendered.length > 100 
+                                                ?
+                                                post.title.rendered.substr(1,99) + "..."
+                                                :
+                                                post.title.rendered                                
+                                            }
+                                        </h5>
+                                        <p  className="dateCeMois">{moment(posts[1].date).format("DD MMMM YYYY")}</p>
+                                    </Col>   
+                                </Row>                        
                             )
-
-                            }
-                            </div>
+                        }
                         {/* LATEST 3 NEWS */}
                         </Row>    
-                            
+                        
                         </Col>
-
+                        
+                        </Col>
                     </Row>
                 </Col>
         
-                <Col />
+                <Col xs={0} xl={1} />
             </Row>  
         );
     };

@@ -1,9 +1,175 @@
-@media (max-width: 767px) { 
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+   
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+    /* GRID MODE */
+    .documentGridBox {
+        background-color: white;
+        border: 1px solid #E3E3E3;
+        border-radius: 0;
+        min-height: 150px;
+        max-height: 150px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .documentGridBox:hover {
+        background-color: white;
+        border: 0;
+        border-left: 5px solid #0099CC;
+        border-radius: 0;
+        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
+        padding: 15px;  
+    }
+    .documentGridBox:hover .documentGridTitle{
+        color: #0099CC;
+    }
+    
+    .documentGridBox:hover .documentGridButton {
+        background-color: transparent;
+        color: #0099CC;
+    } 
+
+
+    .documentGridThumb {
+        max-height: 80px;
+        min-height: 80px;
+    }
+    
+    .documentGridTitle {
+        color: #666666;
+        font-family: 'Poppins SemiBold';
+        font-size: 18px;
+    }
+  
+    .documentGridButtonContainer {
+        float: right;
+        margin-top: 20px;
+    }
+    .documentGridButton {
+        background-color: white;
+        color: #666666;
+        border: 0;
+        margin-top: 20px;
+        font-family: 'Poppins Light';
+    }
+
+    /* ./GRID MODE */
+
+
+
+
+
+    /* LIST MODE */
+    .documentBox {
+        background-color: white;
+        border: 1px solid #E3E3E3;
+        border-radius: 0;
+        min-height: 200px;
+        max-height: 200px;
+        padding: 30px 40px 70px 40px;
+    }
+
+    .documentBox:hover {
+        background-color: white;
+        border: 0;
+        border-left: 5px solid #0099CC;
+        border-radius: 0;
+        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
+        padding: 35px 35px 35px 35px;  
+    }
+    .documentBox:hover .documentTitle{
+        color: #0099CC;
+    }
+    
+    .documentBox:hover .documentButton {
+        background-color: transparent;
+        color: #0099CC;
+    } 
+
+
+    .documentThumb {
+        max-height: 100px;
+        min-height: 100px;
+    }
+    
+    .documentTitle {
+        color: #666666;
+        font-family: 'Poppins SemiBold';
+        font-size: 18px;
+    }
+    
+    .documentDesc {
+        color: #666666;
+        font-family: 'Poppins Light';
+        font-size: 10px;
+    }
+    
+    .documentButton {
+        background-color: white;
+        color: #666666;
+        border: 0;
+        font-family: 'Poppins Light';
+    }
+    
+    
+    
+    
+
+
+    /* LIST MODE */
+
+
+    .alignBlocShow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .showModeText {
+        font-family: 'Poppins Bold';
+        font-size: 18px;
+        color: '#666666';
+        margin-top: 10px
+    }
+
+    .showModeButton {
+        border: 1px solid #666666;
+        background-color: 'white';
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: ; 
+    }
+
     .stickyNavbar {
         background-color: #F5F5F5;
         margin-top : -50px;
         height: 100%;
-        text-align: center;
+        padding-bottom: 500px
     }
     
     .stickyNavbarLink {
@@ -11,9 +177,10 @@
         margin-bottom: 10px;
         font-family: 'Poppins Light';
     }
-
+    
+    
     .mtNavbar {
-        margin-top: 10px;
+        margin-top: 100px;
     }
     
     .stickyNavbarLink:hover {
@@ -22,112 +189,9 @@
         font-family: 'Poppins Light';
     }
     
-    .boxTitle {
-        color: #666666;
-        font-family: 'Poppins SemiBold';
-    }
-    
-    .boxDesc {
-        color: #666666;
-        font-family: 'Poppins Light';
-    }
-    
-    .boxButton {
-        background-color: white;
-        color: #666666;
-        border: 0;
-        font-family: 'Poppins Light';
-    }
-    
-    .box {
-        background-color: white;
-        border: 1px solid #E3E3E3;
-        border-radius: 0;
-    }
-    
-    .box:hover {
-        background-color: white;
-        border: 0;
-        border-left: 5px solid #0099CC;
-        border-radius: 0;
-        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);   
-    }
-    .box:hover .boxTitle{
-        color: #0099CC;
-    }
-    
-    .box:hover .boxButton {
-        background-color: transparent;
-        color: #0099CC;
-    }
+   
 }
 
-@media (min-width: 768px) { 
-
-.stickyNavbar {
-    background-color: #F5F5F5;
-    margin-top : -50px;
-    height: 100%;
-    padding-bottom: 500px
-}
-
-.stickyNavbarLink {
-    color: #666666;
-    margin-bottom: 10px;
-    font-family: 'Poppins Light';
-}
-
-
-.mtNavbar {
-    margin-top: 100px;
-}
-
-.stickyNavbarLink:hover {
-    color: #0099CC;
-    margin-bottom: 10px;
-    font-family: 'Poppins Light';
-}
-
-.boxTitle {
-    color: #666666;
-    font-family: 'Poppins SemiBold';
-}
-
-.boxDesc {
-    color: #666666;
-    font-family: 'Poppins Light';
-}
-
-.boxButton {
-    background-color: white;
-    color: #666666;
-    border: 0;
-    font-family: 'Poppins Light';
-}
-
-.box {
-    background-color: white;
-    border: 1px solid #E3E3E3;
-    border-radius: 0;
-}
-
-.box:hover {
-    background-color: white;
-    border: 0;
-    border-left: 5px solid #0099CC;
-    border-radius: 0;
-    box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);   
-}
-.box:hover .boxTitle{
-    color: #0099CC;
-}
-
-.box:hover .boxButton {
-    background-color: transparent;
-    color: #0099CC;
-}
-
-}
 
 
 

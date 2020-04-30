@@ -2,6 +2,9 @@
 *
 * ALL APP CONFIG IN ONE FILE
 *
+
+// <p dangerouslySetInnerHTML={{__html: presentation_bloc_1[0].content.rendered}}></p>
+
 */
 
 //CATEGORIES :
@@ -12,6 +15,11 @@
     const ACTIVITES = 16;
 
     // G5 Categories :
+        // Presentation :
+        const PRESENTATION = 39;
+        const Presentation_image_text_1 = 44;
+        const Presentation_image_text_2 = 45;
+        const Presentation_Citation = 46;
         //Activites : 
         const NOS_ACTIVITES = 23;
         const DEFENSE_SECURITE = 35;
@@ -52,6 +60,8 @@ export {
     EVENTS,
     HOME_BLOC1_IMGS,
     ACTIVITES,
+
+    PRESENTATION,
    
     NOS_ACTIVITES,
     DEFENSE_SECURITE,

@@ -81,8 +81,6 @@ class Header extends Component {
         )
     }
 
-    
-
     renderWebMenuElements = () => (
        <>   
        <div className="dropdown">
@@ -234,8 +232,6 @@ class Header extends Component {
        </>
     );
 
-
-
     suggestBrands(event) {
         let results = this.brands.filter((brand) => {
              return brand.toLowerCase().startsWith(event.query.toLowerCase());
@@ -243,7 +239,6 @@ class Header extends Component {
         this.setState({ brandSuggestions: results });
     }   
 }
-
 
 const styles = {
     TopBarLinks : {

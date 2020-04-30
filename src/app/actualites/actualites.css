@@ -1,10 +1,40 @@
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
+    /* BLOC 1 */
+    .articlesRow {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .ceMoisArticleContainer {
+        margin-bottom: 20px;
+    }
+
+    .imageCeMois {
+        /* max-height: 100px;
+        min-height: 100px; */
+        margin-bottom: 10px;
+    }
+
+    .titleCeMois {
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+    }
+
+    .dateCeMois {
+        font-family: 'Poppins SemiBold';
+        font-size: 12px;
+        color: '#666666';
+    }
+
+    .bigImageBloc1 {
+        /* max-height: 623px;
+        min-height: 623px; */
+        width: 100%;
+    }
+
     .news-big-img {
         position: relative;
-        margin-bottom: 30px;
-        padding-left: 10px;
-        padding-right: 10px;
+        margin-bottom: 20px;
     }
       
     .news-big-img .content {
@@ -13,35 +43,48 @@
         background: rgb(0, 0, 0); /* Fallback color */
         background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
         color: white; /* Grey text */
-        width: 95%; /* Full width */
-        padding: 10px/* Some padding */
+        width: 100%; /* Full width */
+        padding: 7px; /* Some padding */
     }
 
     .news-big-img .content h3 {
-        font-size: 15px;
+        padding : 5px;
+        font-size: 12px;
     }
 
     .news-big-img .content p {
-        font-size: 15px;
+        font-size: 12px;
     }
+    /* BLOC 1 */
+    
+    /* SOCIAL LINKS */
+    .socialLinka h4 {
+       font-size: 20px;
+       font-family: 'Poppins Bold';
+    }
+
+
+
+
+    /* SOCIAL LINKS */
+
 
     .sectionTitleRowActualites {
         margin-left: 1px;
         margin-right: 1px;
     }
-
     .sectionTitleContainerActualites {
         padding-top: 15px;
         padding-bottom: 15px; 
         padding-left: 30px;
         padding-right: 30px;
-        background-color: black;
+        background-color:black;
         display: flex;
         justify-content: center;    
     }
 
     .sectionTitleActualites {
-        color: #fff;
+        color: white;
         font-family: 'Poppins Bold';
         font-size: 20px;
         text-align: 'center';
@@ -73,6 +116,45 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+   
+    /* SOCIAL LINKS */
+    .socialLinka h4 {
+        font-size: 18px;
+        font-family: 'Poppins Bold';
+    }
+    /* SOCIAL LINKS */
+
+    /* BLOC 1 */
+    .articlesRow {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .ceMoisArticleContainer {
+        margin-bottom: 20px;
+    }
+
+    .imageCeMois {
+        max-height: 100px;
+        min-height: 100px;
+    }
+
+    .titleCeMois {
+        font-family: 'Poppins Bold';
+        font-size: 13px;
+    }
+
+    .dateCeMois {
+        font-family: 'Poppins SemiBold';
+        font-size: 12px;
+        color: '#666666';
+    }
+
+    .bigImageBloc1 {
+        max-height: 623px;
+        min-height: 623px;
+        width: 100%;
+    }
+
     .news-big-img {
         position: relative;
     }
@@ -95,7 +177,8 @@
     .news-big-img .content p {
         font-size: 15px;
     }
-
+    /* BLOC 1 */
+    
     .sectionTitleRowActualites {
         margin-left: 1px;
         margin-right: 1px;

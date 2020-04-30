@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'sweetalert2/src/sweetalert2.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'video-react/dist/video-react.css';
 import App from './App';
 import store from './redux/store';
 import { Provider } from 'react-redux';
