@@ -15,6 +15,10 @@ import moment from 'moment';
 } from '../../constants/AppConfig';
 
 
+
+//**************************//
+// HOME PAGE FUNCTIONS //
+
 export const getImagesBloc = () => async (dispatch) => {
   
   axios.get(`${config.url}wp/v2/posts?per_page=3&&categories=${HOME_BLOC1_IMGS}`)
@@ -34,7 +38,7 @@ export const getImagesBloc = () => async (dispatch) => {
 
 export const getLatestNews = () => async (dispatch) => {
   
-  axios.get(`${config.url}wp/v2/posts?categories=${POSTS}`)
+  axios.get(`${config.url}wp/v2/posts?per_page=4`)
         .then(response => {
           dispatch({
               type : 'GET_LATEST_POSTS',
@@ -1006,6 +1010,9 @@ export const getActivities = () => dispatch => {
           // console.log("erreur axios getLatestNews/PostsActions");
         });
 };
+
+// HOME PAGE FUNCTIONS //
+//**************************//
 
 export const getJobs = () => dispatch => {
   

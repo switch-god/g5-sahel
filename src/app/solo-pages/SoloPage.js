@@ -40,7 +40,7 @@ export default class SoloPage extends Component {
             <>
             <Layout style={{textAlign: 'center',marginBottom: '50px'}}>
                 <p className="soloTitle">{solo_title}</p>
-                <p className="articleTitle">{publication.title.rendered}</p>
+                <p className="articleTitle" dangerouslySetInnerHTML={{__html: publication.title.rendered}}></p>
                 <p className="articleDate">{moment(publication.date).format("DD MMMM YYYY")}</p>
 
                 {
@@ -58,7 +58,7 @@ export default class SoloPage extends Component {
             </Layout>
             
             <Layout columns={8}>
-                <p dangerouslySetInnerHTML={{__html: publication.content.rendered}}></p>
+                <p className="wordpressData" dangerouslySetInnerHTML={{__html: publication.content.rendered}}></p>
             </Layout>
             
             {

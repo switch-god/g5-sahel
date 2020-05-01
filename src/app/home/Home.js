@@ -7,6 +7,8 @@ import {
     Image,
 } from 'react-bootstrap';
 
+import { Link } from 'react-router-dom';
+
 import { Player, BigPlayButton} from 'video-react';
 import moment from 'moment';
 import Loading from '../loading/Loading';
@@ -39,9 +41,12 @@ class Home extends Component {
 
     
     componentDidMount() {
+        // setTimeout(() => {
+        //     this.props.setLoading(false)
+        // },3500);
         setTimeout(() => {
             this.props.setLoading(false)
-        },3500);
+        },1);
     };
 
     render() {
@@ -168,10 +173,10 @@ class Home extends Component {
             <div>
                 {/* TITLE */}
                 <Row>
-                <div className="sectionTitleContainer">
-                    <h4 className="sectionTitle">{postsTitle}</h4>
-                </div>
-                <hr  className="titleSeperator" />  
+                    <div className="sectionTitleContainer">
+                        <h4 className="sectionTitle">{postsTitle}</h4>
+                    </div>
+                    <hr  className="titleSeperator" />  
                 </Row>
                 {/* ./TITLE */}
 
@@ -179,32 +184,41 @@ class Home extends Component {
                 {
                     posts[0] &&
                     <>
-                    <Row>
-                        <Col md={12}>
-                            <Row>
-                                <Image src={posts[0].fimg_url} fluid className="bigArticleImage" />
-                            </Row>
+                    <Link 
+                        to={{
+                            pathname : '/solo-page',
+                            state : { 
+                                solo_title : postsTitle,
+                                publication : posts[0],
+                            }
+                        }}  
+                        style={{textDecoration: 'none'}}
+                    >
+                        <Row>
+                            <Col md={12}>
+                                <Row>
+                                    <Image src={posts[0].fimg_url} fluid className="bigArticleImage" />
+                                </Row>
 
-                            <Row>
-                                <div className="articleTitleContainer">
-                                    <h5>{posts[0].title.rendered}</h5>
-                                </div>
-                            </Row>
-                            
-                            <Row>
-                                <p className="articleDate">
-                                    {moment(posts[0].date).format("DD MMMM YYYY")}
-                                </p>
-                            </Row>
+                                <Row>
+                                    <div className="articleTitleContainer">
+                                        <h5 className="articleTitle" dangerouslySetInnerHTML={{__html: posts[0].title.rendered}}></h5>
+                                    </div>
+                                </Row>
+                                
+                                <Row>
+                                    <p className="articleDate">
+                                        {moment(posts[0].date).format("DD MMMM YYYY")}
+                                    </p>
+                                </Row>
 
-                            <Row>
-                                <p className="articleContent">
-                                    {posts[0].content.rendered.replace(/<[^>]*>?/gm, '')}
-                                </p>
-                            </Row>
+                                <Row>
+                                    <p className="articleContent" dangerouslySetInnerHTML={{__html: posts[0].excerpt.rendered.substr(0,354)+"..."}}></p>
+                                </Row>
 
-                        </Col>
-                    </Row>
+                            </Col>
+                        </Row>
+                    </Link>
    
                     <hr className="postsHr"/>
                     </>
@@ -218,6 +232,16 @@ class Home extends Component {
                     index > 0 && index < 4 &&
                     <>
                     <div key={index} style={{marginBottom : 10+"px"}}>
+                    <Link 
+                        to={{
+                            pathname : '/solo-page',
+                            state : { 
+                                solo_title : postsTitle,
+                                publication : post,
+                            }
+                        }}  
+                        style={{textDecoration: 'none'}}
+                    >
                         <Row>
                             <Col xs={12} md={4}>
                                 <Row>
@@ -227,24 +251,20 @@ class Home extends Component {
                             
                             <Col xs={12} md={8}>
                                 <Row className="textsArticleContainer">
-                                    <h5 className="smallArticleTitle">
-                                        {
-                                            post.title.rendered.length > 111 
-                                            ?
-                                            post.title.rendered.substr(1,110) + "..."
-                                            :
-                                            post.title.rendered                                
-                                        }
-                                    </h5>
-                                    <p className="smallArticleContent">
-                                        {
-                                            post.content.rendered.replace(/<[^>]*>?/gm, '').length > 150
-                                            ?
-                                            post.content.rendered.replace(/<[^>]*>?/gm, '').substr(1,149) + "..."
-                                            :
-                                            post.content.rendered.replace(/<[^>]*>?/gm, '')
-                                        }
-                                    </p>
+                                    {
+                                        post.title.rendered.length > 111 
+                                        ?
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(1,110) + "..."}}></h5>
+                                        :
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered }}></h5>                              
+                                    }
+                                    {
+                                        post.excerpt.rendered.length > 150
+                                        ?
+                                        <p className="smallArticleContent" dangerouslySetInnerHTML={{__html: post.excerpt.rendered.substr(0,149)+"..."}}></p>
+                                        :
+                                        <p className="smallArticleContent" dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></p>
+                                    }
                                     <p className="smallArticleDate">
                                         {moment(post.date).format("DD MMMM YYYY")}
                                     </p>
@@ -252,6 +272,7 @@ class Home extends Component {
                                 
                             </Col>   
                         </Row>
+                        </Link>
                     </div>
                     </>
                 ))
@@ -284,9 +305,20 @@ class Home extends Component {
                     activites.map((activity,index) => 
                         index < 4 &&
                         <Col xs={12} md={3} key={index}>
-                            <Image src={activity.fimg_url} fluid />
-                            <p style={styles.activityTitle}>{activity.title.rendered}</p>
-                            <p style={styles.activityDesc}>{activity.content.rendered.replace(/<[^>]*>?/gm, '')}</p>
+                            <Link 
+                                to={{
+                                    pathname : '/solo-page',
+                                    state : { 
+                                        solo_title : "Nos activités",
+                                        publication : activity,
+                                    }
+                                }}  
+                                style={{textDecoration: 'none'}}
+                            >
+                                <Image src={activity.fimg_url} fluid />
+                                <p style={styles.activityTitle} dangerouslySetInnerHTML={{__html: activity.title.rendered }}></p>
+                                <p style={styles.activityDesc} dangerouslySetInnerHTML={{__html: activity.excerpt.rendered }}></p>
+                            </Link>
                         </Col>
                     )        
                 }    

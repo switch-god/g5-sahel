@@ -476,7 +476,11 @@
         height: 80px;
         max-height: 80px;
     }
-
+    .articleTitle {
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        color: black
+    }
     .articleDate {
         font-family: 'Poppins SemiBold'; 
         font-size: 16px;
@@ -489,6 +493,7 @@
         height: 70px;
         max-height: 70px;
         border-width: 20px;
+        color: black
     }
 
     .smallArticleImage {
@@ -500,11 +505,13 @@
     .smallArticleTitle {
         font-family: 'Poppins Bold';
         font-size: 15px;
+        color: black
     }
 
     .smallArticleContent {
         font-family: 'Poppins ExtraLight'; 
         font-size: 12px;
+        color: black
     }
 
     .smallArticleDate {

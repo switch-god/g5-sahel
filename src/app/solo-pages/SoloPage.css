@@ -49,6 +49,13 @@
         }
     /* SOLO ARTICLE CLASSES */
 
+    /* WORDPRESS CONTENT */
+        .wordpressData {
+            color: #545454;
+            font-size: 15px;
+            font-family: 'Poppins Light';
+        }
+    /* WORDPRESS CONTENT */
 
     /* LATEST NEWS */
         .newsImage {
