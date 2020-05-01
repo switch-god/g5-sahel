@@ -1,0 +1,262 @@
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+   
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+    /* PAGE TITLE */
+        .pageTitleContainer {
+            margin-top: -30px;
+            margin-bottom: 20px;
+        }
+        
+        .pageTitle {
+            color: black;
+            text-align: left;
+            font-size: 18px;
+            font-family: 'Poppins SemiBold';
+        }
+    /* PAGE TITLE */
+
+    /* GRID MODE */
+    .documentGridBox {
+        background-color: white;
+        border: 1px solid #E3E3E3;
+        border-radius: 0;
+        min-height: 150px;
+        max-height: 150px;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .documentGridBox:hover {
+        background-color: white;
+        border: 0;
+        border-left: 5px solid #0099CC;
+        border-radius: 0;
+        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
+        padding: 30px;  
+    }
+    .documentGridBox:hover .documentGridTitle{
+        color: #0099CC;
+    }
+    
+    .documentGridBox:hover .documentGridButton {
+        background-color: transparent;
+        color: #0099CC;
+    } 
+
+
+    .documentGridThumb {
+        /* max-height: 80px;
+        min-height: 80px; */
+        border: 2px solid #666666;
+    }
+    
+    .documentGridTitle {
+        color: #666666;
+        font-family: 'Poppins SemiBold';
+        font-size: 15px;
+    }
+  
+    .documentGridButtonContainer {
+        float: right;
+        margin-top: 20px;
+    }
+    .documentGridButton {
+        background-color: white;
+        color: #666666;
+        border: 0;
+        margin-top: 20px;
+        font-family: 'Poppins Light';
+    }
+
+    /* ./GRID MODE */
+
+
+
+
+
+    /* LIST MODE */
+    .documentBox {
+        background-color: white;
+        border: 1px solid #E3E3E3;
+        border-radius: 0;
+        min-height: 250px;
+        max-height: 250px;
+        padding: 50px;
+    }
+
+    .documentBox:hover {
+        background-color: white;
+        border: 0;
+        border-left: 5px solid #0099CC;
+        border-radius: 0;
+        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
+    }
+    .documentBox:hover .documentTitle{
+        color: #0099CC;
+    }
+    
+    .documentBox:hover .documentButton {
+        background-color: transparent;
+        color: #0099CC;
+    } 
+
+
+    .documentThumb {
+        max-height: 150px;
+        min-height: 150px;
+    }
+    
+    .documentTitle {
+        color: #666666;
+        font-family: 'Poppins SemiBold';
+        font-size: 18px;
+        text-decoration: none;
+    }
+    
+    .documentDesc {
+        color: #666666;
+        font-family: 'Poppins Light';
+        font-size: 10px;
+        text-decoration: none;
+    }
+    
+    .documentButton {
+        background-color: white;
+        color: #666666;
+        border: 0;
+        font-family: 'Poppins Light';
+        text-decoration: none;
+    }
+
+    /* LIST MODE */
+
+
+    /* SIDEBAR */
+        .stickyNavbarLink {
+            color: #666666;
+            margin-bottom: 10px;
+            font-family: 'Poppins Light';
+        }
+        
+        .stickyNavbarLink:hover {
+            color: #0099CC;
+            margin-bottom: 10px;
+            font-family: 'Poppins Light';
+        }
+
+        .stickyNavbarLinkActive {
+            color: #0099CC;
+            margin-bottom: 10px;
+            font-family: 'Poppins Light';
+        }
+        
+        .stickyNavbarLinkActive:hover {
+            color: #cd2a3e;
+        }
+    /* ./SIDEBAR */
+
+
+
+    /* SHOW MODE */
+
+    .showModeText {
+        font-family: 'Poppins Bold';
+        font-size: 18px;
+        color: #666666;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .showModeButton {
+        border: 1px solid #666666;
+        background-color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    .showModeButtonActive {
+        border: 1px solid #fff;
+        background-color: #0099CC;
+        color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    .showModeButtonActive:focus {
+        border: 1px solid #fff;
+        background-color: #0099CC;
+        color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    .showModeButtonActive:hover {
+        border: 1px solid #0099CC;
+        background-color: #fff;
+        color: #0099CC;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    /* ./SHOW MODE */
+
+    .alignBlocShow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .stickyNavbar {
+        background-color: #F5F5F5;
+        margin-top : -50px;
+        height: 100%;
+        padding-bottom: 500px
+    }
+    
+    .mtNavbar {
+        margin-top: 100px;
+    }
+
+ 
+    
+   
+}
+
+
+
+

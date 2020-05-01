@@ -40,11 +40,13 @@
         
         
         // Documents :
-        const PUBLICATIONS = 24;
         const DOCUMENTATIONS = 25;
-        const CORRESPONDANCE = 29;
-        const DISCOURS = 30;
-        const AUTRES_DOCUMENTS = 32;
+            const PUBLICATIONS = 24;
+            const REGLEMENTATIONS = 55;
+            const MULTIMEDIAS = 56;
+            const CORRESPONDANCE = 29;
+            const DISCOURS = 30;
+            const AUTRES_DOCUMENTS = 32;
 
 
 
@@ -78,6 +80,8 @@ export {
     PARTENARIAT,
 
     DOCUMENTATIONS,
+    REGLEMENTATIONS,
+    MULTIMEDIAS,
     CORRESPONDANCE,
     DISCOURS,
     AUTRES_DOCUMENTS,

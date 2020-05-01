@@ -57,6 +57,7 @@ export default class Documentation extends Component {
                    <Row>
 
                     <Col xs={12} xl={2} className="stickyNavbar">
+                       
                         {this.renderSideBar(pathname)}
                     </Col>
 
@@ -107,9 +108,17 @@ export default class Documentation extends Component {
 
 
     renderSideBar = (activePathName) => {
-        console.log("acitveRoute =>", activePathName);
+    
         return (
+            <>
             <Nav className="flex-column mtNavbar">
+
+                <Col className="pageTitleContainer">
+                    {/* <Row> */}
+                        <p className="pageTitle">DOCUMENTATION</p>
+                    {/* </Row> */}
+                </Col>
+
                 <Link to="/documentation/organigramme"
                       className={activePathName == '/documentation/organigramme' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
                       onClick={() => this.setState({ pathName : window.location.pathname })}
@@ -132,7 +141,7 @@ export default class Documentation extends Component {
                 >Discours</Link>
                     
                 <Link to="/documentation/correspondance"
-                      className={this.state.pathName == '/documentation/correspondance' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                      className={activePathName == '/documentation/correspondance' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
                       onClick={() => this.setState({ pathName : window.location.pathname })}
                 >Correspondance</Link>
 
@@ -146,10 +155,8 @@ export default class Documentation extends Component {
                       onClick={() => this.setState({ pathName : window.location.pathname })}
                 >Autres documents</Link>
             </Nav>
+            </>
         );
     };  
 }
 
-const styles = {
-    
-}

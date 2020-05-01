@@ -3,10 +3,24 @@ const initialState = {
     discours : [],
     correspondance : [],
     autresDocuments : [],
+    reglementations : [],
+    multimedias : [],
 };
 
 const documentationReducer = (state = initialState, action) => {
     switch(action.type) {
+
+        case 'GET_MULTIMEDIAS' :
+            return {
+                ...state,
+                multimedias : action.payload,
+        }
+
+        case 'GET_REGLEMENTATIONS' :
+            return {
+                ...state,
+                reglementations : action.payload,
+        }
 
         case 'GET_PUBLICATIONS' :
             return {

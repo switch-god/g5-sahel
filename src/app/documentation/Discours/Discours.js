@@ -22,8 +22,8 @@ import {
 
 // Components : 
     import Loader from '../../loading/Loader';
+    import ThumbDoc from '../../../components/ThumbDoc';
 
-import PDF_THUMB from '../../../assets/images/Documentation/pdf_thumb.png';
 import { IoIosList,IoMdGrid } from 'react-icons/io';
 import { IoIosEye } from 'react-icons/io';
 import '../documentation.css';
@@ -69,7 +69,17 @@ class Discours extends Component {
                                 <Col/>
                             </Row>
                             :
-                            showMode === 'LIST' &&
+                            discours.length === 0 
+                            ?
+                            <Row className="ml-5">
+                                <Col xs={12}>
+                                    <div className="docsEmptyContainer">
+                                        <p className="docsEmptyText">Aucun Document Disponible pour le moment</p>
+                                    </div>
+                                </Col>
+                            </Row>
+                            :
+                            showMode === 'LIST' && discours.length > 0 &&
                             <Row className="ml-5">
                                 <Col xs={12} xl={8}>
                                     {this.renderDocumentsListMode(discours)}
@@ -79,7 +89,7 @@ class Discours extends Component {
                         }
 
                         {
-                            showMode === 'GRID' &&
+                            showMode === 'GRID' && discours.length > 0 &&
                             <Row className="ml-4">  
                                 <Col xs={12} xl={12}>
                                     {this.renderDocumentsGridMode(discours)}
@@ -148,7 +158,7 @@ class Discours extends Component {
                         to={{
                             pathname : '/solo-page',
                             state : { 
-                                solo_title : "Publications",
+                                solo_title : "Discours",
                                 publication : pub,
                             }
                         }}  
@@ -157,8 +167,13 @@ class Discours extends Component {
                             <Row>
                                 <Col xs={6} xl={3}>
                                     <Row>
-                                        <Image src={pub.fimg_url ? pub.fimg_url : PDF_THUMB} fluid className="documentThumb" />
-                                        {/* <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object> */}
+                                        {
+                                            pub.fimg_url 
+                                            ? 
+                                              <Image src={pub.fimg_url} fluid className="documentThumb" />
+                                            : 
+                                              <ThumbDoc title="Discours" containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
+                                        }
                                     </Row>
                                 </Col>
 
@@ -180,7 +195,7 @@ class Discours extends Component {
                                             to={{
                                                 pathname : '/solo-page',
                                                 state : { 
-                                                    solo_title : "Publications",
+                                                    solo_title : "Discours",
                                                     publication : pub,
                                                 }
                                             }}
@@ -210,21 +225,26 @@ class Discours extends Component {
                         to={{
                             pathname : '/solo-page',
                             state : { 
-                                solo_title : "Publications",
+                                solo_title : "Discours",
                                 publication : pub,
                             }
                         }}  
                         style={{ textDecoration: 'none' }}>
                             <Jumbotron className="documentGridBox">
                             <Row>
-                                <Col xs={6} xl={4}>
+                                <Col xs={6} xl={5}>
                                     <Row>
-                                        <Image src={pub.fimg_url ? pub.fimg_url : PDF_THUMB} fluid className="documentGridThumb" />
-                                        {/* <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object> */}
+                                        {
+                                            pub.fimg_url 
+                                            ? 
+                                              <Image src={pub.fimg_url} fluid className="documentGridThumb" />
+                                            : 
+                                            <ThumbDoc title="Discours" containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
+                                        }
                                     </Row>
                                 </Col>
 
-                                <Col xs={6} xl={8}>
+                                <Col xs={6} xl={7}>
                                     <h4 className="documentGridTitle">Convention portant création du G5 Sahel </h4>
                                 
                                     <p className="documentGridButtonContainer">
@@ -233,7 +253,7 @@ class Discours extends Component {
                                             to={{
                                                 pathname : '/solo-page',
                                                 state : { 
-                                                    solo_title : "Publications",
+                                                    solo_title : "Discours",
                                                     publication : pub,
                                                 }
                                             }}

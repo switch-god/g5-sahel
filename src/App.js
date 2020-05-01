@@ -26,6 +26,7 @@ import Footer from './app/navigation/Footer';
    import NosActivites from './app/activites/NosActivites';
    import Documentation from './app/documentation/Documentation';
    import Recrutement from './app/recrutement/Recrutement';
+   import AppelOffre from './app/appeloffre/AppelOffre';
 
    import SoloPage from './app/solo-pages/SoloPage';
    
@@ -84,6 +85,10 @@ export class App extends Component {
             
               <Route path="/documentation">
                 <Documentation />
+              </Route>
+              
+              <Route path="/appel-offre">
+                <AppelOffre />
               </Route>
 
               <Route exact path="/recrutement">

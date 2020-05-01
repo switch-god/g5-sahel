@@ -9,6 +9,7 @@ import {
     Button,
     Image,
 } from 'react-bootstrap';
+import THUMB_LOGO from '../../../assets/images/Thumbs/thumb.png';
 
 import {
     Link,
@@ -22,8 +23,9 @@ import {
 
 // Components : 
     import Loader from '../../loading/Loader';
+    import ThumbDoc from '../../../components/ThumbDoc';
 
-import PDF_THUMB from '../../../assets/images/Documentation/pdf_thumb.png';
+    // import PDF_THUMB from '../../../assets/images/Documentation/pdf_thumb.png';
 import { IoIosList,IoMdGrid } from 'react-icons/io';
 import { IoIosEye } from 'react-icons/io';
 import '../documentation.css';
@@ -69,7 +71,17 @@ class Publications extends Component {
                                 <Col/>
                             </Row>
                             :
-                            showMode === 'LIST' &&
+                            publications.length === 0 
+                            ?
+                            <Row className="ml-5">
+                                <Col xs={12}>
+                                    <div className="docsEmptyContainer">
+                                        <p className="docsEmptyText">Aucun Document Disponible pour le moment</p>
+                                    </div>
+                                </Col>
+                            </Row>
+                            :
+                            showMode === 'LIST' && publications.length > 0 &&
                             <Row className="ml-5">
                                 <Col xs={12} xl={8}>
                                     {this.renderDocumentsListMode(publications)}
@@ -79,7 +91,7 @@ class Publications extends Component {
                         }
 
                         {
-                            showMode === 'GRID' &&
+                            showMode === 'GRID' &&  publications.length > 0 &&
                             <Row className="ml-4">  
                                 <Col xs={12} xl={12}>
                                     {this.renderDocumentsGridMode(publications)}
@@ -155,14 +167,19 @@ class Publications extends Component {
                         style={{ textDecoration: 'none' }}>
                         <Jumbotron className="documentBox">
                             <Row>
-                                <Col xs={6} xl={3}>
+                                <Col xs={6} xl={4}>
                                     <Row>
-                                        <Image src={pub.fimg_url ? pub.fimg_url : PDF_THUMB} fluid className="documentThumb" />
-                                        {/* <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object> */}
+                                        {
+                                            pub.fimg_url !== false ?
+                                            <Image src={pub.fimg_url} fluid className="documentThumb" />
+                                            :
+                                            <ThumbDoc title="Publications" containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
+                                        }
+                                        
                                     </Row>
                                 </Col>
 
-                                <Col xs={6} xl={9}>
+                                <Col xs={6} xl={8}>
                                     <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
                                    
                                     {
@@ -217,14 +234,19 @@ class Publications extends Component {
                         style={{ textDecoration: 'none' }}>
                             <Jumbotron className="documentGridBox">
                             <Row>
-                                <Col xs={6} xl={4}>
+                                <Col xs={6} xl={5}>
                                     <Row>
-                                        <Image src={pub.fimg_url ? pub.fimg_url : PDF_THUMB} fluid className="documentGridThumb" />
-                                        {/* <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object> */}
+                                        {
+                                            pub.fimg_url 
+                                            ?
+                                            <Image src={pub.fimg_url} fluid className="documentGridThumb" />
+                                            :
+                                            <ThumbDoc title="Publications" containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
+                                        }
                                     </Row>
                                 </Col>
 
-                                <Col xs={6} xl={8}>
+                                <Col xs={6} xl={7}>
                                     <h4 className="documentGridTitle">Convention portant création du G5 Sahel </h4>
                                 
                                     <p className="documentGridButtonContainer">

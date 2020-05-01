@@ -6,7 +6,6 @@ import {
     Col,
     Row,
     Jumbotron,
-    Nav,
     Button,
     Image,
 } from 'react-bootstrap';
@@ -15,22 +14,42 @@ import {
     Link,
 } from "react-router-dom";
 
-const URL_PDF = "https://g5sahel.switch.tn/wp-content/uploads/2020/04/images_Docs_Déclaration_Amb._Sidikou_CPS_UA_20Avr20_vf.pdf";
+
+
+// Redux :
+ import { connect } from 'react-redux';
+ import { getMultimedias } from '../../../redux/actions/DocumentationActions';
+
+// Components : 
+    import Loader from '../../loading/Loader';
+    import ThumbDoc from '../../../components/ThumbDoc';
+
+// import PDF_THUMB from '../../../assets/images/Documentation/pdf_thumb.png';
 import { IoIosList,IoMdGrid } from 'react-icons/io';
-import { AiOutlineDownload } from 'react-icons/ai';
+import { IoIosEye } from 'react-icons/io';
 import '../documentation.css';
 
-export default class Multimedias extends Component {
+class Multimedias extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            showMode : 'LIST'
+            showMode : 'LIST',
+            loading : true,
         }
+
+        this.setLoader();
     }
 
+    componentDidMount() {
+        // Get Multimedias :
+        this.props.getMultimedias();
+    };
+    
     render() {
-        const { showMode } = this.state;
+        const { loading,showMode } = this.state;
+        const { multimedias } = this.props;
+
         return (
             <>
                 { <Col xs={12} xl={10}>
@@ -39,29 +58,56 @@ export default class Multimedias extends Component {
                         </Row>
 
                         {
-                            showMode === 'LIST' &&
+                            loading 
+                            ?
                             <Row className="ml-5">
-                                <Col xs={12} xl={7}>
-                                    {this.renderDocumentsListMode()}
+                                <Col />
+
+                                <Col>
+                                    <Loader style={{height : '70px'}} />
                                 </Col>
-                                <Col xs={0} xl={5} />
+                                
+                                <Col/>
+                            </Row>
+                            :
+                            multimedias.length === 0 
+                            ?
+                            <Row className="ml-5">
+                                <Col xs={12}>
+                                    <div className="docsEmptyContainer">
+                                        <p className="docsEmptyText">Aucun Document Disponible pour le moment</p>
+                                    </div>
+                                </Col>
+                            </Row>
+                            :
+                            showMode === 'LIST' && multimedias.length > 0 &&
+                            <Row className="ml-5">
+                                <Col xs={12} xl={8}>
+                                    {this.renderDocumentsListMode(multimedias)}
+                                </Col>
+                                <Col xs={0} xl={4} />
                             </Row>
                         }
 
                         {
-                            showMode === 'GRID' &&
+                            showMode === 'GRID' && multimedias.length > 0 &&
                             <Row className="ml-4">  
                                 <Col xs={12} xl={12}>
-                                    {this.renderDocumentsGridMode()}
+                                    {this.renderDocumentsGridMode(multimedias)}
                                 </Col>
                             </Row>
                         }
                     
                     </Col>
                 }
-                Reglementation
             </>
         )
+    }
+
+    setLoader = () => {
+        setTimeout(() => 
+            this.setState({loading: false})
+        ,2000);
     }
 
     renderShowMode = () => {
@@ -103,67 +149,123 @@ export default class Multimedias extends Component {
         );
     }
 
-    renderDocumentsListMode = () => {
-        const data = [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]
-        
+    renderDocumentsListMode = (pubs) => {
+     
         return (
             <>
             {
-                data.map(item =>         
-                    <Jumbotron className="documentBox">
-                        <Row>
-                            <Col xs={6} xl={3}>
-                                <Row>
-                                    {/* <Image src={PDF_THUMB} fluid className="documentThumb" /> */}
-                                    <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object>
-                                </Row>
-                            </Col>
+                pubs.map((pub) =>  
+                    <Link 
+                        to={{
+                            pathname : '/solo-page',
+                            state : { 
+                                solo_title : "Multimédias",
+                                publication : pub,
+                            }
+                        }}  
+                        style={{ textDecoration: 'none' }}>
+                        <Jumbotron className="documentBox">
+                            <Row>
+                                <Col xs={6} xl={4}>
+                                    <Row>
+                                        {
+                                            pub.fimg_url !== false ?
+                                            <Image src={pub.fimg_url} fluid className="documentThumb" />
+                                            :
+                                            <ThumbDoc title="Multimédias" containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
+                                        }
+                                        
+                                    </Row>
+                                </Col>
 
-                            <Col xs={6} xl={9}>
-                                <h4 className="documentTitle">Convention portant création du G5 Sahel </h4>
-                                
-                                <p className="documentDesc">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam eraLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt…
-                                </p>
-                                <p style={{float : 'right'}}>
-                                    <Link to="#" className="documentButton"><AiOutlineDownload size={'20px'} />  Download</Link>
-                                </p>
-                            </Col>
-                        </Row>
-                    </Jumbotron>
+                                <Col xs={6} xl={8}>
+                                    <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
+                                   
+                                    {
+                                        pub.excerpt.rendered.length > 0 
+                                        ?
+                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.excerpt.rendered.substr(0,230)}}></p>
+                                        :
+                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,230)}}></p>
+                                                
+                                    }
+                                    
+                                    <p style={{float : 'right'}}>
+                                        <Link  
+                                            className="documentButton"
+                                            to={{
+                                                pathname : '/solo-page',
+                                                state : { 
+                                                    solo_title : "Multimédias",
+                                                    publication : pub,
+                                                }
+                                            }}
+                                        >
+                                            <IoIosEye size={'20px'} />  Voir Plus
+                                        </Link>
+                                    </p>
+                                </Col>
+                            </Row>
+                        </Jumbotron>
+                    </Link>       
                 )
             }
             </>
         );
     };
 
-    renderDocumentsGridMode = () => {
-        const data = [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5];
+    renderDocumentsGridMode = (pubs) => {
         
         return (
             <Row>
 
             {
-                data.map(item => 
+                pubs.map(pub => 
                     <Col xs={12} xl={4}>
-                        <Jumbotron className="documentGridBox">
-                        <Row>
-                            <Col xs={6} xl={4}>
-                                <Row>
-                                    {/* <Image src={PDF_THUMB} fluid className="documentGridThumb" /> */}
-                                    <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object>
-                                </Row>
-                            </Col>
+                    <Link 
+                        to={{
+                            pathname : '/solo-page',
+                            state : { 
+                                solo_title : "Multimédias",
+                                publication : pub,
+                            }
+                        }}  
+                        style={{ textDecoration: 'none' }}>
+                            <Jumbotron className="documentGridBox">
+                            <Row>
+                                <Col xs={6} xl={5}>
+                                    <Row>
+                                        {
+                                            pub.fimg_url 
+                                            ?
+                                            <Image src={pub.fimg_url} fluid className="documentGridThumb" />
+                                            :
+                                            <ThumbDoc title="Multimédias" containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
+                                        }
+                                    </Row>
+                                </Col>
 
-                            <Col xs={6} xl={8}>
-                                <h4 className="documentGridTitle">Convention portant création du G5 Sahel </h4>
-                              
-                                <p className="documentGridButtonContainer">
-                                    <Link to="#" className="documentGridButton"> <AiOutlineDownload size={'20px'} /> Download</Link>
-                                </p>
-                            </Col>
-                        </Row>
-                    </Jumbotron>
+                                <Col xs={6} xl={7}>
+                                    <h4 className="documentGridTitle">Convention portant création du G5 Sahel </h4>
+                                
+                                    <p className="documentGridButtonContainer">
+                                        <Link  
+                                            className="documentGridButton"
+                                            to={{
+                                                pathname : '/solo-page',
+                                                state : { 
+                                                    solo_title : "Multimédias",
+                                                    publication : pub,
+                                                }
+                                            }}
+                                        >
+                                            <IoIosEye size={'20px'} /> Voir Plus
+                                        </Link>
+                                    </p>
+                                </Col>
+                            </Row>
+                        </Jumbotron>
+                    </Link>
                     </Col>            
                 )
             }
@@ -173,3 +275,11 @@ export default class Multimedias extends Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    multimedias : state.docsR.multimedias,
+});
+
+export default connect(mapStateToProps,{ getMultimedias })(Multimedias);
+
+

@@ -9,6 +9,8 @@ import moment from 'moment';
     DISCOURS,
     CORRESPONDANCE,
     AUTRES_DOCUMENTS,
+    REGLEMENTATIONS,
+    MULTIMEDIAS,
 } from '../../constants/AppConfig';
 
 
@@ -65,5 +67,33 @@ export const getAutresDocuments = () => async (dispatch) => {
         })
         .catch(error => {
           console.log("erreur axios getAutresDocuments/DocumentationActions",error);
+        });
+};
+
+export const getReglementations = () => async (dispatch) => {
+  
+  axios.get(`${config.url}wp/v2/posts?categories=${REGLEMENTATIONS}`)
+        .then(response => {
+          dispatch({
+              type : 'GET_REGLEMENTATIONS',
+              payload : response.data,
+          });
+        })
+        .catch(error => {
+          console.log("erreur axios getReglementations/DocumentationActions",error);
+        });
+};
+
+export const getMultimedias = () => async (dispatch) => {
+  
+  axios.get(`${config.url}wp/v2/posts?categories=${MULTIMEDIAS}`)
+        .then(response => {
+          dispatch({
+              type : 'GET_MULTIMEDIAS',
+              payload : response.data,
+          });
+        })
+        .catch(error => {
+          console.log("erreur axios getMultimedias/DocumentationActions",error);
         });
 };
