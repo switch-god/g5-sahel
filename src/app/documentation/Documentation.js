@@ -10,14 +10,25 @@ import {
     Image,
 } from 'react-bootstrap';
 
-import {Link} from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from "react-router-dom";
+
+// COMPONENTS :
+import Organigramme from './Organigramme/Organigramme';
+import Publications from './Publications/Publications';
+import Correspondance from './Correspondance/Correspondance';
+import Discours from './Discours/Discours';
+import Multimedias from './Multimedias/Multimedias';
+import Reglementation from './Reglementation/Reglementation';
+import AutresDocuments from './AutresDocuments/AutresDocuments';
 
 // Icons & Images & Styling :
-import ORGANIGRAMME from '../../assets/pdf/organigramme.pdf';
-const URL_PDF = "https://g5sahel.switch.tn/wp-content/uploads/2020/04/images_Docs_Déclaration_Amb._Sidikou_CPS_UA_20Avr20_vf.pdf";
-import PDF_THUMB from '../../assets/images/Documentation/pdf_thumb.png';
-import { IoIosList,IoMdGrid } from 'react-icons/io';
-import { AiOutlineDownload } from 'react-icons/ai';
+// import ORGANIGRAMME from '../../assets/pdf/organigramme.pdf';
+// import PDF_THUMB from '../../assets/images/Documentation/pdf_thumb.png';
 import './documentation.css';
 
 
@@ -31,19 +42,14 @@ export default class Documentation extends Component {
 
         this.state = {
             showMode : 'LIST',
-            numPages: null,
-            pageNumber: 1,
+            pathName : '',
         };
     }
 
-    componentDidMount() {
-;
-    }
-
-
     render() {
+        
         const { showMode } = this.state;
-
+        let { pathname } = window.location;
         return (
             <>
                <Layout>
@@ -51,45 +57,45 @@ export default class Documentation extends Component {
                    <Row>
 
                     <Col xs={12} xl={2} className="stickyNavbar">
-                        {this.renderSideBar()}
+                        {this.renderSideBar(pathname)}
                     </Col>
 
-                    <Col xs={12} xl={10}>
-                        <Row className="ml-5">
-                            {this.renderShowMode()}
-                        </Row>
+                    <Switch>   
 
+                        <Route path="/documentation/organigramme">
+                            <Organigramme />
+                        </Route>
 
-                        <Row>
-                      
-                        </Row>
+                        <Route  path="/documentation/reglementation">
+                            <Reglementation />
+                        </Route>
 
-                        {
-                            showMode === 'LIST' &&
-                            <Row className="ml-5">
-                                <Col xs={12} xl={7}>
-                                    {this.renderDocumentsListMode()}
-                                </Col>
-                                <Col xs={0} xl={5} />
-                            </Row>
-                        }
+                        <Route  path="/documentation/publications">
+                            <Publications />
+                        </Route>
 
+                        <Route  path="/documentation/discours">
+                            <Discours />
+                        </Route>
 
-                        {
-                            showMode === 'GRID' &&
-                            <Row className="ml-4">  
-                                <Col xs={12} xl={12}>
-                                    {this.renderDocumentsGridMode()}
-                                </Col>
-                            </Row>
-                        }
-                    
-                    </Col>
+                        <Route  path="/documentation/correspondance">
+                            <Correspondance />
+                        </Route>
+
+                        <Route  path="/documentation/multimedias">
+                            <Multimedias />
+                        </Route>
+
+                        <Route  path="/documentation/autres-documents">
+                            <AutresDocuments />
+                        </Route>
+   
+                    </Switch> 
 
                     </Row>
 
                     <Newsletter />
-                   
+                
                 </Layout> 
 
 
@@ -98,113 +104,50 @@ export default class Documentation extends Component {
         )
     }
 
-    onDocumentLoadSuccess = ({ numPages }) => {
-        this.setState({ numPages });
-    };
 
 
-    renderSideBar = () => {
-        
+    renderSideBar = (activePathName) => {
+        console.log("acitveRoute =>", activePathName);
         return (
             <Nav className="flex-column mtNavbar">
-                <Nav.Link className="stickyNavbarLink">Organigramme</Nav.Link>
-                <Nav.Link className="stickyNavbarLink">Réglementation</Nav.Link>
-                <Nav.Link className="stickyNavbarLink">Publications</Nav.Link>
-                <Nav.Link className="stickyNavbarLink">Discours</Nav.Link>
-                <Nav.Link className="stickyNavbarLink">Correspondance</Nav.Link>
-                <Nav.Link className="stickyNavbarLink">Multimédias</Nav.Link>
-                <Nav.Link className="stickyNavbarLink">Autres documents</Nav.Link>
+                <Link to="/documentation/organigramme"
+                      className={activePathName == '/documentation/organigramme' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                      onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Organigramme</Link>
+
+                <Link to="/documentation/reglementation" 
+                      className={activePathName == '/documentation/reglementation' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"}
+                      onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Réglementation
+                </Link>
+
+                <Link to="/documentation/publications"
+                      className={activePathName == '/documentation/publications' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"}      
+                      onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Publications</Link>
+                    
+                <Link to="/documentation/discours"
+                      className={activePathName == '/documentation/discours' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                      onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Discours</Link>
+                    
+                <Link to="/documentation/correspondance"
+                      className={this.state.pathName == '/documentation/correspondance' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                      onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Correspondance</Link>
+
+                <Link to="/documentation/multimedias"
+                      className={activePathName == '/documentation/multimedias' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                      onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Multimédias</Link>
+
+                <Link to="/documentation/autres-documents"
+                      className={activePathName== '/documentation/autres-documents' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                      onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Autres documents</Link>
             </Nav>
         );
     };  
-
-    renderShowMode = () => {
-
-        return (
-            <Col xl={12} style={{marginBottom : '20px'}}>
-                <Row className="alignBlocShow">   
-                    <p className="showModeText">OPTIONS D'AFFICHAGE</p>
-
-                    <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'LIST' })}>
-                        <IoIosList size={'30px'} color={"#666666"} /> Liste
-                    </Button>
-                   
-                    <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'GRID' })}>
-                        <IoMdGrid size={'30px'} color={"#666666"} /> Grid
-                    </Button>
-                </Row>
-            </Col>
-        );
-    }
-
-    renderDocumentsListMode = () => {
-        const data = [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]
-        return (
-            <>
-            {
-                data.map(item =>         
-                    <Jumbotron className="documentBox">
-                        <Row>
-                            <Col xs={6} xl={3}>
-                                <Row>
-                                    {/* <Image src={PDF_THUMB} fluid className="documentThumb" /> */}
-                                    <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object>
-                                </Row>
-                            </Col>
-
-                            <Col xs={6} xl={9}>
-                                <h4 className="documentTitle">Convention portant création du G5 Sahel </h4>
-                                
-                                <p className="documentDesc">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam eraLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt…
-                                </p>
-                                <p style={{float : 'right'}}>
-                                    <Link to="#" className="documentButton"><AiOutlineDownload size={'20px'} />  Download</Link>
-                                </p>
-                            </Col>
-                        </Row>
-                    </Jumbotron>
-                )
-            }
-            </>
-        );
-    };
-
-    renderDocumentsGridMode = () => {
-        const data = [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5];
-        return (
-            <Row>
-
-            {
-                data.map(item => 
-                    <Col xs={12} xl={4}>
-                        <Jumbotron className="documentGridBox">
-                        <Row>
-                            <Col xs={6} xl={4}>
-                                <Row>
-                                    {/* <Image src={PDF_THUMB} fluid className="documentGridThumb" /> */}
-                                    <object className="documentGridThumb" width="90%" height="100" data={URL_PDF} type="application/pdf"></object>
-                                </Row>
-                            </Col>
-
-                            <Col xs={6} xl={8}>
-                                <h4 className="documentGridTitle">Convention portant création du G5 Sahel </h4>
-                              
-                                <p className="documentGridButtonContainer">
-                                    <Link to="#" className="documentGridButton"> <AiOutlineDownload size={'20px'} /> Download</Link>
-                                </p>
-                            </Col>
-                        </Row>
-                    </Jumbotron>
-                    </Col>            
-                )
-            }
-
-
-            </Row>
-        );
-    }
-    
 }
 
 const styles = {

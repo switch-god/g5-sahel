@@ -30,21 +30,21 @@
         // Actualites :
         const ACTUALITES_INTERNATIONALE = 31;
         const ACTUALITES_DES_PAYS_G5 = 27;
-        const PUBLICATIONS = 24;
         const VIDEOS = 26;
-
+        
         // Rapports :
         const RAPPORTS = 28;
-
+        
         // Partenariat :
         const PARTENARIAT = 34;
         
         
         // Documents :
+        const PUBLICATIONS = 24;
         const DOCUMENTATIONS = 25;
-            const CORRESPONDANCE = 29;
-            const DISCOURS = 30;
-            const AUTRES_DOCUMENTS = 32;
+        const CORRESPONDANCE = 29;
+        const DISCOURS = 30;
+        const AUTRES_DOCUMENTS = 32;
 
 
 

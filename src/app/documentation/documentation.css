@@ -88,9 +88,9 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 200px;
-        max-height: 200px;
-        padding: 30px 40px 70px 40px;
+        min-height: 250px;
+        max-height: 250px;
+        padding: 50px;
     }
 
     .documentBox:hover {
@@ -99,7 +99,6 @@
         border-left: 5px solid #0099CC;
         border-radius: 0;
         box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
-        padding: 35px 35px 35px 35px;  
     }
     .documentBox:hover .documentTitle{
         color: #0099CC;
@@ -120,12 +119,14 @@
         color: #666666;
         font-family: 'Poppins SemiBold';
         font-size: 18px;
+        text-decoration: none;
     }
     
     .documentDesc {
         color: #666666;
         font-family: 'Poppins Light';
         font-size: 10px;
+        text-decoration: none;
     }
     
     .documentButton {
@@ -133,39 +134,99 @@
         color: #666666;
         border: 0;
         font-family: 'Poppins Light';
+        text-decoration: none;
     }
-    
-    
-    
-    
-
 
     /* LIST MODE */
 
+
+    /* SIDEBAR */
+        .stickyNavbarLink {
+            color: #666666;
+            margin-bottom: 10px;
+            font-family: 'Poppins Light';
+        }
+        
+        .stickyNavbarLink:hover {
+            color: #0099CC;
+            margin-bottom: 10px;
+            font-family: 'Poppins Light';
+        }
+
+        .stickyNavbarLinkActive {
+            color: #0099CC;
+            margin-bottom: 10px;
+            font-family: 'Poppins Light';
+        }
+        
+        .stickyNavbarLinkActive:hover {
+            color: #cd2a3e;
+        }
+    /* ./SIDEBAR */
+
+
+
+    /* SHOW MODE */
+
+    .showModeText {
+        font-family: 'Poppins Bold';
+        font-size: 18px;
+        color: #666666;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .showModeButton {
+        border: 1px solid #666666;
+        background-color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    .showModeButtonActive {
+        border: 1px solid #fff;
+        background-color: #0099CC;
+        color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    .showModeButtonActive:focus {
+        border: 1px solid #fff;
+        background-color: #0099CC;
+        color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    .showModeButtonActive:hover {
+        border: 1px solid #0099CC;
+        background-color: #fff;
+        color: #0099CC;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;  
+        font-family: 'Poppins Light';
+        font-size: 18px; 
+    }
+
+    /* ./SHOW MODE */
 
     .alignBlocShow {
         display: flex;
         flex-direction: row;
         align-items: center;
     }
-
-    .showModeText {
-        font-family: 'Poppins Bold';
-        font-size: 18px;
-        color: '#666666';
-        margin-top: 10px
-    }
-
-    .showModeButton {
-        border: 1px solid #666666;
-        background-color: 'white';
-        margin-left: 20px;
-        margin-right: 20px;
-        padding-top: 5px;  
-        font-family: 'Poppins Light';
-        font-size: ; 
-    }
-
+    
     .stickyNavbar {
         background-color: #F5F5F5;
         margin-top : -50px;
@@ -173,22 +234,11 @@
         padding-bottom: 500px
     }
     
-    .stickyNavbarLink {
-        color: #666666;
-        margin-bottom: 10px;
-        font-family: 'Poppins Light';
-    }
-    
-    
     .mtNavbar {
         margin-top: 100px;
     }
-    
-    .stickyNavbarLink:hover {
-        color: #0099CC;
-        margin-bottom: 10px;
-        font-family: 'Poppins Light';
-    }
+
+ 
     
    
 }

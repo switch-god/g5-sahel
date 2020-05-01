@@ -148,7 +148,7 @@ class Header extends Component {
         </div>
         
         <div className="dropdown">
-            <Link style={styles.MainMenuLinks} to="/documentation"> Documentation <img src={ARROW} height={7} /> </Link>
+            <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation <img src={ARROW} height={7} /> </Link>
             <div className="dropdown-content">
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>

@@ -14,7 +14,7 @@ export default class Layout extends Component {
             <Row style={this.props.style}>
                 <Col />
 
-                <Col xs={xsColumns ? xsColumns : 0} md={columns ? columns : 10}>
+                <Col xs={xsColumns ? xsColumns : 0} xl={columns ? columns : 10}>
                     {this.props.children}
                 </Col>
         

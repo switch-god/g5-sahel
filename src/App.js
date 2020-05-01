@@ -26,9 +26,10 @@ import Footer from './app/navigation/Footer';
    import NosActivites from './app/activites/NosActivites';
    import Documentation from './app/documentation/Documentation';
    import Recrutement from './app/recrutement/Recrutement';
+
+   import SoloPage from './app/solo-pages/SoloPage';
    
 /* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
-
 
 
 /* =================== ./APP COMPONENTS =================== */ 
@@ -81,13 +82,15 @@ export class App extends Component {
                 <Contact />
               </Route>
             
-              <Route exact path="/documentation">
+              <Route path="/documentation">
                 <Documentation />
               </Route>
 
               <Route exact path="/recrutement">
                 <Recrutement />
               </Route>
+
+              <Route path="/solo-page" component={SoloPage} />
               
             </Switch>
 

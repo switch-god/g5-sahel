@@ -8,6 +8,9 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'video-react/dist/video-react.css';
 
+import "react-pdf/dist/Page/AnnotationLayer.css";
+
+
 import App from './App';
 import store from './redux/store';
 import { Provider } from 'react-redux';
