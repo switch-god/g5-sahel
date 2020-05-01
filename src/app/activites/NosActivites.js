@@ -16,16 +16,17 @@ import moment from 'moment';
     import Layout from '../../components/Layout';
     import {IoIosArrowForward} from 'react-icons/io';
     import Newsletter from '../../components/Newsletter';
-    import ScrollableAnchor from 'react-scrollable-anchor'
+    import LottieLoader from '../../components/LottieLoader';
+    // import ScrollableAnchor from 'react-scrollable-anchor';
 
 // Image & styling :
-    import DFS from '../../assets/images/Activites/ds.png';
     import DFS_2 from '../../assets/images/Activites/ds2.png';
     import THUMB from '../../assets/images/Thumbs/content-placeholder.jpg';
     import GENRE from '../../assets/images/Activites/genre.png'
-    import INFRA from '../../assets/images/Activites/infra.png';
-    import RESI from '../../assets/images/Activites/resi.png';
-    import RESI_2 from '../../assets/images/Activites/resi2.png';
+    // import DFS from '../../assets/images/Activites/ds.png';
+    // import INFRA from '../../assets/images/Activites/infra.png';
+    // import RESI from '../../assets/images/Activites/resi.png';
+    // import RESI_2 from '../../assets/images/Activites/resi2.png';
 
     import './activites.css';
 
@@ -33,6 +34,10 @@ class NosActivites extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            loading : true,
+        };
 
         // GET DEFENSE_SECURITE :
         this.props.getDefenseSecurite();
@@ -47,10 +52,20 @@ class NosActivites extends Component {
         this.props.getResilence();
     };
 
+    componentDidMount() {
+        setTimeout(() => {
+             this.setState({loading : false})
+         },2000);
+    };
+
 
     render() {
-
+        const { loading } = this.state;
         return (
+            loading 
+            ?
+              <LottieLoader />
+            :
            <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>Nos activités</h1>

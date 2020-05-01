@@ -16,6 +16,7 @@ import {
 // Components : 
     import Layout from '../../components/Layout';
     import Newsletter from '../../components/Newsletter';
+    import LottieLoader from '../../components/LottieLoader';
 
 // Redux :
     import { connect } from 'react-redux';
@@ -33,17 +34,28 @@ class Events extends Component {
             evenTitle : '',
             searchingEvents : [],
             selectedDate : moment(),
+            loading : true,
         };
 
         this.props.getLatestEvents();
-    }   
+    };
+
+    componentDidMount() {
+        setTimeout(() => {
+             this.setState({loading : false})
+         },2000);
+    };
 
     render() {
 
         const { events } = this.props;
-        let { searchingEvents } = this.state;
+        let { searchingEvents,loading } = this.state;
 
         return (
+            loading 
+            ?
+              <LottieLoader />
+            :
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>LES ÉVÈNEMENTS À VENIR</h1>

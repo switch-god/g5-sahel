@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 import React, { Component } from 'react'
 
 import {
@@ -11,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 import { Player, BigPlayButton} from 'video-react';
 import moment from 'moment';
-import Loading from '../loading/Loading';
+
 
 // Connect to redux : 
     import { connect } from 'react-redux';
@@ -19,12 +20,17 @@ import Loading from '../loading/Loading';
 
 // COMPONENTS :
 import Newsletter from '../../components/Newsletter';
+import LottieLoader from '../../components/LottieLoader';
 
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            loading : true,
+        };
 
         //Get Images and data : 
         this.props.getImagesBloc();
@@ -41,21 +47,19 @@ class Home extends Component {
 
     
     componentDidMount() {
-        // setTimeout(() => {
-        //     this.props.setLoading(false)
-        // },3500);
         setTimeout(() => {
-            this.props.setLoading(false)
-        },1);
+             this.setState({loading : false})
+         },2000);
     };
 
     render() {
-        const { loading,events,posts } = this.props;
-
+        
+        const { loading } = this.state;
+        const { events,posts } = this.props;
         return (
             loading 
             ?
-              <Loading />
+              <LottieLoader />
             :
             <Container fluid>
             
@@ -65,13 +69,13 @@ class Home extends Component {
                 <Row style={{marginTop : 50 + "px", marginBottom : 50+"px"}}>
                     <Col />
 
-                    <Col md={10}>
+                    <Col xl={10}>
                         <Row>
-                            <Col md={6} className="postsContainerNews">
+                            <Col xl={6} className="postsContainerNews">
                                 {this.renderPosts(posts,"Latest News")}
                             </Col>
   
-                            <Col md={6} className="postsContainerEvents">
+                            <Col xl={6} className="postsContainerEvents">
                                 {this.renderPosts(events,"Upcoming Events")}
                             </Col>
                         </Row>
@@ -368,7 +372,6 @@ const styles = {
 
 
 const mapStateToProps = state => ({
-    loading : state.postsR.loading,
     imagesBloc : state.postsR.imagesBloc,
     activites : state.postsR.activites,
     posts : state.postsR.posts,

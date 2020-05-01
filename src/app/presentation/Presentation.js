@@ -15,6 +15,7 @@ import { getPresentationBloc1 } from '../../redux/actions/PostsActions';
 
 import Newsletter from '../../components/Newsletter';
 import ContactForm from '../../components/ContactForm';
+import LottieLoader from '../../components/LottieLoader';
 import Map from '../../components/Map';
 
 import Image1 from '../../assets/images/Home/3.png';
@@ -26,14 +27,28 @@ class Presentation extends Component {
 
     constructor(props) {
         super(props);
+        
+        this.state = {
+            loading : true
+        };
 
-        this.props.getPresentationBloc1();
+        // this.props.getPresentationBloc1();
     }
     
+    componentDidMount() {
+        setTimeout(() => {
+             this.setState({loading : false})
+         },2000);
+    };
+
+
     render() {
-       console.log(this.props.presentation_bloc_1);
-        const { presentation_bloc_1 } = this.props;
+        const { loading } = this.state;
         return (
+            loading 
+            ?
+              <LottieLoader />
+            :
             <Container fluid>
                 <Row>
                     <Col />

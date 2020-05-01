@@ -14,6 +14,7 @@ import moment from 'moment';
 // Components :
     import Layout from '../../components/Layout';
     import Newsletter from '../../components/Newsletter';
+    import LottieLoader from '../../components/LottieLoader';
 
 // Icons :
 import {FaFacebookF,FaYoutube,FaLinkedinIn,FaTwitter} from 'react-icons/fa';
@@ -27,12 +28,27 @@ class Actualites extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            loading : true,
+        };
+
         this.props.getLatestNews();
     }
 
-    render() {
+    componentDidMount() {
+        setTimeout(() => {
+             this.setState({loading : false})
+         },2000);
+    };
 
+    render() {
+        const { loading } = this.state;
         return (
+
+            loading 
+            ?
+              <LottieLoader />
+            :
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>Actualités</h1>
