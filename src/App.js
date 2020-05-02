@@ -29,6 +29,7 @@ import Footer from './app/navigation/Footer';
    import AppelOffre from './app/appeloffre/AppelOffre';
 
    import SoloPage from './app/solo-pages/SoloPage';
+   import SeeMore from './app/solo-pages/SeeMore';
    
 /* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
 
@@ -96,6 +97,7 @@ export class App extends Component {
               </Route>
 
               <Route path="/solo-page" component={SoloPage} />
+              <Route path="/see-more" component={SeeMore} />
               
             </Switch>
 

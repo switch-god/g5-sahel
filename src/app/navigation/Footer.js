@@ -24,6 +24,15 @@ import {
     import linkedIn from '../../assets/images/Footer/lin.png';
     import youtube from '../../assets/images/Footer/ytb.png';
 
+    /*
+     * 
+     * 
+     *  onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}}
+     * 
+     * 
+     * 
+     */
+
 export default class Footer extends Component {
     render() {
         return (
@@ -82,7 +91,7 @@ export default class Footer extends Component {
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
                                         <Link to="#" style={styles.link}>Conditions d’utilisation</Link>
                                         <Link to="#" style={styles.link}>Confidentialité de l’information</Link>
-                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/contact-g5" style={styles.link}>Contactez-nous</Link>
+                                        <Link  to="/contact-g5" style={styles.link}>Contactez-nous</Link>
                                         <Link to="#" style={styles.link}>Plan de site</Link>
                                         <Link to="#" style={styles.link}>FAQ</Link>
                                     </Nav>
@@ -94,11 +103,11 @@ export default class Footer extends Component {
                                     <h2 style={styles.footerTitle}> SITEMAP </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/presentation" style={styles.link}>Présentation</Link>
-                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/nos-activites" style={styles.link}>Nos activités</Link>
-                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/actualites" style={styles.link}>Actualités</Link>
-                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/events" style={styles.link}>Evénements</Link>
-                                        <Link onClick={() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}} to="/documentation" style={styles.link}>Documentations</Link>
+                                        <Link to="/presentation" style={styles.link}>Présentation</Link>
+                                        <Link to="/nos-activites" style={styles.link}>Nos activités</Link>
+                                        <Link to="/actualites" style={styles.link}>Actualités</Link>
+                                        <Link to="/events" style={styles.link}>Evénements</Link>
+                                        <Link to="/documentation" style={styles.link}>Documentations</Link>
                                     </Nav>
                                 </div>
                             </Col>

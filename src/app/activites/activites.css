@@ -40,6 +40,7 @@
     .postImageBig {
         min-height: 200px;
         max-height: 200px; 
+        width: 100%;
     }
     
     .postTitleBig {
@@ -231,6 +232,183 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
+    .divider {
+        border: 0;
+        clear:both;
+        display:block;
+        width: 100%;               
+        margin-top: 50px;
+        margin-bottom: 20px;
+        margin-left: 15px;
+        background-color:#DEDEDE;
+        height: 1px;
+    }
+
+    /* THUMBS */
+        
+        /* Ultra */
+        .thumbUlContainer {
+            height: 420px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbUlImage {
+            max-height: 250px;
+            min-height: 250px;
+        }
+
+        .thumbUlTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 30px;
+            color: #717171;
+            margin-top: 7px;
+        }
+        
+        /* BIG */
+        .thumbBigContainer {
+            height: 396px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbBigImage {
+            max-height: 200px;
+            min-height: 200px;
+        }
+
+        .thumbBigTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 25px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbBigDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 17px;
+            color: #717171;
+        }
+
+
+        /* RESILENCE */
+
+            /* BIG RESI */
+            .thumbResiBigContainer {
+                height: 420px;
+                width: 100%;
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbResiBigImage {
+                max-height: 200px;
+                min-height: 200px;
+            }
+
+            .thumbResiBigTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 25px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbResiBigDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 17px;
+                color: #717171;
+            }
+
+            /* SMALL RESI */
+            .thumbResiSmallContainer {
+                height: 200px;
+                width: 100%;
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbResiSmallImage {
+                max-height: 100px;
+                min-height: 100px;
+            }
+
+            .thumbResiSmallTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 25px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbResiSmallDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 17px;
+                color: #717171;
+            }
+        /* RESILENCE */
+
+
+
+        /* SMALL */
+        .thumbXsContainer {
+            height: 120px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbXsImage {
+            max-height: 40px;
+            min-height: 40px;
+        }
+        
+        .thumbSmallContainer {
+            height: 150px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbSmallImage {
+            max-height: 60px;
+            min-height: 60px;
+        }
+
+        .thumbSmallTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 15px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbSmallDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 12px;
+            color: #717171;
+        }
+    /* THUMBS */
+
+
+    
     /* RESILENCE */
  
     .resiImageBig {
@@ -292,6 +470,30 @@
 
     /* INFRA */
 
+        .voirToutButtonRow {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 1px;
+        }
+
+        .infraVoirToutButton {
+            background-color: white;
+            color: #666666;
+            border: 1px solid #666666;
+            font-family: 'Poppins Light';
+            font-size: 15px;
+        }
+        .infraVoirToutButton:hover {
+            background-color: #666666;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .infraContainer {
+            padding : 10px
+        }
+
         .infraTitleContainer {
             min-height: 100px;
             max-height: 100px;
@@ -305,8 +507,9 @@
             
         }
         .infraImage {
-            min-height: 200px;
-            max-height: 200px;
+            min-height: 250px;
+            max-height: 250px;
+            width: 100%;
         }
 
         .infraTitle {
@@ -330,13 +533,40 @@
 
     /* GOUVERNANCE */
 
+        .container-for-img {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .container-for-img .content {
+            position: absolute; /* Position the background text */
+            bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: white; /* Grey text */
+            width: 100%; /* Full width */
+            padding: 30px; /* Some padding */
+        }
+
+        .container-for-img .content h5 {
+            font-family: 'Poppins Bold';
+            text-align: left;
+            font-size: 20px;
+        }
+    
+        .container-for-img .content p {
+            font-family: 'Poppins Bold';
+            font-size: 15px;
+        }
+
         .gouvSmallRow {
             margin-top: 20px;
         }
 
         .gouvImageSmall {
-            min-height: 110px;
-            max-height: 110px;
+            min-height: 120px;
+            max-height: 120px;
+            width: 100%;
         }
 
         .genreImage {
@@ -349,13 +579,20 @@
     /* ./GOUVERNANCE */
 
 
+    .seeMoreToSolo {
+        font-family: 'Poppins Light';
+        font-size: 14px;
+        color: #0099CC;
+        float: right;
+    }
+
     .smallArticleRow {
         margin-bottom: 20px;
     }
 
     .postImageBig {
-        min-height: 420px;
-        max-height: 420px; 
+        min-height: 396px;
+        max-height: 396px; 
     }
 
     .postTitleBig {
@@ -375,14 +612,14 @@
     }
 
     .postImageSmall {
-        min-height: 200px;
-        max-height: 200px; 
+        /* min-height: 200px;
+        max-height: 200px;  */
         width: 100%;
     }
 
 
     .titleSmall {
-        font-size: 15px;
+        font-size: 14px;
         font-family: 'Poppins Bold';
     }   
     
@@ -392,8 +629,8 @@
     }
     
     .dateSmall {
-        font-size: 12px;
-        font-family: 'Poppins Light';
+        font-size: 13px;
+        font-family: 'Poppins Bold';
         color: #0099CC;
     }
     

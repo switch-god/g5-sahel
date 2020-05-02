@@ -8,7 +8,8 @@ import {
     Button,
     Image,
 } from 'react-bootstrap';
-import THUMB_LOGO from '../assets/images/Thumbs/thumb.png';
+// import THUMB_LOGO from '../assets/images/Thumbs/thumb.png';
+import THUMB_LOGO from '../assets/images/Footer/Logo.png';
 
 export default class ThumbDoc extends Component {
     

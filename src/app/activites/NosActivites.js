@@ -7,6 +7,7 @@ import {
     Button,
 } from 'react-bootstrap';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 // Redux :
     import { connect } from 'react-redux';
@@ -17,6 +18,7 @@ import moment from 'moment';
     import {IoIosArrowForward} from 'react-icons/io';
     import Newsletter from '../../components/Newsletter';
     import LottieLoader from '../../components/LottieLoader';
+    import ThumbDoc from '../../components/ThumbDoc';
     // import ScrollableAnchor from 'react-scrollable-anchor';
 
 // Image & styling :
@@ -55,7 +57,7 @@ class NosActivites extends Component {
     componentDidMount() {
         setTimeout(() => {
              this.setState({loading : false})
-         },2000);
+         },3000);
     };
 
 
@@ -73,7 +75,6 @@ class NosActivites extends Component {
 
                 <Layout xsColumns={10}>
 
-                    {/* <ScrollableAnchor id={'defenseSecurite'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
                     <Row id="defenseSecurite" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
@@ -85,7 +86,6 @@ class NosActivites extends Component {
 
                     {this.renderDefenseSecurite()}
 
-                    {/* <ScrollableAnchor id={'gouvernance'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
                     <Row id="gouvernance" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
@@ -97,7 +97,6 @@ class NosActivites extends Component {
 
                     {this.renderGouvernance()}
 
-                    {/* <ScrollableAnchor id={'infrastructure'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
                     <Row id="infrastructure" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
@@ -109,7 +108,6 @@ class NosActivites extends Component {
                     {this.renderInfra()}
                     
 
-                    {/* <ScrollableAnchor id={'resilence'}><div></div></ScrollableAnchor> */}
                     {/* TITLE */}
                     <Row id="resilence" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                         <div className="sectionTitleContainer">
@@ -134,61 +132,114 @@ class NosActivites extends Component {
         return (
             <Row>
 
-                
                 <Col xs={12} md={12} xl={6}>
                     {
                         defense_securite[0] && defense_securite[0].status == "publish" &&
                         <>
-                        <Image src={defense_securite[0].fimg_url != false ? defense_securite[0].fimg_url : THUMB} fluid className="postImageBig" />
+                        {
+                            defense_securite[0].fimg_url !== false 
+                            ? 
+                            <Image src={defense_securite[0].fimg_url} fluid className="postImageBig" />
+                            : 
+                            <ThumbDoc 
+                                title="Défense et Sécurité" 
+                                containerClass="thumbBigContainer"
+                                imageClass="thumbBigImage" 
+                                titleClass="thumbBigTitle" 
+                                descClass="thumbBigDesc" 
+                            />
+                            
+                        }
+                        
                         <div style={{ marginTop : 20+"px" }}>
-                            <h3 className="postTitleBig">{defense_securite[0].title.rendered}</h3>   
+                            {
+                                defense_securite[0].title.rendered.length > 138
+                                ?
+                                <h3 className="postTitleBig" dangerouslySetInnerHTML={{__html: defense_securite[0].title.rendered.substr(0,138)+"..."}}></h3>
+                                :
+                                <h3 className="postTitleBig" dangerouslySetInnerHTML={{__html: defense_securite[0].title.rendered}}></h3>
+                            }
                             <p  className="dateBig">{moment(defense_securite[0].date).format("DD MMMM YYYY")}</p>
-                            <p  className="descBig">
-                                {
-                                    defense_securite[0].excerpt.rendered.length > 0
-                                    ?
-                                        defense_securite[0].excerpt.rendered.replace(/<[^>]*>?/gm, '').substr(0,265) + "..."
-                                    :
-                                        defense_securite[0].content.rendered.replace(/<[^>]*>?/gm, '').substr(0,265) + "..."
-                                }
-                            </p>
+                            {
+                                defense_securite[0].excerpt.rendered.length > 0
+                                ?
+                                <p className="descBig" dangerouslySetInnerHTML={{__html: defense_securite[0].excerpt.rendered.substr(0,265)+"..."}}></p>
+                                :
+                                <p className="descBig" dangerouslySetInnerHTML={{__html: defense_securite[0].content.rendered.substr(0,265)+"..."}}></p>
+                            }
+                            <Link
+                                className="seeMoreToSolo"
+                                to={{
+                                    pathname : '/solo-page',
+                                    state : { 
+                                        solo_title : "Défense et Sécurité",
+                                        publication : defense_securite[0],
+                                    }
+                                }}
+                            >
+                                Lire la suite
+                            </Link>
                         </div>
                         </>
                     }
                 </Col>
-
-                <Col>
+                
+                <Col className="ml-5" xs={12} md={12} xl={5}>
 
                     <Row>
                         {
                            defense_securite.map((def_sec,index) => 
                                 def_sec && def_sec.status == "publish" && index > 0 && index < 4 &&
                                 <Row className="smallArticleRow">
-                                <Col xs={12} md={4} xl={6} >
-                                    <Image src={def_sec.fimg_url != false ? def_sec.fimg_url : THUMB} fluid className="postImageSmall" />
-                                </Col>
+                                    <Col xs={12} md={4} xl={5} >
+                                        {
+                                            def_sec.fimg_url != false 
+                                            ?  
+                                            <Image src={def_sec.fimg_url} fluid className="postImageSmall" />
+                                            : 
+                                            <ThumbDoc 
+                                                title="Défense et Sécurité" 
+                                                containerClass="thumbSmallContainer"
+                                                imageClass="thumbSmallImage" 
+                                                titleClass="thumbSmallTitle" 
+                                                descClass="thumbSmallDesc" 
+                                            />
+                                        }
+                                    </Col>
 
-                                <Col xs={12} md={6} xl={6} className="justify-elements">
-                                    <h4 className="titleSmall">{def_sec.title.rendered}</h4>
-                                    <p  className="descSmall">
+                                    <Col xs={12} md={6} xl={7} className="justify-elements">
+                                        <p className="titleSmall" dangerouslySetInnerHTML={{__html: def_sec.title.rendered}}></p> 
                                         {
                                             def_sec.excerpt.rendered.length > 0
                                             ?
-                                            def_sec.excerpt.rendered.replace(/<[^>]*>?/gm, '').substr(0,280) + "..."
+                                            <p className="descSmall" dangerouslySetInnerHTML={{__html: def_sec.excerpt.rendered.substr(0,62)+"..."}}></p>
                                             :
-                                            def_sec.content.rendered.replace(/<[^>]*>?/gm, '').substr(0,280) + "..."
+                                            <p className="descSmall" dangerouslySetInnerHTML={{__html: def_sec.content.rendered.substr(0,62)+"..."}}></p>
+                                            
                                         }
-                                    </p>
-                                    <p  className="dateSmall">{moment(def_sec.date).format("DD MMMM YYYY")}</p>
-                                </Col>
+                                        <p  className="dateSmall">{moment(def_sec.date).format("DD MMMM YYYY")}</p>
+                                    
+                                    </Col>
+                                    { index < 3 && <hr className="divider" /> }
+                                    
                                 </Row>
                            )
                         }
                     </Row>
 
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}>
+                    <Link
+                        to={{
+                            pathname : '/see-more',
+                            state : { 
+                                see_more_title : "Défense et Sécurité",
+                                posts : defense_securite,
+                            }
+                        }}  
+                        className="btn btn-primary buttonBlue" 
+                        style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
+                    >
                          VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                    </Button>
+                    </Link>
 
                 </Col>
             </Row>  
@@ -201,7 +252,7 @@ class NosActivites extends Component {
         return (
         <Row>
               
-
+            {/* LEFT BLOC */}
             <Col xl={6}>
                 <Row style={{marginTop : 20+"px"}}>
                     <Col xs={12} xl={12}>
@@ -219,11 +270,25 @@ class NosActivites extends Component {
                                 <>
                                 <Col xs={12} xl={12}>
                                     <div className="container-for-img">   
-                                        <Image src={gouvernance[0].fimg_url !== false ? gouvernance[0].fimg_url : GENRE} fluid className="genreImage" />    
-                                        <div className="content">
-                                            <h5>{gouvernance[0].title.rendered}</h5>
-                                            <p>{moment(gouvernance[0].date).format("DD MMMM YYYY")}</p>
-                                        </div>
+                                        {
+                                            gouvernance[0].fimg_url !== false
+                                            ?
+                                            <>
+                                            <Image src={gouvernance[0].fimg_url} fluid className="genreImage" />
+                                            <div className="content">
+                                                <h5 dangerouslySetInnerHTML={{__html: gouvernance[0].title.rendered}}></h5>
+                                                <p>{moment(gouvernance[0].date).format("DD MMMM YYYY")}</p>
+                                            </div>
+                                            </>
+                                            :
+                                            <ThumbDoc 
+                                                title={"Gouvernance"}
+                                                containerClass="thumbUlContainer"
+                                                imageClass="thumbUlImage" 
+                                                titleClass="thumbUlTitle" 
+                                                descClass="thumbUlDesc" 
+                                            />
+                                        }    
                                     </div>
                                 </Col>
                                 </>
@@ -238,10 +303,22 @@ class NosActivites extends Component {
                                 <Col xs={12} xl={12}>
                                     <Row className="gouvSmallRow">
                                         <Col xl={4}>
-                                            <Image src={gouv.fimg_url !== false ? gouv.fimg_url : GENRE} fluid className="gouvImageSmall"  />
+                                            {
+                                                gouv.fimg_url !== false 
+                                                ? 
+                                                <Image src={gouv.fimg_url} fluid className="gouvImageSmall"  />
+                                                : 
+                                                <ThumbDoc 
+                                                    title="Gouvernance" 
+                                                    containerClass="thumbXsContainer"
+                                                    imageClass="thumbXsImage" 
+                                                    titleClass="thumbSmallTitle" 
+                                                    descClass="thumbSmallDesc" 
+                                                />
+                                            }
                                         </Col>
                                         <Col className="justify-elements-center">
-                                            <h4 className="titleSmall">{gouv.title.rendred}</h4>
+                                            <h4 className="titleSmall" dangerouslySetInnerHTML={{__html: gouv.title.rendered.substr(0,192)}}></h4>
                                             <p  className="dateSmall">{moment(gouv.date).format("DD MMMM YYYY")}</p>
                                         </Col>
                                     </Row>
@@ -254,9 +331,19 @@ class NosActivites extends Component {
                        
                         <Row style={{marginTop :"15px",marginBottom :"15px"}}>
                             <Col xs={12} xl={12}>
-                                <Button className="buttonBlue">
-                                    VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                                </Button>
+                            <Link
+                                to={{
+                                    pathname : '/see-more',
+                                    state : { 
+                                        see_more_title : "Gouvernance",
+                                        posts : gouvernance,
+                                    }
+                                }}  
+                                className="btn btn-primary buttonBlue" 
+                                style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
+                            >
+                                VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                            </Link>
                             </Col>
                         </Row>
 
@@ -264,14 +351,15 @@ class NosActivites extends Component {
                 </Row>
             </Col>
 
-            
+
+            {/* RIGHT BLOC */}
             <Col xl={6}>
                 <Row style={{marginTop : 20+"px"}}>
                     <Col xs={12} xl={12}>
                         
                         <Row>
                             <Col xs={12} xl={12}>   
-                                <h5 style={styles.gouvernanceTitle}>CELLULE ANTI REDICALISATION ET L’EXTREMISME VIOLANT</h5>
+                                <h5 style={styles.gouvernanceTitle}>GENRE</h5>
                                 <hr  style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
                             </Col>
                         </Row>
@@ -282,11 +370,25 @@ class NosActivites extends Component {
                                 <>
                                 <Col xs={12} xl={12}>
                                     <div className="container-for-img">   
-                                        <Image src={gouvernance[0].fimg_url !== false ? gouvernance[0].fimg_url : GENRE} fluid className="genreImage" />    
-                                        <div className="content">
-                                            <h5>{gouvernance[0].title.rendered}</h5>
-                                            <p>{moment(gouvernance[0].date).format("DD MMMM YYYY")}</p>
-                                        </div>
+                                        {
+                                            gouvernance[0].fimg_url !== false
+                                            ?
+                                            <>
+                                            <Image src={gouvernance[0].fimg_url} fluid className="genreImage" />
+                                            <div className="content">
+                                                <h5 dangerouslySetInnerHTML={{__html: gouvernance[0].title.rendered}}></h5>
+                                                <p>{moment(gouvernance[0].date).format("DD MMMM YYYY")}</p>
+                                            </div>
+                                            </>
+                                            :
+                                            <ThumbDoc 
+                                                title={"Gouvernance"}
+                                                containerClass="thumbUlContainer"
+                                                imageClass="thumbUlImage" 
+                                                titleClass="thumbUlTitle" 
+                                                descClass="thumbUlDesc" 
+                                            />
+                                        }    
                                     </div>
                                 </Col>
                                 </>
@@ -301,11 +403,23 @@ class NosActivites extends Component {
                                 <Col xs={12} xl={12}>
                                     <Row className="gouvSmallRow">
                                         <Col xl={4}>
-                                            <Image src={DFS_2} fluid className="gouvImageSmall"  />
+                                            {
+                                                gouv.fimg_url !== false 
+                                                ? 
+                                                <Image src={gouv.fimg_url} fluid className="gouvImageSmall"  />
+                                                : 
+                                                <ThumbDoc 
+                                                    title="Gouvernance" 
+                                                    containerClass="thumbSmallContainer"
+                                                    imageClass="thumbSmallImage" 
+                                                    titleClass="thumbSmallTitle" 
+                                                    descClass="thumbSmallDesc" 
+                                                />
+                                            }
                                         </Col>
                                         <Col className="justify-elements-center">
-                                            <h4 className="titleSmall">“Atlantic Dialogues“ nouveau contrat social est devenu un impératif</h4>
-                                            <p  className="dateSmall">19 Septembre 2019</p>
+                                            <h4 className="titleSmall" dangerouslySetInnerHTML={{__html: gouv.title.rendered.substr(0,192)}}></h4>
+                                            <p  className="dateSmall">{moment(gouv.date).format("DD MMMM YYYY")}</p>
                                         </Col>
                                     </Row>
                                 </Col>
@@ -317,15 +431,28 @@ class NosActivites extends Component {
                        
                         <Row style={{marginTop :"15px",marginBottom :"15px"}}>
                             <Col xs={12} xl={12}>
-                                <Button className="buttonBlue">
-                                    VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                                </Button>
+                            <Link
+                                to={{
+                                    pathname : '/see-more',
+                                    state : { 
+                                        see_more_title : "Gouvernance",
+                                        posts : gouvernance,
+                                    }
+                                }}  
+                                className="btn btn-primary buttonBlue" 
+                                style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
+                            >
+                                VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                            </Link>
                             </Col>
                         </Row>
 
                     </Col>
                 </Row>
             </Col>
+
+            
+            
 
         </Row>
         );
@@ -335,12 +462,31 @@ class NosActivites extends Component {
         const { infrastructure } = this.props;
        
         return (
+            <>
+            
+            <Row className="voirToutButtonRow">
+                <Link 
+                    className="btn btn-light infraVoirToutButton "
+                    to={{
+                        pathname : '/see-more',
+                        state : { 
+                            see_more_title : "Infrastructure",
+                            posts : infrastructure,
+                        }
+                    }}
+                >
+                    Voir tous les articles <IoIosArrowForward size={'20px'} />
+                </Link>
+            </Row>
+            
             <Row>
                 {
                     infrastructure.map((infra,index) => 
-                    infra && infra.status == "publish" && index < 4 &&
-                        <Col xs={12} xl={3}>
+                    infra && infra.status == "publish" && index < 3 &&
+                        <Col xs={12} xl={4} className="infraContainer">
+
                             <Image src={infra.fimg_url} fluid className="infraImage" />
+                            
                             <div style={{marginTop : 20+"px"}}>
                                 <div className="infraTitleContainer">
                                     <h5 className="infraTitle" >{infra.title.rendered.substr(0,133)}</h5>
@@ -366,6 +512,7 @@ class NosActivites extends Component {
                     )
                 }
             </Row>
+            </>
         );
     };
     
@@ -390,7 +537,19 @@ class NosActivites extends Component {
                         resi && resi.status == "publish" && index > 0 && index < 4 &&
                         <Row className="resilenceRow">
                             <Col xs={12} xl={6}>
-                                <Image src={ resi.fimg_url !== false ? resi.fimg_url : THUMB} fluid className="resiImageSmall" />
+                                {
+                                    resi.fimg_url !== false 
+                                    ? 
+                                    <Image src={ resi.fimg_url} fluid className="resiImageSmall" />
+                                    : 
+                                    <ThumbDoc 
+                                        title="Résilience" 
+                                        containerClass="thumbResiSmallContainer"
+                                        imageClass="thumbResiSmallImage" 
+                                        titleClass="thumbResiSmallTitle" 
+                                        descClass="thumbResiSmallDesc" 
+                                    />
+                                }
                             </Col>
 
                             <Col xs={12} xl={6} className="resi-justify-elements">
@@ -399,9 +558,9 @@ class NosActivites extends Component {
                                     {
                                         resi.excerpt.rendered.length > 0
                                         ?
-                                        resi.excerpt.rendered.replace(/<[^>]*>?/gm, '').substr(0,280) + "..."
+                                        <p dangerouslySetInnerHTML={{__html: resi.excerpt.rendered.substr(0,280)+"..."}}></p>
                                         :
-                                        resi.content.rendered.replace(/<[^>]*>?/gm, '').substr(0,280) + "..."
+                                        <p dangerouslySetInnerHTML={{__html: resi.content.rendered.substr(0,280)+"..."}}></p>
                                     }
                                 </p>
                                 <p  className="resiDateSmall">{moment(resi.date).format("DD MMMM YYYY")}</p>
@@ -410,10 +569,19 @@ class NosActivites extends Component {
                      )
                     }
                 
-                    
-                    <Button className="buttonBlue" style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}>
-                         VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                    </Button>
+                    <Link
+                        to={{
+                            pathname : '/see-more',
+                            state : { 
+                                see_more_title : "Résilience",
+                                posts : resilence,
+                            }
+                        }}  
+                        className="btn btn-primary buttonBlue" 
+                        style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
+                    >
+                        VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                    </Link>
 
                 </Col>
 
@@ -421,19 +589,44 @@ class NosActivites extends Component {
                     {
                         resilence[0] && resilence[0].status == "publish" &&
                         <>
-                        <Image src={resilence[0].fimg_url !== false ? resilence[0].fimg_url : THUMB} fluid className="resiImageBig" />
+                        {
+                            resilence[0].fimg_url !== false 
+                            ? 
+                            <Image src={resilence[0].fimg_url !== false ? resilence[0].fimg_url : THUMB} fluid className="resiImageBig" />
+                            :
+                            <ThumbDoc 
+                                title="Résilience" 
+                                containerClass="thumbResiBigContainer"
+                                imageClass="thumbResiBigImage" 
+                                titleClass="thumbResiBigTitle" 
+                                descClass="thumbResiBigDesc" 
+                            />
+                        }
+                        
                         <div style={{ marginTop : 20+"px" }}>
-                            <h3 className="resiTitleBig">{resilence[0].title.rendered}</h3>   
+                            <h3 className="resiTitleBig" dangerouslySetInnerHTML={{__html: resilence[0].title.rendered}}></h3>
                             <p  className="resiDateBig">{moment(resilence[0].date).format("DD MMMM YYYY")}</p>
-                            <p  className="resiDescBig">
                             {
                                 resilence[0].excerpt.rendered.length > 0
                                 ?
-                                resilence[0].excerpt.rendered.replace(/<[^>]*>?/gm, '').substr(0,265) + "..."
+                                <p className="resiDescBig" dangerouslySetInnerHTML={{__html: resilence[0].excerpt.rendered.substr(0,265)+"..."}}></p>
                                 :
-                                resilence[0].content.rendered.replace(/<[^>]*>?/gm, '').substr(0,265) + "..."
+                                <p className="resiDescBig" dangerouslySetInnerHTML={{__html: resilence[0].content.rendered.substr(0,265)+"..."}}></p>
                             }
-                            </p>
+                            
+                            <Link
+                                className="seeMoreToSolo"
+                                to={{
+                                    pathname : '/solo-page',
+                                    state : { 
+                                        solo_title : "Résilience",
+                                        publication : resilence[0],
+                                    }
+                                }}
+                            >
+                                Lire la suite
+                            </Link>
+
                         </div>
                         </>
                     }

@@ -20,12 +20,13 @@
         // const Presentation_image_text_1 = 44;
         // const Presentation_image_text_2 = 45;
         // const Presentation_Citation = 46;
+        
         //Activites : 
         const NOS_ACTIVITES = 23;
-        const DEFENSE_SECURITE = 35;
-        const GOUVERNANCE = 36;
-        const INFRASTRUCTURE = 37;
-        const RESILENCE = 38;
+            const DEFENSE_SECURITE = 35;
+            const GOUVERNANCE = 36;
+            const INFRASTRUCTURE = 37;
+            const RESILENCE = 38;
 
         // Actualites :
         const ACTUALITES_INTERNATIONALE = 31;
