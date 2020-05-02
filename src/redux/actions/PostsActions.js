@@ -11,7 +11,6 @@ import moment from 'moment';
     GOUVERNANCE,
     INFRASTRUCTURE,
     RESILENCE,
-
 } from '../../constants/AppConfig';
 
 

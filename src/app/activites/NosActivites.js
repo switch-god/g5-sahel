@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 // Redux :
     import { connect } from 'react-redux';
-    import { getDefenseSecurite,getGouvernance,getInfrastructure,getResilence } from '../../redux/actions/PostsActions';
+    import { getDefenseSecurite,getGouvernance,getInfrastructure,getResilence,getGenre,getCellule } from '../../redux/actions/NosActivitesActions';
 
 // Components : 
     import Layout from '../../components/Layout';
@@ -22,9 +22,9 @@ import { Link } from 'react-router-dom';
     // import ScrollableAnchor from 'react-scrollable-anchor';
 
 // Image & styling :
-    import DFS_2 from '../../assets/images/Activites/ds2.png';
     import THUMB from '../../assets/images/Thumbs/content-placeholder.jpg';
-    import GENRE from '../../assets/images/Activites/genre.png'
+    // import DFS_2 from '../../assets/images/Activites/ds2.png';
+    // import GENRE from '../../assets/images/Activites/genre.png'
     // import DFS from '../../assets/images/Activites/ds.png';
     // import INFRA from '../../assets/images/Activites/infra.png';
     // import RESI from '../../assets/images/Activites/resi.png';
@@ -45,7 +45,9 @@ class NosActivites extends Component {
         this.props.getDefenseSecurite();
 
         // GET GOUVERNANCE :
-        this.props.getGouvernance();
+        // this.props.getGouvernance();
+        this.props.getGenre();
+        this.props.getCellule();
 
         // GET INFRASTRUCTURE : 
         this.props.getInfrastructure();
@@ -63,6 +65,8 @@ class NosActivites extends Component {
 
     render() {
         const { loading } = this.state;
+
+        const { defense_securite,genre,cellule,infrastructure,resilence } = this.props;
         return (
             loading 
             ?
@@ -75,48 +79,69 @@ class NosActivites extends Component {
 
                 <Layout xsColumns={10}>
 
-                    {/* TITLE */}
-                    <Row id="defenseSecurite" style={{paddingLeft: '15px',paddingRight : '15px'}}>
-                        <div className="sectionTitleContainer">
-                            <h4 className="sectionTitle">Défense et Sécurité</h4>
-                        </div>
-                        <hr  className="titleSeperator" />  
-                    </Row>
-                    {/* ./TITLE */}
+                    {/* Défense et Sécurité */}
+                    {
+                        defense_securite.length > 0 &&
+                        <>
+                        <Row id="defenseSecurite" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                            <div className="sectionTitleContainer">
+                                <h4 className="sectionTitle">Défense et Sécurité</h4>
+                            </div>
+                            <hr  className="titleSeperator" />  
+                        </Row>
+                        {this.renderDefenseSecurite(defense_securite)}
+                        </>
+                    }
+                    {/* ./Défense et Sécurité */}
 
-                    {this.renderDefenseSecurite()}
 
-                    {/* TITLE */}
-                    <Row id="gouvernance" style={{paddingLeft: '15px',paddingRight : '15px'}}>
-                        <div className="sectionTitleContainer">
-                            <h4 className="sectionTitle">Gouvernance</h4>
-                        </div>
-                        <hr  className="titleSeperator" />  
-                    </Row>
-                    {/* ./TITLE */}
+                    {/* Gouvernance */}
+                    {
+                        genre.length > 0 && cellule.length > 0 &&
+                        <>
+                        <Row id="gouvernance" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                            <div className="sectionTitleContainer">
+                                <h4 className="sectionTitle">Gouvernance</h4>
+                            </div>
+                            <hr  className="titleSeperator" />  
+                        </Row>
+                        {this.renderGouvernance(genre,cellule)}
+                        </>
+                    }
+                    {/* ./Gouvernance */}
 
-                    {this.renderGouvernance()}
 
-                    {/* TITLE */}
-                    <Row id="infrastructure" style={{paddingLeft: '15px',paddingRight : '15px'}}>
-                        <div className="sectionTitleContainer">
-                            <h4 className="sectionTitle">Infrastructure</h4>
-                        </div>
-                        <hr  className="titleSeperator" />  
-                    </Row>
-                    {/* ./TITLE */}
-                    {this.renderInfra()}
+                    {/* infrastructure */}
+                    {
+                        infrastructure.length > 0 && 
+                        <>
+                        <Row id="infrastructure" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                            <div className="sectionTitleContainer">
+                                <h4 className="sectionTitle">Infrastructure</h4>
+                            </div>
+                            <hr  className="titleSeperator" />  
+                        </Row>
+                        {this.renderInfra(infrastructure)}
+                        </>
+                    }
+                    {/* ./infrastructure */}
                     
 
-                    {/* TITLE */}
-                    <Row id="resilence" style={{paddingLeft: '15px',paddingRight : '15px'}}>
-                        <div className="sectionTitleContainer">
-                            <h4 className="sectionTitle">Résilience</h4>
-                        </div>
-                        <hr  className="titleSeperator" />  
-                    </Row>
-                    {/* ./TITLE */}
-                    {this.renderResilience()}
+
+                    {/* Résilience */}
+                    {
+                        resilence.length > 0 && 
+                        <> 
+                        <Row id="resilence" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                            <div className="sectionTitleContainer">
+                                <h4 className="sectionTitle">Résilience</h4>
+                            </div>
+                            <hr  className="titleSeperator" />  
+                        </Row>
+                        {this.renderResilience(resilence)}
+                        </>
+                    }
+                    {/* ./Résilience */}
 
                     <div style={{marginTop : 40+"px", marginBottom : 40+"px"}}>
                         <Newsletter />
@@ -126,9 +151,8 @@ class NosActivites extends Component {
         )
     }
 
-    renderDefenseSecurite = () => {
-        const { defense_securite } = this.props;
-
+    renderDefenseSecurite = (defense_securite) => {
+        
         return (
             <Row>
 
@@ -246,8 +270,7 @@ class NosActivites extends Component {
         );
     };
 
-    renderGouvernance = () => {
-        const { gouvernance } = this.props;
+    renderGouvernance = (genre,cellule) => {
 
         return (
         <Row>
@@ -266,18 +289,18 @@ class NosActivites extends Component {
                         
                         <Row>
                             {
-                                gouvernance[0] && gouvernance[0].status == "publish" &&
+                                genre[0] && genre[0].status == "publish" &&
                                 <>
                                 <Col xs={12} xl={12}>
                                     <div className="container-for-img">   
                                         {
-                                            gouvernance[0].fimg_url !== false
+                                            genre[0].fimg_url !== false
                                             ?
                                             <>
-                                            <Image src={gouvernance[0].fimg_url} fluid className="genreImage" />
+                                            <Image src={genre[0].fimg_url} fluid className="genreImage" />
                                             <div className="content">
-                                                <h5 dangerouslySetInnerHTML={{__html: gouvernance[0].title.rendered}}></h5>
-                                                <p>{moment(gouvernance[0].date).format("DD MMMM YYYY")}</p>
+                                                <h5 dangerouslySetInnerHTML={{__html: genre[0].title.rendered}}></h5>
+                                                <p>{moment(genre[0].date).format("DD MMMM YYYY")}</p>
                                             </div>
                                             </>
                                             :
@@ -297,7 +320,7 @@ class NosActivites extends Component {
 
                         <Row>
                             {
-                                gouvernance.map((gouv,index) => 
+                                genre.map((gouv,index) => 
                                 gouv && index > 0 && index < 4 &&
                                 <>
                                 <Col xs={12} xl={12}>
@@ -328,7 +351,6 @@ class NosActivites extends Component {
                             }
                         </Row>
 
-                       
                         <Row style={{marginTop :"15px",marginBottom :"15px"}}>
                             <Col xs={12} xl={12}>
                             <Link
@@ -336,7 +358,7 @@ class NosActivites extends Component {
                                     pathname : '/see-more',
                                     state : { 
                                         see_more_title : "Gouvernance",
-                                        posts : gouvernance,
+                                        posts : genre,
                                     }
                                 }}  
                                 className="btn btn-primary buttonBlue" 
@@ -351,7 +373,6 @@ class NosActivites extends Component {
                 </Row>
             </Col>
 
-
             {/* RIGHT BLOC */}
             <Col xl={6}>
                 <Row style={{marginTop : 20+"px"}}>
@@ -359,25 +380,25 @@ class NosActivites extends Component {
                         
                         <Row>
                             <Col xs={12} xl={12}>   
-                                <h5 style={styles.gouvernanceTitle}>GENRE</h5>
+                                <h5 style={styles.gouvernanceTitle}>Cellule anti redicalisation et l’extremisme violant</h5>
                                 <hr  style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
                             </Col>
                         </Row>
                         
                         <Row>
                             {
-                                gouvernance[0] && gouvernance[0].status == "publish" &&
+                                cellule[0] && cellule[0].status == "publish" &&
                                 <>
                                 <Col xs={12} xl={12}>
                                     <div className="container-for-img">   
                                         {
-                                            gouvernance[0].fimg_url !== false
+                                            cellule[0].fimg_url !== false
                                             ?
                                             <>
-                                            <Image src={gouvernance[0].fimg_url} fluid className="genreImage" />
+                                            <Image src={cellule[0].fimg_url} fluid className="genreImage" />
                                             <div className="content">
-                                                <h5 dangerouslySetInnerHTML={{__html: gouvernance[0].title.rendered}}></h5>
-                                                <p>{moment(gouvernance[0].date).format("DD MMMM YYYY")}</p>
+                                                <h5 dangerouslySetInnerHTML={{__html: cellule[0].title.rendered}}></h5>
+                                                <p>{moment(cellule[0].date).format("DD MMMM YYYY")}</p>
                                             </div>
                                             </>
                                             :
@@ -397,7 +418,7 @@ class NosActivites extends Component {
 
                         <Row>
                             {
-                                gouvernance.map((gouv,index) => 
+                                cellule.map((gouv,index) => 
                                 gouv && index > 0 && index < 4 &&
                                 <>
                                 <Col xs={12} xl={12}>
@@ -410,8 +431,8 @@ class NosActivites extends Component {
                                                 : 
                                                 <ThumbDoc 
                                                     title="Gouvernance" 
-                                                    containerClass="thumbSmallContainer"
-                                                    imageClass="thumbSmallImage" 
+                                                    containerClass="thumbXsContainer"
+                                                    imageClass="thumbXsImage" 
                                                     titleClass="thumbSmallTitle" 
                                                     descClass="thumbSmallDesc" 
                                                 />
@@ -428,7 +449,6 @@ class NosActivites extends Component {
                             }
                         </Row>
 
-                       
                         <Row style={{marginTop :"15px",marginBottom :"15px"}}>
                             <Col xs={12} xl={12}>
                             <Link
@@ -436,7 +456,7 @@ class NosActivites extends Component {
                                     pathname : '/see-more',
                                     state : { 
                                         see_more_title : "Gouvernance",
-                                        posts : gouvernance,
+                                        posts : cellule,
                                     }
                                 }}  
                                 className="btn btn-primary buttonBlue" 
@@ -452,14 +472,15 @@ class NosActivites extends Component {
             </Col>
 
             
-            
+
+ 
 
         </Row>
         );
     };
 
-    renderInfra = () => {
-        const { infrastructure } = this.props;
+    renderInfra = (infrastructure) => {
+        
        
         return (
             <>
@@ -516,8 +537,7 @@ class NosActivites extends Component {
         );
     };
     
-    renderResilience = () => {
-        const { resilence } = this.props;
+    renderResilience = (resilence) => {
         
          {/*
             .status == "publish"
@@ -613,7 +633,7 @@ class NosActivites extends Component {
                                 :
                                 <p className="resiDescBig" dangerouslySetInnerHTML={{__html: resilence[0].content.rendered.substr(0,265)+"..."}}></p>
                             }
-                            
+
                             <Link
                                 className="seeMoreToSolo"
                                 to={{
@@ -683,13 +703,15 @@ const styles = {
     },
 }
 
-
 const mapStateToProps = state => ({
-    defense_securite : state.postsR.defense_securite,
-    gouvernance : state.postsR.gouvernance,
-    infrastructure : state.postsR.infrastructure,
-    resilence : state.postsR.resilence,
+    defense_securite : state.activitesR.defense_securite,
+    gouvernance : state.activitesR.gouvernance,
+        genre : state.activitesR.genre,
+        cellule : state.activitesR.cellule,
+    infrastructure : state.activitesR.infrastructure,
+    resilence : state.activitesR.resilence,
+
 });
 
-export default connect(mapStateToProps,{ getDefenseSecurite,getGouvernance,getInfrastructure,getResilence})(NosActivites);
+export default connect(mapStateToProps,{ getDefenseSecurite,getGouvernance,getInfrastructure,getResilence,getGenre,getCellule})(NosActivites);
 

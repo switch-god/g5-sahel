@@ -25,6 +25,8 @@
         const NOS_ACTIVITES = 23;
             const DEFENSE_SECURITE = 35;
             const GOUVERNANCE = 36;
+                const GENRE = 59;
+                const CELLULE_ANTI_REDICALISATION_EXTREMISME_VIOLANT = 60;
             const INFRASTRUCTURE = 37;
             const RESILENCE = 38;
 
@@ -38,7 +40,6 @@
         
         // Partenariat :
         const PARTENARIAT = 34;
-        
         
         // Documents :
         const DOCUMENTATIONS = 25;
@@ -67,23 +68,25 @@ export {
     PRESENTATION,
    
     NOS_ACTIVITES,
-    DEFENSE_SECURITE,
-    GOUVERNANCE,
-    INFRASTRUCTURE,
-    RESILENCE,
+        DEFENSE_SECURITE,
+        GOUVERNANCE,
+            GENRE,
+            CELLULE_ANTI_REDICALISATION_EXTREMISME_VIOLANT,
+        INFRASTRUCTURE,
+        RESILENCE,
 
     ACTUALITES_INTERNATIONALE,
-    ACTUALITES_DES_PAYS_G5,
-    PUBLICATIONS,
-    VIDEOS,
+        ACTUALITES_DES_PAYS_G5,
+        PUBLICATIONS,
+        VIDEOS,
 
     RAPPORTS,
     PARTENARIAT,
 
     DOCUMENTATIONS,
-    REGLEMENTATIONS,
-    MULTIMEDIAS,
-    CORRESPONDANCE,
-    DISCOURS,
-    AUTRES_DOCUMENTS,
+        REGLEMENTATIONS,
+        MULTIMEDIAS,
+        CORRESPONDANCE,
+        DISCOURS,
+        AUTRES_DOCUMENTS,
 };
