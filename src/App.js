@@ -30,6 +30,7 @@ import Footer from './app/navigation/Footer';
 
    import SoloPage from './app/solo-pages/SoloPage';
    import SeeMore from './app/solo-pages/SeeMore';
+   import SoloEvent from './app/solo-pages/SoloEvent';
    
 /* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
 
@@ -98,6 +99,7 @@ export class App extends Component {
 
               <Route path="/solo-page" component={SoloPage} />
               <Route path="/see-more" component={SeeMore} />
+              <Route path="/solo-event" component={SoloEvent} />
               
             </Switch>
 

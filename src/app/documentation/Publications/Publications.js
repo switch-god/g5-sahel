@@ -9,7 +9,7 @@ import {
     Button,
     Image,
 } from 'react-bootstrap';
-import THUMB_LOGO from '../../../assets/images/Thumbs/thumb.png';
+// import THUMB_LOGO from '../../../assets/images/Thumbs/thumb.png';
 
 import {
     Link,

@@ -111,21 +111,21 @@ class Actualites extends Component {
                         <Col xs={12} xl={12}>
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a className="socialLinka"><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
+                                    <a  href="https://www.facebook.com"  className="socialLinka"><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
                                 </Col>
 
                                 <Col xs={6} xl={6}>
-                                    <a className="socialLinka"><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
+                                    <a  href="https://twitter.com/"  className="socialLinka"><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
                                 </Col>
                             </Row>
                             
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a className="socialLinka"><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
+                                    <a  href="https://www.youtube.com" className="socialLinka"><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
                                 </Col>
                                 
                                 <Col xs={6} xl={6}>
-                                    <a className="socialLinka"><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
+                                    <a  href="https://www.linkedin.com"  className="socialLinka"><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
                                 </Col>
                             </Row>
                         </Col>

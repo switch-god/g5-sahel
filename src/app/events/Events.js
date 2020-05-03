@@ -11,16 +11,19 @@ import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
-  } from '@material-ui/pickers';
+} from '@material-ui/pickers';
+
+import { Link } from 'react-router-dom';
   
 // Components : 
     import Layout from '../../components/Layout';
     import Newsletter from '../../components/Newsletter';
     import LottieLoader from '../../components/LottieLoader';
+    import ThumbDoc from '../../components/ThumbDoc';
 
 // Redux :
     import { connect } from 'react-redux';
-    import { getLatestEvents } from '../../redux/actions/PostsActions';
+    import { getAllEvents } from '../../redux/actions/EventsActions';
 
     import moment from 'moment';
     import './events.css';
@@ -37,7 +40,7 @@ class Events extends Component {
             loading : true,
         };
 
-        this.props.getLatestEvents();
+        this.props.getAllEvents();
     };
 
     componentDidMount() {
@@ -48,7 +51,7 @@ class Events extends Component {
 
     render() {
 
-        const { events } = this.props;
+        const { allEvents } = this.props;
         let { searchingEvents,loading } = this.state;
 
         return (
@@ -72,8 +75,7 @@ class Events extends Component {
                         ?
                             this.renderEvents(searchingEvents)
                         :
-                            this.renderEvents(events)
-                    
+                            this.renderEvents(allEvents)
                     }
                 </Layout>
 
@@ -132,52 +134,119 @@ class Events extends Component {
         );
     };
 
-    renderEvents = (eventsYear) => (
-         
-        eventsYear.map(eventYear =>  
-            eventYear.eventsPerYear.map(monthHasEvents => 
-                monthHasEvents.events.length > 0 &&
-                <div>
+    renderEvents = (allEvents) => {
+        console.log(allEvents);
+        
+        return (
+
+            allEvents.reverse().map(month => 
+                month.events.length > 0 &&
+                <>  
                     <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} className="separator"> 
-                        <h1 style={styles.eventDateTitle}> {monthHasEvents.monthName} {eventYear.id} </h1>
-                    </div>
-                    {
-                        
-                        monthHasEvents.events.map((eventToRender,index) =>       
+                        <h1 style={styles.eventDateTitle}> {month.monthName} {moment().format('YYYY')} </h1>
+                     </div>
+
+                     {
+                         month.events.map((eventToRender,index) =>  
                             <Row key={index} style={{marginTop : 25+"px", marginBottom : 25+"px"}}>
-                                <Col md={8}>
-                                    <Image src={eventToRender.fimg_url} fluid />
+                                <Col xl={7}>
+                                    {
+                                        eventToRender.image !== false 
+                                        ?
+                                        <Image src={eventToRender.image.url} fluid className="eventImage" />
+                                        :   
+                                        <ThumbDoc 
+                                            title="Événement" 
+                                            containerClass="thumbEventContainer"
+                                            imageClass="thumbEventImage" 
+                                            titleClass="thumbEventTitle" 
+                                            descClass="thumbEventDesc" 
+                                        />
+                                    }
                                 </Col>
 
-                                <Col className="justify-elements">
-                                    <h4 style={styles.eventTitle}>{ eventToRender.title.rendered}</h4>
-                                    <p style={styles.eventDate}>{moment(eventToRender.date).format("DD MMMM YYYY")}</p>
-                                    <p style={styles.eventDesc}>
-                                        {
-                                            eventToRender.content.rendered.length > 198 
-                                            ?
-                                            eventToRender.content.rendered.replace(/<[^>]*>?/gm, '').substr(1,198) + "..."
-                                            :
-                                            eventToRender.content.rendered.replace(/<[^>]*>?/gm, '')
-                                    
+                                <Col xl={5}>
+                                    <h4 className="eventTitle">{eventToRender.title}</h4>
+                                    <p className="eventDate">{moment(`${eventToRender.start_date_details.year}-${eventToRender.start_date_details.month}-${eventToRender.start_date_details.day}`).format("DD MMMM YYYY")}</p>
+                                    <p className="eventLocation">{eventToRender.venue.venue}{","+eventToRender.venue.city}{","+eventToRender.venue.country}</p>
+                                    {
+                                        eventToRender.excerpt.length > 150
+                                        ?
+                                            <p className="eventDesc" dangerouslySetInnerHTML={{__html: eventToRender.excerpt.substr(0,180)+"..."}}></p>
+                                        :
+                                            <p className="eventDesc" dangerouslySetInnerHTML={{__html: eventToRender.description.substr(0,180)+"..."}}></p>
+                                    }
+                                    <Link 
+                                    to={{
+                                        pathname : '/solo-event',
+                                        state : { 
+                                            solo_title : "Événements",
+                                            publication : eventToRender,
                                         }
-                                    </p>
-
-                                    <Button className="buttonBlue">
-                                            Register
-                                    </Button>
+                                    }}  
+                                    style={{ textDecoration: 'none' }}
+                                    className="btn btn-primary buttonBlue"
+                                    >
+                                        Voir Plus
+                                    </Link>
                                 </Col>
                             </Row> 
-                         )
-                    }
+                        )
+                     }
 
-
-                </div>
+                </>
             )
-        ) 
-    )
-    
+        );
+    }
+
+    // renderEvents = (eventsYear) => {
+
+    //     return(
         
+    //     eventsYear.map(eventYear =>  
+    //         eventYear.eventsPerYear.map(monthHasEvents => 
+    //             monthHasEvents.events.length > 0 &&
+    //             <div>
+    //                 <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} className="separator"> 
+    //                     <h1 style={styles.eventDateTitle}> {monthHasEvents.monthName} {eventYear.id} </h1>
+    //                 </div>
+    //                 {
+                        
+    //                     monthHasEvents.events.map((eventToRender,index) =>       
+                            // <Row key={index} style={{marginTop : 25+"px", marginBottom : 25+"px"}}>
+                            //     <Col md={8}>
+                            //         <Image src={eventToRender.fimg_url} fluid />
+                            //     </Col>
+
+                            //     <Col className="justify-elements">
+                            //         <h4 style={styles.eventTitle}>{ eventToRender.title.rendered}</h4>
+                            //         <p style={styles.eventDate}>{moment(eventToRender.date).format("DD MMMM YYYY")}</p>
+                            //         <p style={styles.eventDesc}>
+                            //             {
+                            //                 eventToRender.content.rendered.length > 198 
+                            //                 ?
+                            //                 eventToRender.content.rendered.replace(/<[^>]*>?/gm, '').substr(1,198) + "..."
+                            //                 :
+                            //                 eventToRender.content.rendered.replace(/<[^>]*>?/gm, '')
+                                    
+                            //             }
+                            //         </p>
+
+                            //         <Button className="buttonBlue">
+                            //                 Register
+                            //         </Button>
+                            //     </Col>
+                            // </Row> 
+    //                      )
+    //                 }
+
+
+    //             </div>
+    //         )
+    //     ) 
+    //     );
+    // }
+    
 
     searchByTitle = (evenToSearch) => {
 
@@ -253,7 +322,7 @@ const styles = {
 }
 
 const mapStateToProps = state => ({
-    events : state.postsR.allEvents,
+    allEvents : state.eventsR.allEvents,
 })
 
-export default connect(mapStateToProps, { getLatestEvents })(Events);
+export default connect(mapStateToProps, { getAllEvents })(Events);
