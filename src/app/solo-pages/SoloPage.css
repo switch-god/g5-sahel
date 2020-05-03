@@ -22,6 +22,38 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
+    /* THUMB */
+        .thumbSoloContainer {
+            height: 400px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbSoloImage {
+            max-height: 250px;
+            min-height: 250px;
+        }
+
+        .thumbSoloTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 35px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbSoloDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 25px;
+            color: #717171;
+        }
+
+
+    /* THUMB */
+
     /* TITLE OF THE SOLO */
         .soloTitle {
             font-size: 45px;

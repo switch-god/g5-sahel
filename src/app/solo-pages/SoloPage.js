@@ -9,6 +9,7 @@ import axios from 'axios';
 import moment from 'moment';
 import Layout from '../../components/Layout';
 import Newsletter from '../../components/Newsletter';
+import ThumbDoc from '../../components/ThumbDoc';
 
 import { config } from '../../constants/AppConfig';
 
@@ -43,18 +44,23 @@ export default class SoloPage extends Component {
                 <p className="articleTitle" dangerouslySetInnerHTML={{__html: publication.title.rendered}}></p>
                 <p className="articleDate">{moment(publication.date).format("DD MMMM YYYY")}</p>
 
-                {
-                    publication.fimg_url !== false &&
+                
                     <Row>
                         <Col xl={1} />
 
                         <Col>
-                            <Image src={publication.fimg_url} fluid className="articleImage" />
+                            {
+                                publication.fimg_url !== false 
+                                ?
+                                <Image src={publication.fimg_url} fluid className="articleImage" />
+                                :
+                                <ThumbDoc title={solo_title} containerClass="thumbSoloContainer" imageClass="thumbSoloImage" titleClass="thumbSoloTitle" descClass="thumbSoloDesc" />     
+                            }
                         </Col>
                         
                         <Col xl={1} />
                     </Row>
-                }
+                
             </Layout>
             
             <Layout columns={8}>

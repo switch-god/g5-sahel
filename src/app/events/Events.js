@@ -35,6 +35,7 @@ class Events extends Component {
 
         this.state = {
             evenTitle : '',
+            searching : false,
             searchingEvents : [],
             selectedDate : moment(),
             loading : true,
@@ -52,8 +53,8 @@ class Events extends Component {
     render() {
 
         const { allEvents } = this.props;
-        let { searchingEvents,loading } = this.state;
-
+        let { searchingEvents,loading,searching } = this.state;
+        // console.log("found",searchingEvents);
         return (
             loading 
             ?
@@ -70,6 +71,13 @@ class Events extends Component {
 
                 <Layout columns={6}>
                     
+                    {
+                        searchingEvents.length == 0 && searching &&
+                        <div className="noResultContainer">
+                            <p className="noResultText">Aucun resultat pour cette recherche</p>
+                        </div>
+                    }
+
                     {
                         searchingEvents.length > 0
                         ?
@@ -135,20 +143,28 @@ class Events extends Component {
     };
 
     renderEvents = (allEvents) => {
-        console.log(allEvents);
-        
+        let { year } = this.props;
         return (
 
-            allEvents.reverse().map(month => 
+            allEvents.reverse().map((month,index) => 
                 month.events.length > 0 &&
                 <>  
-                    <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} className="separator"> 
-                        <h1 style={styles.eventDateTitle}> {month.monthName} {moment().format('YYYY')} </h1>
+                    <div key={index} style={{marginTop : 40+"px", marginBottom : 40+"px"}} className="separator"> 
+                        <h1 style={styles.eventDateTitle}> 
+                            {month.monthName + " "}
+                            {
+                                year != null
+                                ?
+                                year
+                                :
+                                moment().format('YYYY')
+                            } 
+                        </h1>
                      </div>
 
-                     {
-                         month.events.map((eventToRender,index) =>  
-                            <Row key={index} style={{marginTop : 25+"px", marginBottom : 25+"px"}}>
+                    {
+                         month.events.map((eventToRender,Eventindex) =>  
+                            <Row key={Eventindex} style={{marginTop : 25+"px", marginBottom : 25+"px"}}>
                                 <Col xl={7}>
                                     {
                                         eventToRender.image !== false 
@@ -168,7 +184,12 @@ class Events extends Component {
                                 <Col xl={5}>
                                     <h4 className="eventTitle">{eventToRender.title}</h4>
                                     <p className="eventDate">{moment(`${eventToRender.start_date_details.year}-${eventToRender.start_date_details.month}-${eventToRender.start_date_details.day}`).format("DD MMMM YYYY")}</p>
-                                    <p className="eventLocation">{eventToRender.venue.venue}{","+eventToRender.venue.city}{","+eventToRender.venue.country}</p>
+                                    
+                                    <p className="eventLocation"> 
+                                        {eventToRender.venue.venue && eventToRender.venue.venue}
+                                        {eventToRender.venue.city && ","+eventToRender.venue.city}
+                                        {eventToRender.venue.country && ","+eventToRender.venue.country}</p>
+                                
                                     {
                                         eventToRender.excerpt.length > 150
                                         ?
@@ -199,94 +220,119 @@ class Events extends Component {
         );
     }
 
-    // renderEvents = (eventsYear) => {
-
-    //     return(
-        
-    //     eventsYear.map(eventYear =>  
-    //         eventYear.eventsPerYear.map(monthHasEvents => 
-    //             monthHasEvents.events.length > 0 &&
-    //             <div>
-    //                 <div style={{marginTop : 40+"px", marginBottom : 40+"px"}} className="separator"> 
-    //                     <h1 style={styles.eventDateTitle}> {monthHasEvents.monthName} {eventYear.id} </h1>
-    //                 </div>
-    //                 {
-                        
-    //                     monthHasEvents.events.map((eventToRender,index) =>       
-                            // <Row key={index} style={{marginTop : 25+"px", marginBottom : 25+"px"}}>
-                            //     <Col md={8}>
-                            //         <Image src={eventToRender.fimg_url} fluid />
-                            //     </Col>
-
-                            //     <Col className="justify-elements">
-                            //         <h4 style={styles.eventTitle}>{ eventToRender.title.rendered}</h4>
-                            //         <p style={styles.eventDate}>{moment(eventToRender.date).format("DD MMMM YYYY")}</p>
-                            //         <p style={styles.eventDesc}>
-                            //             {
-                            //                 eventToRender.content.rendered.length > 198 
-                            //                 ?
-                            //                 eventToRender.content.rendered.replace(/<[^>]*>?/gm, '').substr(1,198) + "..."
-                            //                 :
-                            //                 eventToRender.content.rendered.replace(/<[^>]*>?/gm, '')
-                                    
-                            //             }
-                            //         </p>
-
-                            //         <Button className="buttonBlue">
-                            //                 Register
-                            //         </Button>
-                            //     </Col>
-                            // </Row> 
-    //                      )
-    //                 }
-
-
-    //             </div>
-    //         )
-    //     ) 
-    //     );
-    // }
-    
-
     searchByTitle = (evenToSearch) => {
 
-        const { events } = this.props;
+        const { allEvents } = this.props;
         
+        let allEventsBackup = allEvents;
+
         this.setState({ 
            evenTitle : evenToSearch.target.value,
         });
        
         if(evenToSearch.target.value === "") {
-            this.setState({searchingEvents : [] });
+            this.setState({
+                searching: false,
+                searchingEvents : [],
+            });
         } else {
 
-            let resultSearch = [];
+    
+                let resultByMonths = [
+                    {
+                    id : 1,
+                    monthName : "Janvier",
+                    events : [],
+                    },
+                    {
+                    id : 2,
+                    monthName : "Fevrier",
+                    events : [],
+                    },
+                    {
+                    id : 3,
+                    monthName : "Mars",
+                    events : [],
+                    },
+                    {
+                    id : 4,
+                    monthName : "Avril",
+                    events : [],
+                    },
+                    {
+                    id : 5,
+                    monthName : "Mai",
+                    events : [],
+                    },
+                    {
+                    id : 6,
+                    monthName : "Juin",
+                    events : [],
+                    },
+                    {
+                    id : 7,
+                    monthName : "Juillet",
+                    events : [],
+                    },
+                    {
+                    id : 8,
+                    monthName : "Aout",
+                    events : [],
+                    },
+                    {
+                    id : 9,
+                    monthName : "Septembre",
+                    events : [],
+                    },
+                    {
+                    id : 10,
+                    monthName : "Octobre",
+                    events : [],
+                    },
+                    {
+                    id : 11,
+                    monthName : "Novembre",
+                    events : [],
+                    },
+                    {
+                    id : 12,
+                    monthName : "Decembre",
+                    events : [],
+                    },
+                ];
             
-            events.filter(event => {
-                let eventLowercase = (event.title.rendered).toLowerCase();
+            allEvents.reverse().filter(month => {
+                month.events.length > 0 &&
+                month.events.map((event) => {
+                    let eventLowercase = (event.title).toLowerCase();
                     let eventToSearchNow = evenToSearch.target.value.toLowerCase();
                     if(eventLowercase.indexOf(eventToSearchNow) > -1) {
-                        resultSearch.push(event);
+                        resultByMonths.map(monthToPushOn => 
+                            parseInt(event.start_date_details.month) === monthToPushOn.id && monthToPushOn.events.push(event)
+                        );
+                    } else {
+                        resultByMonths = [];
                     }
-                return 0;
-            });
-    
-            if(resultSearch.length) {
-                this.setState({
-                    searchingEvents : resultSearch
                 });
-            } else {
-                this.setState({searchingEvents : [] });
-            }
-            
+            });
+
+            this.setState({
+                searching: true,
+                searchingEvents : resultByMonths,
+            });
+           
+         
         }
 
         
     };
 
     handleDateChange = (date) => {
-        console.log(date);
-        console.log(moment(date).format());
+        // console.log(date);
+        // console.log(moment(date).format('YYYY-MM-DD'));
+        this.setState({selectedDate : moment(date).format() });
+        
+        this.props.getAllEvents(moment(date).format('YYYY-MM-DD'));
     };
 
 }
@@ -323,6 +369,7 @@ const styles = {
 
 const mapStateToProps = state => ({
     allEvents : state.eventsR.allEvents,
+    year : state.eventsR.year,
 })
 
 export default connect(mapStateToProps, { getAllEvents })(Events);

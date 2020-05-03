@@ -23,6 +23,20 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
+    /* No result */
+        
+        .noResultContainer {
+            text-align: center;
+            padding: 40px    
+        }
+        .noResultText {
+            font-family: 'Poppins Light';
+            font-size: 20px;
+            color: black;
+        }
+
+    /* No result */
+
     /* EVENTS THUMB IMAGE */
         .thumbEventContainer {
             height: 320px;

@@ -1,6 +1,6 @@
 const initialState = {
     allEvents : [],
-    // events : [],
+    year : null,
 };
 
 const eventsReducer = (state = initialState, action) => {
@@ -10,6 +10,7 @@ const eventsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allEvents : action.payload,
+                year : action.year,
             }
        
         default : 

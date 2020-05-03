@@ -9,6 +9,7 @@ import axios from 'axios';
 import moment from 'moment';
 import Layout from '../../components/Layout';
 import Newsletter from '../../components/Newsletter';
+import ThumbDoc from '../../components/ThumbDoc';
 
 import { config } from '../../constants/AppConfig';
 
@@ -45,18 +46,22 @@ export default class SoloEvent extends Component {
                 {/* <p className="wordpressData" dangerouslySetInnerHTML={{__html: publication.description}}></p> */}
                 <p className="wordpressData">{publication.venue.venue} {publication.venue.city} {publication.venue.country}</p>
                                     
-                {
-                    publication.image.url !== false &&
                     <Row>
                         <Col xl={1} />
 
                         <Col>
-                            <Image src={publication.image.url} fluid className="articleImage" />
+                            {
+                                publication.image !== false 
+                                ?
+                                <Image src={publication.image.url} fluid className="articleImage" />
+                                :
+                                <ThumbDoc title={solo_title} containerClass="thumbSoloContainer" imageClass="thumbSoloImage" titleClass="thumbSoloTitle" descClass="thumbSoloDesc" />
+                                        
+                            }
                         </Col>
                         
                         <Col xl={1} />
                     </Row>
-                }
             </Layout>
             
             <Layout columns={8}>
