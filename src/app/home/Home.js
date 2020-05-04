@@ -361,9 +361,9 @@ class Home extends Component {
                             <Col xs={12} md={8}>
                                 <Row className="textsArticleContainer">
                                     {
-                                        post.title.rendered.length > 111 
+                                        post.title.rendered.length > 60 
                                         ?
-                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(1,110) + "..."}}></h5>
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(1,60) + "..."}}></h5>
                                         :
                                         <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered }}></h5>                              
                                     }
