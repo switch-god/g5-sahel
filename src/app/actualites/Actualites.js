@@ -10,7 +10,9 @@ import moment from 'moment';
 
 // Connect to redux : 
     import { connect } from 'react-redux';
-    import { getLatestNews } from '../../redux/actions/PostsActions';
+    import { getLatestNews } from '../../redux/actions/ActualitesActions';
+
+
 // Components :
     import Layout from '../../components/Layout';
     import Newsletter from '../../components/Newsletter';
@@ -36,9 +38,9 @@ class Actualites extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => {
-             this.setState({loading : false})
-         },2000);
+        // setTimeout(() => {
+        //      this.setState({loading : false})
+        //  },2000);
     };
 
     render() {
@@ -47,7 +49,7 @@ class Actualites extends Component {
 
             loading 
             ?
-              <LottieLoader />
+                <LottieLoader devText={true} />
             :
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
@@ -350,7 +352,7 @@ const styles = {
 
 
 const mapStateToProps = state => ({
-    posts : state.postsR.posts,
+    posts : state.actualitesR.posts,
 });
 
 export default connect(mapStateToProps,{ getLatestNews })(Actualites);

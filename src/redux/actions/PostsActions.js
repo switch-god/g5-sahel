@@ -6,16 +6,9 @@ import moment from 'moment';
   import { 
     config, 
     HOME_BLOC1_IMGS,POSTS,EVENTS,ACTIVITES,  
-    PRESENTATION,
-    DEFENSE_SECURITE,
-    GOUVERNANCE,
-    INFRASTRUCTURE,
-    RESILENCE,
+ 
 } from '../../constants/AppConfig';
 
-
-
-//**************************//
 // HOME PAGE FUNCTIONS //
 
 export const getImagesBloc = () => async (dispatch) => {
@@ -1011,7 +1004,8 @@ export const getActivities = () => dispatch => {
 };
 
 // HOME PAGE FUNCTIONS //
-//**************************//
+
+
 
 export const getJobs = () => dispatch => {
   
@@ -1054,108 +1048,3 @@ export const setLoading = (value) => dispatch => {
       payload : value,
     });
 }
-
-//**************************//
-// PRESENTATION FUNCTIONS //
-export const getPresentation = () => dispatch => {
-    getPresentationBloc1();
-
-}
-
-export const getPresentationBloc1 = () => dispatch => {
-  axios.get(`${config.url}wp/v2/posts?categories=${PRESENTATION}`)
-  .then(response => {
-      dispatch({
-          type : 'GET_PRESENTATION_BLOC_1',
-          payload : response.data,
-      });
-  })
-  .catch(error => {
-    console.log("erreur axios getPresentation/PostsActions");
-  });
-}
-
-
-
-
-//**************************//
-
-
-//**************************//
-// NOS ACTIVITES FUNCTIONS //
-
-export const getDefenseSecurite = () => dispatch => {
-      
-      axios.get(`${config.url}wp/v2/posts?categories=${DEFENSE_SECURITE}`)
-      .then(response => {
-        dispatch({
-            type : 'GET_DEFENSE_SECURITE',
-            payload : response.data,
-        });
-      })
-      .catch(error => {
-        console.log("erreur axios getDefenseSecurite/PostsActions");
-      });
-
-};
-
-export const getGouvernance = () => dispatch => {
-      
-      axios.get(`${config.url}wp/v2/posts?categories=${GOUVERNANCE}`)
-      .then(response => {
-        dispatch({
-            type : 'GET_GOUVERNANCE',
-            payload : response.data,
-        });
-      })
-      .catch(error => {
-        console.log("erreur axios getGouvernance/PostsActions");
-      });
-
-};
-
-export const getInfrastructure = () => dispatch => {
-      
-      axios.get(`${config.url}wp/v2/posts?categories=${INFRASTRUCTURE}`)
-      .then(response => {
-        dispatch({
-            type : 'GET_INFRASTRUCTURE',
-            payload : response.data,
-        });
-      })
-      .catch(error => {
-        console.log("erreur axios getInfrastructure/PostsActions");
-      });
-
-};
-
-export const getResilence = () => dispatch => {
-      
-      axios.get(`${config.url}wp/v2/posts?categories=${RESILENCE}`)
-      .then(response => {
-        dispatch({
-            type : 'GET_RESILENCE',
-            payload : response.data,
-        });
-      })
-      .catch(error => {
-        console.log("erreur axios getResilence/PostsActions");
-      });
-
-};
-
-
-
-// NOS ACTIVITES FUNCTIONS //
-//**************************//
-
-
-
-//**************************//
-// EVENTS FUNCTIONS //
-
-
-
-
-// EVENTS FUNCTIONS //
-//**************************//

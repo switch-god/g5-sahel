@@ -16,12 +16,13 @@ import moment from 'moment';
 
 // Connect to redux : 
     import { connect } from 'react-redux';
-    import { setLoading,getImagesBloc,getActivities,getLatestNews,getLatestEvents } from '../../redux/actions/PostsActions';
+    // import { setLoading,getImagesBloc,getActivities,getLatestNews } from '../../redux/actions/PostsActions';
+    import { getActualitesPaysG5,getActualitesInter,getLatestEvents,getActivities } from '../../redux/actions/ActualitesActions'; 
 
 // COMPONENTS :
 import Newsletter from '../../components/Newsletter';
 import LottieLoader from '../../components/LottieLoader';
-
+import ThumbDoc from '../../components/ThumbDoc';
 
 class Home extends Component {
 
@@ -32,17 +33,21 @@ class Home extends Component {
             loading : true,
         };
 
-        //Get Images and data : 
-        this.props.getImagesBloc();
+        //Get Actualites Pays G5 : 
+        this.props.getActualitesPaysG5();
+        
+        //Get Actualites Internationale : 
+        this.props.getActualitesInter();
+
+        // Get Latest Events :
+        this.props.getLatestEvents();
 
         // Get Activities :
         this.props.getActivities();
 
         // Get Latest News :
-        this.props.getLatestNews();
+        // this.props.getLatestNews();
 
-        // Get Latest Events :
-        this.props.getLatestEvents();
     }
 
     
@@ -55,7 +60,13 @@ class Home extends Component {
     render() {
         
         const { loading } = this.state;
-        const { events,posts } = this.props;
+        const { 
+            actualitesG5,
+            actualitesInter,
+            events,
+            activities,
+        } = this.props;
+
         return (
             loading 
             ?
@@ -63,7 +74,7 @@ class Home extends Component {
             :
             <Container fluid>
             
-                {this.renderImagesBloc()}
+                {this.renderActualitesG5(actualitesG5)}
 
                 {/* NEW & EVENTS */}
                 <Row style={{marginTop : 50 + "px", marginBottom : 50+"px"}}>
@@ -72,11 +83,11 @@ class Home extends Component {
                     <Col xl={10}>
                         <Row>
                             <Col xl={6} className="postsContainerNews">
-                                {this.renderPosts(posts,"Latest News")}
+                                {this.renderPosts(actualitesInter,"Latest News")}
                             </Col>
   
                             <Col xl={6} className="postsContainerEvents">
-                                {this.renderPosts(events,"Upcoming Events")}
+                                {this.renderEvents(events,"Upcoming Events")}
                             </Col>
                         </Row>
                     </Col>
@@ -89,7 +100,7 @@ class Home extends Component {
                     <Col />
                     
                     <Col md={10}>
-                        {this.renderNosActivites()} 
+                        {this.renderNosActivites(activities)} 
                         <Newsletter />
 
                         {/* VIDEO */}
@@ -108,8 +119,7 @@ class Home extends Component {
         )
     }
 
-    renderImagesBloc = () => {
-        const { imagesBloc } = this.props;
+    renderActualitesG5 = (actualitesG5) => {
 
         return (
             <Row>
@@ -119,47 +129,115 @@ class Home extends Component {
                     
                     <Row>
                         <Col xs={12} md={8}>
+                            <Link 
+                            to={{
+                                pathname : '/solo-page',
+                                state : { 
+                                    solo_title : "Actualités des pays du G5",
+                                    publication : actualitesG5[0],
+                                }
+                            }}  
+                            style={{ textDecoration: 'none' }}>
                             <div className="container-for-img">    
                                 {
-                                    imagesBloc[2] &&
+                                    actualitesG5[0] &&
                                     <>
-                                    <Image src={imagesBloc[2].fimg_url} fluid   />
+                                    {
+                                        actualitesG5[0].fimg_url !== false 
+                                        ?
+                                        <Image src={actualitesG5[0].fimg_url} fluid className="actualitesG5BigImage"  />
+                                        :
+                                        <ThumbDoc 
+                                            title="Actualités" 
+                                            containerClass="thumbActualitesBigContainer" 
+                                            imageClass="thumbActualitesBigImage" 
+                                            titleClass="thumbActualitesBigTitle" 
+                                            descClass="thumbActualitesBigDesc" 
+                                        />
+                                    }
                                     <div className="content">
-                                        <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[2].title.rendered}</h3>
-                                        <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[2].date).format("DD MMMM YYYY")}</p>
+                                        <h4 className="actualitesG5BigTitle" dangerouslySetInnerHTML={{__html: actualitesG5[0].title.rendered}}></h4>
+                                        <p  className="actualitesG5BigDate">{moment(actualitesG5[0].date).format("DD MMMM YYYY")}</p>
                                     </div>
                                     </>
                                 }
                             </div>
+                            </Link>
                         </Col>
                         
-                        <Col xs={12} md={4}>
-                            
+                        <Col xs={12} md={4}>    
+                                
+                            <Link 
+                                to={{
+                                    pathname : '/solo-page',
+                                    state : { 
+                                        solo_title : "Actualités des pays du G5",
+                                        publication : actualitesG5[1],
+                                    }
+                                }}  
+                                style={{ textDecoration: 'none' }}>
                             <div className="container-for-img">
                                 {
-                                    imagesBloc[1] &&
+                                    actualitesG5[1] &&
                                     <>
-                                    <Image src={imagesBloc[1].fimg_url} fluid />
+                                    {
+                                        actualitesG5[1].fimg_url !== false 
+                                        ?
+                                        <Image src={actualitesG5[1].fimg_url} fluid className="actualitesG5SmallImage"  />
+                                        :
+                                        <ThumbDoc 
+                                            title="Actualités" 
+                                            containerClass="thumbActualitesSmallContainer" 
+                                            imageClass="thumbActualitesSmallImage" 
+                                            titleClass="thumbActualitesSmallTitle" 
+                                            descClass="thumbActualitesSmallDesc" 
+                                        />
+                                    }
                                     <div className="content-1">
-                                        <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[1].title.rendered}</h3>
-                                        <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[1].date).format("DD MMMM YYYY")}</p>
+                                        <h6 className="actualitesG5SmallTitle" dangerouslySetInnerHTML={{__html: actualitesG5[1].title.rendered}}></h6>
+                                        <p  className="actualitesG5SmallDate">{moment(actualitesG5[1].date).format("DD MMMM YYYY")}</p>
                                     </div>
                                     </>
                                 }
                             </div>
+                            </Link>
                             
+
+                            <Link 
+                                to={{
+                                    pathname : '/solo-page',
+                                    state : { 
+                                        solo_title : "Actualités des pays du G5",
+                                        publication : actualitesG5[1],
+                                    }
+                                }}  
+                            style={{ textDecoration: 'none' }}>
                             <div className="container-for-img" style={{marginTop : 26 + "px"}}>
-                                {
-                                    imagesBloc[0] &&
+                            {
+                                    actualitesG5[2] &&
                                     <>
-                                    <Image src={imagesBloc[0].fimg_url} fluid style={{width:'100%'}}  />
+                                    {
+                                        actualitesG5[2].fimg_url !== false 
+                                        ?
+                                        <Image src={actualitesG5[2].fimg_url} fluid className="actualitesG5SmallImage"  />
+                                        :
+                                        <ThumbDoc 
+                                            title="Actualités" 
+                                            containerClass="thumbActualitesSmallContainer" 
+                                            imageClass="thumbActualitesSmallImage" 
+                                            titleClass="thumbActualitesSmallTitle" 
+                                            descClass="thumbActualitesSmallDesc" 
+                                        />
+                                    }
                                     <div className="content-1">
-                                        <h3 style={{ fontFamily : 'Poppins Bold' }}>{imagesBloc[0].title.rendered}</h3>
-                                        <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>{moment(imagesBloc[0].date).format("DD MMMM YYYY")}</p>
+                                        <h6 className="actualitesG5SmallTitle" dangerouslySetInnerHTML={{__html: actualitesG5[2].title.rendered}}></h6>
+                                        <p  className="actualitesG5SmallDate">{moment(actualitesG5[0].date).format("DD MMMM YYYY")}</p>
                                     </div>
                                     </>
                                 }
                             </div>
+                            </Link>
+
                         </Col>
                     </Row>
                 </Col>
@@ -188,42 +266,57 @@ class Home extends Component {
                 {
                     posts[0] &&
                     <>
-                    <Link 
-                        to={{
-                            pathname : '/solo-page',
-                            state : { 
-                                solo_title : postsTitle,
-                                publication : posts[0],
-                            }
-                        }}  
-                        style={{textDecoration: 'none'}}
-                    >
-                        <Row>
-                            <Col md={12}>
-                                <Row>
+                    
+                    <Row>
+                        <Col md={12}>
+                            <Row>
+                                {   
+                                    posts[0].fimg_url !== false
+                                    ?
                                     <Image src={posts[0].fimg_url} fluid className="bigArticleImage" />
-                                </Row>
+                                    :
+                                    <ThumbDoc 
+                                        title={postsTitle} 
+                                        containerClass="thumbNewsBigContainer" 
+                                        imageClass="thumbNewsBigImage" 
+                                        titleClass="thumbNewsBigTitle" 
+                                        descClass="thumbNewsBigDesc" 
+                                    />
+                                }
+                            </Row>
 
-                                <Row>
-                                    <div className="articleTitleContainer">
-                                        <h5 className="articleTitle" dangerouslySetInnerHTML={{__html: posts[0].title.rendered}}></h5>
-                                    </div>
-                                </Row>
-                                
-                                <Row>
-                                    <p className="articleDate">
-                                        {moment(posts[0].date).format("DD MMMM YYYY")}
-                                    </p>
-                                </Row>
+                            <Row>
+                                <div className="articleTitleContainer">
+                                    <h5 className="articleBigTitle" dangerouslySetInnerHTML={{__html: posts[0].title.rendered.substr(0,120)}}></h5>
+                                </div>
+                            </Row>
+                            
+                            <Row>
+                                <p className="articleDate">
+                                    {moment(posts[0].date).format("DD MMMM YYYY")}
+                                </p>
+                            </Row>
 
-                                <Row>
-                                    <p className="articleContent" dangerouslySetInnerHTML={{__html: posts[0].excerpt.rendered.substr(0,354)+"..."}}></p>
-                                </Row>
+                            <Row>
+                                <p className="articleContent" dangerouslySetInnerHTML={{__html: posts[0].excerpt.rendered.substr(0,350)+"..."}}></p>
+                            </Row>
 
-                            </Col>
-                        </Row>
-                    </Link>
-   
+                            <Row style={{float: 'right'}}>
+                                    <Link 
+                                    to={{
+                                        pathname : '/solo-page',
+                                        state : { 
+                                            solo_title : postsTitle,
+                                            publication : posts[0],
+                                        }
+                                    }}  
+                                >
+                                    <p className="seeMoreNewsText">Lire la suite</p>
+                                </Link>
+                            </Row>
+
+                        </Col>
+                    </Row>
                     <hr className="postsHr"/>
                     </>
                 }
@@ -249,7 +342,19 @@ class Home extends Component {
                         <Row>
                             <Col xs={12} md={4}>
                                 <Row>
-                                    <Image src={post.fimg_url} fluid className="smallArticleImage" />
+                                    {
+                                        post.fimg_url !== false
+                                        ?
+                                        <Image src={post.fimg_url} fluid className="smallArticleImage" />
+                                        :
+                                        <ThumbDoc 
+                                            title={postsTitle} 
+                                            containerClass="thumbNewsSmallContainer" 
+                                            imageClass="thumbNewsSmallImage" 
+                                            titleClass="thumbNewsSmallTitle" 
+                                            descClass="thumbNewsSmallDesc" 
+                                        />
+                                    }
                                 </Row>
                             </Col> 
                             
@@ -290,8 +395,160 @@ class Home extends Component {
         );
     };
 
-    renderNosActivites = () => {
-        const { activites } = this.props;
+    renderEvents = (posts,postsTitle) => {
+        // console.log(posts); 
+        
+        
+        return (
+            <>
+            
+            <div>
+                {/* TITLE */}
+                <Row>
+                    <div className="sectionTitleContainer">
+                        <h4 className="sectionTitle">{postsTitle}</h4>
+                    </div>
+                    <hr  className="titleSeperator" />  
+                </Row>
+                {/* ./TITLE */}
+
+                {/* LATEST NEWS */}
+                {
+                    posts[0] &&
+                    <>
+                    
+                    <Row>
+                        <Col md={12}>
+                            <Row>
+                                {
+                                    posts[0].image !== false
+                                    ?
+                                    <Image src={posts[0].image.url} fluid className="bigArticleImage" />
+                                    :
+                                    <ThumbDoc 
+                                        title={postsTitle} 
+                                        containerClass="thumbNewsBigContainer" 
+                                        imageClass="thumbNewsBigImage" 
+                                        titleClass="thumbNewsBigTitle" 
+                                        descClass="thumbNewsBigDesc" 
+                                    />
+                                }
+                            </Row>
+
+                            <Row>
+                                <div className="articleTitleContainer">
+                                    <h5 className="articleBigTitle" dangerouslySetInnerHTML={{__html: posts[0].title.substr(0,120)}}></h5>
+                                </div>
+                            </Row>
+                            
+                            <Row>
+                                <p className="articleDate">
+                                {moment(`${posts[0].start_date_details.year}-${posts[0].start_date_details.month}-${posts[0].start_date_details.day}`).format("DD MMMM YYYY")}
+                                </p>
+                            </Row>
+
+                            <Row>
+                                <p className="articleContent" dangerouslySetInnerHTML={{__html: posts[0].excerpt.substr(0,350)+"..."}}></p>
+                            </Row>
+
+                            <Row style={{float: 'right'}}>
+                                    <Link 
+                                    to={{
+                                        pathname : '/solo-event',
+                                        state : { 
+                                            solo_title : postsTitle,
+                                            publication : posts[0],
+                                        }
+                                    }}  
+                                >
+                                    <p className="seeMoreNewsText">Lire la suite</p>
+                                </Link>
+                            </Row>
+
+                        </Col>
+                    </Row>
+                    <hr className="postsHr"/>
+                    </>
+                }
+                {/* LATEST ./NEWS */}
+                
+                {/* LATEST 3 NEWS */}
+                <div>
+                {
+                    posts.map((post,index) => (
+                    index > 0 && index < 4 && post &&
+                    <>
+                    <div key={index} style={{marginBottom : 10+"px"}}>
+                    <Link 
+                        to={{
+                            pathname : '/solo-event',
+                            state : { 
+                                solo_title : postsTitle,
+                                publication : post,
+                            }
+                        }}  
+                        style={{textDecoration: 'none'}}
+                    >
+                    
+                        <Row>
+                            <Col xs={12} md={4}>
+                                <Row>
+                                    {
+                                        post.image !== false
+                                        ?
+                                        <Image src={post.image.url} fluid className="smallArticleImage" />
+                                        :
+                                        <ThumbDoc 
+                                            title={postsTitle} 
+                                            containerClass="thumbNewsSmallContainer" 
+                                            imageClass="thumbNewsSmallImage" 
+                                            titleClass="thumbNewsSmallTitle" 
+                                            descClass="thumbNewsSmallDesc" 
+                                        />
+                                    }
+                                </Row>
+                            </Col> 
+                            
+                            <Col xs={12} md={8}>
+                                <Row className="textsArticleContainer">
+                                    {
+                                        post.title.length > 111 
+                                        ?
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.substr(1,110) + "..."}}></h5>
+                                        :
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title }}></h5>                              
+                                    }
+                                    {
+                                        post.excerpt.length > 150
+                                        ?
+                                        <p className="smallArticleContent" dangerouslySetInnerHTML={{__html: post.excerpt.substr(0,149)+"..."}}></p>
+                                        :
+                                        <p className="smallArticleContent" dangerouslySetInnerHTML={{__html: post.excerpt}}></p>
+                                    }
+                                    <p className="smallArticleDate">
+                                        {moment(`${post.start_date_details.year}-${post.start_date_details.month}-${post.start_date_details.day}`).format("DD MMMM YYYY")}
+
+                                    </p>
+                                </Row>
+                                
+                            </Col>   
+                        </Row>
+                    </Link>
+                    </div>
+                    </>
+                ))
+                    }
+                </div>
+                {/* LATEST 3 NEWS */}
+                
+            </div>
+            
+            </>
+        );
+    };
+
+    renderNosActivites = (activites) => {
+        
         return (
             <>
               {/* <h4  className="titleInBlackSmall" >Nos activités</h4>
@@ -319,9 +576,15 @@ class Home extends Component {
                                 }}  
                                 style={{textDecoration: 'none'}}
                             >
-                                <Image src={activity.fimg_url} fluid />
-                                <p style={styles.activityTitle} dangerouslySetInnerHTML={{__html: activity.title.rendered }}></p>
-                                <p style={styles.activityDesc} dangerouslySetInnerHTML={{__html: activity.excerpt.rendered }}></p>
+                                <Image src={activity.fimg_url} fluid className="activityImageSmall" />
+                                {
+                                    activity.title.rendered.length < 60
+                                    ?
+                                    <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
+                                    :
+                                    <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,57)+"..."}}></p>
+                                }
+                                <p style={styles.activityDesc} className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
                             </Link>
                         </Col>
                     )        
@@ -372,11 +635,14 @@ const styles = {
 
 
 const mapStateToProps = state => ({
-    imagesBloc : state.postsR.imagesBloc,
-    activites : state.postsR.activites,
-    posts : state.postsR.posts,
-    events : state.postsR.events,
+    // imagesBloc : state.postsR.imagesBloc,
+    // posts : state.postsR.posts,
+
+    activities : state.actualitesR.activities,
+    events : state.actualitesR.events,
+    actualitesG5 : state.actualitesR.actualitesG5,
+    actualitesInter : state.actualitesR.actualitesInter,
 });
 
-export default connect(mapStateToProps,{ setLoading,getImagesBloc,getActivities,getLatestNews,getLatestEvents })(Home);
+export default connect(mapStateToProps,{ getActualitesPaysG5,getActualitesInter,getLatestEvents,getActivities })(Home);
 

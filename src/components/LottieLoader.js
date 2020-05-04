@@ -17,8 +17,16 @@ const loaderOptions = {
     }
 };
 
+import LOGO from '../assets/images/Header/LOGOOO.png';
+
 export default class LottieLoader extends Component {
+    constructor(props) {
+        super(props);
+        
+    }
+
     render() {
+        const { devText } = this.props;
         return (
             <Layout style={{textAlign : 'center'}}>
                 <Lottie 
@@ -28,7 +36,13 @@ export default class LottieLoader extends Component {
                     isStopped={false}
                     isPaused={false}
                 />
-                {/* <Loader style={{height: '150px'}} /> */}
+                {
+                    devText === true && 
+                        <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
+                            <img src={LOGO} height={'200px'} style={{marginBottom: '30px'}} />
+                            <h1 style={{fontFamily : 'Poppins SemiBold'}}>Cette Page en cours de développement, Merci pour votre compréhension</h1>
+                        </div> 
+                }
                 <div style={{height: '600px'}}></div>
             </Layout>
         )

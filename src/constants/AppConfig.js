@@ -15,6 +15,7 @@
     const ACTIVITES = 16;
 
     // G5 Categories :
+       
         // Presentation :
         const PRESENTATION = 39;
         // const Presentation_image_text_1 = 44;
@@ -31,7 +32,7 @@
             const RESILENCE = 38;
 
         // Actualites :
-        const ACTUALITES_INTERNATIONALE = 31;
+        const ACTUALITE_INTERNATIONALE = 31;
         const ACTUALITES_DES_PAYS_G5 = 27;
         const VIDEOS = 26;
         
@@ -65,6 +66,7 @@ export {
     HOME_BLOC1_IMGS,
     ACTIVITES,
 
+
     PRESENTATION,
    
     NOS_ACTIVITES,
@@ -75,15 +77,16 @@ export {
         INFRASTRUCTURE,
         RESILENCE,
 
-    ACTUALITES_INTERNATIONALE,
-        ACTUALITES_DES_PAYS_G5,
-        PUBLICATIONS,
-        VIDEOS,
-
-    RAPPORTS,
-    PARTENARIAT,
-
+    ACTUALITES_DES_PAYS_G5,
+    ACTUALITE_INTERNATIONALE,
+        
+    VIDEOS,
+        
+        RAPPORTS,
+        PARTENARIAT,
+        
     DOCUMENTATIONS,
+        PUBLICATIONS,
         REGLEMENTATIONS,
         MULTIMEDIAS,
         CORRESPONDANCE,

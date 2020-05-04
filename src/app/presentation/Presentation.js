@@ -11,7 +11,6 @@ import {
 
 // Redux :
 import { connect } from 'react-redux';
-import { getPresentationBloc1 } from '../../redux/actions/PostsActions';
 
 import Newsletter from '../../components/Newsletter';
 import ContactForm from '../../components/ContactForm';
@@ -32,7 +31,6 @@ class Presentation extends Component {
             loading : true
         };
 
-        // this.props.getPresentationBloc1();
     }
     
     componentDidMount() {
@@ -296,6 +294,6 @@ const mapStateToProps = state => ({
     presentation_bloc_1 : state.postsR.presentation_bloc_1,
 });
 
-export default connect(mapStateToProps,{ getPresentationBloc1, })(Presentation);
+export default connect(mapStateToProps,{ })(Presentation);
 
 

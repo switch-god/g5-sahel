@@ -133,9 +133,10 @@ class Header extends Component {
         </div>
         
         <div className="dropdown">
-            <Link style={styles.MainMenuLinks} to="/events">Evenements <img src={ARROW} height={7} /></Link>
-             <div className="dropdown-content">
-                 {/* NESTED LINKS */}
+            {/* <Link style={styles.MainMenuLinks} to="/events">Evenements <img src={ARROW} height={7} /></Link> */}
+            <Link style={styles.MainMenuLinks} to="/events"> Evenements </Link>
+            {/* NESTED LINKS */}
+             {/* <div className="dropdown-content">
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
                     <Link style={styles.MainMenuLinks} to="/events">Prochains événements</Link>
                 </Row>
@@ -143,14 +144,16 @@ class Header extends Component {
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
                     <Link style={styles.MainMenuLinks} to="/events">Événements passés</Link>
                 </Row>
+            </div> */}
                 {/* NESTED LINKS */}  
-            </div>
         </div>
         
         <div className="dropdown">
-            <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation <img src={ARROW} height={7} /> </Link>
-            <div className="dropdown-content">
-                {/* NESTED LINKS */}
+            {/* <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation <img src={ARROW} height={7} /> </Link> */}
+            <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation </Link>
+            
+            {/* NESTED LINKS */}
+            {/* <div className="dropdown-content">
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
                     <Link style={styles.MainMenuLinks} to="/documentation">Règlementation</Link>
                 </Row>
@@ -162,8 +165,9 @@ class Header extends Component {
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
                     <Link style={styles.MainMenuLinks} to="/documentation">SDS, PIP</Link>
                 </Row>
-                {/* NESTED LINKS */}                
-            </div>
+            </div> */}
+            {/* NESTED LINKS */}
+
         </div>
         {/* <AutoComplete 
             value={this.state.brand} 
