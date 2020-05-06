@@ -199,11 +199,7 @@ class Events extends Component {
                                     }
                                     <Link 
                                     to={{
-                                        pathname : '/solo-event',
-                                        state : { 
-                                            solo_title : "Événements",
-                                            publication : eventToRender,
-                                        }
+                                        pathname : `/solo-event/${eventToRender.slug}`,
                                     }}  
                                     style={{ textDecoration: 'none' }}
                                     className="btn btn-primary buttonBlue"

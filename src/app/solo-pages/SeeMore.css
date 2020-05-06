@@ -21,6 +21,13 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+
+    .wordpressData[style] {
+        font-size: 15px;
+        color: #666666;
+        font-family: 'Poppins Light' !important;
+    }
+
     .seeMorePostContainer {
         margin-top: 50px;
         margin-bottom: 50px;
@@ -58,7 +65,7 @@
     }
 
     .seeMorePostDesc {
-        font-family: 'Poppins Light';
+        font-family: 'Poppins SemiBold';
         color: black;
         font-size: 13px;
         text-align: left;

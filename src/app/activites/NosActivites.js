@@ -89,7 +89,7 @@ class NosActivites extends Component {
                             </div>
                             <hr  className="titleSeperator" />  
                         </Row>
-                        {this.renderDefenseSecurite(defense_securite)}
+                        {this.renderDefenseSecurite(defense_securite,"Défense et Sécurité")}
                         </>
                     }
                     {/* ./Défense et Sécurité */}
@@ -105,7 +105,7 @@ class NosActivites extends Component {
                             </div>
                             <hr  className="titleSeperator" />  
                         </Row>
-                        {this.renderGouvernance(genre,cellule)}
+                        {this.renderGouvernance(genre,cellule,"Gouvernance")}
                         </>
                     }
                     {/* ./Gouvernance */}
@@ -121,7 +121,7 @@ class NosActivites extends Component {
                             </div>
                             <hr  className="titleSeperator" />  
                         </Row>
-                        {this.renderInfra(infrastructure)}
+                        {this.renderInfra(infrastructure,"Infrastructure")}
                         </>
                     }
                     {/* ./infrastructure */}
@@ -138,7 +138,7 @@ class NosActivites extends Component {
                             </div>
                             <hr  className="titleSeperator" />  
                         </Row>
-                        {this.renderResilience(resilence)}
+                        {this.renderResilience(resilence,"")}
                         </>
                     }
                     {/* ./Résilience */}
@@ -151,12 +151,18 @@ class NosActivites extends Component {
         )
     }
 
-    renderDefenseSecurite = (defense_securite) => {
+    renderDefenseSecurite = (defense_securite,solo_title) => {
         
         return (
             <Row>
 
                 <Col xs={12} md={12} xl={6}>
+                    <Link
+                        style={{textDecoration: 'none'}}
+                        to={{
+                            pathname : `/solo-page/${defense_securite[0].categories[0].category_name}/${defense_securite[0].slug}`,
+                        }}
+                    >
                     {
                         defense_securite[0] && defense_securite[0].status == "publish" &&
                         <>
@@ -194,11 +200,7 @@ class NosActivites extends Component {
                             <Link
                                 className="seeMoreToSolo"
                                 to={{
-                                    pathname : '/solo-page',
-                                    state : { 
-                                        solo_title : "Défense et Sécurité",
-                                        publication : defense_securite[0],
-                                    }
+                                    pathname : `/solo-page/${defense_securite[0].categories[0].category_name}/${defense_securite[0].slug}`,
                                 }}
                             >
                                 Lire la suite
@@ -206,6 +208,7 @@ class NosActivites extends Component {
                         </div>
                         </>
                     }
+                    </Link>
                 </Col>
                 
                 <Col className="ml-5" xs={12} md={12} xl={5}>
@@ -214,8 +217,16 @@ class NosActivites extends Component {
                         {
                            defense_securite.map((def_sec,index) => 
                                 def_sec && def_sec.status == "publish" && index > 0 && index < 4 &&
+                                <Link
+                                    style={{textDecoration: 'none'}}
+                                    to={{
+                                        pathname : `/solo-page/${def_sec.categories[0].category_name}/${def_sec.slug}`,
+                                        
+                                    }}
+                                >
                                 <Row className="smallArticleRow">
                                     <Col xs={12} md={4} xl={5} >
+                                        
                                         {
                                             def_sec.fimg_url != false 
                                             ?  
@@ -244,9 +255,11 @@ class NosActivites extends Component {
                                         <p  className="dateSmall">{moment(def_sec.date).format("DD MMMM YYYY")}</p>
                                     
                                     </Col>
+                                    
                                     { index < 3 && <hr className="divider" /> }
                                     
                                 </Row>
+                                </Link>
                            )
                         }
                     </Row>
@@ -270,7 +283,7 @@ class NosActivites extends Component {
         );
     };
 
-    renderGouvernance = (genre,cellule) => {
+    renderGouvernance = (genre,cellule,solo_title) => {
 
         return (
         <Row>
@@ -292,6 +305,12 @@ class NosActivites extends Component {
                                 genre[0] && genre[0].status == "publish" &&
                                 <>
                                 <Col xs={12} xl={12}>
+                                    <Link
+                                        style={{textDecoration: 'none'}}
+                                        to={{
+                                            pathname : `/solo-page/${genre[0].categories[0].category_name}/${genre[0].slug}`,
+                                        }}
+                                    >
                                     <div className="container-for-img">   
                                         {
                                             genre[0].fimg_url !== false
@@ -305,7 +324,7 @@ class NosActivites extends Component {
                                             </>
                                             :
                                             <ThumbDoc 
-                                                title={"Gouvernance"}
+                                                title={solo_title}
                                                 containerClass="thumbUlContainer"
                                                 imageClass="thumbUlImage" 
                                                 titleClass="thumbUlTitle" 
@@ -313,6 +332,7 @@ class NosActivites extends Component {
                                             />
                                         }    
                                     </div>
+                                    </Link>
                                 </Col>
                                 </>
                             }
@@ -324,6 +344,13 @@ class NosActivites extends Component {
                                 gouv && index > 0 && index < 4 &&
                                 <>
                                 <Col xs={12} xl={12}>
+
+                                    <Link
+                                        style={{textDecoration: 'none'}}
+                                        to={{
+                                            pathname : `/solo-page/${gouv.categories[0].category_name}/${gouv.slug}`,
+                                        }}
+                                    >
                                     <Row className="gouvSmallRow">
                                         <Col xl={4}>
                                             {
@@ -345,6 +372,8 @@ class NosActivites extends Component {
                                             <p  className="dateSmall">{moment(gouv.date).format("DD MMMM YYYY")}</p>
                                         </Col>
                                     </Row>
+                                    </Link>
+
                                 </Col>
                                 </>
                                 )
@@ -390,6 +419,12 @@ class NosActivites extends Component {
                                 cellule[0] && cellule[0].status == "publish" &&
                                 <>
                                 <Col xs={12} xl={12}>
+                                    <Link
+                                        style={{textDecoration: 'none'}}
+                                        to={{
+                                            pathname : `/solo-page/${cellule[0].categories[0].category_name}/${cellule[0].slug}`,
+                                        }}
+                                    >
                                     <div className="container-for-img">   
                                         {
                                             cellule[0].fimg_url !== false
@@ -411,6 +446,7 @@ class NosActivites extends Component {
                                             />
                                         }    
                                     </div>
+                                    </Link>
                                 </Col>
                                 </>
                             }
@@ -422,6 +458,12 @@ class NosActivites extends Component {
                                 gouv && index > 0 && index < 4 &&
                                 <>
                                 <Col xs={12} xl={12}>
+                                    <Link
+                                        style={{textDecoration: 'none'}}
+                                        to={{
+                                            pathname : `/solo-page/${gouv.categories[0].category_name}/${gouv.slug}`,
+                                        }}
+                                    >
                                     <Row className="gouvSmallRow">
                                         <Col xl={4}>
                                             {
@@ -443,6 +485,8 @@ class NosActivites extends Component {
                                             <p  className="dateSmall">{moment(gouv.date).format("DD MMMM YYYY")}</p>
                                         </Col>
                                     </Row>
+                                    </Link>
+                                    
                                 </Col>
                                 </>
                                 )
@@ -479,7 +523,7 @@ class NosActivites extends Component {
         );
     };
 
-    renderInfra = (infrastructure) => {
+    renderInfra = (infrastructure,solo_title) => {
         
        
         return (
@@ -505,12 +549,23 @@ class NosActivites extends Component {
                     infrastructure.map((infra,index) => 
                     infra && infra.status == "publish" && index < 3 &&
                         <Col xs={12} xl={4} className="infraContainer">
-
+                            <Link
+                                style={{textDecoration: 'none'}}
+                                to={{
+                                    pathname : `/solo-page/${infra.categories[0].category_name}/${infra.slug}`,
+                                }}
+                            >
                             <Image src={infra.fimg_url} fluid className="infraImage" />
                             
                             <div style={{marginTop : 20+"px"}}>
                                 <div className="infraTitleContainer">
-                                    <h5 className="infraTitle" >{infra.title.rendered.substr(0,133)}</h5>
+                                    {
+                                        infra.title.rendered.length > 110
+                                        ?
+                                        <h5 className="infraTitle" dangerouslySetInnerHTML={{__html: infra.title.rendered.substr(0,110)+"..."}}></h5>
+                                        :
+                                        <h5 className="infraTitle" dangerouslySetInnerHTML={{__html: infra.title.rendered}}></h5>
+                                    }
                                 </div>
                                 
                                 <div className="infraDateContainer">
@@ -518,17 +573,16 @@ class NosActivites extends Component {
                                 </div>
 
                                 <div className="infraDescContainer">
-                                    <p  className="infraDesc">
-                                        {
-                                            infra.excerpt.rendered.length > 0
-                                            ?
-                                            infra.excerpt.rendered.replace(/<[^>]*>?/gm, '').substr(0,210) + "..."
-                                            :
-                                            infra.content.rendered.replace(/<[^>]*>?/gm, '').substr(0,210) + "..."
-                                        }
-                                    </p>
+                                    {
+                                        infra.excerpt.rendered.length > 0
+                                        ?
+                                        <p className="infraDesc" dangerouslySetInnerHTML={{__html: infra.excerpt.rendered.substr(0,175)+"..."}}></p>
+                                        :
+                                        <p className="infraDesc" dangerouslySetInnerHTML={{__html: infra.content.rendered.substr(0,175)+"..."}}></p>
+                                    }
                                 </div>
                             </div>
+                            </Link>
                         </Col>
                     )
                 }
@@ -537,7 +591,7 @@ class NosActivites extends Component {
         );
     };
     
-    renderResilience = (resilence) => {
+    renderResilience = (resilence,solo_title) => {
         
          {/*
             .status == "publish"
@@ -555,6 +609,12 @@ class NosActivites extends Component {
                     {
                      resilence.map((resi,index) => 
                         resi && resi.status == "publish" && index > 0 && index < 4 &&
+                        <Link
+                            style={{textDecoration: 'none'}}
+                            to={{
+                                pathname : `/solo-page/${resi.categories[0].category_name}/${resi.slug}`,
+                            }}
+                        >
                         <Row className="resilenceRow">
                             <Col xs={12} xl={6}>
                                 {
@@ -586,6 +646,7 @@ class NosActivites extends Component {
                                 <p  className="resiDateSmall">{moment(resi.date).format("DD MMMM YYYY")}</p>
                             </Col>
                         </Row>
+                        </Link>
                      )
                     }
                 
@@ -606,6 +667,12 @@ class NosActivites extends Component {
                 </Col>
 
                 <Col xs={12} xl={6}>
+                        <Link
+                            to={{
+                                pathname : `/solo-page/${resilence[0].categories[0].category_name}/${resilence[0].slug}`,
+                            }}
+                            style={{textDecoration: 'none'}}
+                        >
                     {
                         resilence[0] && resilence[0].status == "publish" &&
                         <>
@@ -633,15 +700,11 @@ class NosActivites extends Component {
                                 :
                                 <p className="resiDescBig" dangerouslySetInnerHTML={{__html: resilence[0].content.rendered.substr(0,265)+"..."}}></p>
                             }
-
+                    
                             <Link
                                 className="seeMoreToSolo"
                                 to={{
-                                    pathname : '/solo-page',
-                                    state : { 
-                                        solo_title : "Résilience",
-                                        publication : resilence[0],
-                                    }
+                                    pathname : `/solo-page/${resilence[0].categories[0].category_name}/${resilence[0].slug}`,
                                 }}
                             >
                                 Lire la suite
@@ -650,6 +713,7 @@ class NosActivites extends Component {
                         </div>
                         </>
                     }
+                    </Link>
                 </Col>
                 
             </Row>

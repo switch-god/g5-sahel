@@ -13,6 +13,9 @@ import {
 
 
 /* =================== APP COMPONENTS =================== */ 
+import ScrollToTop from './components/ScrollToTop';
+import NotFound from './components/NotFound';
+
 import Header from './app/navigation/Header';
 import Footer from './app/navigation/Footer';
 
@@ -53,7 +56,7 @@ export class App extends Component {
 
     return (
         <Router>
-          
+            <ScrollToTop />
             {/* NAVBAR */}
               <Header />
             {/* ./NAVBAR */}
@@ -93,14 +96,16 @@ export class App extends Component {
                 <AppelOffre />
               </Route>
 
+
               <Route exact path="/recrutement">
                 <Recrutement />
               </Route>
 
-              <Route path="/solo-page" component={SoloPage} />
+              <Route path="/solo-page/:category/:slug" component={SoloPage} />
               <Route path="/see-more" component={SeeMore} />
-              <Route path="/solo-event" component={SoloEvent} />
+              <Route path="/solo-event/:slug" component={SoloEvent} />
               
+              {/* <Route component={NotFound}/> */}
             </Switch>
 
             {/* FOOTER */}

@@ -54,7 +54,7 @@ class Home extends Component {
     componentDidMount() {
         setTimeout(() => {
              this.setState({loading : false})
-         },2000);
+         },3000);
     };
 
     render() {
@@ -74,7 +74,7 @@ class Home extends Component {
             :
             <Container fluid>
             
-                {this.renderActualitesG5(actualitesG5)}
+                {actualitesG5.length > 0 && this.renderActualitesG5(actualitesG5,"Actualités des pays du G5")}
 
                 {/* NEW & EVENTS */}
                 <Row style={{marginTop : 50 + "px", marginBottom : 50+"px"}}>
@@ -83,11 +83,11 @@ class Home extends Component {
                     <Col xl={10}>
                         <Row>
                             <Col xl={6} className="postsContainerNews">
-                                {this.renderPosts(actualitesInter,"Latest News")}
+                                {actualitesInter.length > 0 && this.renderPosts(actualitesInter,"A la une")}
                             </Col>
   
                             <Col xl={6} className="postsContainerEvents">
-                                {this.renderEvents(events,"Upcoming Events")}
+                                {events.length > 0 && this.renderEvents(events,"Agenda")}
                             </Col>
                         </Row>
                     </Col>
@@ -100,7 +100,7 @@ class Home extends Component {
                     <Col />
                     
                     <Col md={10}>
-                        {this.renderNosActivites(activities)} 
+                        {activities.length > 0 && this.renderNosActivites(activities)} 
                         <Newsletter />
 
                         {/* VIDEO */}
@@ -119,7 +119,7 @@ class Home extends Component {
         )
     }
 
-    renderActualitesG5 = (actualitesG5) => {
+    renderActualitesG5 = (actualitesG5,solo_title) => {
 
         return (
             <Row>
@@ -130,14 +130,11 @@ class Home extends Component {
                     <Row>
                         <Col xs={12} md={8}>
                             <Link 
-                            to={{
-                                pathname : '/solo-page',
-                                state : { 
-                                    solo_title : "Actualités des pays du G5",
-                                    publication : actualitesG5[0],
-                                }
-                            }}  
-                            style={{ textDecoration: 'none' }}>
+                                to={{
+                                    pathname : `/solo-page/${actualitesG5[0].categories[0].category_name}/${actualitesG5[0].slug}`,
+                                }}  
+                                style={{ textDecoration: 'none' }}
+                            >
                             <div className="container-for-img">    
                                 {
                                     actualitesG5[0] &&
@@ -169,12 +166,8 @@ class Home extends Component {
                                 
                             <Link 
                                 to={{
-                                    pathname : '/solo-page',
-                                    state : { 
-                                        solo_title : "Actualités des pays du G5",
-                                        publication : actualitesG5[1],
-                                    }
-                                }}  
+                                    pathname : `/solo-page/${actualitesG5[1].categories[0].category_name}/${actualitesG5[1].slug}`,
+                                }}
                                 style={{ textDecoration: 'none' }}>
                             <div className="container-for-img">
                                 {
@@ -205,13 +198,10 @@ class Home extends Component {
 
                             <Link 
                                 to={{
-                                    pathname : '/solo-page',
-                                    state : { 
-                                        solo_title : "Actualités des pays du G5",
-                                        publication : actualitesG5[1],
-                                    }
-                                }}  
-                            style={{ textDecoration: 'none' }}>
+                                    pathname : `/solo-page/${actualitesG5[2].categories[0].category_name}/${actualitesG5[1].slug}`,
+                                }} 
+                                style={{ textDecoration: 'none' }}
+                            >
                             <div className="container-for-img" style={{marginTop : 26 + "px"}}>
                             {
                                     actualitesG5[2] &&
@@ -266,7 +256,12 @@ class Home extends Component {
                 {
                     posts[0] &&
                     <>
-                    
+                    <Link 
+                        to={{
+                            pathname : `/solo-page/${posts[0].categories[0].category_name}/${posts[0].slug}`,
+                        }}  
+                        style={{ textDecoration: 'none' }}
+                    >
                     <Row>
                         <Col md={12}>
                             <Row>
@@ -304,11 +299,7 @@ class Home extends Component {
                             <Row style={{float: 'right'}}>
                                     <Link 
                                     to={{
-                                        pathname : '/solo-page',
-                                        state : { 
-                                            solo_title : postsTitle,
-                                            publication : posts[0],
-                                        }
+                                        pathname : `/solo-page/${posts[0].categories[0].category_name}/${posts[0].slug}`,
                                     }}  
                                 >
                                     <p className="seeMoreNewsText">Lire la suite</p>
@@ -317,6 +308,7 @@ class Home extends Component {
 
                         </Col>
                     </Row>
+                    </Link>
                     <hr className="postsHr"/>
                     </>
                 }
@@ -331,11 +323,7 @@ class Home extends Component {
                     <div key={index} style={{marginBottom : 10+"px"}}>
                     <Link 
                         to={{
-                            pathname : '/solo-page',
-                            state : { 
-                                solo_title : postsTitle,
-                                publication : post,
-                            }
+                            pathname : `/solo-page/${post.categories[0].category_name}/${post.slug}`,
                         }}  
                         style={{textDecoration: 'none'}}
                     >
@@ -398,7 +386,7 @@ class Home extends Component {
     renderEvents = (posts,postsTitle) => {
         // console.log(posts); 
         
-        
+        const category = "Événements";
         return (
             <>
             
@@ -416,7 +404,12 @@ class Home extends Component {
                 {
                     posts[0] &&
                     <>
-                    
+                    <Link 
+                        to={{
+                            pathname : `/solo-event/${posts[0].slug}`,
+                        }}  
+                        style={{ textDecoration: 'none' }}
+                    >
                     <Row>
                         <Col md={12}>
                             <Row>
@@ -454,11 +447,7 @@ class Home extends Component {
                             <Row style={{float: 'right'}}>
                                     <Link 
                                     to={{
-                                        pathname : '/solo-event',
-                                        state : { 
-                                            solo_title : postsTitle,
-                                            publication : posts[0],
-                                        }
+                                        pathname : `/solo-event/${posts[0].slug}`
                                     }}  
                                 >
                                     <p className="seeMoreNewsText">Lire la suite</p>
@@ -467,6 +456,7 @@ class Home extends Component {
 
                         </Col>
                     </Row>
+                    </Link>
                     <hr className="postsHr"/>
                     </>
                 }
@@ -481,11 +471,7 @@ class Home extends Component {
                     <div key={index} style={{marginBottom : 10+"px"}}>
                     <Link 
                         to={{
-                            pathname : '/solo-event',
-                            state : { 
-                                solo_title : postsTitle,
-                                publication : post,
-                            }
+                            pathname : `/solo-event/${post.slug}`
                         }}  
                         style={{textDecoration: 'none'}}
                     >
@@ -568,23 +554,19 @@ class Home extends Component {
                         <Col xs={12} md={3} key={index}>
                             <Link 
                                 to={{
-                                    pathname : '/solo-page',
-                                    state : { 
-                                        solo_title : "Nos activités",
-                                        publication : activity,
-                                    }
+                                    pathname : `/solo-page/${activity.categories[0].category_name}/${activity.slug}`,
                                 }}  
-                                style={{textDecoration: 'none'}}
+                                style={{ textDecoration: 'none' }}
                             >
-                                <Image src={activity.fimg_url} fluid className="activityImageSmall" />
-                                {
-                                    activity.title.rendered.length < 60
-                                    ?
-                                    <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
-                                    :
-                                    <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,57)+"..."}}></p>
-                                }
-                                <p style={styles.activityDesc} className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
+                            <Image src={activity.fimg_url} fluid className="activityImageSmall" />
+                            {
+                                activity.title.rendered.length < 60
+                                ?
+                                <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
+                                :
+                                <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,57)+"..."}}></p>
+                            }
+                            <p style={styles.activityDesc} className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
                             </Link>
                         </Col>
                     )        
@@ -635,13 +617,10 @@ const styles = {
 
 
 const mapStateToProps = state => ({
-    // imagesBloc : state.postsR.imagesBloc,
-    // posts : state.postsR.posts,
-
-    activities : state.actualitesR.activities,
-    events : state.actualitesR.events,
     actualitesG5 : state.actualitesR.actualitesG5,
     actualitesInter : state.actualitesR.actualitesInter,
+    events : state.actualitesR.events,
+    activities : state.actualitesR.activities,
 });
 
 export default connect(mapStateToProps,{ getActualitesPaysG5,getActualitesInter,getLatestEvents,getActivities })(Home);

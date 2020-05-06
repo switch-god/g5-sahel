@@ -420,11 +420,13 @@
     .resiTitleBig {
         font-size: 20px;
         font-family: 'Poppins Bold';
+        color: black;
     }   
     
     .resiDescBig {
         font-size: 14px;
         font-family: 'Poppins Light';
+        color: black;
     }
     
     .resiDateBig {
@@ -452,11 +454,13 @@
     .resiTitleSmall {
         font-size: 15px;
         font-family: 'Poppins Bold';
+        color: black;
     }   
     
     .resiDescSmall {
         font-size: 10px;
         font-family: 'Poppins Light';
+        color: black
     }
     
     .resiDateSmall {
@@ -495,8 +499,8 @@
         }
 
         .infraTitleContainer {
-            min-height: 100px;
-            max-height: 100px;
+            min-height: 50px;
+            /* background-color: red; */
         }
         .infraDateContainer {
             max-height: 300px;
@@ -515,6 +519,7 @@
         .infraTitle {
             font-size: 15px;
             font-family: 'Poppins Bold';
+            color: black;
         }   
         
         
@@ -527,6 +532,7 @@
         .infraDesc {
             font-size: 10px;
             font-family: 'Poppins Light';
+            color: black;
         }
 
     /* ./INFRA */
@@ -579,6 +585,7 @@
     /* ./GOUVERNANCE */
 
 
+
     .seeMoreToSolo {
         font-family: 'Poppins Light';
         font-size: 14px;
@@ -598,6 +605,7 @@
     .postTitleBig {
         font-family: 'Poppins Bold';
         font-size: 20px;
+        color: black;
     }
 
     .dateBig {
@@ -609,6 +617,7 @@
     .descBig {
         font-size: 14px;
         font-family: 'Poppins Light';
+        color: black;
     }
 
     .postImageSmall {
@@ -621,11 +630,13 @@
     .titleSmall {
         font-size: 14px;
         font-family: 'Poppins Bold';
+        color:black;
     }   
     
     .descSmall {
         font-size: 10px;
         font-family: 'Poppins Light';
+        color: black;
     }
     
     .dateSmall {

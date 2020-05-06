@@ -150,20 +150,17 @@ class AutresDocuments extends Component {
     }
 
     renderDocumentsListMode = (pubs) => {
-     
+        console.log(pubs)
         return (
             <>
             {
                 pubs.map((pub) =>  
                     <Link 
                         to={{
-                            pathname : '/solo-page',
-                            state : { 
-                                solo_title : "Autres Documents",
-                                publication : pub,
-                            }
+                            pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,
                         }}  
-                        style={{ textDecoration: 'none' }}>
+                        style={{ textDecoration: 'none' }}
+                    >
                         <Jumbotron className="documentBox">
                             <Row>
                                 <Col xs={6} xl={4}>
@@ -194,11 +191,7 @@ class AutresDocuments extends Component {
                                         <Link  
                                             className="documentButton"
                                             to={{
-                                                pathname : '/solo-page',
-                                                state : { 
-                                                    solo_title : "Autres Documents",
-                                                    publication : pub,
-                                                }
+                                                pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,    
                                             }}
                                         >
                                             <IoIosEye size={'20px'} />  Voir Plus
@@ -224,11 +217,7 @@ class AutresDocuments extends Component {
                     <Col xs={12} xl={4}>
                     <Link 
                         to={{
-                            pathname : '/solo-page',
-                            state : { 
-                                solo_title : "Autres Documents",
-                                publication : pub,
-                            }
+                            pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,  
                         }}  
                         style={{ textDecoration: 'none' }}>
                             <Jumbotron className="documentGridBox">
@@ -252,11 +241,7 @@ class AutresDocuments extends Component {
                                         <Link  
                                             className="documentGridButton"
                                             to={{
-                                                pathname : '/solo-page',
-                                                state : { 
-                                                    solo_title : "Autres Documents",
-                                                    publication : pub,
-                                                }
+                                                pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,  
                                             }}
                                         >
                                             <IoIosEye size={'20px'} /> Voir Plus
