@@ -15,5 +15,10 @@ module.exports = {
               use: 'babel-loader',
           }
       ]
-  }
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
+ }
 };
