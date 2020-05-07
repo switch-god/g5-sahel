@@ -101,7 +101,7 @@ export class App extends Component {
               </Route>
 
              
-              <Route path="/article/:slug" exact component={SoloPage} />
+              <Route path="/article/:slug" component={SoloPage} />
               <Route path="/see-more/:category" component={SeeMore} />
               <Route path="/solo-event/:slug" component={SoloEvent} />
               
