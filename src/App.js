@@ -9,6 +9,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 
 
@@ -60,10 +61,12 @@ export class App extends Component {
             {/* NAVBAR */}
               <Header />
             {/* ./NAVBAR */}
-
+            {/* <Redirect from="/" to="accueil" /> */}
             {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
             <Switch>
               
+             
+
               <Route exact path="/">
                 <Home />
               </Route>
@@ -101,8 +104,8 @@ export class App extends Component {
                 <Recrutement />
               </Route>
 
-              <Route path="/solo-page/:category/:slug" component={SoloPage} />
-              <Route path="/see-more" component={SeeMore} />
+              <Route path="/solo-page/:slug" component={SoloPage} />
+              <Route path="/see-more/:category" component={SeeMore} />
               <Route path="/solo-event/:slug" component={SoloEvent} />
               
               {/* <Route component={NotFound}/> */}

@@ -37,7 +37,7 @@ export default class SoloPage extends Component {
    
     render() {
         // const { solo_title } = this.props.location.state;
-        const { category } = this.props.match.params;
+        // const { category } = this.props.match.params;
         const { publication,news } = this.state;
         
         console.log(publication);
@@ -46,7 +46,7 @@ export default class SoloPage extends Component {
             return (
                 <>
                 <Layout style={{textAlign: 'center',marginBottom: '50px'}}>
-                    <p className="soloTitle">{category}</p>
+                    <p className="soloTitle">{publication[0].categories[0].category_name}</p>
                     <p className="articleTitle" dangerouslySetInnerHTML={{__html: publication[0].title.rendered}}></p>
                     <p className="articleDate">{moment(publication[0].date).format("DD MMMM YYYY")}</p>
     
@@ -60,7 +60,7 @@ export default class SoloPage extends Component {
                                     ?
                                     <Image src={publication[0].fimg_url} fluid className="articleImage" />
                                     :
-                                    <ThumbDoc title={category} containerClass="thumbSoloContainer" imageClass="thumbSoloImage" titleClass="thumbSoloTitle" descClass="thumbSoloDesc" />     
+                                    <ThumbDoc title={"category"} containerClass="thumbSoloContainer" imageClass="thumbSoloImage" titleClass="thumbSoloTitle" descClass="thumbSoloDesc" />     
                                 }
                             </Col>
                             

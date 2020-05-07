@@ -156,7 +156,7 @@ class Discours extends Component {
                 pubs.map((pub) =>  
                     <Link 
                         to={{
-                            pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,  
+                            pathname : `/solo-page/${pub.slug}`,  
                         }}  
                         style={{ textDecoration: 'none' }}>
                         <Jumbotron className="documentBox">
@@ -189,7 +189,7 @@ class Discours extends Component {
                                         <Link  
                                             className="documentButton"
                                             to={{
-                                                pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,  
+                                                pathname : `/solo-page/${pub.slug}`,  
                                             }}
                                         >
                                             <IoIosEye size={'20px'} />  Voir Plus
@@ -215,7 +215,7 @@ class Discours extends Component {
                     <Col xs={12} xl={4}>
                     <Link 
                         to={{
-                            pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,  
+                            pathname : `/solo-page/${pub.slug}`,  
                         }}  
                         style={{ textDecoration: 'none' }}>
                             <Jumbotron className="documentGridBox">
@@ -239,7 +239,7 @@ class Discours extends Component {
                                         <Link  
                                             className="documentGridButton"
                                             to={{
-                                                pathname : `/solo-page/${pub.categories[0].category_name}/${pub.slug}`,  
+                                                pathname : `/solo-page/${pub.slug}`,  
                                             }}
                                         >
                                             <IoIosEye size={'20px'} /> Voir Plus

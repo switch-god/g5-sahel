@@ -160,7 +160,7 @@ class NosActivites extends Component {
                     <Link
                         style={{textDecoration: 'none'}}
                         to={{
-                            pathname : `/solo-page/${defense_securite[0].categories[0].category_name}/${defense_securite[0].slug}`,
+                            pathname : `/solo-page/${defense_securite[0].slug}`,
                         }}
                     >
                     {
@@ -200,7 +200,7 @@ class NosActivites extends Component {
                             <Link
                                 className="seeMoreToSolo"
                                 to={{
-                                    pathname : `/solo-page/${defense_securite[0].categories[0].category_name}/${defense_securite[0].slug}`,
+                                    pathname : `/solo-page/${defense_securite[0].slug}`,
                                 }}
                             >
                                 Lire la suite
@@ -220,7 +220,7 @@ class NosActivites extends Component {
                                 <Link
                                     style={{textDecoration: 'none'}}
                                     to={{
-                                        pathname : `/solo-page/${def_sec.categories[0].category_name}/${def_sec.slug}`,
+                                        pathname : `/solo-page/${def_sec.slug}`,
                                         
                                     }}
                                 >
@@ -308,7 +308,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/solo-page/${genre[0].categories[0].category_name}/${genre[0].slug}`,
+                                            pathname : `/solo-page/${genre[0].slug}`,
                                         }}
                                     >
                                     <div className="container-for-img">   
@@ -348,7 +348,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/solo-page/${gouv.categories[0].category_name}/${gouv.slug}`,
+                                            pathname : `/solo-page/${gouv.slug}`,
                                         }}
                                     >
                                     <Row className="gouvSmallRow">
@@ -422,7 +422,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/solo-page/${cellule[0].categories[0].category_name}/${cellule[0].slug}`,
+                                            pathname : `/solo-page/${cellule[0].slug}`,
                                         }}
                                     >
                                     <div className="container-for-img">   
@@ -461,7 +461,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/solo-page/${gouv.categories[0].category_name}/${gouv.slug}`,
+                                            pathname : `/solo-page/${gouv.slug}`,
                                         }}
                                     >
                                     <Row className="gouvSmallRow">
@@ -552,7 +552,7 @@ class NosActivites extends Component {
                             <Link
                                 style={{textDecoration: 'none'}}
                                 to={{
-                                    pathname : `/solo-page/${infra.categories[0].category_name}/${infra.slug}`,
+                                    pathname : `/solo-page/${infra.slug}`,
                                 }}
                             >
                             <Image src={infra.fimg_url} fluid className="infraImage" />
@@ -612,7 +612,7 @@ class NosActivites extends Component {
                         <Link
                             style={{textDecoration: 'none'}}
                             to={{
-                                pathname : `/solo-page/${resi.categories[0].category_name}/${resi.slug}`,
+                                pathname : `/solo-page/${resi.slug}`,
                             }}
                         >
                         <Row className="resilenceRow">
@@ -669,7 +669,7 @@ class NosActivites extends Component {
                 <Col xs={12} xl={6}>
                         <Link
                             to={{
-                                pathname : `/solo-page/${resilence[0].categories[0].category_name}/${resilence[0].slug}`,
+                                pathname : `/solo-page/${resilence[0].slug}`,
                             }}
                             style={{textDecoration: 'none'}}
                         >
@@ -704,7 +704,7 @@ class NosActivites extends Component {
                             <Link
                                 className="seeMoreToSolo"
                                 to={{
-                                    pathname : `/solo-page/${resilence[0].categories[0].category_name}/${resilence[0].slug}`,
+                                    pathname : `/solo-page/${resilence[0].slug}`,
                                 }}
                             >
                                 Lire la suite

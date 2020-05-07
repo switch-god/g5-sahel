@@ -19,6 +19,8 @@ import ThumbDoc from '../../components/ThumbDoc';
 export default class SeeMore extends Component {
     constructor(props) {
         super(props)
+
+        // this.getArticle(this.props.match.params.category);
     };
 
 
