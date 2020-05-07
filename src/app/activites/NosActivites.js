@@ -160,7 +160,7 @@ class NosActivites extends Component {
                     <Link
                         style={{textDecoration: 'none'}}
                         to={{
-                            pathname : `/${defense_securite[0].slug}`,
+                            pathname : `/article/${defense_securite[0].slug}`,
                         }}
                     >
                     {
@@ -200,7 +200,7 @@ class NosActivites extends Component {
                             <Link
                                 className="seeMoreToSolo"
                                 to={{
-                                    pathname : `/${defense_securite[0].slug}`,
+                                    pathname : `/article/${defense_securite[0].slug}`,
                                 }}
                             >
                                 Lire la suite
@@ -220,7 +220,7 @@ class NosActivites extends Component {
                                 <Link
                                     style={{textDecoration: 'none'}}
                                     to={{
-                                        pathname : `/${def_sec.slug}`,
+                                        pathname : `/article/${def_sec.slug}`,
                                         
                                     }}
                                 >
@@ -308,7 +308,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/${genre[0].slug}`,
+                                            pathname : `/article/${genre[0].slug}`,
                                         }}
                                     >
                                     <div className="container-for-img">   
@@ -348,7 +348,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/${gouv.slug}`,
+                                            pathname : `/article/${gouv.slug}`,
                                         }}
                                     >
                                     <Row className="gouvSmallRow">
@@ -422,7 +422,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/${cellule[0].slug}`,
+                                            pathname : `/article/${cellule[0].slug}`,
                                         }}
                                     >
                                     <div className="container-for-img">   
@@ -461,7 +461,7 @@ class NosActivites extends Component {
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
-                                            pathname : `/${gouv.slug}`,
+                                            pathname : `/article/${gouv.slug}`,
                                         }}
                                     >
                                     <Row className="gouvSmallRow">
@@ -552,7 +552,7 @@ class NosActivites extends Component {
                             <Link
                                 style={{textDecoration: 'none'}}
                                 to={{
-                                    pathname : `/${infra.slug}`,
+                                    pathname : `/article/${infra.slug}`,
                                 }}
                             >
                             <Image src={infra.fimg_url} fluid className="infraImage" />
@@ -612,7 +612,7 @@ class NosActivites extends Component {
                         <Link
                             style={{textDecoration: 'none'}}
                             to={{
-                                pathname : `/${resi.slug}`,
+                                pathname : `/article/${resi.slug}`,
                             }}
                         >
                         <Row className="resilenceRow">
@@ -669,7 +669,7 @@ class NosActivites extends Component {
                 <Col xs={12} xl={6}>
                         <Link
                             to={{
-                                pathname : `/${resilence[0].slug}`,
+                                pathname : `/article/${resilence[0].slug}`,
                             }}
                             style={{textDecoration: 'none'}}
                         >
@@ -704,7 +704,7 @@ class NosActivites extends Component {
                             <Link
                                 className="seeMoreToSolo"
                                 to={{
-                                    pathname : `/${resilence[0].slug}`,
+                                    pathname : `/article/${resilence[0].slug}`,
                                 }}
                             >
                                 Lire la suite

@@ -157,7 +157,7 @@ class Correspondance extends Component {
                 pubs.map((pub) =>  
                     <Link 
                         to={{
-                            pathname : `/${pub.slug}`,  
+                            pathname : `/article/${pub.slug}`,  
                         }}  
                         style={{ textDecoration: 'none' }}>
                         <Jumbotron className="documentBox">
@@ -190,7 +190,7 @@ class Correspondance extends Component {
                                         <Link  
                                             className="documentButton"
                                             to={{
-                                                pathname : `/${pub.slug}`,  
+                                                pathname : `/article/${pub.slug}`,  
                                             }}
                                         >
                                             <IoIosEye size={'20px'} />  Voir Plus
@@ -216,7 +216,7 @@ class Correspondance extends Component {
                     <Col xs={12} xl={4}>
                     <Link 
                         to={{
-                            pathname : `/${pub.slug}`,  
+                            pathname : `/article/${pub.slug}`,  
                         }}  
                         style={{ textDecoration: 'none' }}>
                             <Jumbotron className="documentGridBox">
@@ -240,7 +240,7 @@ class Correspondance extends Component {
                                         <Link  
                                             className="documentGridButton"
                                             to={{
-                                                pathname : `/${pub.slug}`,  
+                                                pathname : `/article/${pub.slug}`,  
                                             }}
                                         >
                                             <IoIosEye size={'20px'} /> Voir Plus
