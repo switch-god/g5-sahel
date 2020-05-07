@@ -27,6 +27,7 @@ export default class SoloPage extends Component {
             publication : {},
             news : [],
         };
+
         this.getArticle(this.props.match.params.slug);
     };
     
@@ -36,12 +37,10 @@ export default class SoloPage extends Component {
     }
    
     render() {
-        // const { solo_title } = this.props.location.state;
-        // const { category } = this.props.match.params;
+
         const { publication,news } = this.state;
-        
-        console.log(publication);
-       
+      
+     
         if(publication[0]) {
             return (
                 <>
@@ -130,9 +129,9 @@ export default class SoloPage extends Component {
     );
 
 
-    getArticle = (slug) => {
+    getArticle = async (slug) => {
 
-        axios.get(`${config.url}wp/v2/posts?slug=${slug}`)
+        await axios.get(`${config.url}wp/v2/posts?slug=${slug}`)
         .then( async response => {
             await this.setState({
                 publication : response.data,

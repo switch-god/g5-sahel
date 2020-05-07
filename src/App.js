@@ -17,6 +17,8 @@ import {
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './components/NotFound';
 
+import TestPage from './app/solo-pages/TestPage';
+
 import Header from './app/navigation/Header';
 import Footer from './app/navigation/Footer';
 
@@ -61,13 +63,11 @@ export class App extends Component {
             {/* NAVBAR */}
               <Header />
             {/* ./NAVBAR */}
-            <Redirect from="/" to="accueil" />
+    
             {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
             <Switch>
               
-             
-
-              <Route exact path="/accueil">
+              <Route exact path="/">
                 <Home />
               </Route>
               
@@ -104,7 +104,8 @@ export class App extends Component {
                 <Recrutement />
               </Route>
 
-              <Route path="/:slug" component={SoloPage} />
+             
+              <Route exact path="/article/:slug" component={SoloPage} />
               <Route path="/see-more/:category" component={SeeMore} />
               <Route path="/solo-event/:slug" component={SoloEvent} />
               

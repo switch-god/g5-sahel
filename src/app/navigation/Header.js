@@ -56,8 +56,8 @@ class Header extends Component {
                     <Col>
                         
                         <Navbar bg={null} expand="lg">
-                            <Link className="navbar-brand logoMobile" to="/"><img src={LOGO2} height={80} className="d-inline-block align-top" /></Link>
-                            <Link className="navbar-brand logoWeb" to="/"><img src={LOGO} height={80} className="d-inline-block align-top" /></Link>
+                            <Link className="navbar-brand logoMobile" to="/accueil"><img src={LOGO2} height={80} className="d-inline-block align-top" /></Link>
+                            <Link className="navbar-brand logoWeb" to="/accueil"><img src={LOGO} height={80} className="d-inline-block align-top" /></Link>
 
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse inline="true">

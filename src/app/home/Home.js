@@ -131,7 +131,7 @@ class Home extends Component {
                         <Col xs={12} md={8}>
                             <Link 
                                 to={{
-                                    pathname : `/${actualitesG5[0].slug}`,
+                                    pathname : `/article/${actualitesG5[0].slug}`,
                                 }}  
                                 style={{ textDecoration: 'none' }}
                             >
@@ -166,7 +166,7 @@ class Home extends Component {
                                 
                             <Link 
                                 to={{
-                                    pathname : `/${actualitesG5[1].slug}`,
+                                    pathname : `/article/${actualitesG5[1].slug}`,
                                 }}
                                 style={{ textDecoration: 'none' }}>
                             <div className="container-for-img">
@@ -198,7 +198,7 @@ class Home extends Component {
 
                             <Link 
                                 to={{
-                                    pathname : `/${actualitesG5[1].slug}`,
+                                    pathname : `/article/${actualitesG5[1].slug}`,
                                 }} 
                                 style={{ textDecoration: 'none' }}
                             >
@@ -258,7 +258,7 @@ class Home extends Component {
                     <>
                     <Link 
                         to={{
-                            pathname : `/${posts[0].slug}`,
+                            pathname : `/article/${posts[0].slug}`,
                         }}  
                         style={{ textDecoration: 'none' }}
                     >
@@ -299,7 +299,7 @@ class Home extends Component {
                             <Row style={{float: 'right'}}>
                                     <Link 
                                     to={{
-                                        pathname : `/${posts[0].slug}`,
+                                        pathname : `/article/${posts[0].slug}`,
                                     }}  
                                 >
                                     <p className="seeMoreNewsText">Lire la suite</p>
@@ -323,7 +323,7 @@ class Home extends Component {
                     <div key={index} style={{marginBottom : 10+"px"}}>
                     <Link 
                         to={{
-                            pathname : `/${post.slug}`,
+                            pathname : `/article/${post.slug}`,
                         }}  
                         style={{textDecoration: 'none'}}
                     >
@@ -554,7 +554,7 @@ class Home extends Component {
                         <Col xs={12} md={3} key={index}>
                             <Link 
                                 to={{
-                                    pathname : `/${activity.slug}`,
+                                    pathname : `/article/${activity.slug}`,
                                 }}  
                                 style={{ textDecoration: 'none' }}
                             >
