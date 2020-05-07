@@ -61,13 +61,13 @@ export class App extends Component {
             {/* NAVBAR */}
               <Header />
             {/* ./NAVBAR */}
-            {/* <Redirect from="/" to="accueil" /> */}
+            <Redirect from="/" to="accueil" />
             {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
             <Switch>
               
              
 
-              <Route exact path="/">
+              <Route exact path="/accueil">
                 <Home />
               </Route>
               
@@ -104,7 +104,7 @@ export class App extends Component {
                 <Recrutement />
               </Route>
 
-              <Route path="/solo-page/:slug" component={SoloPage} />
+              <Route path="/:slug" component={SoloPage} />
               <Route path="/see-more/:category" component={SeeMore} />
               <Route path="/solo-event/:slug" component={SoloEvent} />
               
