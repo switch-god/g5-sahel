@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'primereact/resources/themes/nova-light/theme.css';
-// import 'primereact/resources/primereact.min.css';
-// import 'primeicons/primeicons.css';
-// import 'video-react/dist/video-react.css';
+
 
 import {
   BrowserRouter as Router,
@@ -58,7 +54,7 @@ export class App extends Component {
     
 
     return (
-        <Router>
+        <Router >
             <ScrollToTop />
             {/* NAVBAR */}
               <Header />

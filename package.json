@@ -18,6 +18,7 @@
     "html-webpack-plugin": "^4.3.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
+    "path": "^0.12.7",
     "primeicons": "^2.0.0",
     "primereact": "^4.1.2",
     "react": "^16.13.1",
@@ -42,7 +43,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "webpack --watch --mode=development",
+    "prod": "webpack --mode=production"
   },
   "eslintConfig": {
     "extends": "react-app"

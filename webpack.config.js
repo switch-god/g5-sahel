@@ -1,16 +1,19 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const port = process.env.PORT || 3000;
+const path = require( 'path' );
 
 module.exports = {
-  // Webpack configuration goes here
-//   mode: 'development',
-//   entry: './src/index.js',
-//   output: {
-//     filename: 'bundle.[hash].js'
-//   },
-//   devtool: 'inline-source-map',
-  devServer: {
-    historyApiFallback: true,
+  context: __dirname,
+  entry: './src/index.js',
+  output: {
+      path: path.resolve( __dirname, 'dist' ),
+      filename: 'main.js',
+  },
+  module: {
+      rules: [
+          {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: 'babel-loader',
+          }
+      ]
   }
 };
