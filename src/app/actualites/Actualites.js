@@ -7,10 +7,12 @@ import {
     Container
 } from 'react-bootstrap';
 import moment from 'moment';
-
+import { Link } from 'react-router-dom';
+import {IoIosArrowForward} from 'react-icons/io';
+import ThumbDoc from '../../components/ThumbDoc';
 // Connect to redux : 
     import { connect } from 'react-redux';
-    import { getLatestNews } from '../../redux/actions/ActualitesActions';
+    import { getLatestNews,getActualitesPaysG5,getActualitesInter,getLatestEvents } from '../../redux/actions/ActualitesActions';
 
 
 // Components :
@@ -34,22 +36,42 @@ class Actualites extends Component {
             loading : true,
         };
 
+        //Get Actualites Pays G5 : 
+        this.props.getActualitesPaysG5();
+
+        // Latest News
         this.props.getLatestNews();
+        
+        //Get Actualites Internationale : 
+        this.props.getActualitesInter();
+
+        // Get Latest Events :
+        this.props.getLatestEvents();
+
     }
 
     componentDidMount() {
-        // setTimeout(() => {
-        //      this.setState({loading : false})
-        //  },2000);
+        setTimeout(() => {
+             this.setState({loading : false})
+         },2000);
     };
 
     render() {
         const { loading } = this.state;
+        const { 
+            actualitesG5,
+            actualitesInter,
+            events,
+            activities,
+            posts
+        } = this.props;
+
         return (
 
             loading 
             ?
-                <LottieLoader devText={true} />
+                // <LottieLoader devText={true} />
+                <LottieLoader  />
             :
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
@@ -57,13 +79,23 @@ class Actualites extends Component {
                 </div>
 
                 <Container fluid>
-                    {this.renderBloc1()}
+                    {
+                        actualitesG5.length > 0 && 
+                        posts.length > 0 &&
+                        this.renderBloc1(actualitesG5,posts)
+                    }
 
-                    {this.renderCommuniquePresse()}
-
-                    {this.renderActualites()}
-
-                    {this.renderAgenda()}
+                    {
+                        actualitesG5.length > 0 &&
+                        this.renderactualites(actualitesG5,"Actualités des pays du G5")
+                    }
+                    
+                    {
+                        actualitesInter.length > 0 &&
+                        this.renderactualites(actualitesInter,"Actualités Internationale")
+                    }
+                   
+                    {this.renderAgenda(events,"Agenda")}
                 </Container>
 
                 <Layout style={{marginBottom : 40+"px"}}>
@@ -76,9 +108,8 @@ class Actualites extends Component {
         )
     }
 
-    renderBloc1 = () => {
-        const { posts } = this.props;
-
+    renderBloc1 = (actualitesG5,posts) => {
+   
         return (
             <Row>
                 <Col xs={0} xl={1} />
@@ -87,13 +118,31 @@ class Actualites extends Component {
                     
                     <Row>
                         <Col xs={12} xl={8}>
-                            <div className="news-big-img">    
-                                <Image src={Image1} fluid className="bigImageBloc1" />
-                                <div className="content">
-                                    <h3 style={{ fontFamily : 'Poppins Bold' }}>SOMMET EXTRAORDINAIRE DE LA CEDEAO SUR LA LUTTE CONTRE LE TERRORISME</h3>
-                                    <p style={{ fontFamily : 'Poppins Light',paddingLeft : 5+"px" }}>19 Septembre 2019</p>
+                            <Link to={{
+                                    pathname : `/article/${actualitesG5[0].slug}`,
+                                }}  
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <div className="news-big-img">    
+                                    {
+                                        actualitesG5[0].fimg_url !== false 
+                                        ?
+                                        <Image src={actualitesG5[0].fimg_url} fluid className="bigImageBloc1" />
+                                        :
+                                        <ThumbDoc 
+                                        title="Actualités" 
+                                        containerClass="thumbActuBigContainer" 
+                                        imageClass="thumbActuBigImage" 
+                                        titleClass="thumbActuBigTitle" 
+                                        descClass="thumbActuBigDesc" 
+                                        />
+                                    }
+                                    <div className="content">
+                                        <h4 className="actualitesG5BigTitle" dangerouslySetInnerHTML={{__html: actualitesG5[0].title.rendered}}></h4>
+                                        <p  className="actualitesG5BigDate">{moment(actualitesG5[0].date).format("DD MMMM YYYY")}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         </Col>
                         
                         <Col xs={12} xl={4}>
@@ -104,7 +153,7 @@ class Actualites extends Component {
                                 <div className="sectionTitleContainerActualites">
                                     <h4 className="sectionTitleActualites">Social Networks</h4>
                                 </div>
-                                <hr  className="titleSeperator" />  
+                                <hr  className="titleBloc1Seperator" />  
                             </Row>
                         </Col>
                         {/* ./TITLE */}
@@ -113,21 +162,21 @@ class Actualites extends Component {
                         <Col xs={12} xl={12}>
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a  href="https://www.facebook.com"  className="socialLinka"><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://www.facebook.com"  className="socialLinka"><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
                                 </Col>
 
                                 <Col xs={6} xl={6}>
-                                    <a  href="https://twitter.com/"  className="socialLinka"><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://twitter.com/"  className="socialLinka"><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
                                 </Col>
                             </Row>
                             
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a  href="https://www.youtube.com" className="socialLinka"><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
+                                    <a  style={{textDecoration: 'none'}} href="https://www.youtube.com" className="socialLinka"><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
                                 </Col>
                                 
                                 <Col xs={6} xl={6}>
-                                    <a  href="https://www.linkedin.com"  className="socialLinka"><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://www.linkedin.com"  className="socialLinka"><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
                                 </Col>
                             </Row>
                         </Col>
@@ -139,7 +188,7 @@ class Actualites extends Component {
                                 <div className="sectionTitleContainerActualites">
                                     <h4 className="sectionTitleActualites">Ce mois</h4>
                                 </div>
-                                <hr  className="titleSeperator" />  
+                                <hr  className="titleBloc1Seperator" />  
                             </Row>
                         {/* ./TITLE */}
                         </Col>
@@ -151,24 +200,41 @@ class Actualites extends Component {
                             {
                             posts.map((post,index) => 
                                 index < 3 &&
+                                <Link to={{
+                                    pathname : `/article/${post.slug}`,
+                                    }}  
+                                        style={{ textDecoration: 'none' }}
+                                >
                                 <Row key={index} className="ceMoisArticleContainer">
                                     <Col xs={12} xl={5}>
-                                        <Image src={post.fimg_url} fluid className="imageCeMois" />
+                                        {
+                                            post.fimg_url !== false 
+                                            ?
+                                            <Image src={post.fimg_url} fluid className="imageCeMois" />
+                                            :
+                                            <ThumbDoc 
+                                                title="Ce mois" 
+                                                containerClass="thumbActuSmallContainer" 
+                                                imageClass="thumbActuSmallImage" 
+                                                titleClass="thumbActuSmallTitle" 
+                                                descClass="thumbActuSmallDesc" 
+                                            />
+                                        }
                                     </Col> 
 
                                     <Col xs={12} xl={7}>
-                                        <h5 className="titleCeMois">
-                                            {
-                                                post.title.rendered.length > 100 
-                                                ?
-                                                post.title.rendered.substr(1,99) + "..."
-                                                :
-                                                post.title.rendered                                
-                                            }
-                                        </h5>
+                                        {
+                                            post.title.rendered.length > 60 
+                                            ?
+                                            <p className="titleCeMois" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(0,60)+"..."}}></p>
+                                            
+                                            :
+                                            <p className="titleCeMois" dangerouslySetInnerHTML={{__html: post.title.rendered}}></p>                              
+                                        }
                                         <p  className="dateCeMois">{moment(posts[1].date).format("DD MMMM YYYY")}</p>
-                                    </Col>   
+                                    </Col> 
                                 </Row>                        
+                                </Link>  
                             )
                         }
                         {/* LATEST 3 NEWS */}
@@ -185,7 +251,7 @@ class Actualites extends Component {
         );
     };
 
-    renderCommuniquePresse = () => {
+    renderactualites = (actualites,solo_title) => {
         
         return (
             <Layout style={{marginTop : 40+"px", marginBottom : 40+"px"}}>
@@ -196,73 +262,60 @@ class Actualites extends Component {
                 {/* TITLE */}
                 <Row className="sectionTitleRowActualites">
                     <div className="sectionTitleContainerActualites">
-                        <h4 className="sectionTitleActualites">Communiqués de presse</h4>
+                        <h4 className="sectionTitleActualites">{solo_title}</h4>
                     </div>
                     <hr  className="titleSeperator" />  
                 </Row>
                 {/* ./TITLE */}
 
-                <Row>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}} />
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}} />
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid  style={{minHeight : 157+"px"}}/>
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}} />
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
-                </Row> 
-            </Layout>
-        );
-    }
-
-    renderActualites = () => {
-        const { posts } = this.props;
-
-        return (
-            <Layout style={{marginTop : 40+"px", marginBottom : 40+"px"}}>
-                
-                {/* <h4  style={styles.Title2} >Actualités</h4>
-                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />   */}
-                {/* TITLE */}
-                <Row className="sectionTitleRowActualites">
-                    <div className="sectionTitleContainerActualites">
-                        <h4 className="sectionTitleActualites">Actualités</h4>
-                    </div>
-                    <hr  className="titleSeperator" />  
+                <Row className="voirToutButtonRow">
+                    <Link 
+                        className="btn btn-light infraVoirToutButton "
+                        to={{ pathname : '/#' }}
+                    >
+                        Voir tous les articles <IoIosArrowForward size={'20px'} />
+                    </Link>
                 </Row>
-                {/* ./TITLE */}
 
-                <Row>
+                <Row className="midArticlesBloc">
                     {
-                        posts.map((post,index) => 
-                            index < 4 &&
-                            <Col key={index} xs={12} xl={3}>
-                                <Image src={post.fimg_url} fluid style={{minHeight : 157+"px"}} />
-                                <p style={styles.activityTitle}>{post.title.rendered}</p>
-                                <p style={styles.activityDesc}>{moment(post.date).format("DD MMMM YYYY")}</p>
-                            </Col>    
+                        actualites.map((actu,index) =>
+                            index > 0 && index <= 4 && 
+                            <Col xs={12} xl={3}>
+                                <Link style={{textDecoration: 'none'}} to={{ pathname : `/article/${actu.slug}`, }}>
+                                {
+                                    actu.fimg_url !== false 
+                                    ?
+                                    <Image src={actu.fimg_url} fluid className="midImage" />
+                                    :
+                                    <ThumbDoc 
+                                        title={solo_title} 
+                                        containerClass="thumbActuMidContainer" 
+                                        imageClass="thumbActuMidImage" 
+                                        titleClass="thumbActuMidTitle" 
+                                        descClass="thumbActuMidDesc" 
+                                    />
+                                }
+                                {
+                                    actu.title.rendered.length > 50
+                                    ?
+                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title.rendered.substr(0,50)+"..."}}></p>
+                                    :
+                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title.rendered}}></p>
+                                }
+                                
+                                <p className="midDate">{moment(actu.date).format("DD MMMM YYYY")}</p>
+                                </Link>
+                            </Col>
                         )
                     }
-                   
                 </Row> 
             </Layout>
         );
     }
 
-    renderAgenda = () => {
+
+    renderAgenda = (events,solo_title) => {
         
         return (
             <Layout style={{marginTop : 40+"px", marginBottom : 40+"px"}}>
@@ -272,34 +325,55 @@ class Actualites extends Component {
                 {/* TITLE */}
                 <Row className="sectionTitleRowActualites">
                     <div className="sectionTitleContainerActualites">
-                        <h4 className="sectionTitleActualites">Agenda</h4>
+                        <h4 className="sectionTitleActualites">{solo_title}</h4>
                     </div>
                     <hr  className="titleSeperator" />  
                 </Row>
                 {/* ./TITLE */}
 
-                <Row>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
-                    <Col xs={12} xl={3}>
-                        <Image src={IMG_TEST} fluid style={{minHeight : 157+"px"}}  />
-                        <p style={styles.activityTitle}>Tenue à Nouakchott de la 6é session ordinaire du sommet du G5 Sahel</p>
-                        <p style={styles.activityDesc}>19 Septembre 2019</p>
-                    </Col>
+                <Row className="voirToutButtonRow">
+                    <Link 
+                        className="btn btn-light infraVoirToutButton "
+                        to={{ pathname : '#' }}
+                    >
+                        Voir tous les événements <IoIosArrowForward size={'20px'} />
+                    </Link>
+                </Row>
+
+                <Row className="midArticlesBloc">
+                    {
+                        events.map((actu,index) =>
+                            index < 4 && 
+                            <Col xs={12} xl={3}>
+                                <Link style={{textDecoration: 'none'}} to={{ pathname : `/event/${actu.slug}`, }}>
+                                {
+                                    actu.image !== false 
+                                    ?
+                                    <Image src={actu.image.url} fluid className="midImage" />
+                                    :
+                                    <ThumbDoc 
+                                        title={solo_title} 
+                                        containerClass="thumbActuMidContainer" 
+                                        imageClass="thumbActuMidImage" 
+                                        titleClass="thumbActuMidTitle" 
+                                        descClass="thumbActuMidDesc" 
+                                    />
+                                }
+                                {
+                                    actu.title.length > 50
+                                    ?
+                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title.substr(0,50)+"..."}}></p>
+                                    :
+                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title}}></p>
+                                }
+                                
+                                <p className="midDate">{moment(`${actu.start_date_details.year}-${actu.start_date_details.month}-${actu.start_date_details.day}`).format("DD MMMM YYYY")}</p>
+                                </Link>
+                            </Col>
+                        )
+                    }
                 </Row> 
+                
             </Layout>
         );
     }
@@ -352,8 +426,11 @@ const styles = {
 
 
 const mapStateToProps = state => ({
+    actualitesG5 : state.actualitesR.actualitesG5,
+    actualitesInter : state.actualitesR.actualitesInter,
+    events : state.actualitesR.events,
     posts : state.actualitesR.posts,
 });
 
-export default connect(mapStateToProps,{ getLatestNews })(Actualites);
+export default connect(mapStateToProps,{ getLatestNews,getActualitesPaysG5,getActualitesInter,getLatestEvents })(Actualites);
 

@@ -145,7 +145,7 @@ class Home extends Component {
                                         <Image src={actualitesG5[0].fimg_url} fluid className="actualitesG5BigImage"  />
                                         :
                                         <ThumbDoc 
-                                            title="Actualités" 
+                                            title={solo_title} 
                                             containerClass="thumbActualitesBigContainer" 
                                             imageClass="thumbActualitesBigImage" 
                                             titleClass="thumbActualitesBigTitle" 
@@ -406,7 +406,7 @@ class Home extends Component {
                     <>
                     <Link 
                         to={{
-                            pathname : `/solo-event/${posts[0].slug}`,
+                            pathname : `/event/${posts[0].slug}`,
                         }}  
                         style={{ textDecoration: 'none' }}
                     >
@@ -447,7 +447,7 @@ class Home extends Component {
                             <Row style={{float: 'right'}}>
                                     <Link 
                                     to={{
-                                        pathname : `/solo-event/${posts[0].slug}`
+                                        pathname : `/event/${posts[0].slug}`
                                     }}  
                                 >
                                     <p className="seeMoreNewsText">Lire la suite</p>
@@ -471,7 +471,7 @@ class Home extends Component {
                     <div key={index} style={{marginBottom : 10+"px"}}>
                     <Link 
                         to={{
-                            pathname : `/solo-event/${post.slug}`
+                            pathname : `/event/${post.slug}`
                         }}  
                         style={{textDecoration: 'none'}}
                     >

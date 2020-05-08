@@ -59,7 +59,7 @@ export default class SoloPage extends Component {
                                     ?
                                     <Image src={publication[0].fimg_url} fluid className="articleImage" />
                                     :
-                                    <ThumbDoc title={"category"} containerClass="thumbSoloContainer" imageClass="thumbSoloImage" titleClass="thumbSoloTitle" descClass="thumbSoloDesc" />     
+                                    <ThumbDoc title={publication[0].categories[0].category_name} containerClass="thumbSoloContainer" imageClass="thumbSoloImage" titleClass="thumbSoloTitle" descClass="thumbSoloDesc" />     
                                 }
                             </Col>
                             
@@ -108,20 +108,39 @@ export default class SoloPage extends Component {
             news.map((item,index) => 
             item && item.status == "publish" && index < 4 &&
                 <Col xs={12} xl={3}>
-                    
-                    <Image src={item.fimg_url !== false ? item.fimg_url : THUMB } fluid className="newsImage" />
-                    
-                    <div style={{marginTop : 20+"px"}}>
+                    <a style={{textDecoration: 'none'}} href={`/article/${item.slug}`}>
+                        {
+                            item.fimg_url !== false
+                            ?
+                            <Image src={item.fimg_url !== false ? item.fimg_url : THUMB } fluid className="newsImage" />
+                            :
+                            <ThumbDoc 
+                            title={item.categories[0].category_name} 
+                            containerClass="thumbSoloSmallContainer"
+                            imageClass="thumbSoloSmallImage" 
+                            titleClass="thumbSoloSmallTitle" 
+                            descClass="thumbSoloSmallDesc" 
+                            />
+                        }
                         
-                        <div className="newsCategoryContainer">
-                            <h5 className="newsCategory" >{item.categories[0].category_name}</h5>
-                        </div>
-                        
-                        <div className="newsTitleContainer">
-                            <p  className="newsTitle" dangerouslySetInnerHTML={{__html: item.title.rendered}}></p>
-                        </div>
+                        <div style={{marginTop : 20+"px"}}>
+                            
+                            <div className="newsCategoryContainer">
+                                <h5 className="newsCategory" >{item.categories[0].category_name}</h5>
+                            </div>
+                            
+                            <div className="newsTitleContainer">
+                                {
+                                    item.title.rendered.length > 50
+                                    ?
+                                    <p  className="newsTitle" dangerouslySetInnerHTML={{__html: item.title.rendered.substr(0,50)+"..."}}></p>
+                                    :
+                                    <p  className="newsTitle" dangerouslySetInnerHTML={{__html: item.title.rendered}}></p>
+                                } 
+                            </div>
 
-                    </div>
+                        </div>
+                    </a>
                 </Col>
             )
         }

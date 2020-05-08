@@ -198,11 +198,11 @@ class Events extends Component {
                                             <p className="eventDesc" dangerouslySetInnerHTML={{__html: eventToRender.description.substr(0,180)+"..."}}></p>
                                     }
                                     <Link 
-                                    to={{
-                                        pathname : `/solo-event/${eventToRender.slug}`,
-                                    }}  
-                                    style={{ textDecoration: 'none' }}
-                                    className="btn btn-primary buttonBlue"
+                                        to={{
+                                            pathname : `/event/${eventToRender.slug}`,
+                                        }}  
+                                        style={{ textDecoration: 'none' }}
+                                        className="btn btn-primary buttonBlue"
                                     >
                                         Voir Plus
                                     </Link>

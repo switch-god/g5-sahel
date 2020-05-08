@@ -88,10 +88,10 @@ class Header extends Component {
             <div className="dropdown-content">
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <Link style={styles.MainMenuLinks} to="/presentation">Secrétariat Exécutif</Link>
+                    <a style={styles.MainMenuLinks} href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Secrétariat Exécutif</a>
                 </Row>
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <Link style={styles.MainMenuLinks} to="/presentation">Communes Nationales De Coordination</Link>
+                    <a style={styles.MainMenuLinks} href="/article/les-comites-nationaux-de-coordination">Communes Nationales De Coordination</a>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -99,7 +99,7 @@ class Header extends Component {
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <Link style={styles.MainMenuLinks} to="/presentation">Organigramme</Link>
+                    <Link style={styles.MainMenuLinks} to="/documentation/organigramme">Organigramme</Link>
                 </Row>
                 {/* NESTED LINKS */}
             </div>
@@ -198,7 +198,7 @@ class Header extends Component {
                         <Link style={styles.navItem} className="dropdown-item" to="/presentation">Secrétariat Exécutif</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/presentation">Communes Nationales De Coordination</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/presentation">Structures Rattachées</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Organigramme</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/documentation/organigramme">Organigramme</Link>
                     </NavDropdown>
 
                     <NavDropdown title="Nos Activités" style={styles.collapsible}>
@@ -236,12 +236,12 @@ class Header extends Component {
        </>
     );
 
-    suggestBrands(event) {
-        let results = this.brands.filter((brand) => {
-             return brand.toLowerCase().startsWith(event.query.toLowerCase());
-        });
-        this.setState({ brandSuggestions: results });
-    }   
+    // suggestBrands(event) {
+    //     let results = this.brands.filter((brand) => {
+    //          return brand.toLowerCase().startsWith(event.query.toLowerCase());
+    //     });
+    //     this.setState({ brandSuggestions: results });
+    // }   
 }
 
 const styles = {

@@ -9,7 +9,7 @@ export default class NotFound extends Component {
         return (
             <div>
                  <LottieLoader 
-                     text={"Cette page est inaccessible"}  
+                     text={"Cette page est est cours du dévéloppement, merci"}  
                      devText
                      HomeButton     
                 />

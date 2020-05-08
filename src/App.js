@@ -102,8 +102,8 @@ export class App extends Component {
 
              
               <Route path="/article/:slug" component={SoloPage} />
+              <Route path="/event/:slug" component={SoloEvent} />
               <Route path="/see-more/:category" component={SeeMore} />
-              <Route path="/solo-event/:slug" component={SoloEvent} />
               
               <Route component={NotFound}/>
             </Switch>

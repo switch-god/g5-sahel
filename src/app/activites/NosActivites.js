@@ -266,7 +266,7 @@ class NosActivites extends Component {
 
                     <Link
                         to={{
-                            pathname : '/see-more',
+                            pathname : '/#',
                             state : { 
                                 see_more_title : "Défense et Sécurité",
                                 posts : defense_securite,
@@ -384,7 +384,7 @@ class NosActivites extends Component {
                             <Col xs={12} xl={12}>
                             <Link
                                 to={{
-                                    pathname : '/see-more',
+                                    pathname : '/#',
                                     state : { 
                                         see_more_title : "Gouvernance",
                                         posts : genre,
@@ -497,7 +497,7 @@ class NosActivites extends Component {
                             <Col xs={12} xl={12}>
                             <Link
                                 to={{
-                                    pathname : '/see-more',
+                                    pathname : '/#',
                                     state : { 
                                         see_more_title : "Gouvernance",
                                         posts : cellule,
@@ -533,7 +533,7 @@ class NosActivites extends Component {
                 <Link 
                     className="btn btn-light infraVoirToutButton "
                     to={{
-                        pathname : '/see-more',
+                        pathname : '/#',
                         state : { 
                             see_more_title : "Infrastructure",
                             posts : infrastructure,
@@ -652,7 +652,7 @@ class NosActivites extends Component {
                 
                     <Link
                         to={{
-                            pathname : '/see-more',
+                            pathname : '/#',
                             state : { 
                                 see_more_title : "Résilience",
                                 posts : resilence,

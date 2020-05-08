@@ -3,7 +3,7 @@
 * ALL APP CONFIG IN ONE FILE
 *
 
-// <p dangerouslySetInnerHTML={{__html: .content.rendered}}></p>
+// <p className="" dangerouslySetInnerHTML={{__html: .content.rendered}}></p>
 
 */
 

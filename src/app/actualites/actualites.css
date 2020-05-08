@@ -94,7 +94,7 @@
         border-color: black; 
         margin-top: -2px;
         border-width: 3px;
-        margin-bottom: 30px; 
+        margin-bottom: 10px; 
         width: 100%;
     }
 }
@@ -117,10 +117,138 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
    
+    /* THUBMS */
+        /* SMALL */
+            .thumbActuSmallContainer {
+                height: 100px;
+                min-width: 150px;
+                width: 100%;
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbActuSmallImage {
+                max-height: 40px;
+                min-height: 40px;
+            }
+
+            .thumbActuSmallTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 12px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbActuSmallDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 10px;
+                color: #717171;
+            }
+        /* SMALL */
+        
+        /* MID */
+            .thumbActuMidContainer {
+                height: 170px;
+                width: 100%;
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbActuMidImage {
+                max-height: 50px;
+                min-height: 50px;
+            }
+
+            .thumbActuMidTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 20px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbActuMidDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 15px;
+                color: #717171;
+            }
+        /* MID */
+
+        /* ULTRA */
+            .thumbActuBigContainer {
+                height: 611px;
+                width: 100%;
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbActuBigImage {
+                max-height: 300px;
+                min-height: 300px;
+            }
+
+            .thumbActuBigTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 30px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbActuBigDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 25px;
+                color: #717171;
+            }
+        /* ULTRA */
+
+
+    /* THUBMS */
+
+
+    /* MID BLOCS */
+
+        .midArticlesBloc {
+            margin-top: 20px;
+        }
+
+        .midImage {
+            width: 100%;
+            min-height: 170px;
+            max-height: 170px;
+        }
+
+        .midTitle {
+            margin-top: 10px;
+            height: 50px;
+            margin-bottom: 5px;
+            font-family: 'Poppins Bold';
+            font-size: 16px;
+            color: black;
+        }
+
+        .midDate {
+            color: #0099CC;
+            font-size: 12px;
+        }
+
+
+    /* MID BLOCS */
+
+
     /* SOCIAL LINKS */
     .socialLinka h4 {
         font-size: 18px;
         font-family: 'Poppins Bold';
+        color: black;
+        text-decoration: none;
     }
     /* SOCIAL LINKS */
 
@@ -130,28 +258,30 @@
         margin-bottom: 0px;
     }
     .ceMoisArticleContainer {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .imageCeMois {
         max-height: 100px;
         min-height: 100px;
+        width: 100%;
     }
 
     .titleCeMois {
         font-family: 'Poppins Bold';
         font-size: 13px;
+        color: black;
     }
 
     .dateCeMois {
         font-family: 'Poppins SemiBold';
         font-size: 12px;
-        color: '#666666';
+        color: #0099CC;
     }
 
     .bigImageBloc1 {
-        max-height: 623px;
-        min-height: 623px;
+        max-height: 611px;
+        min-height: 611px;
         width: 100%;
     }
 
@@ -204,7 +334,15 @@
         border-color: black; 
         margin-top: -2px;
         border-width: 3px;
-        margin-bottom: 30px; 
+        margin-bottom: 10px; 
+        width: 100%;
+    }
+    
+    .titleBloc1Seperator {
+        border-color: black; 
+        margin-top: -2px;
+        border-width: 5px;
+        margin-bottom: 27px; 
         width: 100%;
     }
     
