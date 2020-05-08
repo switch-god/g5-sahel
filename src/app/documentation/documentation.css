@@ -22,6 +22,30 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
     
+    /* PAGINATION */
+    .page-link {
+        color:white;
+        background-color: black;
+        border: 1px solid black;
+    }
+    
+    .page-link:hover {
+        color:white;
+        background-color: #0099CC;
+        border: 1px solid #0099CC;
+    }
+
+    .page-item.active .page-link {
+        z-index: 3;
+        color: #fff;
+        background-color:#0099CC;
+        border-color:#0099CC
+    }
+
+
+    /* PAGINATION */
+
+
     /* EMPTY CONTENT */
         .docsEmptyContainer {
             text-align: inline;

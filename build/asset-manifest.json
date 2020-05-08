@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.4d7652ba.chunk.css",
-    "main.js": "/static/js/main.01aef821.chunk.js",
-    "main.js.map": "/static/js/main.01aef821.chunk.js.map",
+    "main.css": "/static/css/main.c323c1c5.chunk.css",
+    "main.js": "/static/js/main.402ffb3a.chunk.js",
+    "main.js.map": "/static/js/main.402ffb3a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.abde81fa.js",
     "runtime-main.js.map": "/static/js/runtime-main.abde81fa.js.map",
     "static/css/2.69bcf4f3.chunk.css": "/static/css/2.69bcf4f3.chunk.css",
-    "static/js/2.9dcbc739.chunk.js": "/static/js/2.9dcbc739.chunk.js",
-    "static/js/2.9dcbc739.chunk.js.map": "/static/js/2.9dcbc739.chunk.js.map",
+    "static/js/2.e9f385ba.chunk.js": "/static/js/2.e9f385ba.chunk.js",
+    "static/js/2.e9f385ba.chunk.js.map": "/static/js/2.e9f385ba.chunk.js.map",
     "fd50e466d135a8eb7543.worker.js": "/fd50e466d135a8eb7543.worker.js",
     "fd50e466d135a8eb7543.worker.js.LICENSE.txt": "/fd50e466d135a8eb7543.worker.js.LICENSE.txt",
     "fd50e466d135a8eb7543.worker.js.map": "/fd50e466d135a8eb7543.worker.js.map",
     "index.html": "/index.html",
-    "precache-manifest.398f90357793877a3f6dcb5535433fd3.js": "/precache-manifest.398f90357793877a3f6dcb5535433fd3.js",
+    "precache-manifest.2955e73652783756c58405f61167289d.js": "/precache-manifest.2955e73652783756c58405f61167289d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.69bcf4f3.chunk.css.map": "/static/css/2.69bcf4f3.chunk.css.map",
-    "static/css/main.4d7652ba.chunk.css.map": "/static/css/main.4d7652ba.chunk.css.map",
-    "static/js/2.9dcbc739.chunk.js.LICENSE.txt": "/static/js/2.9dcbc739.chunk.js.LICENSE.txt",
+    "static/css/main.c323c1c5.chunk.css.map": "/static/css/main.c323c1c5.chunk.css.map",
+    "static/js/2.e9f385ba.chunk.js.LICENSE.txt": "/static/js/2.e9f385ba.chunk.js.LICENSE.txt",
     "static/media/1.png": "/static/media/1.e27672d0.png",
     "static/media/3.png": "/static/media/3.725366c0.png",
     "static/media/LOGOOO.png": "/static/media/LOGOOO.c0e895e6.png",
@@ -38,8 +38,8 @@
   "entrypoints": [
     "static/js/runtime-main.abde81fa.js",
     "static/css/2.69bcf4f3.chunk.css",
-    "static/js/2.9dcbc739.chunk.js",
-    "static/css/main.4d7652ba.chunk.css",
-    "static/js/main.01aef821.chunk.js"
+    "static/js/2.e9f385ba.chunk.js",
+    "static/css/main.c323c1c5.chunk.css",
+    "static/js/main.402ffb3a.chunk.js"
   ]
 }

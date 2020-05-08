@@ -33,6 +33,7 @@
     "react-scripts": "3.4.1",
     "react-scrollable-anchor": "^0.6.1",
     "react-transition-group": "^2.5.1",
+    "react-ultimate-pagination": "^1.2.0",
     "sweetalert2": "^9.10.12",
     "video-react": "^0.14.1"
   },

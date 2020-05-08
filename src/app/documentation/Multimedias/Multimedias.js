@@ -8,51 +8,63 @@ import {
     Jumbotron,
     Button,
     Image,
+    Pagination
 } from 'react-bootstrap';
+// import THUMB_LOGO from '../../../assets/images/Thumbs/thumb.png';
 
 import {
     Link,
 } from "react-router-dom";
 
-
-
 // Redux :
  import { connect } from 'react-redux';
- import { getMultimedias } from '../../../redux/actions/DocumentationActions';
+ import { getPublications } from '../../../redux/actions/DocumentationActions';
 
 // Components : 
     import Loader from '../../loading/Loader';
     import ThumbDoc from '../../../components/ThumbDoc';
 
-// import PDF_THUMB from '../../../assets/images/Documentation/pdf_thumb.png';
+
+
 import { IoIosList,IoMdGrid } from 'react-icons/io';
 import { IoIosEye } from 'react-icons/io';
 import '../documentation.css';
+
+import UltimatePagination from '../../../components/Paginate';
 
 class Multimedias extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             showMode : 'LIST',
             loading : true,
+            showPagination : false,
+            currentPage: 1,
+            articlesPerPage: 10,
         }
-
-        this.setLoader();
+        // Get Publications :
+        this.props.getPublications(this.props.category,1);
     }
-
+    
     componentDidMount() {
-        // Get Multimedias :
-        this.props.getMultimedias();
-    };
+        setTimeout(() => 
+            this.setState({
+                loading: false,
+                showPagination : true,
+            })
+        ,2000);
+    }
     
     render() {
-        const { loading,showMode } = this.state;
-        const { multimedias } = this.props;
-
+        const { loading,showMode,showPagination } = this.state;
+        const { publications,pageTitle } = this.props;
+        
         return (
             <>
-                { <Col xs={12} xl={10}>
+                { 
+                    <Col xs={12} xl={10}>
                         <Row className="ml-5">
                             {this.renderShowMode()}
                         </Row>
@@ -70,7 +82,7 @@ class Multimedias extends Component {
                                 <Col/>
                             </Row>
                             :
-                            multimedias.length === 0 
+                            publications.length === 0 
                             ?
                             <Row className="ml-5">
                                 <Col xs={12}>
@@ -80,21 +92,44 @@ class Multimedias extends Component {
                                 </Col>
                             </Row>
                             :
-                            showMode === 'LIST' && multimedias.length > 0 &&
+                            showMode === 'LIST' && publications.length > 0 &&
                             <Row className="ml-5">
                                 <Col xs={12} xl={8}>
-                                    {this.renderDocumentsListMode(multimedias)}
+                                    {this.renderDocumentsListMode(publications,pageTitle)}
                                 </Col>
                                 <Col xs={0} xl={4} />
                             </Row>
                         }
 
                         {
-                            showMode === 'GRID' && multimedias.length > 0 &&
+                            showMode === 'GRID' &&  publications.length > 0 &&
                             <Row className="ml-4">  
                                 <Col xs={12} xl={12}>
-                                    {this.renderDocumentsGridMode(multimedias)}
+                                    {this.renderDocumentsGridMode(publications,pageTitle)}
                                 </Col>
+                            </Row>
+                        }
+
+                        {
+                            publications.length > 0 && 
+                            showPagination && 
+                            Math.ceil(publications[0].categories[0].category_count / 10 ) > 1 &&
+
+                            <Row className="ml-5">
+                                <Col id="page-numbers" xs={12} xl={12}>
+                                    {/* {this.renderPagination()} */}
+                                    {/* <Pagination>{renderPageNumbers}</Pagination> */}
+                                    <UltimatePagination 
+                                        currentPage={this.state.currentPage}
+                                        totalPages={Math.ceil(publications[0].categories[0].category_count / 10)}
+                                        boundaryPagesRange={4}
+                                        siblingPagesRange={3}
+                                        hideEllipsis={false}
+                                        hidePreviousAndNextPageLinks
+                                        hideFirstAndLastPageLinks
+                                        onChange={(current) => this.callPage(current) }
+                                    />
+                                </Col>  
                             </Row>
                         }
                     
@@ -104,10 +139,22 @@ class Multimedias extends Component {
         )
     }
 
-    setLoader = () => {
-        setTimeout(() => 
-            this.setState({loading: false})
-        ,2000);
+    callPage = (current) => {
+        this.setState({ 
+            currentPage: current,
+            showPagination : false,
+            loading : true,
+        });
+        window.scrollTo(0, 0);
+       
+        this.props.getPublications(this.props.category,current);
+
+        setTimeout(() => {
+            this.setState({
+                loading : false,
+                showPagination : true,
+            });
+        },3000);
     }
 
     renderShowMode = () => {
@@ -149,7 +196,7 @@ class Multimedias extends Component {
         );
     }
 
-    renderDocumentsListMode = (pubs) => {
+    renderDocumentsListMode = (pubs,title) => {
      
         return (
             <>
@@ -168,7 +215,7 @@ class Multimedias extends Component {
                                             pub.fimg_url !== false ?
                                             <Image src={pub.fimg_url} fluid className="documentThumb" />
                                             :
-                                            <ThumbDoc title="Multimédias" containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
+                                            <ThumbDoc title={title} containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
                                         }
                                         
                                     </Row>
@@ -206,7 +253,7 @@ class Multimedias extends Component {
         );
     };
 
-    renderDocumentsGridMode = (pubs) => {
+    renderDocumentsGridMode = (pubs,title) => {
         
         return (
             <Row>
@@ -228,7 +275,7 @@ class Multimedias extends Component {
                                             ?
                                             <Image src={pub.fimg_url} fluid className="documentGridThumb" />
                                             :
-                                            <ThumbDoc title="Multimédias" containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
+                                            <ThumbDoc title={title} containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
                                         }
                                     </Row>
                                 </Col>
@@ -240,7 +287,7 @@ class Multimedias extends Component {
                                         <Link  
                                             className="documentGridButton"
                                             to={{
-                                                pathname : `/${pub.slug}`,  
+                                                pathname : `/article/${pub.slug}`,  
                                             }}
                                         >
                                             <IoIosEye size={'20px'} /> Voir Plus
@@ -261,9 +308,9 @@ class Multimedias extends Component {
 }
 
 const mapStateToProps = state => ({
-    multimedias : state.docsR.multimedias,
+    publications : state.docsR.publications,
 });
 
-export default connect(mapStateToProps,{ getMultimedias })(Multimedias);
+export default connect(mapStateToProps,{ getPublications })(Multimedias);
 
 

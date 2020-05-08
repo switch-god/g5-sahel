@@ -8,14 +8,13 @@ import {
     Jumbotron,
     Button,
     Image,
+    Pagination
 } from 'react-bootstrap';
 // import THUMB_LOGO from '../../../assets/images/Thumbs/thumb.png';
 
 import {
     Link,
 } from "react-router-dom";
-
-
 
 // Redux :
  import { connect } from 'react-redux';
@@ -25,35 +24,47 @@ import {
     import Loader from '../../loading/Loader';
     import ThumbDoc from '../../../components/ThumbDoc';
 
-    // import PDF_THUMB from '../../../assets/images/Documentation/pdf_thumb.png';
+
+
 import { IoIosList,IoMdGrid } from 'react-icons/io';
 import { IoIosEye } from 'react-icons/io';
 import '../documentation.css';
+
+import UltimatePagination from '../../../components/Paginate';
 
 class Publications extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             showMode : 'LIST',
             loading : true,
+            showPagination : false,
+            currentPage: 1,
+            articlesPerPage: 10,
         }
-
-        this.setLoader();
-    }
-
-    componentDidMount() {
         // Get Publications :
-        this.props.getPublications();
-    };
+        this.props.getPublications(this.props.category,1);
+    }
+    
+    componentDidMount() {
+        setTimeout(() => 
+            this.setState({
+                loading: false,
+                showPagination : true,
+            })
+        ,2000);
+    }
     
     render() {
-        const { loading,showMode } = this.state;
-        const { publications } = this.props;
-
+        const { loading,showMode,showPagination } = this.state;
+        const { publications,pageTitle } = this.props;
+        
         return (
             <>
-                { <Col xs={12} xl={10}>
+                { 
+                    <Col xs={12} xl={10}>
                         <Row className="ml-5">
                             {this.renderShowMode()}
                         </Row>
@@ -84,7 +95,7 @@ class Publications extends Component {
                             showMode === 'LIST' && publications.length > 0 &&
                             <Row className="ml-5">
                                 <Col xs={12} xl={8}>
-                                    {this.renderDocumentsListMode(publications)}
+                                    {this.renderDocumentsListMode(publications,pageTitle)}
                                 </Col>
                                 <Col xs={0} xl={4} />
                             </Row>
@@ -94,8 +105,29 @@ class Publications extends Component {
                             showMode === 'GRID' &&  publications.length > 0 &&
                             <Row className="ml-4">  
                                 <Col xs={12} xl={12}>
-                                    {this.renderDocumentsGridMode(publications)}
+                                    {this.renderDocumentsGridMode(publications,pageTitle)}
                                 </Col>
+                            </Row>
+                        }
+
+                        {
+                            publications.length > 0 && 
+                            showPagination && 
+                            Math.ceil(publications[0].categories[0].category_count / 10 ) > 1 &&
+                               
+                            <Row className="ml-5">
+                                <Col id="page-numbers" xs={12} xl={12}>
+                                    <UltimatePagination 
+                                        currentPage={this.state.currentPage}
+                                        totalPages={Math.ceil(publications[0].categories[0].category_count / 10)}
+                                        boundaryPagesRange={4}
+                                        siblingPagesRange={3}
+                                        hideEllipsis={false}
+                                        hidePreviousAndNextPageLinks
+                                        hideFirstAndLastPageLinks
+                                        onChange={(current) => this.callPage(current) }
+                                    />
+                                </Col>  
                             </Row>
                         }
                     
@@ -105,10 +137,21 @@ class Publications extends Component {
         )
     }
 
-    setLoader = () => {
-        setTimeout(() => 
-            this.setState({loading: false})
-        ,2000);
+    callPage = (current) => {
+        this.setState({ 
+            currentPage: current,
+            showPagination : false,
+            loading : true,
+        });
+        window.scrollTo(0, 0);
+        this.props.getPublications(this.props.category,current);
+
+        setTimeout(() => {
+            this.setState({
+                loading : false,
+                showPagination : true,
+            });
+        },3000);
     }
 
     renderShowMode = () => {
@@ -150,7 +193,7 @@ class Publications extends Component {
         );
     }
 
-    renderDocumentsListMode = (pubs) => {
+    renderDocumentsListMode = (pubs,title) => {
      
         return (
             <>
@@ -169,7 +212,7 @@ class Publications extends Component {
                                             pub.fimg_url !== false ?
                                             <Image src={pub.fimg_url} fluid className="documentThumb" />
                                             :
-                                            <ThumbDoc title="Publications" containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
+                                            <ThumbDoc title={title} containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
                                         }
                                         
                                     </Row>
@@ -207,7 +250,7 @@ class Publications extends Component {
         );
     };
 
-    renderDocumentsGridMode = (pubs) => {
+    renderDocumentsGridMode = (pubs,title) => {
         
         return (
             <Row>
@@ -229,7 +272,7 @@ class Publications extends Component {
                                             ?
                                             <Image src={pub.fimg_url} fluid className="documentGridThumb" />
                                             :
-                                            <ThumbDoc title="Publications" containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
+                                            <ThumbDoc title={title} containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
                                         }
                                     </Row>
                                 </Col>

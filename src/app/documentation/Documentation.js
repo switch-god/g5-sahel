@@ -26,6 +26,17 @@ import Multimedias from './Multimedias/Multimedias';
 import Reglementation from './Reglementation/Reglementation';
 import AutresDocuments from './AutresDocuments/AutresDocuments';
 
+import { 
+    config, 
+    PUBLICATIONS,
+    DISCOURS,
+    CORRESPONDANCE,
+    AUTRES_DOCUMENTS,
+    REGLEMENTATIONS,
+    MULTIMEDIAS,
+} from '../../constants/AppConfig';
+
+
 // Icons & Images & Styling :
 // import ORGANIGRAMME from '../../assets/pdf/organigramme.pdf';
 // import PDF_THUMB from '../../assets/images/Documentation/pdf_thumb.png';
@@ -68,27 +79,27 @@ export default class Documentation extends Component {
                         </Route>
 
                         <Route  path="/documentation/reglementation">
-                            <Reglementation />
+                            <Reglementation category={REGLEMENTATIONS} pageTitle="REGLEMENTATIONS"/>
                         </Route>
 
                         <Route  path="/documentation/publications">
-                            <Publications />
+                            <Publications category={PUBLICATIONS} pageTitle="PUBLICATIONS"/>
                         </Route>
 
                         <Route  path="/documentation/discours">
-                            <Discours />
+                            <Discours category={DISCOURS} pageTitle="DISCOURS"/>
                         </Route>
 
                         <Route  path="/documentation/correspondance">
-                            <Correspondance />
+                            <Correspondance category={CORRESPONDANCE} pageTitle="CORRESPONDANCE"/>
                         </Route>
 
                         <Route  path="/documentation/multimedias">
-                            <Multimedias />
+                            <Multimedias category={MULTIMEDIAS} pageTitle="MULTIMEDIAS"/>
                         </Route>
 
                         <Route  path="/documentation/autres-documents">
-                            <AutresDocuments />
+                            <AutresDocuments category={AUTRES_DOCUMENTS} pageTitle="AUTRES_DOCUMENTS"/>
                         </Route>
    
                     </Switch> 
