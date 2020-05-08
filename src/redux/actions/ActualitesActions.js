@@ -62,16 +62,16 @@ export const getLatestEvents = () => async (dispatch) => {
 
 export const getActivities = () => async (dispatch) => {
   
-  axios.get(`${config.url}wp/v2/posts?categories=${NOS_ACTIVITES}&per_page=4`)
-        .then(response => {
-          dispatch({
-              type : 'GET_LATEST_ACTIVITIES',
-              payload : response.data,
+    axios.get(`${config.url}wp/v2/posts?categories=${NOS_ACTIVITES}&per_page=4`)
+          .then(response => {
+            dispatch({
+                type : 'GET_LATEST_ACTIVITIES',
+                payload : response.data,
+            });
+          })
+          .catch(error => {
+            console.log("erreur axios getActivities/PostsActions");
           });
-        })
-        .catch(error => {
-          console.log("erreur axios getActivities/PostsActions");
-        });
 };
 
 

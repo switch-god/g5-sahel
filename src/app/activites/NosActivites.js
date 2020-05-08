@@ -172,7 +172,7 @@ class NosActivites extends Component {
                             <Image src={defense_securite[0].fimg_url} fluid className="postImageBig" />
                             : 
                             <ThumbDoc 
-                                title="Défense et Sécurité" 
+                                title={solo_title} 
                                 containerClass="thumbBigContainer"
                                 imageClass="thumbBigImage" 
                                 titleClass="thumbBigTitle" 
@@ -233,7 +233,7 @@ class NosActivites extends Component {
                                             <Image src={def_sec.fimg_url} fluid className="postImageSmall" />
                                             : 
                                             <ThumbDoc 
-                                                title="Défense et Sécurité" 
+                                                title={solo_title} 
                                                 containerClass="thumbSmallContainer"
                                                 imageClass="thumbSmallImage" 
                                                 titleClass="thumbSmallTitle" 
@@ -265,13 +265,7 @@ class NosActivites extends Component {
                     </Row>
 
                     <Link
-                        to={{
-                            pathname : '/#',
-                            state : { 
-                                see_more_title : "Défense et Sécurité",
-                                posts : defense_securite,
-                            }
-                        }}  
+                        to={{ pathname : `/voir-plus/${defense_securite[0].categories[0].category_slug}` }}
                         className="btn btn-primary buttonBlue" 
                         style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
                     >
@@ -359,7 +353,7 @@ class NosActivites extends Component {
                                                 <Image src={gouv.fimg_url} fluid className="gouvImageSmall"  />
                                                 : 
                                                 <ThumbDoc 
-                                                    title="Gouvernance" 
+                                                    title={solo_title} 
                                                     containerClass="thumbXsContainer"
                                                     imageClass="thumbXsImage" 
                                                     titleClass="thumbSmallTitle" 
@@ -383,13 +377,7 @@ class NosActivites extends Component {
                         <Row style={{marginTop :"15px",marginBottom :"15px"}}>
                             <Col xs={12} xl={12}>
                             <Link
-                                to={{
-                                    pathname : '/#',
-                                    state : { 
-                                        see_more_title : "Gouvernance",
-                                        posts : genre,
-                                    }
-                                }}  
+                                to={{ pathname : `/voir-plus/${genre[0].categories[0].category_slug}` }}             
                                 className="btn btn-primary buttonBlue" 
                                 style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
                             >
@@ -438,7 +426,7 @@ class NosActivites extends Component {
                                             </>
                                             :
                                             <ThumbDoc 
-                                                title={"Gouvernance"}
+                                                title={solo_title}
                                                 containerClass="thumbUlContainer"
                                                 imageClass="thumbUlImage" 
                                                 titleClass="thumbUlTitle" 
@@ -472,7 +460,7 @@ class NosActivites extends Component {
                                                 <Image src={gouv.fimg_url} fluid className="gouvImageSmall"  />
                                                 : 
                                                 <ThumbDoc 
-                                                    title="Gouvernance" 
+                                                    title={solo_title} 
                                                     containerClass="thumbXsContainer"
                                                     imageClass="thumbXsImage" 
                                                     titleClass="thumbSmallTitle" 
@@ -496,13 +484,7 @@ class NosActivites extends Component {
                         <Row style={{marginTop :"15px",marginBottom :"15px"}}>
                             <Col xs={12} xl={12}>
                             <Link
-                                to={{
-                                    pathname : '/#',
-                                    state : { 
-                                        see_more_title : "Gouvernance",
-                                        posts : cellule,
-                                    }
-                                }}  
+                                to={{ pathname : `/voir-plus/${cellule[0].categories[0].category_slug}` }}
                                 className="btn btn-primary buttonBlue" 
                                 style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
                             >
@@ -532,13 +514,7 @@ class NosActivites extends Component {
             <Row className="voirToutButtonRow">
                 <Link 
                     className="btn btn-light infraVoirToutButton "
-                    to={{
-                        pathname : '/#',
-                        state : { 
-                            see_more_title : "Infrastructure",
-                            posts : infrastructure,
-                        }
-                    }}
+                    to={{ pathname : `/voir-plus/${infrastructure[0].categories[0].category_slug}` }}
                 >
                     Voir tous les articles <IoIosArrowForward size={'20px'} />
                 </Link>
@@ -555,7 +531,20 @@ class NosActivites extends Component {
                                     pathname : `/article/${infra.slug}`,
                                 }}
                             >
-                            <Image src={infra.fimg_url} fluid className="infraImage" />
+                            {
+                                infra.fimg_url !== false
+                                ?
+                                <Image src={infra.fimg_url} fluid className="infraImage" />
+                                :
+                                <ThumbDoc 
+                                    title={solo_title} 
+                                    containerClass="thumbActuMidContainer" 
+                                    imageClass="thumbActuMidImage" 
+                                    titleClass="thumbActuMidTitle" 
+                                    descClass="thumbActuMidDesc" 
+                                />
+                                
+                            }
                             
                             <div style={{marginTop : 20+"px"}}>
                                 <div className="infraTitleContainer">
@@ -623,7 +612,7 @@ class NosActivites extends Component {
                                     <Image src={ resi.fimg_url} fluid className="resiImageSmall" />
                                     : 
                                     <ThumbDoc 
-                                        title="Résilience" 
+                                        title={solo_title} 
                                         containerClass="thumbResiSmallContainer"
                                         imageClass="thumbResiSmallImage" 
                                         titleClass="thumbResiSmallTitle" 
@@ -651,13 +640,7 @@ class NosActivites extends Component {
                     }
                 
                     <Link
-                        to={{
-                            pathname : '/#',
-                            state : { 
-                                see_more_title : "Résilience",
-                                posts : resilence,
-                            }
-                        }}  
+                        to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
                         className="btn btn-primary buttonBlue" 
                         style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
                     >
@@ -682,7 +665,7 @@ class NosActivites extends Component {
                             <Image src={resilence[0].fimg_url !== false ? resilence[0].fimg_url : THUMB} fluid className="resiImageBig" />
                             :
                             <ThumbDoc 
-                                title="Résilience" 
+                                title={solo_title} 
                                 containerClass="thumbResiBigContainer"
                                 imageClass="thumbResiBigImage" 
                                 titleClass="thumbResiBigTitle" 

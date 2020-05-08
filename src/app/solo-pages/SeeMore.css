@@ -41,8 +41,8 @@
 
     .seeMoreImage {
         width: 100%;
-        min-height: 300px;
-        max-height: 300px;
+        min-height: 250px;
+        max-height: 250px;
     }
 
     .seeMoreTextsContainer {

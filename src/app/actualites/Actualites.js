@@ -271,7 +271,7 @@ class Actualites extends Component {
                 <Row className="voirToutButtonRow">
                     <Link 
                         className="btn btn-light infraVoirToutButton "
-                        to={{ pathname : '/#' }}
+                        to={{ pathname : `/voir-plus/${actualites[0].categories[0].category_slug}` }}
                     >
                         Voir tous les articles <IoIosArrowForward size={'20px'} />
                     </Link>
