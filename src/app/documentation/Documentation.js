@@ -6,9 +6,13 @@ import {
     Row,
     Jumbotron,
     Nav,
-    Button,
     Image,
+    Button,
 } from 'react-bootstrap';
+
+import ThumbDoc from '../../components/ThumbDoc';
+import { IoIosEye } from 'react-icons/io';
+import { IoIosList,IoMdGrid } from 'react-icons/io';
 
 import {
     BrowserRouter as Router,
@@ -79,27 +83,57 @@ export default class Documentation extends Component {
                         </Route>
 
                         <Route  path="/documentation/reglementation">
-                            <Reglementation category={REGLEMENTATIONS} pageTitle="REGLEMENTATIONS"/>
+                            <Reglementation 
+                                category={REGLEMENTATIONS} 
+                                pageTitle="REGLEMENTATIONS" 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
                         </Route>
 
                         <Route  path="/documentation/publications">
-                            <Publications category={PUBLICATIONS} pageTitle="PUBLICATIONS"/>
+                            <Publications 
+                                category={PUBLICATIONS} 
+                                pageTitle="PUBLICATIONS" 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
                         </Route>
 
                         <Route  path="/documentation/discours">
-                            <Discours category={DISCOURS} pageTitle="DISCOURS"/>
+                            <Discours 
+                                category={DISCOURS} 
+                                pageTitle="DISCOURS" 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
                         </Route>
 
                         <Route  path="/documentation/correspondance">
-                            <Correspondance category={CORRESPONDANCE} pageTitle="CORRESPONDANCE"/>
+                            <Correspondance 
+                                category={CORRESPONDANCE} 
+                                pageTitle="CORRESPONDANCE" 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
                         </Route>
 
                         <Route  path="/documentation/multimedias">
-                            <Multimedias category={MULTIMEDIAS} pageTitle="MULTIMEDIAS"/>
+                            <Multimedias 
+                                category={MULTIMEDIAS} 
+                                pageTitle="MULTIMEDIAS" 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
                         </Route>
 
                         <Route  path="/documentation/autres-documents">
-                            <AutresDocuments category={AUTRES_DOCUMENTS} pageTitle="AUTRES_DOCUMENTS"/>
+                            <AutresDocuments 
+                                category={AUTRES_DOCUMENTS} 
+                                pageTitle="AUTRES DOCUMENTS" 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
                         </Route>
    
                     </Switch> 
@@ -116,7 +150,170 @@ export default class Documentation extends Component {
         )
     }
 
+    renderShowMode = () => {
+       
+        return (
+            <Col xl={12} style={{marginBottom : '20px'}}>
+                <Row className="alignBlocShow">   
+                    <p className="showModeText">OPTIONS D'AFFICHAGE</p>
 
+                    {
+                        this.state.showMode === 'LIST'
+                        ?
+                            (
+                                <>
+                                <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'LIST' })}>
+                                    <IoIosList size={'30px'} /> Liste
+                                </Button>
+                            
+                                <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'GRID' })}>
+                                    <IoMdGrid size={'30px'} /> Grid
+                                </Button>
+                                </>
+                            )
+                        :
+                            (
+                                <>
+                                <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'LIST' })}>
+                                    <IoIosList size={'30px'} /> Liste
+                                </Button>
+                            
+                                <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'GRID' })}>
+                                    <IoMdGrid size={'30px'} /> Grid
+                                </Button>
+                                </>
+                            )
+                    }
+                </Row>
+            </Col>
+        );
+    }
+
+    renderDocumentsListMode = (pubs,title) => {
+     
+        return (
+            <>
+            {
+                pubs.map((pub) =>  
+                    <Link 
+                        to={{
+                            pathname : `/article/${pub.slug}`,  
+                        }}  
+                        style={{ textDecoration: 'none' }}>
+                        <Jumbotron className="documentBox">
+                            <Row>
+                                <Col xs={12} xl={4}>
+                                    <Row className="documentImageContainer">
+                                        {
+                                            pub.fimg_url !== false ?
+                                            <Image src={pub.fimg_url} fluid className="documentThumb" />
+                                            :
+                                            <ThumbDoc 
+                                                title={title} 
+                                                containerClass="thumbListModeContainer" 
+                                                imageClass="thumbListImage" 
+                                                titleClass="thumbPageTitle" 
+                                                descClass="thumbDesc" 
+                                            />
+                                        }
+                                        
+                                    </Row>
+                                </Col>
+
+                                <Col xs={12} xl={8}>
+                                    {
+                                        pub.title.rendered.length > 50
+                                        ?
+                                        <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered.substr(0,47)+"..."}}></h4>
+                                        :
+                                        <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
+                                    }
+                                    {
+                                        pub.excerpt.rendered.length > 0 
+                                        ?
+                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.excerpt.rendered.substr(0,47)+"..."}}></p>
+                                        :
+                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,47)+"..."}}></p>
+                                    }
+                                    
+                                    <p style={{float : 'right'}}>
+                                        <Link  
+                                            className="documentButton"
+                                            to={{
+                                                pathname : `/article/${pub.slug}`,  
+                                            }}
+                                        >
+                                            <IoIosEye size={'20px'} />  Voir Plus
+                                        </Link>
+                                    </p>
+                                </Col>
+                            </Row>
+                        </Jumbotron>
+                    </Link>       
+                )
+            }
+            </>
+        );
+    };
+
+    renderDocumentsGridMode = (pubs,title) => {
+        
+        return (
+            <Row>
+
+            {
+                pubs.map(pub => 
+                    <Col xs={12} xl={4}>
+                    <Link 
+                        to={{
+                            pathname : `/article/${pub.slug}`,  
+                        }}  
+                        style={{ textDecoration: 'none' }}>
+                            <Jumbotron className="documentGridBox">
+                            <Row>
+                                <Col xs={6} xl={5}>
+                                    <Row>
+                                        {
+                                            pub.fimg_url 
+                                            ?
+                                            <Image src={pub.fimg_url} fluid className="documentGridThumb" />
+                                            :
+                                            <ThumbDoc title={title} containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
+                                        }
+                                    </Row>
+                                </Col>
+
+                                <Col xs={6} xl={7}>
+                                    {
+                                        pub.title.rendered.length > 30
+                                        ?
+                                        <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered.substr(0,30)+"..."}}></h4>
+                                        :
+                                        <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
+                                    }
+                                    
+                                    <p className="documentGridButtonContainer">
+                                        <Link  
+                                            className="documentGridButton"
+                                            to={{
+                                                pathname : `/article/${pub.slug}`,  
+                                            }}
+                                        >
+                                            <IoIosEye size={'20px'} /> Voir Plus
+                                        </Link>
+                                    </p>
+                                </Col>
+                            </Row>
+                        </Jumbotron>
+                    </Link>
+                    </Col>            
+                )
+            }
+
+
+            </Row>
+        );
+    }
 
     renderSideBar = (activePathName) => {
     

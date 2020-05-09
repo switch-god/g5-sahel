@@ -1,6 +1,10 @@
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-
+    .organigrammeRow {
+        /* margin-top: 30px;
+        margin-bottom: 30px; */
+        margin: 0 auto;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -23,6 +27,10 @@
  
     .organigrammePdf {
         width: 900px;
+    }
+
+    .organigrammeRow {
+
     }
 
 }

@@ -45,19 +45,17 @@ export default class Organigramme extends Component {
                   <LottieLoader />
             </Col>
             :
-            <Col xs={12} xl={10}>
-                  
-            <Row className="ml-5">
-                <Document
-                    file={ORGANIGRAMME}
-                    className="organigrammePdf"
-                    loading={null}
-                    // onLoadSuccess={this.onDocumentLoadSuccess}
-                >
-                    <Page pageNumber={pageNumber} width={800} loading={null} />
-                </Document>
-            </Row>
-        
+            <Col xs={12} xl={10}>    
+                <Row className="ml-5">
+                    <Document
+                        file={ORGANIGRAMME}
+                        className="organigrammePdf"
+                        loading={null}
+                        // onLoadSuccess={this.onDocumentLoadSuccess}
+                    >
+                        <Page pageNumber={pageNumber} width={window.innerWidth > 800 ? 800 : 300} loading={null} />
+                    </Document>
+                </Row>
             </Col>
         )
     }
