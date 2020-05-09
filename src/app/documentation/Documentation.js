@@ -124,7 +124,7 @@ export default class Documentation extends Component {
             <>
             <Nav className="flex-column mtNavbar">
 
-                <Col className="pageTitleContainer">
+                <Col  className="pageTitleContainer">
                     {/* <Row> */}
                         <p className="pageTitle">DOCUMENTATION</p>
                     {/* </Row> */}

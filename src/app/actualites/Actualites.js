@@ -117,7 +117,7 @@ class Actualites extends Component {
                 <Col xs={12} xl={10}>
                     
                     <Row>
-                        <Col xs={12} xl={8}>
+                        <Col xs={12} xl={8} className="bigBlocContainer">
                             <Link to={{
                                     pathname : `/article/${actualitesG5[0].slug}`,
                                 }}  

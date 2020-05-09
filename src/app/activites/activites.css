@@ -1,13 +1,244 @@
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
 
-/* Extra small devices  */
-@media (max-width: 575px) { 
+     /* RESILENCE */
+ 
+     .resiImageBig {
+        min-height: 200px;
+        max-height: 200px;
+        width: 100%;
+    }
+
+    .resiTitleBig {
+        font-size: 15px;
+        font-family: 'Poppins Bold';
+        color: black;
+    }   
+    
+    .resiDescBig {
+        font-size: 10px;
+        font-family: 'Poppins Light';
+        color: black;
+    }
+    
+    .resiDateBig {
+        color: #0099CC;
+        font-size: 12px;
+        font-family: 'Poppins Light';
+    }
+
+    .resilenceRow {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+      
+    .resiImageSmall {
+        min-height: 200px;
+        max-height: 200px;
+        width: 100%;
+    }
+  
+    .resi-justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .resiTitleSmall {
+        font-size: 15px;
+        font-family: 'Poppins Bold';
+        color: black;
+        margin-top: 10px;
+    }   
+    
+    .resiDescSmall {
+        font-size: 10px;
+        font-family: 'Poppins Light';
+        color: black
+    }
+    
+    .resiDateSmall {
+        font-size: 12px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+    
+    /* ./RESILENCE */
+
+
+    /* INFRA */
+
+    .voirToutButtonRow {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 1px;
+    }
+
+    .infraVoirToutButton {
+        background-color: white;
+        color: #666666;
+        border: 1px solid #666666;
+        font-family: 'Poppins Light';
+        font-size: 15px;
+    }
+    .infraVoirToutButton:hover {
+        background-color: #666666;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .infraContainer {
+        padding : 10px
+    }
+
+    .infraTitleContainer {
+        min-height: 50px;
+        /* background-color: red; */
+    }
+    .infraDateContainer {
+        max-height: 300px;
+    }
+    .infraDescContainer {
+        min-height: 90px;
+        max-height: 90px;
+        
+    }
+    .infraImage {
+        min-height: 200px;
+        max-height: 200px;
+        width: 100%;
+    }
+
+    .infraTitle {
+        font-size: 15px;
+        font-family: 'Poppins Bold';
+        color: black;
+    }   
+    
+    
+    .infraDate {
+        font-size: 12px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+
+    .infraDesc {
+        font-size: 10px;
+        font-family: 'Poppins Light';
+        color: black;
+    }
+
+    /* ./INFRA */
+
+
+
+    .gouvSmallRow {
+        margin-top: 20px;
+    }
+
+    .gouvImageSmall {
+        min-height: 200px;
+        max-height: 200px;
+        width: 100%;
+    }
+
+    .genreImage {
+        width: 100%;
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    .buttonBlue {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: 'Poppins Light';
+        margin-right: 20px;
+    }
+    
+    .buttonBlue:hover {
+        padding : 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        border : 1px solid #0099CC;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        font-family: 'Poppins Light';
+    }
+
+
+    .smallArticleRow {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .titleSmall {
+        font-size: 15px;
+        font-family: 'Poppins Bold';
+        margin-top: 10px;
+        color:black;
+    }   
+    
+    .descSmall {
+        font-size: 11px;
+        font-family: 'Poppins Light';
+        color: black;
+    }
+    
+    .dateSmall {
+        font-size: 12px;
+        font-family: 'Poppins Bold';
+        color: #0099CC;
+    }
+    
+
+    /* THUMBS */
+
+        .thumbSmallContainer {
+            height: 200px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbSmallImage {
+            max-height: 100px;
+            min-height: 100px;
+        }
+
+        .thumbSmallTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 25px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbSmallDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 17px;
+            color: #717171;
+        }
+
+    /* THUMBS */
 
     .container-for-img {
         position: relative;
         margin-bottom: 10px;
     }
       
-      .container-for-img .content {
+    .container-for-img .content {
         position: absolute; /* Position the background text */
         bottom: 0; /* At the bottom. Use top:0 to append it to the top */
         background: rgb(0, 0, 0); /* Fallback color */
@@ -15,25 +246,6 @@
         color: white; /* Grey text */
         width: 100%; /* Full width */
         padding: 5px 10px 2px 10px; /* Some padding */
-    }
-
-    .container-for-img .content h5 {
-        font-family: 'Poppins Bold';
-        padding: 5px;
-        font-size: 11px;
-    }
-  
-    .container-for-img .content p {
-        font-family: 'Poppins Bold';
-        padding-left: 5px;
-        font-size: 8px;
-    }
-
-
-    .genreImage {
-        width: 100%;
-        min-height: 220px;
-        max-height: 220px;
     }
 
     
@@ -46,6 +258,7 @@
     .postTitleBig {
         font-family: 'Poppins Bold';
         font-size: 17px;
+        color: black;
     }
 
     .dateBig {
@@ -57,30 +270,14 @@
     .descBig {
         font-size: 12px;
         font-family: 'Poppins Light';
+        color:black;
         margin-bottom: 40px;
     }
 
     .postImageSmall {
-        min-height: 160px;
-        max-height: 160px; 
+        min-height: 200px;
+        max-height: 200px; 
         width: 100%;
-    }
-
-    .titleSmall {
-        font-size: 13px;
-        font-family: 'Poppins Bold';
-        margin-top: 10px;
-    }   
-    
-    .descSmall {
-        font-size: 9px;
-        font-family: 'Poppins Light';
-    }
-    
-    .dateSmall {
-        font-size: 9px;
-        font-family: 'Poppins Light';
-        color: #0099CC;
     }
 
     .sectionTitleRow {
@@ -115,119 +312,24 @@
         margin-bottom: 10px; 
     }
  
-    .buttonBlue {
-        padding : 12px;
-        background-color: #0099CC;
-        color: white;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-family: 'Poppins Light';
-    }
     
-    .buttonBlue:hover {
-        padding : 12px;
-        background-color: white;
-        color: #0099CC;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-        border : 1px solid #0099CC;
-        margin-top: 9px;
-        margin-bottom: 9px;
-        font-family: 'Poppins Light';
-    }
-
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-    .justify-elements {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .buttonBlue {
-        padding : 12px;
-        background-color: #0099CC;
-        color: white;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-    }
-    
-    .buttonBlue:hover {
-        padding : 12px;
-        background-color: white;
-        color: #0099CC;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-        border : 1px solid #0099CC;
-    }
-    
+@media (min-width: 576px) and (max-width: 767.98px) { 
+   
 }
 
-/* Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
-    .justify-elements {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .buttonBlue {
-        padding : 12px;
-        background-color: #0099CC;
-        color: white;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-    }
-    
-    .buttonBlue:hover {
-        padding : 12px;
-        background-color: white;
-        color: #0099CC;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-        border : 1px solid #0099CC;
-    }
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
     
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    .justify-elements {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .buttonBlue {
-        padding : 17px;
-        background-color: #0099CC;
-        color: white;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-    }
-    
-    .buttonBlue:hover {
-        padding : 12px;
-        background-color: white;
-        color: #0099CC;
-        border-radius: 0;
-        border : 0;
-        width: 150px;
-        border : 1px solid #0099CC;
-    }
-    
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
 }
+
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {

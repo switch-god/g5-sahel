@@ -99,8 +99,6 @@ class Presentation extends Component {
 
                 <Col xs={12} xl={6} className="justify-elements" md={6}>
                     <div>
-                        {/* <h4 className="presentationTitle">La Conférence des Chefs d’Etat</h4>
-                        <p className="presentationDate">15 octobre 2015</p> */}
                         <p className="presentationDesc">
                             Il est créé le 16 Février 2014 à Nouakchott en République Islamique de Mauritanie, il s’est doté d’une Convention signée le 19 Décembre 2014 et a son siège en Mauritanie.
                         </p>

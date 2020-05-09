@@ -4,6 +4,7 @@ import {
     Row,
     Col,
     Image,
+    Container,
     Button,
 } from 'react-bootstrap';
 import moment from 'moment';
@@ -67,12 +68,13 @@ class NosActivites extends Component {
         const { loading } = this.state;
 
         const { defense_securite,genre,cellule,infrastructure,resilence } = this.props;
+
         return (
             loading 
             ?
               <LottieLoader />
             :
-           <>
+           <Container fluid>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>Nos activités</h1>
                 </div>   
@@ -99,7 +101,7 @@ class NosActivites extends Component {
                     {
                         genre.length > 0 && cellule.length > 0 &&
                         <>
-                        <Row id="gouvernance" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <Row id="gouvernance" style={{paddingLeft: window.innerWidth > 800 ? '15px' : '0px',paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Gouvernance</h4>
                             </div>
@@ -115,7 +117,7 @@ class NosActivites extends Component {
                     {
                         infrastructure.length > 0 && 
                         <>
-                        <Row id="infrastructure" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <Row id="infrastructure" style={{paddingLeft: window.innerWidth > 800 ? '15px' : '0px',paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Infrastructure</h4>
                             </div>
@@ -132,7 +134,7 @@ class NosActivites extends Component {
                     {
                         resilence.length > 0 && 
                         <> 
-                        <Row id="resilence" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <Row id="resilence" style={{paddingLeft: window.innerWidth > 800 ? '15px' : '0px',paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Résilience</h4>
                             </div>
@@ -147,7 +149,7 @@ class NosActivites extends Component {
                         <Newsletter />
                     </div>
                 </Layout>
-           </>
+           </Container>
         )
     }
 
@@ -211,7 +213,7 @@ class NosActivites extends Component {
                     </Link>
                 </Col>
                 
-                <Col className="ml-5" xs={12} md={12} xl={5}>
+                <Col className={ window.innerWidth > 800 ? "ml-5" : ""} xs={12} md={12} xl={5}>
 
                     <Row>
                         {
@@ -225,8 +227,7 @@ class NosActivites extends Component {
                                     }}
                                 >
                                 <Row className="smallArticleRow">
-                                    <Col xs={12} md={4} xl={5} >
-                                        
+                                    <Col xs={12} md={4} xl={5}>
                                         {
                                             def_sec.fimg_url != false 
                                             ?  
@@ -262,15 +263,15 @@ class NosActivites extends Component {
                                 </Link>
                            )
                         }
+                        <Link
+                            to={{ pathname : `/voir-plus/${defense_securite[0].categories[0].category_slug}` }}
+                            className="btn btn-primary buttonBlue" 
+                            style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
+                        >
+                            VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                        </Link>
                     </Row>
 
-                    <Link
-                        to={{ pathname : `/voir-plus/${defense_securite[0].categories[0].category_slug}` }}
-                        className="btn btn-primary buttonBlue" 
-                        style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
-                    >
-                         VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                    </Link>
 
                 </Col>
             </Row>  
@@ -283,7 +284,7 @@ class NosActivites extends Component {
         <Row>
               
             {/* LEFT BLOC */}
-            <Col xl={6}>
+            <Col xs={12} xl={6}>
                 <Row style={{marginTop : 20+"px"}}>
                     <Col xs={12} xl={12}>
                         
@@ -507,7 +508,6 @@ class NosActivites extends Component {
 
     renderInfra = (infrastructure,solo_title) => {
         
-       
         return (
             <>
             
@@ -638,14 +638,17 @@ class NosActivites extends Component {
                         </Link>
                      )
                     }
-                
-                    <Link
-                        to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
-                        className="btn btn-primary buttonBlue" 
-                        style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
-                    >
-                        VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
-                    </Link>
+
+                    {
+                        window.innerWidth > 800 &&
+                        <Link
+                            to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
+                            className="btn btn-primary buttonBlue" 
+                            style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
+                        >
+                            VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                        </Link>
+                    }
 
                 </Col>
 
@@ -697,6 +700,17 @@ class NosActivites extends Component {
                         </>
                     }
                     </Link>
+
+                    {
+                        window.innerWidth < 800 &&
+                        <Link
+                            to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
+                            className="btn btn-primary buttonBlue" 
+                            style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
+                        >
+                            VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
+                        </Link>
+                    }
                 </Col>
                 
             </Row>

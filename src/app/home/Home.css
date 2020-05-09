@@ -1,48 +1,268 @@
 
 /* Extra small devices  */
-@media (max-width: 575px) { 
-    .container-for-img {
-        position: relative;
-        margin-bottom: 50px;
-    }
-      
-      .container-for-img .content {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color: white; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 7px; /* Some padding */
-    }
+@media (max-width: 575.98px)  { 
 
-    .container-for-img .content h3 {
-        font-size: 14px;
-    }
+    /* ACTUALITES G5 */
 
-    .container-for-img .content p {
-        font-size: 9px;
-    }
+        /* A LA UNE + EVENTS */
 
-    
-    .container-for-img .content-1 {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color:white; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 5px; /* Some padding */
-    }  
-    
-    .container-for-img .content-1 h3 {
-        font-size: 12px;
-    }
 
-    .container-for-img .content-1 p {
-        font-size: 8px;
-    }
 
+            .bigArticleImage {
+                margin-bottom: 30px;
+                margin-top: 30px;
+                min-height: 250px;
+                max-height: 250px; 
+                min-width: 100%;
+            }
+        
+            .articleTitleContainer {
+                font-family: 'Poppins Bold';
+                height: 50px;
+                max-height: 50px;
+                margin-bottom: 10px; 
+            }
+        
+            .articleTitleContainer h5 {
+                font-size: 14px;
+                color:black
+            }
+        
+        
+            .articleDate {
+                font-family: 'Poppins SemiBold'; 
+                font-size: 16px;
+                color: #0099CC;
+            }
+        
+            .articleContent {
+                font-family: 'Poppins ExtraLight';
+                font-size: 13px;
+                height: 70px;
+                max-height: 70px;
+                border-width: 20px;
+                margin-bottom: 30px;
+                color: black
+            }
+        
+            .smallArticleImage {
+                min-height: 250px;
+                max-height: 250px; 
+                min-width: 100%;
+            }
+        
+            .smallArticleTitle {
+                font-family: 'Poppins Bold';
+                font-size: 15px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                color: black
+            }
+        
+            .smallArticleContent {
+                font-family: 'Poppins ExtraLight'; 
+                font-size: 12px;
+                color: black
+            }
+        
+            .smallArticleDate {
+                font-family : 'Poppins SemiBold';
+                font-size: 14px;
+                color: #0099CC;
+            }
+        
+                
+        /* A LA UNE + EVENTS */
+
+        .actualitesG5SmallImage {
+            max-height: 250px;
+            min-height: 250px;
+            width: 100%;
+        }
+
+        .actualitesG5SmallTitle {
+            font-family: 'Poppins Bold';
+            font-size: 14px;
+        }
+
+        .actualitesG5SmallDate {
+            font-family: 'Poppins Light';
+            font-size: 10px;
+            padding-left: 5px;
+        }
+        
+        .actualitesG5BigImage {
+            max-height: 250px;
+            min-height: 250px;
+            width: 100%;
+        }
+
+        .actualitesG5BigTitle {
+            font-family: 'Poppins Bold';
+            font-size: 16px;
+        }
+
+        .actualitesG5BigDate {
+            font-family: 'Poppins Light';
+            font-size: 10px;
+            padding-left: 5px;
+        }
+
+
+        .container-for-img {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .container-for-img .content {
+            position: absolute; /* Position the background text */
+            bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: white; /* Grey text */
+            width: 100%; /* Full width */
+            padding: 7px; /* Some padding */
+        }
+
+        
+        .container-for-img .content-1 {
+            position: absolute; /* Position the background text */
+            bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color:white; /* Grey text */
+            width: 100%; /* Full width */
+            padding: 5px; /* Some padding */
+        }  
+        
+    /* THMUBS */ 
+
+        /* SMALL */
+            .thumbNewsSmallContainer {
+                height: 250px;
+                width: '100%';
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbNewsSmallImage {
+                max-height: 100px;
+                min-height: 100px;
+            }
+
+            .thumbNewsSmallTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 15px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbNewsSmallDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 10px;
+                color: #717171;
+            }
+
+        /* SMALL */
+
+        /* BIG */
+        .thumbNewsBigContainer {
+            margin-bottom: 30px;
+            margin-top: 30px;
+            height: 250px;
+            width: '100%';
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        
+        .thumbNewsBigImage {
+            max-height: 100px;
+            min-height: 100px;
+        }
+
+        .thumbNewsBigTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 25px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbNewsBigDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 15px;
+            color: #717171;
+        }
+        /* BIG */
+        
+        /* SMALL */
+        .thumbActualitesSmallContainer {
+            height: 250px;
+            width: '100%';
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbActualitesSmallImage {
+            max-height: 100px;
+            min-height: 100px;
+        }
+
+        .thumbActualitesSmallTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 20px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbActualitesSmallDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 10px;
+            color: #717171;
+        }
+
+        /* BIG */
+        .thumbActualitesBigContainer {
+            height: 526px;
+            width: '100%';
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbActualitesBigImage {
+            max-height: 300px;
+            min-height: 300px;
+        }
+
+        .thumbActualitesBigTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 40px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbActualitesBigDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 30px;
+            color: #717171;
+        }
+
+    /* THUMBS */
+    /* ./ACTUALITES G5 */
+
+    /* ******************** */
     .titleInBlack {
         width: 60%;
         color: #fff;
@@ -56,10 +276,6 @@
         display: flex;
         justify-content: center;
     }
-
-    
-
-    /* ******************** */
 
     .postsContainerEvents {
         padding-right: 30px;
@@ -96,270 +312,40 @@
         width: 100%;
     }
     
-
-    .bigArticleImage {
-       margin-bottom: 30px;
-       margin-top: 30px;
-       min-height: 250px;
-       max-height: 250px; 
-       min-width: 100%;
-    }
-
-    .articleTitleContainer {
-        font-family: 'Poppins Bold';
-        height: 50px;
-        max-height: 50px;
-        margin-bottom: 10px;
-        
-    }
-
-    .articleTitleContainer h5 {
-        font-size: 14px;
-    }
-
-
-    .articleDate {
-        font-family: 'Poppins SemiBold'; 
-        font-size: 16px;
-        color: #0099CC;
-    }
-
-    .articleContent {
-        font-family: 'Poppins ExtraLight';
-        font-size: 13px;
-        height: 70px;
-        max-height: 70px;
-        border-width: 20px;
-        margin-bottom: 30px;
-    }
-
-    .smallArticleImage {
-       min-height: 200px;
-       max-height: 200px; 
-       min-width: 100%;
-    }
-
-    .smallArticleTitle {
-        font-family: 'Poppins Bold';
-        font-size: 15px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .smallArticleContent {
-        font-family: 'Poppins ExtraLight'; 
-        font-size: 12px;
-    }
-
-    .smallArticleDate {
-        font-family : 'Poppins SemiBold';
-        font-size: 14px;
-        color: #0099CC;
-    }
-
     .postsHr {
         margin: 30px -15px 20px;
         border: 0;
         border-top: 1px solid #DEDEDE;
     }
+
+    .space-elements {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
 
+
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { 
-    .container-for-img {
-        position: relative;
-    }
-      
-    .container-for-img .content {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color: white; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 3px; /* Some padding */
-    }
-
-    .container-for-img .content h3 {
-        font-size: 15px;
-    }
-
-    .container-for-img .content p {
-        font-size: 11px;
-    }
-
-    .container-for-img .content-1 {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color:white; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 2px; /* Some padding */
-    }  
-    
-    .container-for-img .content-1 h3 {
-        font-size: 9px;
-    }
-
-    .container-for-img .content-1 p {
-        font-size: 7px;
-    }
-
-    .titleInBlack {
-        width: 60%;
-        color: #fff;
-        font-family: 'Poppins Bold';
-        font-size: 20px;
-        background-color: black;
-        padding-top: 20px;
-        padding-bottom: 20px; 
-        border-width: 10px;
-        text-align: 'center';
-        display: flex;
-        justify-content: center;
-    }
-
-    .titleSeperator {
-        border-color: black; 
-        margin-top: -13px;
-        border-width: 5px;
-        margin-bottom: 30px; 
-        width: 100%;
-    }
-
+@media (min-width: 576px) and (max-width: 767.98px) { 
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    .container-for-img {
-        position: relative;
-    }
-      
-      .container-for-img .content {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color: White; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 2px; /* Some padding */
-    }
-
-    .container-for-img .content h3 {
-        padding : 5px;
-        font-size: 16px;
-    }
-
-    .container-for-img .content p {
-        font-size: 12px;
-    }
-
-    
-    .container-for-img .content-1 {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color:white; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 2px; /* Some padding */
-    }  
-    
-    .container-for-img .content-1 h3 {
-        padding: 2px;
-        font-size: 11px;
-    }
-
-    .container-for-img .content-1 p {
-        font-size: 10px;
-    }
-
-    .titleInBlack {
-        width: 60%;
-        color: #fff;
-        font-family: 'Poppins Bold';
-        font-size: 20px;
-        background-color: black;
-        padding-top: 20px;
-        padding-bottom: 20px; 
-        border-width: 10px;
-        text-align: 'center';
-        display: flex;
-        justify-content: center;
-    }
-
-    .titleSeperator {
-        border-color: black; 
-        margin-top: -13px;
-        border-width: 5px;
-        margin-bottom: 30px; 
-        width: 100%;
-    }
+@media (min-width: 768px) and (max-width: 991.98px) { 
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-    .container-for-img {
-        position: relative;
-    }
-      
-      .container-for-img .content {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color: white; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 3px; /* Some padding */
-    }
-
-    .container-for-img .content h3 {
-        padding : 5px;
-        font-size: 20px;
-    }
-
-    .container-for-img .content p {
-        font-size: 15px;
-    }
-
-    
-    .container-for-img .content-1 {
-        position: absolute; /* Position the background text */
-        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-        background: rgb(0, 0, 0); /* Fallback color */
-        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        color:white; /* Grey text */
-        width: 100%; /* Full width */
-        padding: 2px; /* Some padding */
-    }  
-
-    .titleInBlack {
-        width: 60%;
-        color: #fff;
-        font-family: 'Poppins Bold';
-        font-size: 20px;
-        background-color: black;
-        padding-top: 20px;
-        padding-bottom: 20px; 
-        border-width: 10px;
-        text-align: 'center';
-        display: flex;
-        justify-content: center;
-    }
-
-    .titleSeperator {
-        border-color: black; 
-        margin-top: -13px;
-        border-width: 5px;
-        margin-bottom: 30px; 
-        width: 100%;
-    }
-    
+@media (min-width: 992px) and (max-width: 1199.98px) { 
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+
+    .space-elements {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+
 
     /* NOS ACTIVITES */
 

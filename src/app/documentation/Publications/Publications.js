@@ -8,6 +8,7 @@ import {
     Jumbotron,
     Button,
     Image,
+    Container,
     Pagination
 } from 'react-bootstrap';
 // import THUMB_LOGO from '../../../assets/images/Thumbs/thumb.png';
@@ -60,81 +61,160 @@ class Publications extends Component {
     render() {
         const { loading,showMode,showPagination } = this.state;
         const { publications,pageTitle } = this.props;
+        console.log(window.innerWidth)
         
-        return (
-            <>
-                { 
-                    <Col xs={12} xl={10}>
-                        <Row className="ml-5">
-                            {this.renderShowMode()}
-                        </Row>
-
-                        {
-                            loading 
-                            ?
+        if(window.innerWidth > 800) {
+            return (
+                <>
+                    { 
+                        <Col xs={12} xl={10}>
                             <Row className="ml-5">
-                                <Col />
-
-                                <Col>
-                                    <Loader style={{height : '70px'}} />
-                                </Col>
-                                
-                                <Col/>
+                                {this.renderShowMode()}
                             </Row>
-                            :
-                            publications.length === 0 
-                            ?
-                            <Row className="ml-5">
-                                <Col xs={12}>
-                                    <div className="docsEmptyContainer">
-                                        <p className="docsEmptyText">Aucun Document Disponible pour le moment</p>
-                                    </div>
-                                </Col>
-                            </Row>
-                            :
-                            showMode === 'LIST' && publications.length > 0 &&
-                            <Row className="ml-5">
-                                <Col xs={12} xl={8}>
-                                    {this.renderDocumentsListMode(publications,pageTitle)}
-                                </Col>
-                                <Col xs={0} xl={4} />
-                            </Row>
+    
+                            {
+                                loading 
+                                ?
+                                <Row className="ml-5">
+                                    <Col />
+    
+                                    <Col>
+                                        <Loader style={{height : '70px'}} />
+                                    </Col>
+                                    
+                                    <Col/>
+                                </Row>
+                                :
+                                publications.length === 0 
+                                ?
+                                <Row className="ml-5">
+                                    <Col xs={12}>
+                                        <div className="docsEmptyContainer">
+                                            <p className="docsEmptyText">Aucun Document Disponible pour le moment</p>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                :
+                                showMode === 'LIST' && publications.length > 0 &&
+                                <Row className="ml-5">
+                                    <Col xs={12} xl={8}>
+                                        {this.renderDocumentsListMode(publications,pageTitle)}
+                                    </Col>
+                                    <Col xs={0} xl={4} />
+                                </Row>
+                            }
+    
+                            {
+                                showMode === 'GRID' &&  publications.length > 0 &&
+                                <Row className="ml-4">  
+                                    <Col xs={12} xl={12}>
+                                        {this.renderDocumentsGridMode(publications,pageTitle)}
+                                    </Col>
+                                </Row>
+                            }
+    
+                            {
+                                publications.length > 0 && 
+                                showPagination && 
+                                Math.ceil(publications[0].categories[0].category_count / 10 ) > 1 &&
+                                   
+                                <Row className="ml-5">
+                                    <Col id="page-numbers" xs={12} xl={12}>
+                                        <UltimatePagination 
+                                            currentPage={this.state.currentPage}
+                                            totalPages={Math.ceil(publications[0].categories[0].category_count / 10)}
+                                            boundaryPagesRange={4}
+                                            siblingPagesRange={3}
+                                            hideEllipsis={false}
+                                            hidePreviousAndNextPageLinks
+                                            hideFirstAndLastPageLinks
+                                            onChange={(current) => this.callPage(current) }
+                                        />
+                                    </Col>  
+                                </Row>
+                            }
+                        
+                        </Col>
+                    }
+                </>
+            )
+        } else {
+                return (
+                    <Container fluid>
+                        { 
+                            <Col xs={12} xl={10}>
+                                <Row className="ml-5">
+                                    {this.renderShowMode()}
+                                </Row>
+        
+                                {
+                                    loading 
+                                    ?
+                                    <Row>
+                                        <Col />
+        
+                                        <Col>
+                                            <Loader style={{height : '70px'}} />
+                                        </Col>
+                                        
+                                        <Col/>
+                                    </Row>
+                                    :
+                                    publications.length === 0 
+                                    ?
+                                    <Row>
+                                        <Col xs={12}>
+                                            <div className="docsEmptyContainer">
+                                                <p className="docsEmptyText">Aucun Document Disponible pour le moment</p>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    :
+                                    showMode === 'LIST' && publications.length > 0 &&
+                                    <Row>
+                                        <Col xs={12} xl={8}>
+                                            {this.renderDocumentsListMode(publications,pageTitle)}
+                                        </Col>
+                                        <Col xs={0} xl={4} />
+                                    </Row>
+                                }
+        
+                                {
+                                    showMode === 'GRID' &&  publications.length > 0 &&
+                                    <Row>  
+                                        <Col xs={12} xl={12}>
+                                            {this.renderDocumentsGridMode(publications,pageTitle)}
+                                        </Col>
+                                    </Row>
+                                }
+        
+                                {
+                                    publications.length > 0 && 
+                                    showPagination && 
+                                    Math.ceil(publications[0].categories[0].category_count / 10 ) > 1 &&
+                                       
+                                    <Row>
+                                        <Col id="page-numbers" xs={12} xl={12}>
+                                            <UltimatePagination 
+                                                currentPage={this.state.currentPage}
+                                                totalPages={Math.ceil(publications[0].categories[0].category_count / 10)}
+                                                boundaryPagesRange={4}
+                                                siblingPagesRange={3}
+                                                hideEllipsis={false}
+                                                hidePreviousAndNextPageLinks
+                                                hideFirstAndLastPageLinks
+                                                onChange={(current) => this.callPage(current) }
+                                            />
+                                        </Col>  
+                                    </Row>
+                                }
+                            
+                            </Col>
                         }
+                    </Container>
+                )
 
-                        {
-                            showMode === 'GRID' &&  publications.length > 0 &&
-                            <Row className="ml-4">  
-                                <Col xs={12} xl={12}>
-                                    {this.renderDocumentsGridMode(publications,pageTitle)}
-                                </Col>
-                            </Row>
-                        }
-
-                        {
-                            publications.length > 0 && 
-                            showPagination && 
-                            Math.ceil(publications[0].categories[0].category_count / 10 ) > 1 &&
-                               
-                            <Row className="ml-5">
-                                <Col id="page-numbers" xs={12} xl={12}>
-                                    <UltimatePagination 
-                                        currentPage={this.state.currentPage}
-                                        totalPages={Math.ceil(publications[0].categories[0].category_count / 10)}
-                                        boundaryPagesRange={4}
-                                        siblingPagesRange={3}
-                                        hideEllipsis={false}
-                                        hidePreviousAndNextPageLinks
-                                        hideFirstAndLastPageLinks
-                                        onChange={(current) => this.callPage(current) }
-                                    />
-                                </Col>  
-                            </Row>
-                        }
-                    
-                    </Col>
-                }
-            </>
-        )
+        }
     }
 
     callPage = (current) => {
@@ -206,28 +286,38 @@ class Publications extends Component {
                         style={{ textDecoration: 'none' }}>
                         <Jumbotron className="documentBox">
                             <Row>
-                                <Col xs={6} xl={4}>
-                                    <Row>
+                                <Col xs={12} xl={4}>
+                                    <Row className="documentImageContainer">
                                         {
                                             pub.fimg_url !== false ?
                                             <Image src={pub.fimg_url} fluid className="documentThumb" />
                                             :
-                                            <ThumbDoc title={title} containerClass="thumbListModeContainer" imageClass="thumbListImage" titleClass="thumbPageTitle" descClass="thumbDesc" />
+                                            <ThumbDoc 
+                                                title={title} 
+                                                containerClass="thumbListModeContainer" 
+                                                imageClass="thumbListImage" 
+                                                titleClass="thumbPageTitle" 
+                                                descClass="thumbDesc" 
+                                            />
                                         }
                                         
                                     </Row>
                                 </Col>
 
-                                <Col xs={6} xl={8}>
-                                    <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
-                                   
+                                <Col xs={12} xl={8}>
+                                    {
+                                        pub.title.rendered.length > 50
+                                        ?
+                                        <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered.substr(0,47)+"..."}}></h4>
+                                        :
+                                        <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
+                                    }
                                     {
                                         pub.excerpt.rendered.length > 0 
                                         ?
-                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.excerpt.rendered.substr(0,230)}}></p>
+                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.excerpt.rendered.substr(0,47)+"..."}}></p>
                                         :
-                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,230)}}></p>
-                                                
+                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,47)+"..."}}></p>
                                     }
                                     
                                     <p style={{float : 'right'}}>

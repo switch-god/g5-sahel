@@ -1,6 +1,122 @@
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
+    /* THUMB */
+        /* SMALL */
+        .thumbSoloSmallContainer {
+            height: 200px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbSoloSmallImage {
+            max-height: 100px;
+            min-height: 100px;
+        }
+
+        .thumbSoloSmallTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 15px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbSoloSmallDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 12px;
+            color: #717171;
+        }
+
+    /* ./SMALL */
+
+    .thumbSoloContainer {
+        height: 200px;
+        width: 100%;
+        border: 1px solid #666666;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .thumbSoloImage {
+        max-height: 100px;
+        min-height: 100px;
+    }
+
+    .thumbSoloTitle {
+        font-family: 'Poppins SemiBold';
+        font-size: 15px;
+        color: #717171;
+        margin-top: 7px;
+    }
+
+    .thumbSoloDesc {
+        font-family: 'Poppins SemiBold';
+        font-size: 12px;
+        color: #717171;
+    }
+
+
+    /* THUMB */
+
+    /* TITLE OF THE SOLO */
+        .soloTitle {
+            font-size: 25px;
+            font-family: 'Poppins SemiBold';
+            color: #313131;
+        }
+    /* TITLE OF THE SOLO */
+
+    /* SOLO ARTICLE CLASSES */
+        .articleTitle {
+            font-size: 20px;
+            font-family: 'Poppins SemiBold';
+            color: #313131;
+        }
+
+        .articleImage {
+            max-height: 300px;
+            min-height: 200px;
+            text-align: center;
+        }
+
+        .articleDate {
+            color: #0099CC;
+            font-size: 'Poppins SemiBold';
+        }
+    /* SOLO ARTICLE CLASSES */
+
+    /* WORDPRESS CONTENT */
+        .wordpressData {
+            color: #545454;
+            font-size: 15px;
+            font-family: 'Poppins Light';
+        }
+    /* WORDPRESS CONTENT */
+
+    /* LATEST NEWS */
+        .newsImage {
+            max-height: 200px;
+            min-height: 200px;
+            width: 100%;
+        }
+
+        .newsCategory {
+            color: #0099CC;
+            font-size: 15px;
+            font-family: 'Poppins SemiBold';
+        }
+
+        .newsTitle {
+            font-family: 'Poppins SemiBold';
+            color: black;
+        }
+    /* LATEST NEWS */
 
 }
 

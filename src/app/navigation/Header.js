@@ -195,8 +195,8 @@ class Header extends Component {
                 <Col>
                     <NavDropdown title="Présentation" style={styles.collapsible}>
                         <Link style={styles.navItem} className="dropdown-item" to="/presentation">Présentation</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Secrétariat Exécutif</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/presentation">Communes Nationales De Coordination</Link>
+                        <a style={styles.navItem} className="dropdown-item" href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Secrétariat Exécutif</a>
+                        <a style={styles.navItem} className="dropdown-item" href="/article/les-comites-nationaux-de-coordination">Communes Nationales De Coordination</a>
                         <Link style={styles.navItem} className="dropdown-item" to="/presentation">Structures Rattachées</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation/organigramme">Organigramme</Link>
                     </NavDropdown>
@@ -216,16 +216,16 @@ class Header extends Component {
                     
                     <NavDropdown title="Evenements" style={styles.collapsible}>
                         <Link style={styles.navItem} className="dropdown-item" to="/events">Nos événements</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/events">Prochains événements</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/events">Événements passés</Link>
+                        {/* <Link style={styles.navItem} className="dropdown-item" to="/events">Prochains événements</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/events">Événements passés</Link> */}
                     </NavDropdown>
                     
                        
                     <NavDropdown title="Documentation" style={styles.collapsible}>
-                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">Documentation</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">Règlementation</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/documentation/organigramme">Nos Documents</Link>
+                        {/* <Link style={styles.navItem} className="dropdown-item" to="/documentation">Règlementation</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation">Newsletter</Link>
-                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">SDS, PIP</Link>
+                        <Link style={styles.navItem} className="dropdown-item" to="/documentation">SDS, PIP</Link> */}
                     </NavDropdown>
                     
                 </Col>

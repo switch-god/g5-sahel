@@ -123,12 +123,12 @@ class Home extends Component {
 
         return (
             <Row>
-                <Col />
+                <Col xs={0} xl={1} />
 
-                <Col md={10}>
+                <Col xs={12} xl={10}>
                     
                     <Row>
-                        <Col xs={12} md={8}>
+                        <Col xs={12} xl={8}>
                             <Link 
                                 to={{
                                     pathname : `/article/${actualitesG5[0].slug}`,
@@ -162,7 +162,7 @@ class Home extends Component {
                             </Link>
                         </Col>
                         
-                        <Col xs={12} md={4}>    
+                        <Col xs={12} xl={4}>    
                                 
                             <Link 
                                 to={{
@@ -232,7 +232,7 @@ class Home extends Component {
                     </Row>
                 </Col>
         
-                <Col />
+                <Col xs={0} xl={1} />
             </Row>
         );
     };
@@ -356,9 +356,9 @@ class Home extends Component {
                                         <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered }}></h5>                              
                                     }
                                     {
-                                        post.excerpt.rendered.length > 150
+                                        post.excerpt.rendered.length > 100
                                         ?
-                                        <p className="smallArticleContent" dangerouslySetInnerHTML={{__html: post.excerpt.rendered.substr(0,149)+"..."}}></p>
+                                        <p className="smallArticleContent" dangerouslySetInnerHTML={{__html: post.excerpt.rendered.substr(0,100)+"..."}}></p>
                                         :
                                         <p className="smallArticleContent" dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></p>
                                     }
@@ -468,6 +468,7 @@ class Home extends Component {
                     posts.map((post,index) => (
                     index > 0 && index < 4 && post &&
                     <>
+                  
                     <div key={index} style={{marginBottom : 10+"px"}}>
                     <Link 
                         to={{
@@ -551,7 +552,9 @@ class Home extends Component {
                 {
                     activites.map((activity,index) => 
                         index < 4 &&
-                        <Col xs={12} md={3} key={index}>
+                        <>
+                        
+                        <Col className="space-elements" xs={12} md={3} key={index}>
                             <Link 
                                 to={{
                                     pathname : `/article/${activity.slug}`,
@@ -569,6 +572,7 @@ class Home extends Component {
                             <p style={styles.activityDesc} className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
                             </Link>
                         </Col>
+                        </>
                     )        
                 }    
               </Row>  
