@@ -1,7 +1,114 @@
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
+    .wordpressData[style] {
+        font-size: 15px;
+        color: #666666;
+        font-family: 'Poppins Light' !important;
+    }
 
+    .seeMorePostContainer {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .seeMoreTitle {
+        font-family: 'Poppins Bold';
+        color: #313131;
+        font-size: 32px;
+    }
+
+    .seeMoreImage {
+        width: 100%;
+        min-height: 250px;
+        max-height: 250px;
+    }
+
+    .seeMoreTextsContainer {
+        padding-top: 10px;
+        padding-left: 40px;
+    }
+
+    .seeMorePostTitle {
+        font-family: 'Poppins Bold';
+        color: black;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .seeMorePostDate {
+        font-family: 'Poppins SemiBold';
+        color: #0099CC;
+        font-size: 17px;
+        text-align: left;
+    }
+
+    .seeMorePostDesc {
+        font-family: 'Poppins SemiBold';
+        color: black;
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .soloButton {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+    }
+    
+    .soloButton:hover {
+        background-color: white;
+        color: #0099CC;
+        border : 1px solid #0099CC;
+    }
+
+    .divider {
+        border: 0;
+        clear:both;
+        display:block;
+        width: 100%;               
+        margin-top: 50px;
+        margin-bottom: 20px;
+        margin-left: -1px;
+        background-color:#707070;
+        height: 1.5px;
+    }
+
+    /* THUMB */
+        /* MEDIUM */
+        .thumbMdContainer {
+            height: 300px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbMdImage {
+            max-height: 150px;
+            min-height: 150px;
+        }
+
+        .thumbMdTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 25px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbMdDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 17px;
+            color: #717171;
+        }
+
+
+    /* THUMB */
 }
 
 /* Small devices (landscape phones, 576px and up) */

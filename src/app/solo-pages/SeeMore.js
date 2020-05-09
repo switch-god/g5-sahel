@@ -4,6 +4,7 @@ import {
     Row,
     Col,
     Image,
+    Container
 } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
@@ -46,7 +47,7 @@ export default class SeeMore extends Component {
         if(posts.length > 0) {
 
             return (
-                <>
+                <Container fluid>
                     <Layout columns={8} style={{textAlign: 'center',marginBottom: '50px'}}>
                         <p className="seeMoreTitle">{categoryTitle}</p>
 
@@ -72,7 +73,7 @@ export default class SeeMore extends Component {
                     </Layout>
                 
                 
-                </>
+                </Container>
             )
         } else {
             return (

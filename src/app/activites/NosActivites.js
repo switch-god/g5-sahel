@@ -101,7 +101,7 @@ class NosActivites extends Component {
                     {
                         genre.length > 0 && cellule.length > 0 &&
                         <>
-                        <Row id="gouvernance" style={{paddingLeft: window.innerWidth > 800 ? '15px' : '0px',paddingRight : '15px'}}>
+                        <Row id="gouvernance" style={{paddingLeft: window.innerWidth > 768 ? '15px' : '0px',paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Gouvernance</h4>
                             </div>
@@ -117,7 +117,7 @@ class NosActivites extends Component {
                     {
                         infrastructure.length > 0 && 
                         <>
-                        <Row id="infrastructure" style={{paddingLeft: window.innerWidth > 800 ? '15px' : '0px',paddingRight : '15px'}}>
+                        <Row id="infrastructure" style={{paddingLeft: window.innerWidth > 768 ? '15px' : '0px',paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Infrastructure</h4>
                             </div>
@@ -134,7 +134,7 @@ class NosActivites extends Component {
                     {
                         resilence.length > 0 && 
                         <> 
-                        <Row id="resilence" style={{paddingLeft: window.innerWidth > 800 ? '15px' : '0px',paddingRight : '15px'}}>
+                        <Row id="resilence" style={{paddingLeft: window.innerWidth > 768 ? '15px' : '0px',paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Résilience</h4>
                             </div>
@@ -213,7 +213,7 @@ class NosActivites extends Component {
                     </Link>
                 </Col>
                 
-                <Col className={ window.innerWidth > 800 ? "ml-5" : ""} xs={12} md={12} xl={5}>
+                <Col className={ window.innerWidth > 768 ? "ml-5" : ""} xs={12} md={12} xl={5}>
 
                     <Row>
                         {
@@ -640,7 +640,7 @@ class NosActivites extends Component {
                     }
 
                     {
-                        window.innerWidth > 800 &&
+                        window.innerWidth > 768 &&
                         <Link
                             to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
                             className="btn btn-primary buttonBlue" 
@@ -702,7 +702,7 @@ class NosActivites extends Component {
                     </Link>
 
                     {
-                        window.innerWidth < 800 &&
+                        window.innerWidth < 768 &&
                         <Link
                             to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
                             className="btn btn-primary buttonBlue" 

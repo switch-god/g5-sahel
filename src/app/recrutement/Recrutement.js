@@ -5,7 +5,8 @@ import {
     Row,
     Button,
     Jumbotron,
-    Form
+    Form,
+    Container
 } from 'react-bootstrap';
 
 import {
@@ -58,21 +59,18 @@ class Recrutement extends Component {
                         <Col/>
 
                         <Col>
-                            <h1 style={{fontFamily : 'Poppins SemiBold'}}>Browse career resources</h1>
+                            <h1 style={{fontFamily : 'Poppins SemiBold'}}>Parcourir les emplois</h1>
                         </Col>
 
                         <Col/>
                     </div>
                 </div>
 
-                <Layout columns={9}>
-                    {this.renderSearchContainer()}
-                    {this.state.jobTitle}
-                    {this.renderSortBar(jobs)}
-                </Layout>
-
-
+            <Container fluid>
                 <Layout>
+                    {this.renderSearchContainer()}
+                    {this.renderSortBar(jobs)}
+
                     {
                         searchingJobs.length > 0
                         ?
@@ -84,11 +82,8 @@ class Recrutement extends Component {
                         <Newsletter />
                     </div>
                 </Layout>
-
-
-                
-
-            </>
+            </Container>    
+         </>
         )
     }
 
@@ -99,11 +94,21 @@ class Recrutement extends Component {
             <div>
                 <Row style={{padding : 25+"px",backgroundColor : '#F6F6F6',marginTop : -20+"px"}}>
                     
-                    <Col style={{marginTop : 15+"px"}}>
-                        <input type="text" className="form-control no-border-input-recrutement " placeholder="Titre du job" value={this.state.jobTitle} onChange={jobTitle => this.searchByTitle(jobTitle)} />
+                    <Col xs={12} xl={3} style={{marginTop : 15+"px"}}>
+                        <Form.Group as={Col} controlId="formGridEmail"> 
+                            <Form.Control 
+                                className="no-border-input-recrutement" 
+                                type="text" 
+                                placeholder="Titre du job"
+                                value={this.state.jobTitle} 
+                                onChange={jobTitle => this.searchByTitle(jobTitle)} 
+                            />
+                        </Form.Group>
+                           
+                        
                     </Col>
                     
-                    <Col style={{marginTop : 15+"px"}}>
+                    <Col xs={12} xl={3} style={{marginTop : 15+"px"}}>
                         <Form.Group as={Col}>
                             <Form.Control 
                                 className="no-border-input-recrutement " 
@@ -121,7 +126,7 @@ class Recrutement extends Component {
                         </Form.Group>
                     </Col>
 
-                    <Col style={{marginTop : 15+"px"}}>
+                    <Col xs={12} xl={3} style={{marginTop : 15+"px"}}>
                         <Form.Group as={Col}>
                             <Form.Control 
                                 className="no-border-input-recrutement " 
@@ -139,8 +144,8 @@ class Recrutement extends Component {
                         </Form.Group>
                     </Col>
                     
-                    <Col>
-                        <Button className="button" style={{marginTop : 4+"px",marginLeft : 20+"px"}}>Find Job</Button>
+                    <Col xs={12} xl={3}>
+                        <Button className="button" style={{marginTop : 4+"px",marginLeft : 20+"px"}}>Rechercher</Button>
                     </Col>
                 </Row>
             </div>
@@ -155,7 +160,7 @@ class Recrutement extends Component {
             <Grid
                 container
                 direction="row"
-                justify="space-between"
+                justify={window.innerWidth > 768 ? "space-between" : "center" }
                 alignItems="center"
                 style={{marginTop : 30+"px", marginBottom : 30+"px"}}
             >
@@ -173,7 +178,7 @@ class Recrutement extends Component {
                     </h5>
                 </div>
 
-                <div>
+                {/* <div>
 
                     <Grid
                         container
@@ -203,7 +208,7 @@ class Recrutement extends Component {
                             </FormControl>
                         </div>
                     </Grid>
-                </div>
+                </div> */}
             </Grid>
             <hr style={{marginTop : -20+"px", borderColor : '#666666'}} />
             </>

@@ -2,7 +2,188 @@
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
+    
+    /* SEARCH CONTAINER  */
+        .spaceSearch {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+    /* SEARCH CONTAINER  */
 
+
+        /* No result */
+        .noResultContainer {
+            text-align: center;
+            padding: 40px    
+        }
+        .noResultText {
+            font-family: 'Poppins Light';
+            font-size: 20px;
+            color: black;
+        }
+    /* No result */
+
+    /* EVENTS THUMB IMAGE */
+        .thumbEventContainer {
+            height: 320px;
+            width: '100%';
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbEventImage {
+            max-height: 150px;
+            min-height: 150px;
+        }
+
+        .thumbEventTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 20px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbEventDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 17px;
+            color: #717171;
+        }
+
+
+
+    /* EVENTS THUMB IMAGE */
+
+    /* EVENTS STYLE */
+
+        .eventImage {
+            min-height: 320px;
+            max-height: 320px;
+            width: 100%;
+        }
+
+        .eventTitle {
+            font-family: 'Poppins Bold';
+            color: black;
+            font-size: 17px;
+            margin: 20px 0px 20px 0px
+        }
+
+        .eventDate {
+            color: #0099CC;
+            font-family: 'Poppins SemiBold';
+            font-size: 14px;
+            margin: 20px 0px 20px 0px
+        }
+
+        .eventLocation {
+            color: #666666;
+            font-size: 14px;
+            font-family: 'Poppins Light Italic';
+            margin: 20px 0px 20px 0px
+        }
+
+        .eventDesc {
+            font-family: 'Poppins Light';
+            font-size: 12px;
+            color: black;
+            margin: 20px 0px 20px 0px
+        }
+
+
+
+    /* EVENTS STYLE */
+
+
+    /* SEARCH BOX */
+        .no-border-input {
+            margin-top : 18px;
+            border-radius: 0;
+            border-right: 0;
+            border-top: 0;
+            border-left:0 ;
+            border-bottom: 2 solid gray;
+            background:transparent;
+        }
+
+
+        .no-border-input:focus {
+            margin-top : 18px;
+            border-radius: 0;
+            border-right: 0;
+            border-top: 0;
+            border-left:0 ;
+            border-bottom: 2 solid gray;
+            background:transparent;
+        }
+
+        .button-search {
+            margin-top: 14px;
+            padding : 12px;
+            background-color: #0099CC;
+            color: white;
+            border-radius: 0;
+            border : 0;
+            width: 200px;
+            font-family: 'Poppins SemiBold';
+        }
+    /* SEARCH BOX */
+
+    .button-search:hover {
+        margin-top: 14px;
+        border : 1px solid #0099CC;
+        padding-left: 20;
+        padding-right: 20;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        width: 200px;
+        font-family: 'Poppins SemiBold';
+    }
+
+    .buttonBlue {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+    }
+
+    .buttonBlue:hover {
+        padding : 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        width: 150px;
+        border : 1px solid #0099CC;
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .separator::before, .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 5px solid #DEDEDE;
+    }
+    .separator::before {
+        margin-right: .25em;
+    }
+    .separator::after {
+        margin-left: .25em;
+    }
+
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */

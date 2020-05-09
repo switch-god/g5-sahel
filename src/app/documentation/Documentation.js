@@ -56,15 +56,13 @@ export default class Documentation extends Component {
         super(props);
 
         this.state = {
-            showMode : 'LIST',
             pathName : '',
         };
     }
 
     render() {
-        
-        const { showMode } = this.state;
         let { pathname } = window.location;
+
         return (
             <>
                <Layout>
@@ -148,45 +146,6 @@ export default class Documentation extends Component {
 
             </>
         )
-    }
-
-    renderShowMode = () => {
-       
-        return (
-            <Col xl={12} style={{marginBottom : '20px'}}>
-                <Row className="alignBlocShow">   
-                    <p className="showModeText">OPTIONS D'AFFICHAGE</p>
-
-                    {
-                        this.state.showMode === 'LIST'
-                        ?
-                            (
-                                <>
-                                <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'LIST' })}>
-                                    <IoIosList size={'30px'} /> Liste
-                                </Button>
-                            
-                                <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'GRID' })}>
-                                    <IoMdGrid size={'30px'} /> Grid
-                                </Button>
-                                </>
-                            )
-                        :
-                            (
-                                <>
-                                <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'LIST' })}>
-                                    <IoIosList size={'30px'} /> Liste
-                                </Button>
-                            
-                                <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'GRID' })}>
-                                    <IoMdGrid size={'30px'} /> Grid
-                                </Button>
-                                </>
-                            )
-                    }
-                </Row>
-            </Col>
-        );
     }
 
     renderDocumentsListMode = (pubs,title) => {

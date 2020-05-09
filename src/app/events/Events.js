@@ -5,6 +5,7 @@ import {
     Row,
     Image,
     Button,
+    Container,
 } from 'react-bootstrap';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
@@ -60,12 +61,12 @@ class Events extends Component {
             ?
               <LottieLoader />
             :
-            <>
+            <Container fluid>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>LES ÉVÈNEMENTS À VENIR</h1>
                 </div>
 
-                <Layout columns={7}>
+                <Layout columns={8}>
                     {this.renderSearchContainer()}
                 </Layout>
 
@@ -92,7 +93,7 @@ class Events extends Component {
                 </Layout>
 
 
-            </>
+            </Container>
         )
     }
 
@@ -103,35 +104,34 @@ class Events extends Component {
             <div>
                 <Row style={{padding : 30+"px",backgroundColor : '#F6F6F6'}}>
                     
-                    <Col md="4">
+                    <Col xs={12} xl={3} className="spaceSearch">
                         <h6 style={styles.searchTitle}>ÉVÈNEMENTS À PARTIR DE</h6>
-                        {/* <input type="text" className="form-control no-border" placeholder="22-03-2020" /> */}
-                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <Grid container justify="space-around">
-                                <KeyboardDatePicker
-                                disableToolbar
-                                variant="inline"
-                                format="MM/dd/yyyy"
-                                margin="normal"
-                                id="date-picker-inline"
-                                value={this.state.selectedDate}
-                                onChange={this.handleDateChange}
-                                KeyboardButtonProps={{
-                                    'aria-label': 'change date',
-                                }}
-                                />
-                            </Grid>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <Grid container justify={window.innerWidth > 768 ? "space-around" : false} >
+                                    <KeyboardDatePicker
+                                    disableToolbar
+                                    variant="inline"
+                                    format="MM/dd/yyyy"
+                                    margin="normal"
+                                    id="date-picker-inline"
+                                    value={this.state.selectedDate}
+                                    onChange={this.handleDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                    }}
+                                    />
+                                </Grid>
                             </MuiPickersUtilsProvider>
                     </Col>
                     
-                    <Col md="4">
+                    <Col xs={12} xl={3} className="spaceSearch">
                         <h6 style={styles.searchTitle}>RECHERCHE</h6>
                         <input type="text" className="form-control no-border-input" placeholder="Titre événement..." value={this.state.evenTitle} onChange={evenTitle => this.searchByTitle(evenTitle)}  />
                     </Col>
 
                     <Col />
                     
-                    <Col className="align-self-center">
+                    <Col xs={12} xl={3} className="align-self-center spaceSearch">
                         <Button className="button-search">
                             Rechercher
                         </Button>

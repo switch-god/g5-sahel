@@ -47,7 +47,7 @@ class AutresDocuments extends Component {
         const { loading,showMode,showPagination } = this.state;
         const { publications,pageTitle } = this.props;
         
-        if(window.innerWidth > 800) {
+        if(window.innerWidth > 768) {
             return (
                 <>
                     { 

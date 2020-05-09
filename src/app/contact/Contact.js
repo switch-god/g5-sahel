@@ -4,6 +4,7 @@ import {
     Col,
     Row,
     Image,
+    Container,
 } from 'react-bootstrap';
 
 import Layout from '../../components/Layout';
@@ -17,11 +18,11 @@ import ContactForm from '../../components/ContactForm';
 export default class Contact extends Component {
     render() {
         return (
-            <>
+            <Container fluid>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
                     <h1 style={{fontFamily : 'Poppins SemiBold'}}>Contact G5 Sahel</h1>
                 </div>   
-
+                
                 <Layout>
                     {this.renderContactInfos()}   
 
@@ -45,7 +46,7 @@ export default class Contact extends Component {
                     </div>
                 </Layout>
                 
-            </>
+            </Container>
         );
     }
 
@@ -123,18 +124,25 @@ export default class Contact extends Component {
     renderContactForm = () => {
 
         return (
-           <div style={{padding: 100+"px", backgroundColor : '#F9F9F9'}}>
+           <div style={{padding: window.innerWidth > 768 ? "100px" : "50px", backgroundColor : '#F9F9F9'}}>
                <ContactForm menuEnabled={false} />
            </div>
         );
     };
 
     renderMap = () => {
-
         return (
             <>
-            <div style={{marginTop : 60+"px", marginBottom : 60+"px"}} className="separator"> <h2 style={styles.mapTitle}> MAP </h2> </div>
-            <Image src={MAP_IMG} fluid />
+                <div style={{marginTop : window.innerWidth > 768 ? "60px" : "0px", marginBottom : window.innerWidth > 768 ? "60px" : "0px"}} className="separator"> 
+                    <h2 style={styles.mapTitle}> MAP </h2> 
+                </div>
+                <div className="centerMap">   
+                    <div className="mapouter">
+                        <div className="gmap_canvas">
+                            <iframe width={ window.innerWidth > 768 ? '100%' : '90%' } height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Route%20des%20Ambassades%20%E2%80%93%20Nouakchott%20-%20Mauritanie&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </div>
+                    </div>
+                </div>
             </>
         );
     }

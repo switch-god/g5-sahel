@@ -5,20 +5,14 @@ import { Document, Page } from "react-pdf/dist/entry.webpack";
 import {
     Col,
     Row,
-    Jumbotron,
-    Nav,
-    Button,
-    Image,
 } from 'react-bootstrap';
 
-// import {
-//     Link,
-// } from "react-router-dom";
 
 import LottieLoader from '../../../components/LottieLoader';
 import ORGANIGRAMME from '../../../assets/pdf/organigramme.pdf';
 
 export default class Organigramme extends Component {
+    
     constructor(props) {
         super(props);
         
@@ -31,7 +25,7 @@ export default class Organigramme extends Component {
 
     componentDidMount() {
         setTimeout(() => {
-             this.setState({loading : false})
+             this.setState({ loading : false })
          },2500);
     };
 
@@ -53,14 +47,10 @@ export default class Organigramme extends Component {
                         loading={null}
                         // onLoadSuccess={this.onDocumentLoadSuccess}
                     >
-                        <Page pageNumber={pageNumber} width={window.innerWidth > 800 ? 800 : 300} loading={null} />
+                        <Page pageNumber={pageNumber} width={window.innerWidth > 768 ? 800 : 300} loading={null} />
                     </Document>
                 </Row>
             </Col>
         )
     }
-
-    // onDocumentLoadSuccess = ({ numPages }) => {
-    //     this.setState({ numPages });
-    // };
 }

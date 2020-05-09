@@ -1,76 +1,7 @@
 
-.no-border-input-recrutement {
-    border-radius: 0;
-    border-right: 0;
-    border-top: 0;
-    border-left:0 ;
-    border-bottom: 2 solid gray;
-    background:transparent;
-}
 
-
-.no-border-input-recrutement:focus {
-    border-radius: 0;
-    border-right: 0;
-    border-top: 0;
-    border-left:0 ;
-    border-bottom: 2 solid gray;
-    background:transparent;
-}
-
-.header-justify-elements {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.justify-elements {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.sortRow {
-    display: inline-block;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.bg-overlay {
-    margin-top: -50px;
-    background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    color: #fff;
-    height: 450px;
-    padding-top: 50px;
-}
-
-.button {
-    padding : 12px;
-    background-color: #0099CC;
-    color: white;
-    border-radius: 0;
-    border : 0;
-    width: 200px;
-    font-family: 'Poppins SemiBold';
-}
-
-.button:hover {
-    border : 1px solid #0099CC;
-    padding-left: 20;
-    padding-right: 20;
-    background-color: white;
-    color: #0099CC;
-    border-radius: 0;
-    width: 200px;
-    font-family: 'Poppins SemiBold';
-}
-
-
-@media (max-width: 767px) { 
-   
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
     .boxTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
@@ -87,14 +18,15 @@
         border: 0;
         font-family: 'Poppins Light';
     }
-    
+
     .box {
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
         height: 350px;
+        padding: 50px;
     }
-    
+
     .box:hover {
         background-color: white;
         border: 0;
@@ -105,7 +37,7 @@
     .box:hover .boxTitle{
         color: #0099CC;
     }
-    
+
     .box:hover .boxButton {
         background-color: transparent;
         color: #0099CC;
@@ -126,9 +58,90 @@
         color: black;
         font-family: 'Poppins Light';
     }
+
+
+    .no-border-input-recrutement {
+        border-radius: 0;
+        border-right: 0;
+        border-top: 0;
+        border-left:0 ;
+        border-bottom: 2 solid gray;
+        background:transparent;
+        margin-left: auto;
+    }
+
+
+    .no-border-input-recrutement:focus {
+        border-radius: 0;
+        border-right: 0;
+        border-top: 0;
+        border-left:0 ;
+        border-bottom: 2 solid gray;
+        background:transparent;
+    }
+
+    .header-justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .sortRow {
+        display: inline-block;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .bg-overlay {
+        margin-top: -50px;
+        background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        color: #fff;
+        height: 450px;
+        padding-top: 50px;
+    }
+
+    .button {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        font-family: 'Poppins SemiBold';
+    }
+
+    .button:hover {
+        border : 1px solid #0099CC;
+        padding-left: 20;
+        padding-right: 20;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        width: 200px;
+        font-family: 'Poppins SemiBold';
+    }
 }
 
-@media (min-width: 768px) { 
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
 
     .boxTitle {
         color: #666666;
@@ -187,7 +200,78 @@
         font-family: 'Poppins Light';
     }
 
+
+    .no-border-input-recrutement {
+        border-radius: 0;
+        border-right: 0;
+        border-top: 0;
+        border-left:0 ;
+        border-bottom: 2 solid gray;
+        background:transparent;
+    }
+
+
+    .no-border-input-recrutement:focus {
+        border-radius: 0;
+        border-right: 0;
+        border-top: 0;
+        border-left:0 ;
+        border-bottom: 2 solid gray;
+        background:transparent;
+    }
+
+    .header-justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .sortRow {
+        display: inline-block;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .bg-overlay {
+        margin-top: -50px;
+        background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        color: #fff;
+        height: 450px;
+        padding-top: 50px;
+    }
+
+    .button {
+        padding : 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        font-family: 'Poppins SemiBold';
+    }
+
+    .button:hover {
+        border : 1px solid #0099CC;
+        padding-left: 20;
+        padding-right: 20;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        width: 200px;
+        font-family: 'Poppins SemiBold';
+    }
+
 }
+
 
 
 

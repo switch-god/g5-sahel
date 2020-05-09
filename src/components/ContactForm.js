@@ -38,82 +38,158 @@ export default class ContactForm extends Component {
                 </Row>
             }
 
-            <Form>
-                <Form.Row>
-                    <Form.Group as={Col} controlId="formGridEmail"> 
-                        <Form.Control className="formInput" type="text" placeholder="First name" value={this.state.firstName} onChange={firstName => this.setState({firstName: firstName.target.value})} />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridPassword">
-                        <Form.Control className="formInput" type="text" placeholder="Last name" value={this.state.lastName} onChange={lastName => this.setState({lastName: lastName.target.value})} />
-                    </Form.Group>
-                </Form.Row>
-
-                <Form.Row>
-                    <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Control className="formInput" type="email" placeholder="Email address" value={this.state.email} onChange={email => this.setState({email: email.target.value})}/>
-                    </Form.Group>
-                </Form.Row>
-                
-                <Form.Row>
-                    {/* <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Control className="formInput" type="email" placeholder="Sujet" value={this.state.sujet} onChange={sujet => this.setState({sujet: sujet.target.value})} />
-                    </Form.Group> */}
-
-                    <Form.Group as={Col}>
-                        <Form.Control 
-                            className="formInput" 
-                            as="select"
-                            value={this.state.sujet} 
-                            onChange={sujet => this.setState({sujet: sujet.target.value})} 
-                        >
-                            <option>Sujet...</option>
-                            <option>Renseignement</option>
-                            <option>Partenariat</option>
-                            <option>Presse</option>
-                            <option>Publicité</option>
-                            <option>Proposition de service</option>
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group as={Col}>
-                        <Form.Control 
-                            className="formInput" 
-                            as="select"
-                            value={this.state.pays} 
-                            onChange={pays => this.setState({pays: pays.target.value})} 
-                        >
-                            <option>Pays...</option>
-                            <option>Burkina faso</option>
-                            <option>Mali</option>
-                            <option>Mauritanie</option>
-                            <option>Niger</option>
-                            <option>Tchad</option>
-                        </Form.Control>
-                    </Form.Group>
-
-                </Form.Row>
-
-                <Form.Row>
-                    <Form.Group as={Col}>
-                        <Form.Control className="formInput" as="textarea" rows="3" placeholder="Message" value={this.state.message} onChange={message => this.setState({message: message.target.value})} />
-                    </Form.Group>
-                </Form.Row>
-
-                <Form.Row>
-                    <Form.Group as={Col}></Form.Group>
-                    <Button className="buttonContactForm" onClick={() => this.sendForm()}>
-                        { loading ? <Spinner  as="span" animation="grow" size="sm" role="status" aria-hidden="true" />  : "Envoyer" }
-                    </Button>
-                    <Form.Group style={{backgroudColor : 'red'}} as={Col}></Form.Group>
-                
-                    {/* <Form.Group as={Col}></Form.Group> */}
-                </Form.Row>
-            </Form>
+            {
+                window.innerWidth > 768 
+                ?
+                    this.renderDesktopForm(loading)
+                :
+                    this.renderMobileForm(loading)
+            }
             
             </>
         );
     }
+
+    renderDesktopForm = (loading) => (
+        <Form>
+            <Form.Row>
+                <Form.Group as={Col} controlId="formGridEmail"> 
+                    <Form.Control className="formInput" type="text" placeholder="First name" value={this.state.firstName} onChange={firstName => this.setState({firstName: firstName.target.value})} />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Control className="formInput" type="text" placeholder="Last name" value={this.state.lastName} onChange={lastName => this.setState({lastName: lastName.target.value})} />
+                </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Control className="formInput" type="email" placeholder="Email address" value={this.state.email} onChange={email => this.setState({email: email.target.value})}/>
+                </Form.Group>
+            </Form.Row>
+            
+            <Form.Row>
+                <Form.Group as={Col}>
+                    <Form.Control 
+                        className="formInput" 
+                        as="select"
+                        value={this.state.sujet} 
+                        onChange={sujet => this.setState({sujet: sujet.target.value})} 
+                    >
+                        <option>Sujet...</option>
+                        <option>Renseignement</option>
+                        <option>Partenariat</option>
+                        <option>Presse</option>
+                        <option>Publicité</option>
+                        <option>Proposition de service</option>
+                    </Form.Control>
+                </Form.Group>
+
+                <Form.Group as={Col}>
+                    <Form.Control 
+                        className="formInput" 
+                        as="select"
+                        value={this.state.pays} 
+                        onChange={pays => this.setState({pays: pays.target.value})} 
+                    >
+                        <option>Pays...</option>
+                        <option>Burkina faso</option>
+                        <option>Mali</option>
+                        <option>Mauritanie</option>
+                        <option>Niger</option>
+                        <option>Tchad</option>
+                    </Form.Control>
+                </Form.Group>
+
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col}>
+                    <Form.Control className="formInput" as="textarea" rows="3" placeholder="Message" value={this.state.message} onChange={message => this.setState({message: message.target.value})} />
+                </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col}></Form.Group>
+                <Button className="buttonContactForm" onClick={() => this.sendForm()}>
+                    { loading ? <Spinner  as="span" animation="grow" size="sm" role="status" aria-hidden="true" />  : "Envoyer" }
+                </Button>
+             
+            </Form.Row>
+        </Form>
+    );
+
+    renderMobileForm = (loading) => (
+        <Form>
+            <Form.Row>
+                <Form.Group as={Col} controlId="formGridEmail"> 
+                    <Form.Control className="formInput" type="text" placeholder="First name" value={this.state.firstName} onChange={firstName => this.setState({firstName: firstName.target.value})} />
+                </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Control className="formInput" type="text" placeholder="Last name" value={this.state.lastName} onChange={lastName => this.setState({lastName: lastName.target.value})} />
+                </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Control className="formInput" type="email" placeholder="Email address" value={this.state.email} onChange={email => this.setState({email: email.target.value})}/>
+                </Form.Group>
+            </Form.Row>
+            
+            <Form.Row>
+                <Form.Group as={Col}>
+                    <Form.Control 
+                        className="formInput" 
+                        as="select"
+                        value={this.state.sujet} 
+                        onChange={sujet => this.setState({sujet: sujet.target.value})} 
+                    >
+                        <option>Sujet...</option>
+                        <option>Renseignement</option>
+                        <option>Partenariat</option>
+                        <option>Presse</option>
+                        <option>Publicité</option>
+                        <option>Proposition de service</option>
+                    </Form.Control>
+                </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col}>
+                    <Form.Control 
+                        className="formInput" 
+                        as="select"
+                        value={this.state.pays} 
+                        onChange={pays => this.setState({pays: pays.target.value})} 
+                    >
+                        <option>Pays...</option>
+                        <option>Burkina faso</option>
+                        <option>Mali</option>
+                        <option>Mauritanie</option>
+                        <option>Niger</option>
+                        <option>Tchad</option>
+                    </Form.Control>
+                </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col}>
+                    <Form.Control className="formInput" as="textarea" rows="3" placeholder="Message" value={this.state.message} onChange={message => this.setState({message: message.target.value})} />
+                </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col}></Form.Group>
+                <Button className="buttonContactForm" onClick={() => this.sendForm()}>
+                    { loading ? <Spinner  as="span" animation="grow" size="sm" role="status" aria-hidden="true" />  : "Envoyer" }
+                </Button>
+                <Form.Group></Form.Group>
+            </Form.Row>
+        </Form>
+    );
 
     sendForm = () => {
 

@@ -183,7 +183,7 @@ class Header extends Component {
     renderMobileMenuElements = () => (
        <>
             <div style={{textAlign : 'center'}}>
-                <Link style={styles.TopBarLinks} to="#"> Appel d'offre </Link>
+                <Link style={styles.TopBarLinks} to="/appel-offre/cat-1"> Appel d'offre </Link>
                 <Link style={styles.TopBarLinks} to="/recrutement"> Recrutement </Link>
                 <Link style={styles.TopBarLinks} to="/contact-g5"> Contact </Link>
             </div>

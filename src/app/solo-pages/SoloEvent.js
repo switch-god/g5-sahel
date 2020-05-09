@@ -4,6 +4,7 @@ import {
     Col,
     Row,
     Image,
+    Container,
 } from 'react-bootstrap';
 import axios from 'axios';
 import moment from 'moment';
@@ -16,6 +17,7 @@ import { config } from '../../constants/AppConfig';
 
 // Styling and Images :
 import './SoloPage.css';
+
 import THUMB from '../../assets/images/Thumbs/content-placeholder.jpg';    
 
 export default class SoloEvent extends Component {
@@ -41,7 +43,7 @@ export default class SoloEvent extends Component {
         console.log(publication)
         if(publication[0]) {
             return (
-                <>
+                <Container fluid>
                 <Layout style={{textAlign: 'center',marginBottom: '50px'}}>
                     <p className="soloTitle">Évenements</p>
                     <p className="articleTitle" dangerouslySetInnerHTML={{__html: publication[0].title}}></p>
@@ -92,7 +94,7 @@ export default class SoloEvent extends Component {
                         <Newsletter />
                     </Layout>
                 </div>
-                </>
+                </Container>
             );
         } else {
             return <LottieLoader />
