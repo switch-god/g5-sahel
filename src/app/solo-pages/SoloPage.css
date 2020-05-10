@@ -252,12 +252,12 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) { 
     .sectionTitle {
-        font-size: 20px;
+        font-size: 30px;
     }
     /* THUMB */
         /* SMALL */
         .thumbSoloSmallContainer {
-            height: 400px;
+            height: 600px;
             width: 100%;
             border: 1px solid #666666;
             display: flex;
@@ -267,20 +267,20 @@
         }
 
         .thumbSoloSmallImage {
-            max-height: 250px;
-            min-height: 250px;
+            max-height: 400px;
+            min-height: 400px;
         }
 
         .thumbSoloSmallTitle {
             font-family: 'Poppins SemiBold';
-            font-size: 20px;
+            font-size: 30px;
             color: #717171;
             margin-top: 7px;
         }
 
         .thumbSoloSmallDesc {
             font-family: 'Poppins SemiBold';
-            font-size: 15px;
+            font-size: 25px;
             color: #717171;
         }
 
@@ -319,7 +319,7 @@
 
     /* TITLE OF THE SOLO */
         .soloTitle {
-            font-size: 25px;
+            font-size: 30px;
             font-family: 'Poppins SemiBold';
             color: #313131;
         }
@@ -327,47 +327,49 @@
 
     /* SOLO ARTICLE CLASSES */
         .articleTitle {
-            font-size: 20px;
+            font-size: 30px;
             font-family: 'Poppins SemiBold';
             color: #313131;
         }
 
         .articleImage {
-            max-height: 400px;
-            min-height: 400px;
+            max-height: 600px;
+            min-height: 600px;
             text-align: center;
         }
 
         .articleDate {
             color: #0099CC;
-            font-size: 'Poppins SemiBold';
+            font-family: 'Poppins SemiBold';
+            font-size: 25px;
         }
     /* SOLO ARTICLE CLASSES */
 
     /* WORDPRESS CONTENT */
         .wordpressData {
             color: #545454;
-            font-size: 15px;
+            font-size: 25px;
             font-family: 'Poppins Light';
         }
     /* WORDPRESS CONTENT */
 
     /* LATEST NEWS */
         .newsImage {
-            max-height: 300px;
-            min-height: 400px;
+            max-height: 600px;
+            min-height: 600px;
             width: 100%;
         }
 
         .newsCategory {
             color: #0099CC;
-            font-size: 15px;
+            font-size: 30px;
             font-family: 'Poppins SemiBold';
         }
 
         .newsTitle {
             font-family: 'Poppins SemiBold';
             color: black;
+            font-size: 25px;
         }
     /* LATEST NEWS */
 }

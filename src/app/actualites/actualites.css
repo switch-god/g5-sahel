@@ -59,6 +59,12 @@
     /* THUMBS */
 
      /* SOCIAL LINKS */
+
+     .socialIcon {
+        height: 30px;
+        width: 30px;
+    }
+
      .socialLinka h4 {
         font-size: 20px;
         font-family: 'Poppins Bold';
@@ -269,6 +275,11 @@
     /* THUMBS */
 
      /* SOCIAL LINKS */
+     .socialIcon {
+        height: 40px;
+        width: 40px;
+    }
+
      .socialLinka h4 {
         font-size: 25px;
         font-family: 'Poppins Bold';
@@ -382,6 +393,28 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) { 
+
+    .voirToutButtonRow {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 1px;
+    }
+
+    .infraVoirToutButton {
+        background-color: white;
+        color: #666666;
+        border: 1px solid #666666;
+        font-family: 'Poppins Light';
+        font-size: 20px;
+    }
+    .infraVoirToutButton:hover {
+        background-color: #666666;
+        color: white;
+        border: 1px solid white;
+    }
+
     .midArticlesBloc {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -397,14 +430,15 @@
         margin-top: 10px;
         margin-bottom: 5px;
         font-family: 'Poppins Bold';
-        font-size: 20px;
+        font-size: 30px;
         color: black;
     }
 
     .midDate {
         color: #0099CC;
-        font-size: 15px;
+        font-size: 20px;
         margin-bottom: 20px;
+        font-family: 'Poppins SemiBold';
     }
 
     /* THUMBS */
@@ -412,7 +446,7 @@
         /* SMALL */
         .thumbActuSmallContainer {
             height: 600px;
-            min-width: 700px;
+            min-width: 999px;
             width: 100%;
             border: 1px solid #666666;
             display: flex;
@@ -422,8 +456,8 @@
         }
 
         .thumbActuSmallImage {
-            max-height: 300px;
-            min-height: 300px;
+            max-height: 400px;
+            min-height: 400px;
         }
 
         .thumbActuSmallTitle {
@@ -458,22 +492,27 @@
 
         .thumbActuMidTitle {
             font-family: 'Poppins SemiBold';
-            font-size: 20px;
+            font-size: 30px;
             color: #717171;
             margin-top: 7px;
         }
 
         .thumbActuMidDesc {
             font-family: 'Poppins SemiBold';
-            font-size: 15px;
+            font-size: 25px;
             color: #717171;
         }
         /* MID */
     /* THUMBS */
 
      /* SOCIAL LINKS */
+    .socialIcon {
+        height: 50px;
+        width: 50px;
+    }
+
      .socialLinka h4 {
-        font-size: 25px;
+        font-size: 30px;
         font-family: 'Poppins Bold';
         color: black;
      }
@@ -484,6 +523,7 @@
          margin-right: 1px;
      }
      .sectionTitleContainerActualites {
+         margin-top: 30px;
          padding-top: 15px;
          padding-bottom: 15px; 
          padding-left: 30px;
@@ -496,7 +536,7 @@
      .sectionTitleActualites {
          color: white;
          font-family: 'Poppins Bold';
-         font-size: 20px;
+         font-size: 30px;
          text-align: 'center';
      }
 
@@ -534,13 +574,13 @@
 
     .titleCeMois {
         font-family: 'Poppins Bold';
-        font-size: 20px;
+        font-size: 30px;
         color: black;
     }
 
     .dateCeMois {
         font-family: 'Poppins SemiBold';
-        font-size: 15px;
+        font-size: 20px;
         color: #0099CC;
     }
 
@@ -569,13 +609,13 @@
     }
 
     .actualitesG5BigTitle {
-        font-size: 20px;
+        font-size: 30px;
         font-family: 'Poppins Bold';
         color: white;
     }
 
     .actualitesG5BigDate {
-        font-size: 15px;
+        font-size: 17px;
         font-family: 'Poppins Bold';
         color: white;
     }
@@ -713,6 +753,12 @@
 
 
     /* SOCIAL LINKS */
+
+    .socialIcon {
+        height: 30px;
+        width: 30px;
+    }
+
     .socialLinka h4 {
         font-size: 18px;
         font-family: 'Poppins Bold';

@@ -24,6 +24,8 @@ import Newsletter from '../../components/Newsletter';
 import LottieLoader from '../../components/LottieLoader';
 import ThumbDoc from '../../components/ThumbDoc';
 
+import './Home.css';
+
 class Home extends Component {
 
     constructor(props) {
@@ -565,11 +567,11 @@ class Home extends Component {
                             {
                                 activity.title.rendered.length < 60
                                 ?
-                                <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
+                                <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
                                 :
-                                <p style={styles.activityTitle} className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,57)+"..."}}></p>
+                                <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,57)+"..."}}></p>
                             }
-                            <p style={styles.activityDesc} className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
+                            <p  className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
                             </Link>
                         </Col>
                         </>

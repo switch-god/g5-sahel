@@ -98,6 +98,11 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+
+  .inline-ipad {
+    margin-right: 75px;
+  }
+
   .menuWeb {
     display: inline;
   }
@@ -118,6 +123,12 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+
+  .inline-ipad {
+    margin-top: 10px;
+    margin-right: -60px;
+  }
+
   .menuWeb {
     display: inline;
   }

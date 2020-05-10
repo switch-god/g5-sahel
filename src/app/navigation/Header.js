@@ -44,7 +44,7 @@ class Header extends Component {
                     <Col />
                     <Col />
                     <Col />
-                    <Col style={{marginRight : 50+"px"}} className="menuWeb" >
+                    <Col lg={4} className="menuWeb inline-ipad" >
                         <Link style={styles.TopBarLinks} to="/appel-offre/cat-1"> Appel d'offre </Link>
                         <Link style={styles.TopBarLinks} to="/recrutement"> Recrutement </Link>
                         <Link style={styles.TopBarLinks} to="/contact-g5"> Contact </Link>

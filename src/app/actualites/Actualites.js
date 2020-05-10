@@ -94,8 +94,11 @@ class Actualites extends Component {
                         actualitesInter.length > 0 &&
                         this.renderactualites(actualitesInter,"Actualités Internationale")
                     }
-                   
-                    {this.renderAgenda(events,"Agenda")}
+
+                    {
+                        events.length > 0 &&
+                        this.renderAgenda(events,"Agenda")
+                    }
                 </Container>
 
                 <Layout style={{marginBottom : 40+"px"}}>
@@ -112,12 +115,12 @@ class Actualites extends Component {
    
         return (
             <Row>
-                <Col xs={0} xl={1} />
+                <Col xs={0} lg={1} xl={1} />
 
-                <Col xs={12} xl={10}>
+                <Col xs={12} lg={12} xl={10}>
                     
                     <Row>
-                        <Col xs={12} xl={8} className="bigBlocContainer">
+                        <Col xs={12} lg={12} xl={8} className="bigBlocContainer">
                             <Link to={{
                                     pathname : `/article/${actualitesG5[0].slug}`,
                                 }}  
@@ -145,10 +148,10 @@ class Actualites extends Component {
                             </Link>
                         </Col>
                         
-                        <Col xs={12} xl={4}>
+                        <Col xs={12} lg={12} xl={4}>
                             
                         {/* TITLE */}
-                        <Col xs={12} xl={12}>
+                        <Col xs={12} lg={12} xl={12}>
                             <Row>
                                 <div className="sectionTitleContainerActualites">
                                     <h4 className="sectionTitleActualites">Social Networks</h4>
@@ -159,24 +162,24 @@ class Actualites extends Component {
                         {/* ./TITLE */}
                         
                         
-                        <Col xs={12} xl={12}>
+                        <Col xs={12} lg={12} xl={12}>
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a style={{textDecoration: 'none'}} href="https://www.facebook.com"  className="socialLinka"><h4><FaFacebookF size={26+"px"} color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://www.facebook.com"  className="socialLinka"><h4><FaFacebookF className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
                                 </Col>
 
                                 <Col xs={6} xl={6}>
-                                    <a style={{textDecoration: 'none'}} href="https://twitter.com/"  className="socialLinka"><h4><FaTwitter size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://twitter.com/"  className="socialLinka"><h4><FaTwitter  className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
                                 </Col>
                             </Row>
                             
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a  style={{textDecoration: 'none'}} href="https://www.youtube.com" className="socialLinka"><h4><FaYoutube size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
+                                    <a  style={{textDecoration: 'none'}} href="https://www.youtube.com" className="socialLinka"><h4><FaYoutube className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
                                 </Col>
                                 
                                 <Col xs={6} xl={6}>
-                                    <a style={{textDecoration: 'none'}} href="https://www.linkedin.com"  className="socialLinka"><h4><FaLinkedinIn size={30+"px"} color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://www.linkedin.com"  className="socialLinka"><h4><FaLinkedinIn className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
                                 </Col>
                             </Row>
                         </Col>
@@ -193,7 +196,7 @@ class Actualites extends Component {
                         {/* ./TITLE */}
                         </Col>
                         
-                        <Col xs={12} md={12} xl={12}>
+                        <Col xs={12} md={12} lg={12} xl={12}>
                         <Row className="articlesRow">
                         {/* LATEST 3 NEWS */}   
                 
@@ -246,7 +249,7 @@ class Actualites extends Component {
                     </Row>
                 </Col>
         
-                <Col xs={0} xl={1} />
+                <Col xs={0} lg={1} xl={1} />
             </Row>  
         );
     };
@@ -255,9 +258,6 @@ class Actualites extends Component {
         
         return (
             <Layout style={{marginTop : 40+"px", marginBottom : 40+"px"}}>
-                
-                {/* <h4  style={styles.Title} >COMMUNIQUÉS DE PRESSE</h4>
-                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />   */}
                 
                 {/* TITLE */}
                 <Row className="sectionTitleRowActualites">

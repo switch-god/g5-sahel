@@ -107,7 +107,7 @@ class Events extends Component {
                     <Col xs={12} xl={3} className="spaceSearch">
                         <h6 style={styles.searchTitle}>ÉVÈNEMENTS À PARTIR DE</h6>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <Grid container justify={window.innerWidth > 1000 ? "space-around" : false} >
+                                <Grid container justify={window.innerWidth > 1199 ? "space-around" : false} >
                                     <KeyboardDatePicker
                                     disableToolbar
                                     variant="inline"

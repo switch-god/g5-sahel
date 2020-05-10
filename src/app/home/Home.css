@@ -519,11 +519,13 @@
         .actualitesG5BigTitle {
             font-family: 'Poppins Bold';
             font-size: 20px;
+            color: white;
         }
 
         .actualitesG5BigDate {
             font-family: 'Poppins Light';
             padding-left: 5px;
+            color : white
         }
 
 
@@ -706,7 +708,7 @@
 
     .activityTitle {
         color: #0099CC;
-        font-size: 17px;
+        font-size: 20px;
         font-family: 'Poppins Bold';
         margin-top: 10px;
         height: 50px;
@@ -714,7 +716,7 @@
     
     .activityDesc {
         color: black;
-        font-size: 13px;
+        font-size: 12px;
         font-family: 'Poppins SemiBold';
     }
 
@@ -860,12 +862,12 @@
 
         .actualitesG5SmallTitle {
             font-family: 'Poppins Bold';
-            font-size: 20px;
+            font-size: 30px;
         }
 
         .actualitesG5SmallDate {
-            font-family: 'Poppins Light';
-            font-size: 16px;
+            font-family: 'Poppins Bold';
+            font-size: 20px;
             padding-left: 5px;
         }
 
@@ -877,12 +879,15 @@
 
         .actualitesG5BigTitle {
             font-family: 'Poppins Bold';
-            font-size: 20px;
+            font-size: 30px;
+            color: white;
         }
 
         .actualitesG5BigDate {
             font-family: 'Poppins Light';
             padding-left: 5px;
+            color: white;
+            font-size: 15px;
         }
 
 
@@ -996,18 +1001,18 @@
     }
     .articleBigTitle {
         font-family: 'Poppins Bold';
-        font-size: 20px;
+        font-size: 30px;
         color: black
     }
     .articleDate {
         font-family: 'Poppins SemiBold'; 
-        font-size: 16px;
+        font-size: 20px;
         color: #0099CC;
     }
 
     .articleContent {
         font-family: 'Poppins ExtraLight';
-        font-size: 13px;
+        font-size: 15px;
         height: 70px;
         max-height: 70px;
         border-width: 20px;
@@ -1022,19 +1027,19 @@
 
     .smallArticleTitle {
         font-family: 'Poppins Bold';
-        font-size: 15px;
+        font-size: 20px;
         color: black
     }
 
     .smallArticleContent {
         font-family: 'Poppins ExtraLight'; 
-        font-size: 12px;
+        font-size: 15px;
         color: black
     }
 
     .smallArticleDate {
         font-family : 'Poppins SemiBold';
-        font-size: 14px;
+        font-size: 15px;
         color: #0099CC;
     }
 
@@ -1235,12 +1240,14 @@
 
         .actualitesG5BigTitle {
             font-family: 'Poppins Bold';
-            font-size: 20px;
+            font-size: 30px;
+            color : white
         }
 
         .actualitesG5BigDate {
             font-family: 'Poppins Light';
             padding-left: 5px;
+            color : white
         }
 
 
