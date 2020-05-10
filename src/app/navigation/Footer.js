@@ -16,6 +16,7 @@ import {
     Grid
 } from '@material-ui/core';
 
+import './Footer.css';
 
 // Images : 
     import LOGO from '../../assets/images/Footer/Logo.png';
@@ -41,11 +42,12 @@ export default class Footer extends Component {
             <Container style={{backgroundColor : '#313131'}} fluid>
 
                 <Row>
-                    <Col />
+                    <Col md={3} lg={1} xl={1}/>
 
-                    <Col style={{textAlign : 'center'}} xs={10}>
+                    <Col md={6} lg={10} xl={10} style={{textAlign : 'center'}} xs={10}>
                         <Row style={{marginTop : 20+"px"}}>
-                            <Col>
+                            
+                            <Col md={12} lg={3} xl={3}>
                                 <Link to="/">
                                     <Image src={LOGO} width={180} style={{marginTop : 20+"px"}}  />
                                 </Link>
@@ -84,41 +86,41 @@ export default class Footer extends Component {
                                 </Grid>
                             </Col>
 
-                            <Col>
+                            <Col md={12} lg={3} xl={3}>
                                 <div style={{marginTop : 30+"px"}}>
-                                    <h2 style={styles.footerTitle}> ACCÈS RAPIDES </h2>
+                                    <h2 className="footerTitle"> ACCÈS RAPIDES </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link to="#" style={styles.link}>Conditions d’utilisation</Link>
-                                        <Link to="#" style={styles.link}>Confidentialité de l’information</Link>
-                                        <Link  to="/contact-g5" style={styles.link}>Contactez-nous</Link>
-                                        <Link to="#" style={styles.link}>Plan de site</Link>
-                                        <Link to="#" style={styles.link}>FAQ</Link>
+                                        <Link to="#" className="links">Conditions d’utilisation</Link>
+                                        <Link to="#" className="links">Confidentialité de l’information</Link>
+                                        <Link  to="/contact-g5" className="links">Contactez-nous</Link>
+                                        <Link to="#" className="links">Plan de site</Link>
+                                        <Link to="#" className="links">FAQ</Link>
                                     </Nav>
                                 </div>
                             </Col>
 
-                            <Col>
+                            <Col md={12} lg={3} xl={3}>
                                 <div style={{marginTop : 30+"px"}}>
-                                    <h2 style={styles.footerTitle}> SITEMAP </h2>
+                                    <h2 className="footerTitle"> SITEMAP </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link to="/presentation" style={styles.link}>Présentation</Link>
-                                        <Link to="/nos-activites" style={styles.link}>Nos activités</Link>
-                                        <Link to="/actualites" style={styles.link}>Actualités</Link>
-                                        <Link to="/events" style={styles.link}>Evénements</Link>
-                                        <Link to="/documentation" style={styles.link}>Documentations</Link>
+                                        <Link to="/presentation" className="links">Présentation</Link>
+                                        <Link to="/nos-activites" className="links">Nos activités</Link>
+                                        <Link to="/actualites" className="links">Actualités</Link>
+                                        <Link to="/events" className="links">Evénements</Link>
+                                        <Link to="/documentation" className="links">Documentations</Link>
                                     </Nav>
                                 </div>
                             </Col>
 
-                            <Col>
+                            <Col md={12} lg={3} xl={3}>
                                 <div style={{marginTop : 30+"px"}}>
-                                    <h2 style={styles.footerTitle}> LIENS UTILES </h2>
+                                    <h2 className="footerTitle"> LIENS UTILES </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link to="#" style={styles.link}>Programmes d’Investissements Prioritaires (PIP)</Link>
-                                        <Link to="#" style={styles.link}>Stratégie de défense et de sécurité (SDS)</Link>
+                                        <Link to="#" className="links">Programmes d’Investissements Prioritaires (PIP)</Link>
+                                        <Link to="#" className="links">Stratégie de défense et de sécurité (SDS)</Link>
                                     </Nav>
                                 </div>
                             </Col>
@@ -127,7 +129,7 @@ export default class Footer extends Component {
                         
                     </Col>
                     
-                    <Col />
+                    <Col md={3} lg={1} xl={1} />
                 </Row>
 
                 <Row>

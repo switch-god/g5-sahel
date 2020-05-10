@@ -1,0 +1,95 @@
+
+
+/* Extra small devices  */
+@media (max-width: 575.98px) { 
+    .navItemsFooter {
+        text-align : 'center';
+        /* margin-left : 30px; */
+    }
+
+    .footerTitle {
+        color: #BCBCBC;
+        font-family: 'Poppins SemiBold';
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .links {
+        color: #BCBCBC;
+        font-family: 'Poppins Medium';
+        font-size: 13px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .navItemsFooter {
+        text-align : 'left';
+        margin-left : 30px;
+    }
+
+    .footerTitle {
+        color: #BCBCBC;
+        font-family: 'Poppins SemiBold';
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .links {
+        color: #BCBCBC;
+        font-family: 'Poppins Medium';
+        font-size: 13px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+    .navItemsFooter {
+        text-align : 'left';
+        margin-left : 30px;
+    }
+
+    .footerTitle {
+        color: #BCBCBC;
+        font-family: 'Poppins SemiBold';
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .links {
+        color: #BCBCBC;
+        font-family: 'Poppins Medium';
+        font-size: 13px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+    .footerTitle {
+        color: #BCBCBC;
+        font-family: 'Poppins SemiBold';
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .links {
+        color: #BCBCBC;
+        font-family: 'Poppins Medium';
+        font-size: 13px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+}

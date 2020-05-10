@@ -86,7 +86,7 @@ class NosActivites extends Component {
                         defense_securite.length > 0 &&
                         <>
                         <Row id="defenseSecurite" style={{paddingRight : '15px'}}>
-                            <div className="sectionTitleContainer">
+                            <div className="sectionTitleContainer ">
                                 <h4 className="sectionTitle">Défense et Sécurité</h4>
                             </div>
                             <hr  className="titleSeperator" />  
@@ -118,10 +118,10 @@ class NosActivites extends Component {
                         infrastructure.length > 0 && 
                         <>
                         <Row id="infrastructure" style={{paddingRight : '15px'}}>
-                            <div className="sectionTitleContainer">
+                            <div className="sectionTitleContainer sectionTitleContainerIpad">
                                 <h4 className="sectionTitle">Infrastructure</h4>
                             </div>
-                            <hr  className="titleSeperator" />  
+                            <hr  className="titleSeperator titleSeperatorIpad" />  
                         </Row>
                         {this.renderInfra(infrastructure,"Infrastructure")}
                         </>
@@ -215,7 +215,7 @@ class NosActivites extends Component {
                     </Link>
                 </Col>
                 
-                <Col className={ window.innerWidth > 1000 ? "ml-5" : ""} xs={12} md={12} xl={5}>
+                <Col className={ window.innerWidth > 1199 ? "ml-5" : ""} xs={12} md={12} xl={5}>
 
                     <Row>
                         {
@@ -292,7 +292,7 @@ class NosActivites extends Component {
                         
                         <Row>
                             {/* <Col xs={12} xl={12}>    */}
-                                <h5 style={styles.gouvernanceTitle}>GENRE</h5>
+                                <h5 className="gouvernanceTitleBlue">GENRE</h5>
                                 <hr  className="gouvHr" style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }}/>
                             {/* </Col> */}
                         </Row>
@@ -388,7 +388,7 @@ class NosActivites extends Component {
                             
                             <Link
                                 to={{ pathname : `/voir-plus/${genre[0].categories[0].category_slug}` }}             
-                                className="btn btn-primary buttonBlue" 
+                                className="btn btn-primary buttonBlue buttonIpad" 
                                 style={{marginTop: 20+"px",marginBottom : 20+"px",fontFamily:'Poppins Light'}}
                             >
                                 VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
@@ -407,7 +407,7 @@ class NosActivites extends Component {
                         
                         <Row>
                             <Col xs={12} xl={12}>   
-                                <h5 style={styles.gouvernanceTitle}>Cellule anti redicalisation et l’extremisme violant</h5>
+                                <h5 className="gouvernanceTitleBlue">Cellule anti redicalisation et l’extremisme violant</h5>
                                 <hr  style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
                             </Col>
                         </Row>
@@ -651,7 +651,7 @@ class NosActivites extends Component {
                     }
 
                     {
-                        window.innerWidth > 767 &&
+                        window.innerWidth > 1199 &&
                         <Link
                             to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
                             className="btn btn-primary buttonBlue" 
@@ -713,7 +713,7 @@ class NosActivites extends Component {
                     </Link>
 
                     {
-                        window.innerWidth < 768 &&
+                        window.innerWidth < 1199 &&
                         <Link
                             to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
                             className="btn btn-primary buttonBlue" 
@@ -772,6 +772,7 @@ const styles = {
     gouvernanceTitle : {
         color : '#0099CC',
         fontFamily : 'Poppins Bold',
+        fontSize: '25px',
     },
 }
 
