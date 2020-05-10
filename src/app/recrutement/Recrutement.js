@@ -160,7 +160,7 @@ class Recrutement extends Component {
             <Grid
                 container
                 direction="row"
-                justify={window.innerWidth > 768 ? "space-between" : "center" }
+                justify={window.innerWidth > 767 ? "space-between" : "center" }
                 alignItems="center"
                 style={{marginTop : 30+"px", marginBottom : 30+"px"}}
             >
@@ -230,7 +230,7 @@ class Recrutement extends Component {
                         let jobYearsDiff = jobMonthsDiff > 11 ? (now.diff(jobDate, 'years')).toFixed() : null;
                         
                     return ( 
-                        <Col md={4}>
+                        <Col xs={12} md={6} xl={4}>
                             <Jumbotron  className="box justify-elements">
                                 <Row>
                                     <h5 className="boxTitle">{job.title.rendered}</h5>

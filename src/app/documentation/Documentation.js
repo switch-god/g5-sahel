@@ -161,7 +161,7 @@ export default class Documentation extends Component {
                         style={{ textDecoration: 'none' }}>
                         <Jumbotron className="documentBox">
                             <Row>
-                                <Col xs={12} xl={4}>
+                                <Col xs={12} md={4} xl={4}>
                                     <Row className="documentImageContainer">
                                         {
                                             pub.fimg_url !== false ?
@@ -179,7 +179,7 @@ export default class Documentation extends Component {
                                     </Row>
                                 </Col>
 
-                                <Col xs={12} xl={8}>
+                                <Col xs={12} md={8} xl={8}>
                                     {
                                         pub.title.rendered.length > 50
                                         ?
@@ -222,7 +222,7 @@ export default class Documentation extends Component {
 
             {
                 pubs.map(pub => 
-                    <Col xs={12} xl={4}>
+                    <Col xs={12} md={6} xl={4}>
                     <Link 
                         to={{
                             pathname : `/article/${pub.slug}`,  
@@ -230,7 +230,7 @@ export default class Documentation extends Component {
                         style={{ textDecoration: 'none' }}>
                             <Jumbotron className="documentGridBox">
                             <Row>
-                                <Col xs={6} xl={5}>
+                                <Col xs={6} md={5} xl={5}>
                                     <Row>
                                         {
                                             pub.fimg_url 
@@ -242,7 +242,7 @@ export default class Documentation extends Component {
                                     </Row>
                                 </Col>
 
-                                <Col xs={6} xl={7}>
+                                <Col xs={6} md={7}  xl={7}>
                                     {
                                         pub.title.rendered.length > 30
                                         ?

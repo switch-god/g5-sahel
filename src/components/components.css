@@ -152,6 +152,142 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
+    .mapInfosContainer {
+        text-align: 'center';
+        /* padding-left: 50px; */
+    }
+    .mapouter{
+        position:relative;
+        text-align:right;
+        height:350px;
+        width:100%;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+
+    .gmap_canvas {
+        overflow:hidden;
+        background:none!important;
+        height:350px;
+        width:90%;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: black;
+        display: flex;
+        justify-content: center;    
+    }
+
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        text-align: 'center';
+    }
+    
+    .titleSeperator {
+        border-color: black; 
+        margin-top: -5px;
+        border-width: 5px;
+        margin-bottom: 30px; 
+        width: 100%;
+    }
+
+    .newsletterDesktop {
+        display: none;
+    }
+
+    .newsletterMobile {
+        display: flex;
+    }
+
+    .formInput {
+        border-radius: 0;
+        font-family: 'Poppins Light';
+    }
+    
+    select:not([multiple]) {
+        -webkit-appearance: none;
+    }
+    
+    .buttonContactForm {
+        padding: 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    .buttonContactForm:hover {
+        padding: 12px;
+        background-color: white;
+        color: #0099CC;
+        border-radius: 0;
+        border : 0;
+        border : 1px solid #0099CC;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    .buttonContactForm:focus {
+        padding: 12px;
+        background-color: #0099CC;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 300px;
+        font-family: 'Poppins Light';
+    }
+    
+    
+    .responsiveTitleForm {
+        color : white;
+    }
+    
+    .responsiveInputForm {
+       width: 200px;
+       color: #666666;
+       margin-top: 20px;
+    }
+    
+    
+    .buttonBlack{
+        padding : 11px;
+        background-color: white;
+        color: black;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        margin-top: 20px;
+    }
+    
+    .buttonBlack:hover {
+        padding : 10px;
+        background-color: #666666;
+        color: white;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        border : 1px solid #666666;
+        margin-top: 19px;
+    }
+    
+    .buttonBlack:focus {
+        padding : 11px;
+        background-color: white;
+        color: black;
+        border-radius: 0;
+        border : 0;
+        width: 200px;
+        margin-top: 20px;
+    }
+    
     .newsletterDesktop {
         display: flex;
     }

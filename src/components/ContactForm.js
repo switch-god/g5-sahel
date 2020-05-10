@@ -39,7 +39,7 @@ export default class ContactForm extends Component {
             }
 
             {
-                window.innerWidth > 768 
+                window.innerWidth > 1000 
                 ?
                     this.renderDesktopForm(loading)
                 :
@@ -120,7 +120,7 @@ export default class ContactForm extends Component {
     );
 
     renderMobileForm = (loading) => (
-        <Form>
+        <Form className="form-tablet">
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridEmail"> 
                     <Form.Control className="formInput" type="text" placeholder="First name" value={this.state.firstName} onChange={firstName => this.setState({firstName: firstName.target.value})} />
@@ -182,7 +182,7 @@ export default class ContactForm extends Component {
             </Form.Row>
 
             <Form.Row>
-                <Form.Group as={Col}></Form.Group>
+                <Form.Group></Form.Group>
                 <Button className="buttonContactForm" onClick={() => this.sendForm()}>
                     { loading ? <Spinner  as="span" animation="grow" size="sm" role="status" aria-hidden="true" />  : "Envoyer" }
                 </Button>

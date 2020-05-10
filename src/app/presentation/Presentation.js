@@ -12,6 +12,7 @@ import {
 // Redux :
 import { connect } from 'react-redux';
 
+import Layout from '../../components/Layout';
 import Newsletter from '../../components/Newsletter';
 import ContactForm from '../../components/ContactForm';
 import LottieLoader from '../../components/LottieLoader';
@@ -48,11 +49,8 @@ class Presentation extends Component {
               <LottieLoader />
             :
             <Container fluid>
-                <Row>
-                    <Col />
-                    
-                    <Col md={10}>
-                      
+                
+                <Layout xs={12}>
                         {this.renderTitle()}
                         
                         {this.renderBloc1()}
@@ -72,10 +70,7 @@ class Presentation extends Component {
                         <Newsletter />
 
                         {this.renderFormAndMap()}
-                    </Col>
-                   
-                    <Col />
-                </Row>
+                </Layout>
             </Container>
         )
     }
@@ -93,11 +88,12 @@ class Presentation extends Component {
        
         return(
             <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>
-                <Col xs={12} xl={6}>
+                
+                <Col xs={12} md={12} xl={6}>
                     <Image src={Image1} fluid className="presentationImages" />
                 </Col>
 
-                <Col xs={12} xl={6} className="justify-elements" md={6}>
+                <Col xs={12} md={12} xl={6} className="justify-elements">
                     <div>
                         <p className="presentationDesc">
                             Il est créé le 16 Février 2014 à Nouakchott en République Islamique de Mauritanie, il s’est doté d’une Convention signée le 19 Décembre 2014 et a son siège en Mauritanie.
@@ -114,7 +110,7 @@ class Presentation extends Component {
 
                     </div>
                 </Col>
-            
+
             </Row>
         );
         }      
@@ -122,7 +118,7 @@ class Presentation extends Component {
        renderBloc2 = () => (
         <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>
 
-                <Col xs={12} xl={6} className="justify-elements">
+                <Col xs={12} md={12} xl={6} className="justify-elements">
                     <div>
                     <p className="presentationDesc">
                         Le G 5 Sahel contribue à la mise en œuvre des actions de sécurité et de développement dans les Etats membres grâce notamment : 
@@ -136,7 +132,7 @@ class Presentation extends Component {
                     </div>
                 </Col>
             
-                <Col xs={12} xl={6}>
+                <Col xs={12} md={12} xl={6}>
                     <Image src={Image2} fluid className="presentationImages" />
                 </Col>
         </Row>
@@ -145,7 +141,7 @@ class Presentation extends Component {
        renderFullWidthTextBloc = () => (
         <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>
             
-            <Col xs={12} xl={12}>
+            <Col xs={12} md={12} xl={12}>
                     <p className="presentationDesc">
                         Le Secrétariat Permanent du G5 Sahel est l’organe chargé d’exécuter les décisions du Conseil des Ministres. Il est placé sous l’autorité du Conseil des Ministres. Il s’agit d’une structure très légère, souple efficace et non budgétaire ne comprenant pas plus d’une vingtaine de personnes au total.
                     </p>
@@ -163,9 +159,9 @@ class Presentation extends Component {
 
             </Col>
 
-            <Col xs={12} xl={12} className="justify-elements">
+            <Col xs={12} md={12} xl={12} className="justify-elements">
                <Row>
-                    <Col xs={12} xl={12}>
+                    <Col xs={12} md={12} xl={12}>
                     <p className="presentationDesc">
                         Les organes du G 5 Sahel sont : 
                         <ul className="objetList">
@@ -187,7 +183,7 @@ class Presentation extends Component {
            <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>
                <Col />
                 
-                <Col md={10}>
+                <Col xs={10} md={10} xl={10}>
                     <div className="descriptionContainer" >
                         <p style={{padding : 60+"px",color : '#BCBCBC',fontFamily : 'Poppins Bold Italic'}}>
                             En effet, poussées par un véritable élan de solidarité et un désir commun de perpétuer, de renforcer, et d’amplifier les liens forts tissés par l’histoire, la géographie et la culture et devant la recrudescence de l’insécurité consécutive notamment à la prolifération des actes terroristes et du crime organisé transfrontalier, soucieux de trouver plus rapidement des solutions afin de booster le développement de la région du Sahel, cinq chefs d’États ont décidé courageusement de s’unir au sein d’une organisation ayant pour objectif principal la coordination des politiques et stratégies de Développement et de Sécurité au bénéfice de leurs populations.
@@ -203,9 +199,9 @@ class Presentation extends Component {
            <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>
                <Col />
                 
-                <Col md={8}>
+                <Col xs={12} md={12} xl={8}>
                     <Row>
-                        <Col xs={12}>
+                        <Col xs={12} md={6}>
                             <div>
                                 <h3 style={{fontFamily : 'Poppins SemiBold'}}> Le G5 Sahel a pour objet : </h3>
                                 <p style={{fontSize : 13+"px",fontFamily : 'Poppins Light'}}>
@@ -214,7 +210,7 @@ class Presentation extends Component {
                             </div>
                         </Col>
 
-                        <Col xs={12}>
+                        <Col xs={12} md={6}>
                             <div>
                                 <h3  style={{fontFamily : 'Poppins SemiBold'}}> Le G5 Sahel a pour objet : </h3>
                                 <p style={{fontSize : 13+"px",fontFamily : 'Poppins Light'}}>
@@ -231,8 +227,8 @@ class Presentation extends Component {
 
         renderListBloc = () => (
             <Row style={{marginTop : 40+"px",marginBottom : 40+"px",}}>
-                <Col xl={2} />
-                <Col xl={4}>
+                <Col  xl={2} />
+                <Col xs={12} md={6} xl={4}>
                     <div>
                         <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>le Dispositif de pilotage du G5 Sahel</h3>
                         <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>
@@ -243,7 +239,7 @@ class Presentation extends Component {
                     </div>
                 </Col>
 
-                <Col xl={4}>
+                <Col xs={12} md={6} xl={4}>
                     <div>
                         <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>Les organes d’appui</h3>
                         <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>

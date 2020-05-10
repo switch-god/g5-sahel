@@ -107,7 +107,7 @@ class Events extends Component {
                     <Col xs={12} xl={3} className="spaceSearch">
                         <h6 style={styles.searchTitle}>ÉVÈNEMENTS À PARTIR DE</h6>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <Grid container justify={window.innerWidth > 768 ? "space-around" : false} >
+                                <Grid container justify={window.innerWidth > 1000 ? "space-around" : false} >
                                     <KeyboardDatePicker
                                     disableToolbar
                                     variant="inline"
@@ -126,7 +126,7 @@ class Events extends Component {
                     
                     <Col xs={12} xl={3} className="spaceSearch">
                         <h6 style={styles.searchTitle}>RECHERCHE</h6>
-                        <input type="text" className="form-control no-border-input" placeholder="Titre événement..." value={this.state.evenTitle} onChange={evenTitle => this.searchByTitle(evenTitle)}  />
+                        <input type="text" className="form-control-events no-border-input" placeholder="Titre événement..." value={this.state.evenTitle} onChange={evenTitle => this.searchByTitle(evenTitle)}  />
                     </Col>
 
                     <Col />

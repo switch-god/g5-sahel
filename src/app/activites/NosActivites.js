@@ -85,7 +85,7 @@ class NosActivites extends Component {
                     {
                         defense_securite.length > 0 &&
                         <>
-                        <Row id="defenseSecurite" style={{paddingLeft: '15px',paddingRight : '15px'}}>
+                        <Row id="defenseSecurite" style={{paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Défense et Sécurité</h4>
                             </div>
@@ -101,7 +101,7 @@ class NosActivites extends Component {
                     {
                         genre.length > 0 && cellule.length > 0 &&
                         <>
-                        <Row id="gouvernance" style={{paddingLeft: window.innerWidth > 768 ? '15px' : '0px',paddingRight : '15px'}}>
+                        <Row id="gouvernance" style={{paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Gouvernance</h4>
                             </div>
@@ -117,7 +117,7 @@ class NosActivites extends Component {
                     {
                         infrastructure.length > 0 && 
                         <>
-                        <Row id="infrastructure" style={{paddingLeft: window.innerWidth > 768 ? '15px' : '0px',paddingRight : '15px'}}>
+                        <Row id="infrastructure" style={{paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Infrastructure</h4>
                             </div>
@@ -134,7 +134,7 @@ class NosActivites extends Component {
                     {
                         resilence.length > 0 && 
                         <> 
-                        <Row id="resilence" style={{paddingLeft: window.innerWidth > 768 ? '15px' : '0px',paddingRight : '15px'}}>
+                        <Row id="resilence" style={{paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
                                 <h4 className="sectionTitle">Résilience</h4>
                             </div>
@@ -171,7 +171,9 @@ class NosActivites extends Component {
                         {
                             defense_securite[0].fimg_url !== false 
                             ? 
-                            <Image src={defense_securite[0].fimg_url} fluid className="postImageBig" />
+                            <Row>
+                                <Image src={defense_securite[0].fimg_url} fluid className="postImageBig" />
+                            </Row>
                             : 
                             <ThumbDoc 
                                 title={solo_title} 
@@ -183,7 +185,7 @@ class NosActivites extends Component {
                             
                         }
                         
-                        <div style={{ marginTop : 20+"px" }}>
+                        <Row style={{ marginTop : 20+"px" }}>
                             {
                                 defense_securite[0].title.rendered.length > 138
                                 ?
@@ -207,13 +209,13 @@ class NosActivites extends Component {
                             >
                                 Lire la suite
                             </Link>
-                        </div>
+                        </Row>
                         </>
                     }
                     </Link>
                 </Col>
                 
-                <Col className={ window.innerWidth > 768 ? "ml-5" : ""} xs={12} md={12} xl={5}>
+                <Col className={ window.innerWidth > 1000 ? "ml-5" : ""} xs={12} md={12} xl={5}>
 
                     <Row>
                         {
@@ -227,7 +229,7 @@ class NosActivites extends Component {
                                     }}
                                 >
                                 <Row className="smallArticleRow">
-                                    <Col xs={12} md={4} xl={5}>
+                                    <Col xs={12} md={6} xl={5}>
                                         {
                                             def_sec.fimg_url != false 
                                             ?  
@@ -284,22 +286,22 @@ class NosActivites extends Component {
         <Row>
               
             {/* LEFT BLOC */}
-            <Col xs={12} xl={6}>
+            <Col xs={12} md={12} xl={6}>
                 <Row style={{marginTop : 20+"px"}}>
-                    <Col xs={12} xl={12}>
+                    <Col xs={12} md={12} xl={12}>
                         
                         <Row>
-                            <Col xs={12} xl={12}>   
+                            {/* <Col xs={12} xl={12}>    */}
                                 <h5 style={styles.gouvernanceTitle}>GENRE</h5>
-                                <hr  style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }} />
-                            </Col>
+                                <hr  className="gouvHr" style={{ borderWidth : 5+"px", borderColor : '#BCBCBC' }}/>
+                            {/* </Col> */}
                         </Row>
                         
                         <Row>
                             {
                                 genre[0] && genre[0].status == "publish" &&
                                 <>
-                                <Col xs={12} xl={12}>
+                                <Col xs={12} md={12} xl={12}>
                                     <Link
                                         style={{textDecoration: 'none'}}
                                         to={{
@@ -310,14 +312,13 @@ class NosActivites extends Component {
                                         {
                                             genre[0].fimg_url !== false
                                             ?
-                                            <>
-                                            <Image src={genre[0].fimg_url} fluid className="genreImage" />
-                                            <div className="content">
-                                                <h5 dangerouslySetInnerHTML={{__html: genre[0].title.rendered}}></h5>
-                                                <p>{moment(genre[0].date).format("DD MMMM YYYY")}</p>
-                                            </div>
-                                            </>
+                                            <Row>
+                                            
+                                                <Image src={genre[0].fimg_url} fluid className="genreImage" />
+                                           
+                                            </Row>
                                             :
+                                          
                                             <ThumbDoc 
                                                 title={solo_title}
                                                 containerClass="thumbUlContainer"
@@ -325,7 +326,11 @@ class NosActivites extends Component {
                                                 titleClass="thumbUlTitle" 
                                                 descClass="thumbUlDesc" 
                                             />
-                                        }    
+                                        }
+                                        <div className="content-img">
+                                            <h5 className="gouvOnImageTitle" dangerouslySetInnerHTML={{__html: genre[0].title.rendered}}></h5>
+                                            <p className="gouvOnImageDate">{moment(genre[0].date).format("DD MMMM YYYY")}</p>
+                                        </div>
                                     </div>
                                     </Link>
                                 </Col>
@@ -351,8 +356,11 @@ class NosActivites extends Component {
                                             {
                                                 gouv.fimg_url !== false 
                                                 ? 
+                                                <Row>
                                                 <Image src={gouv.fimg_url} fluid className="gouvImageSmall"  />
+                                                </Row>
                                                 : 
+                                                <Row>
                                                 <ThumbDoc 
                                                     title={solo_title} 
                                                     containerClass="thumbXsContainer"
@@ -360,6 +368,7 @@ class NosActivites extends Component {
                                                     titleClass="thumbSmallTitle" 
                                                     descClass="thumbSmallDesc" 
                                                 />
+                                                </Row>
                                             }
                                         </Col>
                                         <Col className="justify-elements-center">
@@ -376,7 +385,7 @@ class NosActivites extends Component {
                         </Row>
 
                         <Row style={{marginTop :"15px",marginBottom :"15px"}}>
-                            <Col xs={12} xl={12}>
+                            
                             <Link
                                 to={{ pathname : `/voir-plus/${genre[0].categories[0].category_slug}` }}             
                                 className="btn btn-primary buttonBlue" 
@@ -384,7 +393,7 @@ class NosActivites extends Component {
                             >
                                 VOIR PLUS<IoIosArrowForward size={30} style={{marginLeft : 10+"px",marginTop : -5+"px"}} />
                             </Link>
-                            </Col>
+                            
                         </Row>
 
                     </Col>
@@ -421,8 +430,8 @@ class NosActivites extends Component {
                                             <>
                                             <Image src={cellule[0].fimg_url} fluid className="genreImage" />
                                             <div className="content">
-                                                <h5 dangerouslySetInnerHTML={{__html: cellule[0].title.rendered}}></h5>
-                                                <p>{moment(cellule[0].date).format("DD MMMM YYYY")}</p>
+                                                <h5 className="gouvOnImageTitle" dangerouslySetInnerHTML={{__html: cellule[0].title.rendered}}></h5>
+                                                <p className="gouvOnImageDate">{moment(cellule[0].date).format("DD MMMM YYYY")}</p>
                                             </div>
                                             </>
                                             :
@@ -609,7 +618,9 @@ class NosActivites extends Component {
                                 {
                                     resi.fimg_url !== false 
                                     ? 
-                                    <Image src={ resi.fimg_url} fluid className="resiImageSmall" />
+                                    <Row>
+                                        <Image src={ resi.fimg_url} fluid className="resiImageSmall" />
+                                    </Row>
                                     : 
                                     <ThumbDoc 
                                         title={solo_title} 
@@ -640,7 +651,7 @@ class NosActivites extends Component {
                     }
 
                     {
-                        window.innerWidth > 768 &&
+                        window.innerWidth > 767 &&
                         <Link
                             to={{ pathname : `/voir-plus/${resilence[0].categories[0].category_slug}` }}  
                             className="btn btn-primary buttonBlue" 

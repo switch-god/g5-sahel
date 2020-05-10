@@ -24,10 +24,52 @@
 @media (min-width: 576px) and (max-width: 767.98px) {}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .separator::before, .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 5px solid #DEDEDE;
+    }
+    .separator::before {
+        margin-right: .25em;
+    }
+    .separator::after {
+        margin-left: .25em;
+    }
+
+    .form-control {
+        width: 100%
+    }
+}
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .separator::before, .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 5px solid #DEDEDE;
+    }
+    .separator::before {
+        margin-right: .25em;
+    }
+    .separator::after {
+        margin-left: .25em;
+    }
+
+    .form-control {
+        width: 100%
+    }
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 

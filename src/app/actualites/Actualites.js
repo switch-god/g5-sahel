@@ -193,7 +193,7 @@ class Actualites extends Component {
                         {/* ./TITLE */}
                         </Col>
                         
-                        <Col xs={12} xl={12}>
+                        <Col xs={12} md={12} xl={12}>
                         <Row className="articlesRow">
                         {/* LATEST 3 NEWS */}   
                 
@@ -206,7 +206,7 @@ class Actualites extends Component {
                                         style={{ textDecoration: 'none' }}
                                 >
                                 <Row key={index} className="ceMoisArticleContainer">
-                                    <Col xs={12} xl={5}>
+                                    <Col xs={12} md={12} xl={5}>
                                         {
                                             post.fimg_url !== false 
                                             ?
@@ -222,7 +222,7 @@ class Actualites extends Component {
                                         }
                                     </Col> 
 
-                                    <Col xs={12} xl={7}>
+                                    <Col xs={12} md={12} xl={7}>
                                         {
                                             post.title.rendered.length > 60 
                                             ?

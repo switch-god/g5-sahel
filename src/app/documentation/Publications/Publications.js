@@ -49,11 +49,11 @@ class Publications extends Component {
         const { loading,showMode,showPagination } = this.state;
         const { publications,pageTitle } = this.props;
         
-        if(window.innerWidth > 768) {
+        if(window.innerWidth > 767) {
             return (
                 <>
                     { 
-                        <Col xs={12} xl={10}>
+                        <Col xs={12} md={10} xl={10}>
                             <Row className="ml-5">
                                 {this.renderShowMode()}
                             </Row>
@@ -61,7 +61,7 @@ class Publications extends Component {
                             {
                                 loading 
                                 ?
-                                <Row className="ml-5">
+                                <Row className="ml-5" style={{marginBottom: '20px'}}>
                                     <Col />
     
                                     <Col>

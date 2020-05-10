@@ -179,12 +179,408 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) { 
+    .midArticlesBloc {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .midImage {
+        width: 100%;
+        min-height: 350px;
+        max-height: 350px;
+    }
+
+    .midTitle {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        color: black;
+    }
+
+    .midDate {
+        color: #0099CC;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* THUMBS */
+
+        /* SMALL */
+        .thumbActuSmallContainer {
+            height: 350px;
+            min-width: 700px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbActuSmallImage {
+            max-height: 200px;
+            min-height: 200px;
+        }
+
+        .thumbActuSmallTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 20px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbActuSmallDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 15px;
+            color: #717171;
+        }
+        /* SMALL */
+
+        /* MID */
+        .thumbActuMidContainer {
+            height: 350px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbActuMidImage {
+            max-height: 200px;
+            min-height: 200px;
+        }
+
+        .thumbActuMidTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 20px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbActuMidDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 15px;
+            color: #717171;
+        }
+        /* MID */
+    /* THUMBS */
+
+     /* SOCIAL LINKS */
+     .socialLinka h4 {
+        font-size: 25px;
+        font-family: 'Poppins Bold';
+        color: black;
+     }
+ 
+     /* SOCIAL LINKS */
+     .sectionTitleRowActualites {
+         margin-left: 1px;
+         margin-right: 1px;
+     }
+     .sectionTitleContainerActualites {
+         padding-top: 15px;
+         padding-bottom: 15px; 
+         padding-left: 30px;
+         padding-right: 30px;
+         background-color:black;
+         display: flex;
+         justify-content: center;    
+     }
+ 
+     .sectionTitleActualites {
+         color: white;
+         font-family: 'Poppins Bold';
+         font-size: 20px;
+         text-align: 'center';
+     }
+
+     .titleBloc1Seperator {
+        border-color: black; 
+        margin-top: -2px;
+        border-width: 5px;
+        margin-bottom: 27px; 
+        width: 100%;
+    }
+ 
+     .titleSeperator {
+         border-color: black; 
+         margin-top: -2px;
+         border-width: 3px;
+         margin-bottom: 10px; 
+         width: 100%;
+     }
     
+    /* BLOC 1 */
+    .articlesRow {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .ceMoisArticleContainer {
+        margin-bottom: 15px;
+    }
+
+    .imageCeMois {
+        max-height: 350px;
+        min-height: 350px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .titleCeMois {
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        color: black;
+    }
+
+    .dateCeMois {
+        font-family: 'Poppins SemiBold';
+        font-size: 15px;
+        color: #0099CC;
+    }
+
+    .bigBlocContainer {
+        margin-bottom: 20px;
+    }
+
+    .bigImageBloc1 {
+        max-height: 400px;
+        min-height: 400px;
+        width: 100%;
+    }
+
+    .news-big-img {
+        position: relative;
+    }
+      
+    .news-big-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 10px; /* Some padding */
+    }
+
+    .actualitesG5BigTitle {
+        font-size: 20px;
+        font-family: 'Poppins Bold';
+        color: white;
+    }
+
+    .actualitesG5BigDate {
+        font-size: 15px;
+        font-family: 'Poppins Bold';
+        color: white;
+    }
+
+    /* BLOC 1 */
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) { 
+    .midArticlesBloc {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
+    .midImage {
+        width: 100%;
+        min-height: 600px;
+        max-height: 600px;
+    }
+
+    .midTitle {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        color: black;
+    }
+
+    .midDate {
+        color: #0099CC;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* THUMBS */
+
+        /* SMALL */
+        .thumbActuSmallContainer {
+            height: 600px;
+            min-width: 700px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbActuSmallImage {
+            max-height: 300px;
+            min-height: 300px;
+        }
+
+        .thumbActuSmallTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 40px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbActuSmallDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 25px;
+            color: #717171;
+        }
+        /* SMALL */
+
+        /* MID */
+        .thumbActuMidContainer {
+            height: 600px;
+            width: 100%;
+            border: 1px solid #666666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbActuMidImage {
+            max-height: 400px;
+            min-height: 400px;
+        }
+
+        .thumbActuMidTitle {
+            font-family: 'Poppins SemiBold';
+            font-size: 20px;
+            color: #717171;
+            margin-top: 7px;
+        }
+
+        .thumbActuMidDesc {
+            font-family: 'Poppins SemiBold';
+            font-size: 15px;
+            color: #717171;
+        }
+        /* MID */
+    /* THUMBS */
+
+     /* SOCIAL LINKS */
+     .socialLinka h4 {
+        font-size: 25px;
+        font-family: 'Poppins Bold';
+        color: black;
+     }
+ 
+     /* SOCIAL LINKS */
+     .sectionTitleRowActualites {
+         margin-left: 1px;
+         margin-right: 1px;
+     }
+     .sectionTitleContainerActualites {
+         padding-top: 15px;
+         padding-bottom: 15px; 
+         padding-left: 30px;
+         padding-right: 30px;
+         background-color:black;
+         display: flex;
+         justify-content: center;    
+     }
+ 
+     .sectionTitleActualites {
+         color: white;
+         font-family: 'Poppins Bold';
+         font-size: 20px;
+         text-align: 'center';
+     }
+
+     .titleBloc1Seperator {
+        border-color: black; 
+        margin-top: -2px;
+        border-width: 5px;
+        margin-bottom: 27px; 
+        width: 100%;
+    }
+ 
+     .titleSeperator {
+         border-color: black; 
+         margin-top: -2px;
+         border-width: 3px;
+         margin-bottom: 10px; 
+         width: 100%;
+     }
+    
+    /* BLOC 1 */
+    .articlesRow {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .ceMoisArticleContainer {
+        margin-bottom: 15px;
+    }
+
+    .imageCeMois {
+        max-height: 600px;
+        min-height: 600px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .titleCeMois {
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        color: black;
+    }
+
+    .dateCeMois {
+        font-family: 'Poppins SemiBold';
+        font-size: 15px;
+        color: #0099CC;
+    }
+
+    .bigBlocContainer {
+        margin-bottom: 20px;
+    }
+
+    .bigImageBloc1 {
+        max-height: 600px;
+        min-height: 600px;
+        width: 100%;
+    }
+
+    .news-big-img {
+        position: relative;
+    }
+      
+    .news-big-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 10px; /* Some padding */
+    }
+
+    .actualitesG5BigTitle {
+        font-size: 20px;
+        font-family: 'Poppins Bold';
+        color: white;
+    }
+
+    .actualitesG5BigDate {
+        font-size: 15px;
+        font-family: 'Poppins Bold';
+        color: white;
+    }
+
+    /* BLOC 1 */
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

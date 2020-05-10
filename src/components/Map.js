@@ -26,7 +26,7 @@ export default class Map extends Component {
                 </Row>
 
                 <Row className="mapInfosContainer">
-                    <Col xs={12} md={4}>
+                    <Col xs={12}  md={12} xl={4}>
                         <center>
                             <IoIosPin size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
                             <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
@@ -37,7 +37,7 @@ export default class Map extends Component {
                         </center>
                     </Col>
 
-                    <Col xs={12} md={4}>
+                    <Col xs={12} md={12} xl={4}>
                         <center>
                             <MdPhone size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
                             <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>
@@ -46,7 +46,7 @@ export default class Map extends Component {
                         </center>
                     </Col>
 
-                    <Col xs={12} md={4}>
+                    <Col xs={12} md={12} xl={4}>
                         <center>
                             <FaEnvelope size={40+"px"} color={"#0099CC"} style={{marginBottom : 10+"px"}} />
                             <p style={{fontSize : 14+"px",fontFamily : 'Poppins SemiBold'}}>

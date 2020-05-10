@@ -99,7 +99,7 @@ class Home extends Component {
                 <Row>
                     <Col />
                     
-                    <Col md={10}>
+                    <Col xs={12} md={12}  xl={10}>
                         {activities.length > 0 && this.renderNosActivites(activities)} 
                         <Newsletter />
 
@@ -123,12 +123,12 @@ class Home extends Component {
 
         return (
             <Row>
-                <Col xs={0} xl={1} />
+                <Col xs={0} md={0} xl={1} />
 
-                <Col xs={12} xl={10}>
+                <Col xs={12} md={12} xl={10}>
                     
                     <Row>
-                        <Col xs={12} xl={8}>
+                        <Col xs={12} md={12} lg={12} xl={8}>
                             <Link 
                                 to={{
                                     pathname : `/article/${actualitesG5[0].slug}`,
@@ -162,7 +162,7 @@ class Home extends Component {
                             </Link>
                         </Col>
                         
-                        <Col xs={12} xl={4}>    
+                        <Col xs={12} md={12} lg={12} xl={4}>    
                                 
                             <Link 
                                 to={{
@@ -232,7 +232,7 @@ class Home extends Component {
                     </Row>
                 </Col>
         
-                <Col xs={0} xl={1} />
+                <Col xs={0} md={0} xl={1} />
             </Row>
         );
     };
@@ -392,7 +392,7 @@ class Home extends Component {
             
             <div>
                 {/* TITLE */}
-                <Row>
+                <Row className="sectionTitleRow">
                     <div className="sectionTitleContainer">
                         <h4 className="sectionTitle">{postsTitle}</h4>
                     </div>
@@ -554,7 +554,7 @@ class Home extends Component {
                         index < 4 &&
                         <>
                         
-                        <Col className="space-elements" xs={12} md={3} key={index}>
+                        <Col className="space-elements" xs={12} md={6} xl={3} key={index}>
                             <Link 
                                 to={{
                                     pathname : `/article/${activity.slug}`,

@@ -331,10 +331,718 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) { 
+    .space-elements {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+
+    /* NOS ACTIVITES */
+
+    .activityImageSmall {
+        min-height: 200px;
+        max-height: 200px;
+        width: 100%;
+    }
+
+    .activityTitle {
+        color: #0099CC;
+        font-size: 17px;
+        font-family: 'Poppins Bold';
+        margin-top: 10px;
+        height: 50px;
+    }
+    
+    .activityDesc {
+        color: black;
+        font-size: 13px;
+        font-family: 'Poppins SemiBold';
+    }
+
+   
+    /* NOS ACTIVITES */
+
+
+    /* ACTUALITES PAYS G5 */
+
+        /* THUMBS */
+
+            /* NEWS */ 
+                /* SMALL */
+                    .thumbNewsSmallContainer {
+                        height: 150px;
+                        width: '100%';
+                        border: 1px solid #666666;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .thumbNewsSmallImage {
+                        max-height: 60px;
+                        min-height: 60px;
+                    }
+
+                    .thumbNewsSmallTitle {
+                        font-family: 'Poppins SemiBold';
+                        font-size: 15px;
+                        color: #717171;
+                        margin-top: 7px;
+                    }
+
+                    .thumbNewsSmallDesc {
+                        font-family: 'Poppins SemiBold';
+                        font-size: 10px;
+                        color: #717171;
+                    }
+
+                /* SMALL */
+
+                /* BIG */
+                .thumbNewsBigContainer {
+                    margin-bottom: 30px;
+                    margin-top: 30px;
+                    height: 400px;
+                    width: '100%';
+                    border: 1px solid #666666;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .thumbNewsBigImage {
+                    max-height: 200px;
+                    min-height: 200px;
+                }
+
+                .thumbNewsBigTitle {
+                    font-family: 'Poppins SemiBold';
+                    font-size: 25px;
+                    color: #717171;
+                    margin-top: 7px;
+                }
+
+                .thumbNewsBigDesc {
+                    font-family: 'Poppins SemiBold';
+                    font-size: 15px;
+                    color: #717171;
+                }
+                /* BIG */
+            /* NEWS */
+
+
+            /* SMALL */
+            .thumbActualitesSmallContainer {
+                height: 400px;
+                width: 100%;
+                margin-top: 20px;
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbActualitesSmallImage {
+                max-height: 250px;
+                min-height: 250px;
+            }
+
+            .thumbActualitesSmallTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 30px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbActualitesSmallDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 20px;
+                color: #717171;
+            }
+
+            /* BIG */
+            .thumbActualitesBigContainer {
+                height: 400px;
+                width: '100%';
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbActualitesBigImage {
+                max-height: 250px;
+                min-height: 250px;
+            }
+
+            .thumbActualitesBigTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 40px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbActualitesBigDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 30px;
+                color: #717171;
+            }
+        /* THUMBS */
+
+        .actualitesG5SmallImage {
+            max-height: 400px;
+            min-height: 400px;
+            width: 100%;
+        }
+
+        .actualitesG5SmallTitle {
+            font-family: 'Poppins Bold';
+            font-size: 20px;
+        }
+
+        .actualitesG5SmallDate {
+            font-family: 'Poppins Light';
+            font-size: 16px;
+            padding-left: 5px;
+        }
+
+        .actualitesG5BigImage {
+            max-height: 400px;
+            min-height: 400px;
+            width: 100%;
+        }
+
+        .actualitesG5BigTitle {
+            font-family: 'Poppins Bold';
+            font-size: 20px;
+        }
+
+        .actualitesG5BigDate {
+            font-family: 'Poppins Light';
+            padding-left: 5px;
+        }
+
+
+    /* ACTUALITES PAYS G5 */
+
+    
+    .container-for-img {
+        position: relative;
+    }
+      
+    .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 7px; /* Some padding */
+    }
+    
+    .container-for-img .content-1 {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color:white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 5px; /* Some padding */
+    }  
+    
+    .titleInBlackSmall {
+        width: 20%;
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        background-color: black;
+        padding-top: 20px;
+        padding-bottom: 20px; 
+        border-width: 10px;
+        text-align: 'center';
+        display: flex;
+        justify-content: center;
+    }
+
+
+  /* ************************** */
+
+    .postsContainerEvents {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .postsContainerNews {
+        padding-right: 50px;
+        padding-left: 30px;
+    }
+
+    .textsArticleContainer {
+        padding-left: 20px;
+    }
+
+    .sectionTitleRow {
+        margin-top: 30px;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 30px;
+        padding-right: 30px;
+        background-color: black;
+        display: flex;
+        justify-content: center;    
+    }
+
+    .seeMoreNewsText {
+        color: #0099CC;
+        font-family: 'Poppins Light';
+        font-size: 14px;
+    }
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        text-align: 'center';
+    }
+
+    .titleSeperator {
+        border-color: black; 
+        margin-top: -2px;
+        border-width: 3px;
+        margin-bottom: 30px; 
+        width: 100%;
+    }
+    
+    
+
+    .bigArticleImage {
+       margin-bottom: 30px;
+       margin-top: 30px;
+       min-height: 400px;
+       max-height: 400px; 
+       min-width: 100%;
+    }
+
+    .articleTitleContainer {
+        font-family: 'Poppins Bold';
+        font-size: 10px;
+        height: 80px;
+        max-height: 80px;
+    }
+    .articleBigTitle {
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        color: black
+    }
+    .articleDate {
+        font-family: 'Poppins SemiBold'; 
+        font-size: 16px;
+        color: #0099CC;
+    }
+
+    .articleContent {
+        font-family: 'Poppins ExtraLight';
+        font-size: 13px;
+        height: 70px;
+        max-height: 70px;
+        border-width: 20px;
+        color: black
+    }
+
+    .smallArticleImage {
+       min-height: 150px;
+       max-height: 150px; 
+       min-width: 100%;
+    }
+
+    .smallArticleTitle {
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        color: black
+    }
+
+    .smallArticleContent {
+        font-family: 'Poppins ExtraLight'; 
+        font-size: 12px;
+        color: black
+    }
+
+    .smallArticleDate {
+        font-family : 'Poppins SemiBold';
+        font-size: 14px;
+        color: #0099CC;
+    }
+
+    .postsHr {
+        margin: 30px -15px 20px;
+        border: 0;
+        border-top: 1px solid #DEDEDE;
+    }
+
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) { 
+
+    .space-elements {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+
+    /* NOS ACTIVITES */
+
+    .activityImageSmall {
+        min-height: 300px;
+        max-height: 300px;
+        width: 100%;
+    }
+
+    .activityTitle {
+        color: #0099CC;
+        font-size: 17px;
+        font-family: 'Poppins Bold';
+        margin-top: 10px;
+        height: 50px;
+    }
+    
+    .activityDesc {
+        color: black;
+        font-size: 13px;
+        font-family: 'Poppins SemiBold';
+    }
+
+   
+    /* NOS ACTIVITES */
+
+
+    /* ACTUALITES PAYS G5 */
+
+        /* THUMBS */
+
+            /* NEWS */ 
+                /* SMALL */
+                    .thumbNewsSmallContainer {
+                        height: 150px;
+                        width: '100%';
+                        border: 1px solid #666666;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .thumbNewsSmallImage {
+                        max-height: 60px;
+                        min-height: 60px;
+                    }
+
+                    .thumbNewsSmallTitle {
+                        font-family: 'Poppins SemiBold';
+                        font-size: 15px;
+                        color: #717171;
+                        margin-top: 7px;
+                    }
+
+                    .thumbNewsSmallDesc {
+                        font-family: 'Poppins SemiBold';
+                        font-size: 10px;
+                        color: #717171;
+                    }
+
+                /* SMALL */
+
+                /* BIG */
+                .thumbNewsBigContainer {
+                    margin-bottom: 30px;
+                    margin-top: 30px;
+                    height: 400px;
+                    width: '100%';
+                    border: 1px solid #666666;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .thumbNewsBigImage {
+                    max-height: 200px;
+                    min-height: 200px;
+                }
+
+                .thumbNewsBigTitle {
+                    font-family: 'Poppins SemiBold';
+                    font-size: 25px;
+                    color: #717171;
+                    margin-top: 7px;
+                }
+
+                .thumbNewsBigDesc {
+                    font-family: 'Poppins SemiBold';
+                    font-size: 15px;
+                    color: #717171;
+                }
+                /* BIG */
+            /* NEWS */
+
+
+            /* SMALL */
+            .thumbActualitesSmallContainer {
+                height: 600px;
+                width: 100%;
+                margin-top: 20px;
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbActualitesSmallImage {
+                max-height: 300px;
+                min-height: 300px;
+            }
+
+            .thumbActualitesSmallTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 30px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbActualitesSmallDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 20px;
+                color: #717171;
+            }
+
+            /* BIG */
+            .thumbActualitesBigContainer {
+                height: 600px;
+                width: '100%';
+                border: 1px solid #666666;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .thumbActualitesBigImage {
+                max-height: 300px;
+                min-height: 300px;
+            }
+
+            .thumbActualitesBigTitle {
+                font-family: 'Poppins SemiBold';
+                font-size: 40px;
+                color: #717171;
+                margin-top: 7px;
+            }
+
+            .thumbActualitesBigDesc {
+                font-family: 'Poppins SemiBold';
+                font-size: 30px;
+                color: #717171;
+            }
+        /* THUMBS */
+
+        .actualitesG5SmallImage {
+            max-height: 600px;
+            min-height: 600px;
+            width: 100%;
+        }
+
+        .actualitesG5SmallTitle {
+            font-family: 'Poppins Bold';
+            font-size: 20px;
+        }
+
+        .actualitesG5SmallDate {
+            font-family: 'Poppins Light';
+            font-size: 16px;
+            padding-left: 5px;
+        }
+
+        .actualitesG5BigImage {
+            max-height: 600px;
+            min-height: 600px;
+            width: 100%;
+        }
+
+        .actualitesG5BigTitle {
+            font-family: 'Poppins Bold';
+            font-size: 20px;
+        }
+
+        .actualitesG5BigDate {
+            font-family: 'Poppins Light';
+            padding-left: 5px;
+        }
+
+
+    /* ACTUALITES PAYS G5 */
+
+    
+    .container-for-img {
+        position: relative;
+    }
+      
+    .container-for-img .content {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color: white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 7px; /* Some padding */
+    }
+    
+    .container-for-img .content-1 {
+        position: absolute; /* Position the background text */
+        bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0); /* Fallback color */
+        background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        color:white; /* Grey text */
+        width: 100%; /* Full width */
+        padding: 5px; /* Some padding */
+    }  
+    
+    .titleInBlackSmall {
+        width: 20%;
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        background-color: black;
+        padding-top: 20px;
+        padding-bottom: 20px; 
+        border-width: 10px;
+        text-align: 'center';
+        display: flex;
+        justify-content: center;
+    }
+
+
+  /* ************************** */
+
+    .postsContainerEvents {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .postsContainerNews {
+        padding-right: 50px;
+        padding-left: 30px;
+    }
+
+    .textsArticleContainer {
+        padding-left: 20px;
+    }
+
+    .sectionTitleRow {
+        margin-top: 30px;
+    }
+
+    .sectionTitleContainer {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left: 30px;
+        padding-right: 30px;
+        background-color: black;
+        display: flex;
+        justify-content: center;    
+    }
+
+    .seeMoreNewsText {
+        color: #0099CC;
+        font-family: 'Poppins Light';
+        font-size: 14px;
+    }
+    .sectionTitle {
+        color: #fff;
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        text-align: 'center';
+    }
+
+    .titleSeperator {
+        border-color: black; 
+        margin-top: -2px;
+        border-width: 3px;
+        margin-bottom: 30px; 
+        width: 100%;
+    }
+    
+    
+
+    .bigArticleImage {
+       margin-bottom: 30px;
+       margin-top: 30px;
+       min-height: 600px;
+       max-height: 600px; 
+       min-width: 100%;
+    }
+
+    .articleTitleContainer {
+        font-family: 'Poppins Bold';
+        font-size: 10px;
+        height: 80px;
+        max-height: 80px;
+    }
+    .articleBigTitle {
+        font-family: 'Poppins Bold';
+        font-size: 20px;
+        color: black
+    }
+    .articleDate {
+        font-family: 'Poppins SemiBold'; 
+        font-size: 16px;
+        color: #0099CC;
+    }
+
+    .articleContent {
+        font-family: 'Poppins ExtraLight';
+        font-size: 13px;
+        height: 70px;
+        max-height: 70px;
+        border-width: 20px;
+        color: black
+    }
+
+    .smallArticleImage {
+       min-height: 200px;
+       max-height: 200px; 
+       min-width: 100%;
+    }
+
+    .smallArticleTitle {
+        font-family: 'Poppins Bold';
+        font-size: 15px;
+        color: black
+    }
+
+    .smallArticleContent {
+        font-family: 'Poppins ExtraLight'; 
+        font-size: 12px;
+        color: black
+    }
+
+    .smallArticleDate {
+        font-family : 'Poppins SemiBold';
+        font-size: 14px;
+        color: #0099CC;
+    }
+
+    .postsHr {
+        margin: 30px -15px 20px;
+        border: 0;
+        border-top: 1px solid #DEDEDE;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

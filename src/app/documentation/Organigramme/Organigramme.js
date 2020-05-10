@@ -47,7 +47,16 @@ export default class Organigramme extends Component {
                         loading={null}
                         // onLoadSuccess={this.onDocumentLoadSuccess}
                     >
-                        <Page pageNumber={pageNumber} width={window.innerWidth > 768 ? 800 : 300} loading={null} />
+                        <Page 
+                            pageNumber={pageNumber} 
+                            loading={null} 
+                            width={
+                                window.innerWidth < 767 ? 300 
+                                : 
+                                window.innerWidth > 768 && window.innerWidth < 1000 ? 600
+                                : 800
+                            } 
+                        />
                     </Document>
                 </Row>
             </Col>

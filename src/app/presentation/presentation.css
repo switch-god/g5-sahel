@@ -1,7 +1,7 @@
 
 
 /* Extra small devices  */
-@media (max-width: 575px) { 
+@media (max-width: 575.98px) { 
    
     /* PRSEENATATION IMAGES BLOC 1 & 2 */
 
@@ -50,18 +50,102 @@
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { 
-    
-}
+@media (min-width: 576px) and (max-width: 767.98px) {}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    /* PRSEENATATION IMAGES BLOC 1 & 2 */
+
+    .objetListItem {
+        margin: 10px 0px;
+    }
+
+    .presentationDesc {
+        font-family: 'Poppins Light';
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .presentationImages {
+        min-height: 400px;
+        max-height: 400px;
+        width: 100%;
+    }
+/* ./PRSEENATATION BLOC 1 */
+
+
+    /* CITATION */
+        .descriptionContainer {
+            border-left: 8px solid #0099CC;
+            background-color: #F2F2F2;
+        }
+    /* CITATION */
+
+    /* ARTICLES PRESENTATION */
+        .customBulletList {
+            list-style-image: url('../../assets/images/Presentation/square_small.png');
+        }
+
+    /* ARTICLES PRESENTATION */
+
+
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .presentationDivider {
+        display: flex;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-    
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    /* PRSEENATATION IMAGES BLOC 1 & 2 */
+
+    .objetListItem {
+        margin: 10px 0px;
+    }
+
+    .presentationDesc {
+        font-family: 'Poppins Light';
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .presentationImages {
+        min-height: 600px;
+        max-height: 600px;
+        width: 100%;
+    }
+/* ./PRSEENATATION BLOC 1 */
+
+
+    /* CITATION */
+        .descriptionContainer {
+            border-left: 8px solid #0099CC;
+            background-color: #F2F2F2;
+        }
+    /* CITATION */
+
+    /* ARTICLES PRESENTATION */
+        .customBulletList {
+            list-style-image: url('../../assets/images/Presentation/square_small.png');
+        }
+
+    /* ARTICLES PRESENTATION */
+
+
+    .justify-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .presentationDivider {
+        display: flex;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

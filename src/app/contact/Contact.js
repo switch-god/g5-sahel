@@ -55,7 +55,7 @@ export default class Contact extends Component {
         return (
             <>
             <Row style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
-                <Col>
+                <Col xs={12} md={12} xl={4}>
                     <h4  style={styles.Title} >Burkina faso</h4>
                     <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
                     <div style={{marginLeft : 30+"px"}}>
@@ -66,7 +66,8 @@ export default class Contact extends Component {
                         <p style={styles.blueText}>kohouns@yahoo.fr</p>
                     </div>
                 </Col>
-                <Col>
+
+                <Col xs={12} md={12} xl={4}>
                     <h4  style={styles.Title} >Mali</h4>
                     <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
                     <div style={{marginLeft : 30+"px"}}>
@@ -77,7 +78,8 @@ export default class Contact extends Component {
                         <p style={styles.blueText}>ba_cherifhamidou@yahoo.fr</p>
                     </div>
                 </Col>
-                <Col>
+                
+                <Col xs={12} md={12} xl={4}>
                     <h4  style={styles.Title} >Mauritanie</h4>
                     <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
                     <div style={{marginLeft : 30+"px"}}>
@@ -91,7 +93,7 @@ export default class Contact extends Component {
             </Row>
 
             <Row style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
-                <Col>
+                <Col xs={12} md={12} xl={4}>
                     <h4  style={styles.Title} >Niger</h4>
                     <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
                     <div style={{marginLeft : 30+"px"}}>
@@ -102,7 +104,7 @@ export default class Contact extends Component {
                         <p style={styles.blueText}>mamane_saidou@yahoo.fr </p>
                     </div>
                 </Col>
-                <Col>
+                <Col xs={12} md={12} xl={4}>
                     <h4  style={styles.Title} >Tchad</h4>
                     <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />  
                     <div style={{marginLeft : 30+"px"}}>
@@ -124,7 +126,7 @@ export default class Contact extends Component {
     renderContactForm = () => {
 
         return (
-           <div style={{padding: window.innerWidth > 768 ? "100px" : "50px", backgroundColor : '#F9F9F9'}}>
+           <div style={{padding: window.innerWidth > 1000 ? "100px" : "50px", backgroundColor : '#F9F9F9'}}>
                <ContactForm menuEnabled={false} />
            </div>
         );
@@ -133,13 +135,13 @@ export default class Contact extends Component {
     renderMap = () => {
         return (
             <>
-                <div style={{marginTop : window.innerWidth > 768 ? "60px" : "0px", marginBottom : window.innerWidth > 768 ? "60px" : "0px"}} className="separator"> 
+                <div style={{marginTop : window.innerWidth > 767 ? "60px" : "0px", marginBottom : window.innerWidth > 767 ? "60px" : "0px"}} className="separator"> 
                     <h2 style={styles.mapTitle}> MAP </h2> 
                 </div>
                 <div className="centerMap">   
                     <div className="mapouter">
                         <div className="gmap_canvas">
-                            <iframe width={ window.innerWidth > 768 ? '100%' : '90%' } height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Route%20des%20Ambassades%20%E2%80%93%20Nouakchott%20-%20Mauritanie&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <iframe width={ window.innerWidth > 1199 ? '100%' : '90%' } height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Route%20des%20Ambassades%20%E2%80%93%20Nouakchott%20-%20Mauritanie&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </div>
                 </div>
