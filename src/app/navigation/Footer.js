@@ -105,11 +105,11 @@ export default class Footer extends Component {
                                     <h2 className="footerTitle"> SITEMAP </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link to="/presentation" className="links">Présentation</Link>
-                                        <Link to="/nos-activites" className="links">Nos activités</Link>
-                                        <Link to="/actualites" className="links">Actualités</Link>
-                                        <Link to="/events" className="links">Evénements</Link>
-                                        <Link to="/documentation" className="links">Documentations</Link>
+                                        <a href="/presentation" className="links">Présentation</a>
+                                        <a href="/nos-activites" className="links">Nos activités</a>
+                                        <a href="/actualites" className="links">Actualités</a>
+                                        <a href="/events" className="links">Evénements</a>
+                                        <a href="/documentation/organigramme" className="links">Documentations</a>
                                     </Nav>
                                 </div>
                             </Col>
