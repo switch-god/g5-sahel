@@ -13,6 +13,9 @@ import {
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './components/NotFound';
 
+import moment from 'moment';
+import 'moment/locale/fr';
+
 import TestPage from './app/solo-pages/TestPage';
 
 import Header from './app/navigation/Header';

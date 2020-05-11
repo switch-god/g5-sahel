@@ -35,6 +35,8 @@ class Home extends Component {
             loading : true,
         };
 
+        
+
         //Get Actualites Pays G5 : 
         this.props.getActualitesPaysG5();
         
@@ -353,7 +355,7 @@ class Home extends Component {
                                     {
                                         post.title.rendered.length > 60 
                                         ?
-                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(1,60) + "..."}}></h5>
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(0,60) + "..."}}></h5>
                                         :
                                         <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered }}></h5>                              
                                     }
@@ -503,7 +505,7 @@ class Home extends Component {
                                     {
                                         post.title.length > 111 
                                         ?
-                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.substr(1,110) + "..."}}></h5>
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.substr(0,110) + "..."}}></h5>
                                         :
                                         <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title }}></h5>                              
                                     }
@@ -565,11 +567,11 @@ class Home extends Component {
                             >
                             <Image src={activity.fimg_url} fluid className="activityImageSmall" />
                             {
-                                activity.title.rendered.length < 60
+                                activity.title.rendered.length < 34
                                 ?
                                 <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
                                 :
-                                <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,57)+"..."}}></p>
+                                <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,32)+"..."}}></p>
                             }
                             <p  className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
                             </Link>
