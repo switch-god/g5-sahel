@@ -40,7 +40,7 @@ export default class SoloEvent extends Component {
     render() {
         // const { solo_title,publication } = this.props.location.state;
         const { publication,news } = this.state;
-        console.log(publication)
+        // console.log(publication)
         if(publication[0]) {
             return (
                 <Container fluid>

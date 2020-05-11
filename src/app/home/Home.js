@@ -355,9 +355,9 @@ class Home extends Component {
                                     {
                                         post.title.rendered.length > 60 
                                         ?
-                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(0,60) + "..."}}></h5>
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(0,60)+"..."}}></h5>
                                         :
-                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered }}></h5>                              
+                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered}}></h5>                              
                                     }
                                     {
                                         post.excerpt.rendered.length > 100

@@ -1,6 +1,14 @@
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
 
+    .seeMoreToSolo {
+        font-family: 'Poppins Light';
+        font-size: 14px;
+        color: #0099CC;
+        float: right;
+        margin-bottom: 20px;
+    }
+
     .sectionTitleContainerIpad {
         margin-left: 10px;
     }
@@ -374,6 +382,14 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) { 
+
+    .seeMoreToSolo {
+        font-family: 'Poppins Light';
+        font-size: 14px;
+        color: #0099CC;
+        float: right;
+        margin-bottom: 20px;
+    }
 
     .gouvernanceTitleBlue {
         font-family: 'Poppins Bold';
@@ -778,7 +794,7 @@
     }
 
     .sectionTitleRow {
-        padding-left: 50px;
+        /* padding-left: 50px; */
         padding-right: 20px;
     }
 

@@ -2,11 +2,22 @@
 /* Extra small devices  */
 @media (max-width: 575.98px)  { 
 
+    .activityTitle {
+        color: #0099CC;
+        font-size: 17px;
+        font-family: 'Poppins Bold';
+        margin-top: 10px;
+        height: 20px;
+    }
+    
+    .activityDesc {
+        color: black;
+        font-size: 13px;
+        font-family: 'Poppins SemiBold';
+    }
     /* ACTUALITES G5 */
 
         /* A LA UNE + EVENTS */
-
-
 
             .bigArticleImage {
                 margin-bottom: 30px;
