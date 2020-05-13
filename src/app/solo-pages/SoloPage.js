@@ -14,6 +14,8 @@ import ThumbDoc from '../../components/ThumbDoc';
 
 import { config } from '../../constants/AppConfig';
 
+import $ from 'jquery';
+
 // Styling and Images :
 import './SoloPage.css';
 import THUMB from '../../assets/images/Thumbs/content-placeholder.jpg';    
@@ -35,14 +37,21 @@ export default class SoloPage extends Component {
     componentDidMount() {
         // Get latest News :
         this.getLatestNews();
-    }
-   
-    render() {
+    };
 
+    componentDidUpdate() {
+        this.RemoveStyles();
+        this.removeImages();
+    };
+
+    
+
+    render() {
         const { publication,news } = this.state;
       
      
         if(publication[0]) {
+            
             return (
                 <Container fluid>
                 <Layout xs={4} style={{textAlign: 'center',marginBottom: '50px'}}>
@@ -74,7 +83,7 @@ export default class SoloPage extends Component {
                 </Layout>
                 
                 <Layout columns={8}>
-                    <p className="wordpressData" dangerouslySetInnerHTML={{__html: publication[0].content.rendered}}></p>
+                    <p className="wordpressData" id="data" dangerouslySetInnerHTML={{__html: publication[0].content.rendered}}></p>
                 </Layout>
                 
                 {
@@ -105,6 +114,15 @@ export default class SoloPage extends Component {
         }
     }
 
+    RemoveStyles = () => {
+        $('#data').removeAttr('style'); 
+        $('span').removeAttr('style'); 
+        $('p').removeAttr('style');
+    };
+
+    removeImages = () => {
+        $('#data img').remove();
+    }
     
     renderLatestNews = (news) => (
         
