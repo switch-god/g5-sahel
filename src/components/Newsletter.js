@@ -56,7 +56,7 @@ class Newsletter extends Component {
 
         return (
         <Grid container style={{backgroundColor : 'black',padding : 30+"px"}} direction="row" justify="space-between" alignItems="center">
-            <div><h4 style={{color : 'white', fontFamily : 'Poppins SemiBold'}}> Subscribe to our newsletter </h4></div>
+            <div><h4 style={{color : 'white', fontFamily : 'Poppins SemiBold'}}>Abonnez-vous à notre newsletter</h4></div>
             
             <div>
             <Grid container direction="row" justify="space-between" alignItems="center">
@@ -72,7 +72,7 @@ class Newsletter extends Component {
                         
                         <Col>
                             <Button className="buttonBlack" onClick={() => this.sendToNewsletter()}>
-                                { loading ? <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> :  "Subscribe" }
+                                { loading ? <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> :  "Souscrire" }
                             </Button>
                         </Col>
                     </Form.Row>

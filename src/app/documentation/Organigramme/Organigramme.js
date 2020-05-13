@@ -26,7 +26,7 @@ export default class Organigramme extends Component {
     componentDidMount() {
         setTimeout(() => {
              this.setState({ loading : false })
-         },2500);
+         },3000);
     };
 
     render() {

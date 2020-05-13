@@ -91,7 +91,7 @@ class Header extends Component {
                     <a style={styles.MainMenuLinks} href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Secrétariat Exécutif</a>
                 </Row>
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/article/les-comites-nationaux-de-coordination">Communes Nationales De Coordination</a>
+                    <a style={styles.MainMenuLinks} href="/article/les-comites-nationaux-de-coordination">Comités Nationaux de Coordination</a>
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -196,7 +196,7 @@ class Header extends Component {
                     <NavDropdown title="Présentation" style={styles.collapsible}>
                         <a style={styles.navItem} className="dropdown-item" href="/presentation">Présentation</a>
                         <a style={styles.navItem} className="dropdown-item" href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Secrétariat Exécutif</a>
-                        <a style={styles.navItem} className="dropdown-item" href="/article/les-comites-nationaux-de-coordination">Communes Nationales De Coordination</a>
+                        <a style={styles.navItem} className="dropdown-item" href="/article/les-comites-nationaux-de-coordination">Comités Nationaux de Coordination</a>
                         <a style={styles.navItem} className="dropdown-item" href="/presentation">Structures Rattachées</a>
                         <a style={styles.navItem} className="dropdown-item" href="/documentation/organigramme">Organigramme</a>
                     </NavDropdown>

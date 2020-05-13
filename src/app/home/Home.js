@@ -11,6 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 
 import { Player, BigPlayButton} from 'video-react';
+import ReactPlayer from 'react-player';
 import moment from 'moment';
 
 
@@ -100,11 +101,20 @@ class Home extends Component {
                 </Row>
                 {/* NEW & EVENTS */}
 
-                <Row>
+                <Row className="mesActivitesRow">
                     <Col />
                     
                     <Col xs={12} md={12}  xl={10}>
                         {activities.length > 0 && this.renderNosActivites(activities)} 
+                    </Col>
+                   
+                    <Col />
+                </Row>
+
+                <Row>
+                    <Col />
+                    
+                    <Col xs={12} md={12}  xl={10}>
                         <Newsletter />
 
                         {/* VIDEO */}
@@ -351,14 +361,8 @@ class Home extends Component {
                             </Col> 
                             
                             <Col xs={12} md={8}>
-                                <Row className="textsArticleContainer">
-                                    {
-                                        post.title.rendered.length > 60 
-                                        ?
-                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(0,60)+"..."}}></h5>
-                                        :
-                                        <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered}}></h5>                              
-                                    }
+                                <Row className="textsArticleContainer">    
+                                    <h5 className="smallArticleTitle" dangerouslySetInnerHTML={{__html: post.title.rendered}}></h5>                              
                                     {
                                         post.excerpt.rendered.length > 100
                                         ?
@@ -566,14 +570,8 @@ class Home extends Component {
                                 style={{ textDecoration: 'none' }}
                             >
                             <Image src={activity.fimg_url} fluid className="activityImageSmall" />
-                            {
-                                activity.title.rendered.length < 34
-                                ?
                                 <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
-                                :
-                                <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered.substr(0,32)+"..."}}></p>
-                            }
-                            <p  className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p>
+                                {/* <p  className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p> */}
                             </Link>
                         </Col>
                         </>
@@ -594,9 +592,20 @@ class Home extends Component {
                 <Col style={{textAlign : 'center'}} md={8}>
                     <p style={styles.activityTitle}>G5 Sahel pour une prospérité partagée</p>
                     <hr style={{ borderColor : '#DEDEDE', marginTop : 13+"px",width : '80%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />
-                    <Player playsInline src="https://www.youtube.com/watch?v=f11pRhSVQ6U">
+                    
+                    <ReactPlayer 
+                        url='https://www.youtube.com/watch?v=f11pRhSVQ6U' 
+                        playing 
+                        width='100%'
+                    />
+                    
+                    {/* <Player 
+                        playsInline 
+                        src="https://www.youtube.com/watch?v=f11pRhSVQ6U"
+                        poster={VIDEO_THUMB}
+                    >
                         <BigPlayButton position="center" />
-                    </Player>
+                    </Player> */}
                 </Col>
                 
                 <Col  />
