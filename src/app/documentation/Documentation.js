@@ -11,8 +11,10 @@ import {
 } from 'react-bootstrap';
 
 import ThumbDoc from '../../components/ThumbDoc';
-import { IoIosEye } from 'react-icons/io';
-import { IoIosList,IoMdGrid } from 'react-icons/io';
+import { IoIosEye, } from 'react-icons/io';
+import { AiOutlineDownload } from 'react-icons/ai';
+
+// import { IoIosList,IoMdGrid } from 'react-icons/io';
 
 import {
     BrowserRouter as Router,
@@ -70,7 +72,6 @@ export default class Documentation extends Component {
                    <Row>
 
                     <Col xs={12} xl={2} className="stickyNavbar">
-                       
                         {this.renderSideBar(pathname)}
                     </Col>
 
@@ -154,11 +155,11 @@ export default class Documentation extends Component {
             <>
             {
                 pubs.map((pub) =>  
-                    <Link 
-                        to={{
-                            pathname : `/article/${pub.slug}`,  
-                        }}  
-                        style={{ textDecoration: 'none' }}>
+                    <a 
+                        href={ pub.fpdf_url !== false ?  pub.fpdf_url : `/article/${pub.slug}`} 
+                        target={pub.fpdf_url !== false && "_blank"} 
+                        style={{ textDecoration: 'none' }}
+                    >
                         <Jumbotron className="documentBox">
                             <Row>
                                 <Col xs={12} md={4} xl={4}>
@@ -180,35 +181,40 @@ export default class Documentation extends Component {
                                 </Col>
 
                                 <Col xs={12} md={8} xl={8}>
-                                    {
-                                        pub.title.rendered.length > 50
-                                        ?
-                                        <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered.substr(0,47)+"..."}}></h4>
-                                        :
-                                        <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
-                                    }
-                                    {
+                                    <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>                                    
+                                    {/*
                                         pub.excerpt.rendered.length > 0 
                                         ?
                                         <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.excerpt.rendered.substr(0,47)+"..."}}></p>
                                         :
                                         <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,47)+"..."}}></p>
-                                    }
+                                    */}
                                     
+
                                     <p style={{float : 'right'}}>
-                                        <Link  
-                                            className="documentButton"
-                                            to={{
-                                                pathname : `/article/${pub.slug}`,  
-                                            }}
-                                        >
-                                            <IoIosEye size={'20px'} />  Voir Plus
-                                        </Link>
+                                        {
+                                            pub.fpdf_url !== false 
+                                            ?
+                                            <a  
+                                                className="documentButton"
+                                                href={`${pub.fpdf_url}`}
+                                                target={pub.fpdf_url !== false && "_blank"} 
+                                            >
+                                                <AiOutlineDownload size={'20px'} />  Télécharger
+                                            </a>
+                                            :
+                                            <a  
+                                                className="documentButton"
+                                                href={`/article/${pub.slug}`}
+                                            >
+                                                <IoIosEye size={'20px'} />  Voir Plus
+                                            </a>
+                                        }
                                     </p>
                                 </Col>
                             </Row>
                         </Jumbotron>
-                    </Link>       
+                    </a>       
                 )
             }
             </>
@@ -223,12 +229,12 @@ export default class Documentation extends Component {
             {
                 pubs.map(pub => 
                     <Col xs={12} md={6} xl={4}>
-                    <Link 
-                        to={{
-                            pathname : `/article/${pub.slug}`,  
-                        }}  
-                        style={{ textDecoration: 'none' }}>
-                            <Jumbotron className="documentGridBox">
+                    <a 
+                        href={ pub.fpdf_url !== false ?  pub.fpdf_url : `/article/${pub.slug}`} 
+                        target={pub.fpdf_url !== false && "_blank"} 
+                        style={{ textDecoration: 'none' }}
+                    >
+                        <Jumbotron className="documentGridBox">
                             <Row>
                                 <Col xs={6} md={5} xl={5}>
                                     <Row>
@@ -244,7 +250,7 @@ export default class Documentation extends Component {
 
                                 <Col xs={6} md={7}  xl={7}>
                                     {
-                                        pub.title.rendered.length > 30
+                                        window.innerWidth > 767 && pub.title.rendered.length > 30
                                         ?
                                         <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered.substr(0,30)+"..."}}></h4>
                                         :
@@ -252,19 +258,29 @@ export default class Documentation extends Component {
                                     }
                                     
                                     <p className="documentGridButtonContainer">
-                                        <Link  
-                                            className="documentGridButton"
-                                            to={{
-                                                pathname : `/article/${pub.slug}`,  
-                                            }}
-                                        >
-                                            <IoIosEye size={'20px'} /> Voir Plus
-                                        </Link>
+                                        {
+                                            pub.fpdf_url !== false 
+                                            ?
+                                            <a  
+                                                className="documentGridButton"
+                                                href={`${pub.fpdf_url}`}
+                                                target={pub.fpdf_url !== false && "_blank"} 
+                                            >
+                                                <AiOutlineDownload size={'20px'} />  Télécharger
+                                            </a>
+                                            :
+                                            <a  
+                                                className="documentGridButton"
+                                                href={`/article/${pub.slug}`}
+                                            >
+                                                <IoIosEye size={'20px'} />  Voir Plus
+                                            </a>
+                                        }
                                     </p>
                                 </Col>
                             </Row>
                         </Jumbotron>
-                    </Link>
+                    </a>
                     </Col>            
                 )
             }
@@ -325,5 +341,8 @@ export default class Documentation extends Component {
             </>
         );
     };  
+
+
+
 }
 

@@ -594,8 +594,8 @@ class Home extends Component {
                     <hr style={{ borderColor : '#DEDEDE', marginTop : 13+"px",width : '80%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />
                     
                     <ReactPlayer 
-                        url='https://www.youtube.com/watch?v=f11pRhSVQ6U' 
-                        playing 
+                        url='https://www.youtube.com/watch?v=7CBI-n7YmAw&t=7s&fbclid=IwAR3NZrptzt144JMo1ovrcvyyI8wS7LgOTmjvv5BBV2RqIKR-6v4FTGh6ghA' 
+                        playing={false} 
                         width='100%'
                     />
                     

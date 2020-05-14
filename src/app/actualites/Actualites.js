@@ -226,14 +226,7 @@ class Actualites extends Component {
                                     </Col> 
 
                                     <Col xs={12} md={12} xl={7}>
-                                        {
-                                            post.title.rendered.length > 60 
-                                            ?
-                                            <p className="titleCeMois" dangerouslySetInnerHTML={{__html: post.title.rendered.substr(0,60)+"..."}}></p>
-                                            
-                                            :
-                                            <p className="titleCeMois" dangerouslySetInnerHTML={{__html: post.title.rendered}}></p>                              
-                                        }
+                                        <p className="titleCeMois" dangerouslySetInnerHTML={{__html: post.title.rendered}}></p>                              
                                         <p  className="dateCeMois">{moment(posts[1].date).format("DD MMMM YYYY")}</p>
                                     </Col> 
                                 </Row>                        
@@ -296,14 +289,7 @@ class Actualites extends Component {
                                         descClass="thumbActuMidDesc" 
                                     />
                                 }
-                                {
-                                    actu.title.rendered.length > 50
-                                    ?
-                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title.rendered.substr(0,50)+"..."}}></p>
-                                    :
-                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title.rendered}}></p>
-                                }
-                                
+                                <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title.rendered}}></p>
                                 <p className="midDate">{moment(actu.date).format("DD MMMM YYYY")}</p>
                                 </Link>
                             </Col>
@@ -320,9 +306,6 @@ class Actualites extends Component {
         return (
             <Layout style={{marginTop : 40+"px", marginBottom : 40+"px"}}>
                 
-                {/* <h4  style={styles.Title2} >AGENDA</h4>
-                <hr style={{ borderColor : 'black', marginTop : -13+"px",width : '100%' ,borderWidth : 5+"px",marginBottom : 30+"px" }} />   */}
-                {/* TITLE */}
                 <Row className="sectionTitleRowActualites">
                     <div className="sectionTitleContainerActualites">
                         <h4 className="sectionTitleActualites">{solo_title}</h4>
@@ -359,13 +342,8 @@ class Actualites extends Component {
                                         descClass="thumbActuMidDesc" 
                                     />
                                 }
-                                {
-                                    actu.title.length > 50
-                                    ?
-                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title.substr(0,50)+"..."}}></p>
-                                    :
-                                    <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title}}></p>
-                                }
+                                
+                                <p className="midTitle" dangerouslySetInnerHTML={{__html: actu.title}}></p>
                                 
                                 <p className="midDate">{moment(`${actu.start_date_details.year}-${actu.start_date_details.month}-${actu.start_date_details.day}`).format("DD MMMM YYYY")}</p>
                                 </Link>

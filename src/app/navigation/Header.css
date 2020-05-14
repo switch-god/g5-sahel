@@ -121,8 +121,8 @@
   }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
+/* Extra large devices (large desktops, 1322px and up) */
+@media (min-width: 1322px) { 
 
   .inline-ipad {
     margin-top: 10px;
