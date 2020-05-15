@@ -8,14 +8,12 @@
 */
 
 //CATEGORIES :
-    // TESTS :
-    const POSTS = 13;
-    const EVENTS = 14;
-    const HOME_BLOC1_IMGS = 15;
-    const ACTIVITES = 16;
 
     // G5 Categories :
-       
+    
+        // Appel d'offres :
+        const APPEL_OFFRE = 61 ;
+
         // Presentation :
         const PRESENTATION = 39;
         // const Presentation_image_text_1 = 44;
@@ -50,6 +48,7 @@
             const CORRESPONDANCE = 29;
             const DISCOURS = 30;
             const AUTRES_DOCUMENTS = 32;
+            const COMMUNIQUE_DE_PRESSE = 63;
 
 
 
@@ -61,11 +60,8 @@
 
 export {
     config,
-    POSTS,
-    EVENTS,
-    HOME_BLOC1_IMGS,
-    ACTIVITES,
-
+  
+    APPEL_OFFRE,
 
     PRESENTATION,
    
@@ -92,4 +88,5 @@ export {
         CORRESPONDANCE,
         DISCOURS,
         AUTRES_DOCUMENTS,
+        COMMUNIQUE_DE_PRESSE,
 };

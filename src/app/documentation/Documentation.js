@@ -31,6 +31,7 @@ import Discours from './Discours/Discours';
 import Multimedias from './Multimedias/Multimedias';
 import Reglementation from './Reglementation/Reglementation';
 import AutresDocuments from './AutresDocuments/AutresDocuments';
+import CommuniquePresse from './CommuniquePresse/CommuniquePresse';
 
 import { 
     config, 
@@ -40,6 +41,7 @@ import {
     AUTRES_DOCUMENTS,
     REGLEMENTATIONS,
     MULTIMEDIAS,
+    COMMUNIQUE_DE_PRESSE,
 } from '../../constants/AppConfig';
 
 
@@ -130,6 +132,15 @@ export default class Documentation extends Component {
                             <AutresDocuments 
                                 category={AUTRES_DOCUMENTS} 
                                 pageTitle="AUTRES DOCUMENTS" 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
+                        </Route>
+                        
+                        <Route  path="/documentation/communique-de-presse">
+                            <CommuniquePresse 
+                                category={COMMUNIQUE_DE_PRESSE} 
+                                pageTitle="COMMUNIQUE DE PRESSE" 
                                 renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
                                 renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
                             />
@@ -333,10 +344,16 @@ export default class Documentation extends Component {
                       onClick={() => this.setState({ pathName : window.location.pathname })}
                 >Multimédias</Link>
 
+                <Link to="/documentation/communique-de-presse"
+                    className={activePathName== '/documentation/communique-de-presse' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                    onClick={() => this.setState({ pathName : window.location.pathname })}
+                >Communiqué De Presse</Link>
+
                 <Link to="/documentation/autres-documents"
                       className={activePathName== '/documentation/autres-documents' ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
                       onClick={() => this.setState({ pathName : window.location.pathname })}
                 >Autres documents</Link>
+
             </Nav>
             </>
         );

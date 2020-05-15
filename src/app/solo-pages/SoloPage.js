@@ -55,7 +55,7 @@ export default class SoloPage extends Component {
             return (
                 <Container fluid>
                 <Layout xs={4} style={{textAlign: 'center',marginBottom: '50px'}}>
-                    <p className="soloTitle">{publication[0].categories[0].category_name}</p>
+                    <p className="soloTitle">{publication[0].fcategory[0].category_name}</p>
                     <p className="articleTitle" dangerouslySetInnerHTML={{__html: publication[0].title.rendered}}></p>
                     <p className="articleDate">{moment(publication[0].date).format("DD MMMM YYYY")}</p>
     
@@ -69,7 +69,7 @@ export default class SoloPage extends Component {
                                     <Image src={publication[0].fimg_url} fluid className="articleImage" />
                                     :
                                     <ThumbDoc 
-                                        title={publication[0].categories[0].category_name} 
+                                        title={publication[0].fcategory[0].category_name} 
                                         containerClass="thumbSoloContainer" 
                                         imageClass="thumbSoloImage" 
                                         titleClass="thumbSoloTitle" 
@@ -138,7 +138,7 @@ export default class SoloPage extends Component {
                             <Image src={item.fimg_url !== false ? item.fimg_url : THUMB } fluid className="newsImage" />
                             :
                             <ThumbDoc 
-                            title={item.categories[0].category_name} 
+                            title={item.fcategory[0].category_name} 
                             containerClass="thumbSoloSmallContainer"
                             imageClass="thumbSoloSmallImage" 
                             titleClass="thumbSoloSmallTitle" 
@@ -149,7 +149,7 @@ export default class SoloPage extends Component {
                         <div style={{marginTop : 20+"px"}}>
                             
                             <div className="newsCategoryContainer">
-                                <h5 className="newsCategory" >{item.categories[0].category_name}</h5>
+                                <h5 className="newsCategory" >{item.fcategory[0].category_name}</h5>
                             </div>
                             
                             <div className="newsTitleContainer">

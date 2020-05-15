@@ -19,7 +19,8 @@ import '../documentation.css';
 
 import UltimatePagination from '../../../components/Paginate';
 
-class Discours extends Component {
+
+class CommuniquePresse extends Component {
 
     constructor(props) {
         super(props);
@@ -194,6 +195,7 @@ class Discours extends Component {
             loading : true,
         });
         window.scrollTo(0, 0);
+       
         this.props.getPublications(this.props.category,current);
 
         setTimeout(() => {
@@ -244,12 +246,13 @@ class Discours extends Component {
         );
     }
 
+   
 }
 
 const mapStateToProps = state => ({
     publications : state.docsR.publications,
 });
 
-export default connect(mapStateToProps,{ getPublications })(Discours);
+export default connect(mapStateToProps,{ getPublications })(CommuniquePresse);
 
 

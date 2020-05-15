@@ -58,7 +58,7 @@ export default class SeeMore extends Component {
                             <Col xl={6} style={{textAlign: 'center'}}>
                                 <UltimatePagination 
                                     currentPage={this.state.currentPage}
-                                    totalPages={Math.ceil(posts[0].categories[0].category_count / 10)}
+                                    totalPages={Math.ceil(posts[0].fcategory[0].category_count / 10)}
                                     boundaryPagesRange={4}
                                     siblingPagesRange={3}
                                     hideEllipsis={false}

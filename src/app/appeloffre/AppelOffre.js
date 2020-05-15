@@ -23,6 +23,7 @@ import {
 
 import { 
     config, 
+    APPEL_OFFRE
 } from '../../constants/AppConfig';
 
 import '../documentation/documentation.css';

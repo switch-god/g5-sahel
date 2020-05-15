@@ -10,7 +10,6 @@ import moment from 'moment';
 
 export const getPublications = (category,page_num) => async (dispatch) => {
   
-
   axios.get(`${config.url}wp/v2/posts?categories=${category}&page=${page_num}&per_page=10`)
         .then(response => {
   

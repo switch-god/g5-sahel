@@ -100,13 +100,13 @@ class AutresDocuments extends Component {
                             {
                                 publications.length > 0 && 
                                 showPagination && 
-                                Math.ceil(publications[0].categories[0].category_count / 10 ) > 1 &&
+                                Math.ceil(publications[0].fcategory[0].category_count / 10 ) > 1 &&
                                    
                                 <Row className="ml-5">
                                     <Col id="page-numbers" xs={12} xl={12}>
                                         <UltimatePagination 
                                             currentPage={this.state.currentPage}
-                                            totalPages={Math.ceil(publications[0].categories[0].category_count / 10)}
+                                            totalPages={Math.ceil(publications[0].fcategory[0].category_count / 10)}
                                             boundaryPagesRange={4}
                                             siblingPagesRange={3}
                                             hideEllipsis={false}
@@ -161,12 +161,12 @@ class AutresDocuments extends Component {
                                 {
                                     publications.length > 0 && 
                                     showPagination && 
-                                    Math.ceil(publications[0].categories[0].category_count / 10 ) > 1 &&
+                                    Math.ceil(publications[0].fcategory[0].category_count / 10 ) > 1 &&
                                     <Row>
                                         <Col id="page-numbers" xs={12} xl={12}>
                                             <UltimatePagination 
                                                 currentPage={this.state.currentPage}
-                                                totalPages={Math.ceil(publications[0].categories[0].category_count / 10)}
+                                                totalPages={Math.ceil(publications[0].fcategory[0].category_count / 10)}
                                                 boundaryPagesRange={4}
                                                 siblingPagesRange={3}
                                                 hideEllipsis={false}

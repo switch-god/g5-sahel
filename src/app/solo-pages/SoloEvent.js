@@ -115,7 +115,7 @@ export default class SoloEvent extends Component {
                     <div style={{marginTop : 20+"px"}}>
                         
                         <div className="newsCategoryContainer">
-                            <h5 className="newsCategory" >{item.categories[0].category_name}</h5>
+                            <h5 className="newsCategory" >{item.fcategory[0].category_name}</h5>
                         </div>
                         
                         <div className="newsTitleContainer">

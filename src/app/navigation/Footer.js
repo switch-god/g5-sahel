@@ -119,8 +119,8 @@ export default class Footer extends Component {
                                     <h2 className="footerTitle"> LIENS UTILES </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link to="#" className="links">Programmes d’Investissements Prioritaires (PIP)</Link>
-                                        <Link to="#" className="links">Stratégie de défense et de sécurité (SDS)</Link>
+                                        <a href="/article/programme-dinvestissements-prioritaires-pip-g5-sahel" className="links">Programmes d’Investissements Prioritaires (PIP)</a>
+                                        <a href="/article/strategie-de-defense-et-de-securite-sds" className="links">Stratégie de défense et de sécurité (SDS)</a>
                                     </Nav>
                                 </div>
                             </Col>

@@ -44,6 +44,8 @@ class Recrutement extends Component {
             searchingJobs : [],
         };
 
+        this.optionSearch = '';
+
         // getting jobs :
         this.props.getJobs();
     }
@@ -51,7 +53,7 @@ class Recrutement extends Component {
     render() {
         const { jobs } = this.props;
         let { searchingJobs } = this.state;
-            
+     
         return (
             <>    
                 <div className="bg-overlay header-justify-elements">
@@ -68,7 +70,7 @@ class Recrutement extends Component {
 
             <Container fluid>
                 <Layout>
-                    {this.renderSearchContainer()}
+                    {this.renderSearchContainer(jobs)}
                     {this.renderSortBar(jobs)}
 
                     {
@@ -87,7 +89,7 @@ class Recrutement extends Component {
         )
     }
 
-    renderSearchContainer = () => {
+    renderSearchContainer = (jobs) => {
 
         return (
             <>
@@ -117,11 +119,16 @@ class Recrutement extends Component {
                                 onChange={pays => this.searchByCountry(pays)} 
                             >
                                 <option value={0}>Tous les pays...</option>
-                                <option>Burkina Faso</option>
-                                <option>Mali</option>
-                                <option>Mauritanie</option>
-                                <option>Niger</option>
-                                <option>Tchad</option>
+                                {
+                                    jobs.map((job) => {
+                                        if(job.meta._job_location && job.meta._job_location != this.optionSearch) {
+                                            this.optionSearch = job.meta._job_location;
+                                            return(
+                                                <option>{job.meta._job_location}</option>
+                                            );
+                                        }
+                                    })
+                                }
                             </Form.Control>
                         </Form.Group>
                     </Col>
@@ -135,11 +142,11 @@ class Recrutement extends Component {
                                 onChange={jobType => this.searchByJobType(jobType)} 
                             >
                                 <option value={0}>Tous types...</option>
-                                <option value={17}>FULL TIME</option>
-                                <option value={18}>PART TIME</option>
-                                <option value={20}>FREELANCE</option>
-                                <option value={19}>TEMPORARY</option>
-                                <option value={21}>INTERSHIP</option>
+                                <option value={17}>PLEIN TEMPS</option>
+                                <option value={18}>TEMPS PARTIEL</option>
+                                <option value={20}>FREE-LANCE</option>
+                                <option value={19}>TEMPORAIRE</option>
+                                <option value={21}>STAGE</option>
                             </Form.Control>
                         </Form.Group>
                     </Col>
@@ -230,17 +237,20 @@ class Recrutement extends Component {
                         let jobYearsDiff = jobMonthsDiff > 11 ? (now.diff(jobDate, 'years')).toFixed() : null;
                         
                     return ( 
-                        <Col xs={12} md={6} xl={4}>
+                        <Col xs={12} md={6} xl={6}>
                             <Jumbotron  className="box justify-elements">
                                 <Row>
                                     <h5 className="boxTitle">{job.title.rendered}</h5>
                                 </Row>
                                 
-                                <Row>
-                                    <p className="boxDesc">
-                                    <IoMdPin size={30} style={{marginRight : 10+"px"}} />{job.meta._job_location}
-                                    </p>
-                                </Row>
+                                {
+                                    job.meta._job_location &&
+                                    <Row>
+                                        <p className="boxDesc">
+                                            <IoMdPin size={30} style={{marginRight : 10+"px"}} />{job.meta._job_location}
+                                        </p>
+                                    </Row>
+                                }
 
                                 <Row>
                                     <p className="boxDesc">
@@ -248,13 +258,13 @@ class Recrutement extends Component {
                                         {
                                             jobYearsDiff 
                                             ? 
-                                                `Published ${jobYearsDiff} year(s) ago` 
+                                                `Publié il y a ${jobYearsDiff} an(s)` 
                                             : 
                                             jobMonthsDiff == 0
                                             ?
-                                                "Published this month"
+                                                "Publié ce mois"
                                             :
-                                                `Published ${jobMonthsDiff} month(s) ago`
+                                                `Publié il ya ${jobMonthsDiff} moi(s)`
                                         }
                                         
                                     </p>
@@ -265,21 +275,21 @@ class Recrutement extends Component {
                                         {
                                             job.type == 17
                                             ? 
-                                                "FULL TIME"
+                                                "PLEIN TEMPS"
                                             :
                                             job.type == 18
                                             ?
-                                                "PART TIME"
+                                                "TEMPS PARTIEL"
                                             :
                                             job.type ==  19
                                             ?
-                                                "TEMPORARY"
+                                                "TEMPORAIRE"
                                             :
                                             job.type == 20
                                             ?
-                                                "FREELANCE"
+                                                "FREE-LANCE"
                                             :
-                                                "INTERSHIP"
+                                                "STAGE"
                                         }
                                     </p>
                                     {/* <Col md={5}>
