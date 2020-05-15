@@ -45,9 +45,9 @@ class Header extends Component {
                     <Col />
                     <Col />
                     <Col lg={4} className="menuWeb inline-ipad" >
-                        <Link style={styles.TopBarLinks} to="/appel-offre/cat-1"> Appel d'offre </Link>
-                        <Link style={styles.TopBarLinks} to="/recrutement"> Recrutement </Link>
-                        <Link style={styles.TopBarLinks} to="/contact-g5"> Contact </Link>
+                        <Link style={styles.TopBarLinks} to="/appel-offres">Appel d'offres</Link>
+                        <Link style={styles.TopBarLinks} to="/recrutement">Recrutement</Link>
+                        <Link style={styles.TopBarLinks} to="/contact-g5">Contact</Link>
                     </Col>
                 </Row>
                 <hr style={{marginBottom : -5 + "px",borderColor : '##BCBCBC'}} />
@@ -183,7 +183,7 @@ class Header extends Component {
     renderMobileMenuElements = () => (
        <>
             <div style={{textAlign : 'center'}}>
-                <a style={styles.TopBarLinks} href="/appel-offre/cat-1"> Appel d'offre </a>
+                <a style={styles.TopBarLinks} href="/appel-offres"> Appel d'offres </a>
                 <a style={styles.TopBarLinks} href="/recrutement"> Recrutement </a>
                 <a style={styles.TopBarLinks} href="/contact-g5"> Contact </a>
             </div>

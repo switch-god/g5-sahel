@@ -94,7 +94,7 @@ export class App extends Component {
                 <Documentation />
               </Route>
               
-              <Route path="/appel-offre">
+              <Route path="/appel-offres">
                 <AppelOffre />
               </Route>
 
