@@ -9,7 +9,7 @@ import {
     Image,
     Button,
 } from 'react-bootstrap';
-
+import moment from 'moment';
 import ThumbDoc from '../../components/ThumbDoc';
 import { IoIosEye } from 'react-icons/io';
 // import { IoIosList,IoMdGrid } from 'react-icons/io';
@@ -122,6 +122,7 @@ export default class Documentation extends Component {
                                         :
                                         <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,47)+"..."}}></p>
                                     */}
+                                    <p className="expirationDateList">Expire le: {pub.meta["xn-wppe-expiration"]}</p>
                                     
 
                                     <p style={{float : 'right'}}>
@@ -189,6 +190,7 @@ export default class Documentation extends Component {
                                         :
                                         <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
                                     }
+                                    <p className="expirationDateGrid">Expire le: {pub.meta["xn-wppe-expiration"]}</p>
                                     
                                     <p className="documentGridButtonContainer">
                                         {
