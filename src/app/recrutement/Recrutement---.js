@@ -22,14 +22,14 @@ import moment from 'moment';
     import axios from 'axios';
     import { config } from '../../constants/AppConfig';
     import { connect } from 'react-redux';
-    import { getJobs1 } from '../../redux/actions/JobsActions';
+    import { getJobs } from '../../redux/actions/JobsActions';
 
 // Components :
     import Layout from '../../components/Layout';
     import Newsletter from '../../components/Newsletter';
     import { IoMdPin } from 'react-icons/io';
     import { FaRegClock } from 'react-icons/fa';
-
+    import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 // Images & styiling :
     import './recrutement.css';
@@ -47,6 +47,14 @@ class Recrutement extends Component {
             jobType : 0,
             searchingJobs : [],
 
+
+            // MODAL DATA:
+            postId : null,
+            firstName: '',
+            lastName: '',
+            email: '',
+            cvFile: null,
+
             modalForm : 0,
             modalTitle : '',
             modalDesc : '',
@@ -56,13 +64,14 @@ class Recrutement extends Component {
         this.optionSearch = '';
 
         // getting jobs :
-        this.props.getJobs1();
+        this.props.getJobs();
     }
-    
+
+  
     render() {
         const { jobs } = this.props;
-        let { searchingJobs } = this.state;
-     
+        let { searchingJobs,showModal } = this.state;
+        
         return (
             <>    
                 <div className="bg-overlay header-justify-elements">
@@ -79,7 +88,7 @@ class Recrutement extends Component {
 
             <Container fluid>
                 <Layout>
-                    {this.renderSearchContainer(jobs)}
+                    {/* {this.renderSearchContainer(jobs)} */}
                     {this.renderSortBar(jobs)}
 
                     {
@@ -89,9 +98,11 @@ class Recrutement extends Component {
                         :
                             this.renderJobs(jobs)
                     }
+                       
                     <div style={{marginTop : 50+"px",marginBottom : 50+"px"}}>
                         <Newsletter />
                     </div>
+
 
                     {this.renderDetailsModal()}
                 </Layout>
@@ -100,7 +111,70 @@ class Recrutement extends Component {
         )
     }
 
+    postuler = async () => {
+        // console.log("Kbal axios");
+        let {
+            postId,
+            firstName,
+            lastName,
+            email,
+            cvFile,
+        } = this.state; 
 
+    
+        // console.log("File Of User",cvFile);
+        // console.log("File Name",cvFile.name);
+
+        // Create an object of formData 
+        var bodyFormData = new FormData(); 
+     
+      // Update the formData object 
+      bodyFormData.append( 
+        "myFile", 
+        this.state.cvFile, 
+        this.state.cvFile.name 
+      ); 
+
+
+     
+      // Details of the uploaded file 
+      console.log(this.state.cvFile); 
+    //   console.log("Form Data",formData.getAll('myFile')); 
+     
+
+      // Request made to the backend api 
+      // Send formData object 
+    //   axios.post(`${config.url}wl/v1/postuler`, formData).then(response => console.log("server =>", response.data)); 
+     
+
+        // axios.post(`${config.url}wl/v1/postuler`, {
+        //     post_id: postId,
+        //     nom : lastName,
+        //     prenom : firstName,
+        //     email : email,
+        //     cv : formData,
+        // },
+        // // { headers: { 'Content-Type': 'multipart/form-data'} }
+        // )
+        // .then(rep => {
+            
+        //     this.setState({
+        //         postId : null,
+        //         firstName: '',
+        //         lastName: '',
+        //         email: '',
+        //     });
+
+        //     this.setModalShow(false,0,null,'','');
+
+        //     console.log("RESPONSE =>", rep.data);
+        // })
+        // .catch(error => {
+        //     console.log("Erreur =>",error);
+        // })
+    }
+
+    
     setModalShow = (show,form,id,title,desc) => {
         this.setState({
             postId : id,
@@ -113,47 +187,77 @@ class Recrutement extends Component {
 
     renderDetailsModal = () => (
         
-        this.state.modalForm === 0 
-        ?
-        <Modal
-            show={this.state.showModal}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    <p className="boxTitle">{this.state.modalTitle}</p>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p className="boxDesc" dangerouslySetInnerHTML={{__html: this.state.modalDesc }}></p>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
-                <Button className="button" onClick={() => this.setState({ modalForm : 1 })} variant="light">Postuler</Button>
-            </Modal.Footer>
-        </Modal>
-        :
-        <Modal
-            show={this.state.showModal}
-            size="xl"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    <p className="boxTitle">{this.state.modalTitle}</p>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p className="boxDesc">Envoyer votre canditature par mail : <a className="mailTo" href="mailto:Webdev@g5sahel.org">Webdev@g5sahel.org</a></p> 
-            </Modal.Body>
-            <Modal.Footer>
-                <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
-                <Button className="button" onClick={() => this.postuler()} variant="light">Envoyer</Button>
-            </Modal.Footer>
-        </Modal>
+            this.state.modalForm === 0 
+            ?
+            <Modal
+                show={this.state.showModal}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        <p className="boxTitle">{this.state.modalTitle}</p>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {/* <p className="boxDesc" dangerouslySetInnerHTML={{__html: this.state.modalDesc }}></p> */}
+                    DESC
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
+                    <Button className="button" onClick={() => this.setState({ modalForm : 1 })} variant="light">Postuler</Button>
+                </Modal.Footer>
+            </Modal>
+            :
+            <Modal
+                show={this.state.showModal}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        <p className="boxTitle">{this.state.modalTitle}</p>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="formGridEmail"> 
+                                <Form.Control className="formInput" type="text" placeholder="Votre prénom" value={this.state.firstName} onChange={firstName => this.setState({firstName: firstName.target.value})} />
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridPassword">
+                                <Form.Control className="formInput" type="text" placeholder="Votre nom" value={this.state.lastName} onChange={lastName => this.setState({lastName: lastName.target.value})} />
+                            </Form.Group>
+                        </Form.Row>
+
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.Control className="formInput" type="email" placeholder="Votre adresse e-mail" value={this.state.email} onChange={email => this.setState({email: email.target.value})}/>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.File 
+                                    id="cv_file"
+                                    label={this.state.cvFile !== null ? this.state.cvFile.name : "Téléverser votre CV" }
+                                    data-browse="Téléverser"
+                                    custom
+                                    onChange={(event) => {
+                                        this.setState({ cvFile: event.target.files[0] })    
+                                        }
+                                    }
+                                />
+                            </Form.Group>
+                        </Form.Row>    
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
+                    <Button className="button" onClick={() => this.postuler()} variant="light">Envoyer</Button>
+                </Modal.Footer>
+            </Modal>
     );
 
     renderSearchContainer = (jobs) => {
@@ -294,32 +398,30 @@ class Recrutement extends Component {
         return (
             <Row style={{marginTop : 20+"px", marginBottom : 20+"px"}}>
                 {
-                    jobs.map(BigJob => {
+                    jobs.map((job,index) => {
                         
-                        let ChangedJob = JSON.stringify(BigJob).replace('job-types','type');
-                        let job = JSON.parse(ChangedJob);
-                        let now = moment();
-                        let jobDate = moment(job.date);
-                        let jobMonthsDiff = now.diff(jobDate, 'months');
-                        let jobYearsDiff = jobMonthsDiff > 11 ? (now.diff(jobDate, 'years')).toFixed() : null;
+                        // let ChangedJob = JSON.stringify(BigJob).replace('job-types','type');
+                        // let job = JSON.parse(ChangedJob);
+                        // let now = moment();
+                        // let jobDate = moment(job.date);
+                        // let jobMonthsDiff = now.diff(jobDate, 'months');
+                        // let jobYearsDiff = jobMonthsDiff > 11 ? (now.diff(jobDate, 'years')).toFixed() : null;
                         
                     return ( 
-                        <Col xs={12} md={6} xl={6} onClick={() => this.setModalShow(true,0,job.id,job.title.rendered,job.content.rendered)}>
+                        <Col key={index} xs={12} md={6} xl={6}  onClick={() => this.setModalShow(true,0,job.ID,job.post_title,job.post_content)}>
                             <Jumbotron  className="box justify-elements">
                                 <Row>
-                                    <h5 className="boxTitle">{job.title.rendered}</h5>
+                                    <h5 className="boxTitle">{job.post_title}</h5>
                                 </Row>
                                 
-                                {
-                                    job.meta._job_location &&
-                                    <Row>
-                                        <p className="boxDesc">
-                                            <IoMdPin size={30} style={{marginRight : 10+"px"}} />{job.meta._job_location}
-                                        </p>
-                                    </Row>
-                                }
-
+                             
                                 <Row>
+                                    <p className="boxDesc">
+                                        <IoMdPin size={30} style={{marginRight : 10+"px"}} />Nouakchott
+                                    </p>
+                                </Row>
+                            
+                                {/* <Row>
                                     <p className="boxDesc">
                                         <FaRegClock size={25} style={{marginRight : 13+"px"}} />
                                         {
@@ -335,30 +437,10 @@ class Recrutement extends Component {
                                         }
                                         
                                     </p>
-                                </Row>
+                                </Row> */}
 
                                 <Row>
-                                    <p className="TimePartJob">
-                                        {
-                                            job.type == 17
-                                            ? 
-                                                "PLEIN TEMPS"
-                                            :
-                                            job.type == 18
-                                            ?
-                                                "TEMPS PARTIEL"
-                                            :
-                                            job.type ==  19
-                                            ?
-                                                "TEMPORAIRE"
-                                            :
-                                            job.type == 20
-                                            ?
-                                                "FREE-LANCE"
-                                            :
-                                                "STAGE"
-                                        }
-                                    </p>
+                                    <p className="TimePartJob">PLEIN TEMPS</p>
                                     {/* <Col md={5}>
                                         <p className="TimePartJobDate">
                                             12 Sep - 12 Oct
@@ -477,8 +559,8 @@ const styles = {
 
 
 const mapStateToProps = state => ({
-    jobs : state.jobsR.jobs1,
+    jobs : state.jobsR.jobs,
 });
 
-export default connect(mapStateToProps,{ getJobs1 })(Recrutement);
+export default connect(mapStateToProps,{ getJobs })(Recrutement);
 

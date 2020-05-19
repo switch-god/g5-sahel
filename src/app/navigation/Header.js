@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { IoIosSearch } from 'react-icons/io';
-import {AutoComplete} from 'primereact/autocomplete';
+// import {AutoComplete} from 'primereact/autocomplete';
 
 // IMAGES & STYLING :
 import './Header.css';
@@ -271,7 +271,7 @@ const styles = {
 };
 
 const mapStateToProps = state => ({
-    searchStatus : state.postsR.searchStatus,
+    // searchStatus : state.postsR.searchStatus,
 })
 
 export default connect(mapStateToProps, {})(Header);

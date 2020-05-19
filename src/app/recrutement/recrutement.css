@@ -2,6 +2,13 @@
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+
+    .mailTo {
+        font-size: 15px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+    
     .boxTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
@@ -137,6 +144,13 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
+
+    .mailTo {
+        font-size: 15px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+
     .boxTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
@@ -269,6 +283,13 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+
+    .mailTo {
+        font-size: 15px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+
     .boxTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
@@ -402,6 +423,12 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
+    .mailTo {
+        font-size: 15px;
+        font-family: 'Poppins Light';
+        color: #0099CC;
+    }
+
     .boxTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
@@ -509,6 +536,20 @@
         padding-top: 50px;
     }
 
+    .btn-light:focus {
+        color: #ffffff !important;
+        background-color: #0099CC !important;
+        border-color: #fff !important;
+        cursor: pointer;
+      }
+  
+    .btn-light:active {
+      color: #fff !important;
+      background-color: #14b53a !important;
+      border-color: #fff !important;
+      cursor: pointer;
+    }
+
     .button {
         padding : 12px;
         background-color: #0099CC;
@@ -531,6 +572,8 @@
     }
 
 }
+
+
 
 
 
