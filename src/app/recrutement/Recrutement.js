@@ -151,7 +151,7 @@ class Recrutement extends Component {
             </Modal.Body>
             <Modal.Footer>
                 <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
-                <Button className="button" onClick={() => this.postuler()} variant="light">Envoyer</Button>
+                {/* <Button className="button" onClick={() => this.postuler()} variant="light">Envoyer</Button> */}
             </Modal.Footer>
         </Modal>
     );
