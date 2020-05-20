@@ -23,8 +23,8 @@ import ThumbDoc from '../../components/ThumbDoc';
 // Icons :
 import {FaFacebookF,FaYoutube,FaLinkedinIn,FaTwitter} from 'react-icons/fa';
 
-import Image1 from '../../assets/images/Home/1.png';
-import IMG_TEST from '../../assets/images/News/news.png';
+// import Image1 from '../../assets/images/Home/1.png';
+// import IMG_TEST from '../../assets/images/News/news.png';
 import './actualites.css';
 
 class Actualites extends Component {
@@ -62,8 +62,8 @@ class Actualites extends Component {
             actualitesG5,
             actualitesInter,
             events,
-            activities,
-            posts
+            posts,
+            // activities,
         } = this.props;
 
         return (

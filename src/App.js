@@ -35,6 +35,7 @@ import Footer from './app/navigation/Footer';
 
    import SoloPage from './app/solo-pages/SoloPage';
    import SeeMore from './app/solo-pages/SeeMore';
+   import SeeMoreSearch from './app/solo-pages/SeeMoreSearch';
    import SoloEvent from './app/solo-pages/SoloEvent';
    
 /* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
@@ -107,6 +108,7 @@ export class App extends Component {
               <Route path="/article/:slug" component={SoloPage} />
               <Route path="/event/:slug" component={SoloEvent} />
               <Route path="/voir-plus/:category_slug" component={SeeMore} />
+              <Route path="/search/:search" component={SeeMoreSearch} />
               
               <Route component={NotFound}/>
             </Switch>

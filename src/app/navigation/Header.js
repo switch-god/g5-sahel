@@ -8,6 +8,7 @@ import {
    NavDropdown,
    Form,
    Spinner,
+   Button,
 } from 'react-bootstrap';
 
 // Connect Redux :
@@ -15,7 +16,7 @@ import { connect } from 'react-redux';
 
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
-import { IoIosSearch } from 'react-icons/io';
+import { IoIosSearch,IoIosArrowForward } from 'react-icons/io';
 
 // IMAGES & STYLING :
 import './Header.css';
@@ -51,7 +52,7 @@ class Header extends Component {
                     <Col />
                     <Col />
                     <Col />
-                    <Col lg={4} className="menuWeb inline-ipad" >
+                    <Col lg={4} className="topMenuWeb inline-ipad" >
                         <Link style={styles.TopBarLinks} to="/appel-offres">Appel d'offres</Link>
                         <Link style={styles.TopBarLinks} to="/recrutement">Recrutement</Link>
                         <Link style={styles.TopBarLinks} to="/contact-g5">Contact</Link>
@@ -59,9 +60,8 @@ class Header extends Component {
                 </Row>
                 <hr style={{marginBottom : -5 + "px",borderColor : '##BCBCBC'}} />
                 <Row>
-                    <Col md={1}/>
+                    <Col md={1} xl={1}/>
                     <Col>
-                        
                         <Navbar bg={null} expand="lg">
                             <Link className="navbar-brand logoMobile" to="/"><img src={LOGO2} height={80} className="d-inline-block align-top" /></Link>
                             <Link className="navbar-brand logoWeb" to="/"><img src={LOGO} height={80} className="d-inline-block align-top" /></Link>
@@ -84,7 +84,7 @@ class Header extends Component {
                         </Navbar>
 
                     </Col>
-                    <Col md={1}/>
+                    <Col md={1} xl={1}/>
                 </Row>
                 <hr style={{marginTop : -5 + "px", borderColor : '##BCBCBC', marginBottom : 50 + "px"}} />
             </Container>
@@ -135,7 +135,7 @@ class Header extends Component {
     }
 
     renderWebMenuElements = () => (
-       <>   
+       <div>   
        <div className="dropdown">
             <Link style={styles.MainMenuLinks} to="/presentation"> Présentation <img src={ARROW} height={7} /></Link>
             <div className="dropdown-content">
@@ -257,11 +257,23 @@ class Header extends Component {
                 ?
                     (
                         <>
+                        <div className="btnTotalContainer">
+                        <Col>
+                            <p className="resultTitle" style={{textAlign: 'left'}}>"{this.state.totalSearchPosts}" résultat(s) trouvé(s)</p>
+                             <Link 
+                                className="btn btn-light infraVoirToutButton"
+                                style={{marginBottom: '20px',float: 'left'}}
+                                onClick={() => this.closeSearch()}
+                                to={{ pathname : `/search/${this.state.searchInput}` }}
+                            >
+                                Tous les résultats <IoIosArrowForward size={'20px'} />
+                            </Link>
+                        </Col>
+                        </div>
                         {
                             this.state.searchResults.map((result,index) => 
-                                <div key={index} className={index > 0 ? "result" : "result-no-border"}>
-                                    <p className="resultTitle">{result.title}</p>
-                                </div>
+                                <div key={index} className={"result"}>
+                                    <a href={`/article/${result._embedded.self[0].slug}`} className="resultTitle" dangerouslySetInnerHTML={{__html:result.title}}></a>                                </div>
                         )
                         }
                         <div style={{paddingLeft: '10px'}}>
@@ -292,7 +304,7 @@ class Header extends Component {
         </div>
         {/* FULLSCREEN SEARCH */}
    
-       </>
+       </div>
     );
   
     renderMobileMenuElements = () => (
@@ -343,8 +355,19 @@ class Header extends Component {
                     </NavDropdown>
                     
                     <Form inline>
-                        <input type="text" placeholder="Rechercher..." className="searchInput" />
-                        <IoIosSearch size={25} className="searchIcon" onClick={() => this.openSearch()} />
+                        <input 
+                            type="text" 
+                            value={this.state.searchInput} 
+                            onChange={input => this.handleInputChange(input)} 
+                            placeholder="Rechercher..." 
+                            className="searchInput" 
+                        />
+                        <a 
+                            className=""
+                            href={`/search/${this.state.searchInput}`}
+                        >
+                           <IoIosSearch size={25} className="searchIcon"/>
+                        </a>
                     </Form>
                 </Col>
 
@@ -377,7 +400,7 @@ const styles = {
         fontFamily : 'Poppins Light',
         fontWeight : '200',
         color : 'black', 
-        marginRight : 20,
+        marginRight : '14px',
     },
     collapsible : {
         width : '95%',

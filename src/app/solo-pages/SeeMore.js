@@ -59,8 +59,8 @@ export default class SeeMore extends Component {
                                 <UltimatePagination 
                                     currentPage={this.state.currentPage}
                                     totalPages={Math.ceil(posts[0].fcategory[0].category_count / 10)}
-                                    boundaryPagesRange={4}
-                                    siblingPagesRange={3}
+                                    boundaryPagesRange={1}
+                                    siblingPagesRange={2}
                                     hideEllipsis={false}
                                     hidePreviousAndNextPageLinks
                                     hideFirstAndLastPageLinks

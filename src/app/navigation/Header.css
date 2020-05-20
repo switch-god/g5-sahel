@@ -208,9 +208,14 @@
     display: none;
   }
 
+  .topMenuWeb {
+    display: none;
+  }
+
   .logoWeb {
     display: none;
   }
+
 
 
   .logoMobile {
@@ -376,17 +381,22 @@
   /* SEARCH */
 
   .inline-ipad {
-    margin-right: 75px;
+    margin-right: 56px;
   }
 
   .menuWeb {
-    display: inline;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
   }
+  
+    .topMenuWeb {
+      display: inline;
+    }
 
   .logoWeb {
     display: none;
   }
-
 
   .logoMobile {
     display: inline;
@@ -402,6 +412,10 @@
 
   /* SEARCH */
 
+  .btnTotalContainer {
+    flex: 1;
+    display: flex;
+  }
 
   .resultSpinnerContainer {
     padding: 20px;
@@ -458,10 +472,17 @@
     border: 0px;
   }
 
-  .resultText {
+  .resultTitle {
     color:black;
     font-size: 15px;
+    /* padding: 10px; */
     font-family: 'Poppins Bold';
+    cursor: pointer;
+  }
+  
+  .resultTitle:hover {
+    color: #0099CC;
+    cursor: pointer;
   }
 
   .searchResults {
@@ -567,6 +588,12 @@
   }
 
   .menuWeb {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+  
+  .topMenuWeb {
     display: inline;
   }
   

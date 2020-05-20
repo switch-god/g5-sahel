@@ -128,8 +128,6 @@ class NosActivites extends Component {
                     }
                     {/* ./infrastructure */}
                     
-
-
                     {/* Résilience */}
                     {
                         resilence.length > 0 && 
@@ -522,7 +520,7 @@ class NosActivites extends Component {
             
             <Row className="voirToutButtonRow">
                 <Link 
-                    className="btn btn-light infraVoirToutButton "
+                    className="btn btn-light infraVoirToutButton"
                     to={{ pathname : `/voir-plus/${infrastructure[0].fcategory[0].category_slug}` }}
                 >
                     Voir tous les articles <IoIosArrowForward size={'20px'} />
