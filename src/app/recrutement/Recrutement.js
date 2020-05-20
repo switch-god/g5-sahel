@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// Images & styiling :
+import './recrutement.css';
 
 import {
     Col,
@@ -13,9 +15,6 @@ import {
 import {
     Grid,
 } from '@material-ui/core';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
 import moment from 'moment';
 
 // Redux & Getting Data : 
@@ -29,11 +28,7 @@ import moment from 'moment';
     import Newsletter from '../../components/Newsletter';
     import { IoMdPin } from 'react-icons/io';
     import { FaRegClock } from 'react-icons/fa';
-
-
-// Images & styiling :
-    import './recrutement.css';
-
+    import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 
 class Recrutement extends Component {
@@ -47,22 +42,44 @@ class Recrutement extends Component {
             jobType : 0,
             searchingJobs : [],
 
+
+            // MODAL DATA:
+            postId : null,
+            name: '',
+            email: '',
+            message: '',
+            cvFile: null,
+
             modalForm : 0,
             modalTitle : '',
             modalDesc : '',
             showModal :false,
         };
 
-        this.optionSearch = '';
+        this.optionSearch = [];
+        this.options = [];
 
         // getting jobs :
         this.props.getJobs1();
     }
-    
+
+
+    componentDidMount() {
+        
+    }
+  
     render() {
         const { jobs } = this.props;
-        let { searchingJobs } = this.state;
-     
+        let { searchingJobs,showModal } = this.state;
+
+        // Clean Options :
+        this.props.jobs.map((job) => {
+            if(job.meta._job_location.length > 0) {
+                this.optionSearch.push(job.meta._job_location);
+            }
+        });
+        this.options = [...new Set(this.optionSearch)];
+        
         return (
             <>    
                 <div className="bg-overlay header-justify-elements">
@@ -89,9 +106,11 @@ class Recrutement extends Component {
                         :
                             this.renderJobs(jobs)
                     }
+                       
                     <div style={{marginTop : 50+"px",marginBottom : 50+"px"}}>
                         <Newsletter />
                     </div>
+
 
                     {this.renderDetailsModal()}
                 </Layout>
@@ -100,60 +119,205 @@ class Recrutement extends Component {
         )
     }
 
+    verifEmail = (email) => {
+        let verifExpression = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return verifExpression.test(email);
+    };
 
+    postuler = async () => {
+        let {
+            postId,
+            name,
+            email,
+            message,
+            cvFile,
+        } = this.state; 
+
+        if (name.length < 4 ) {
+            if(name === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Le champ NOM & PRÉNOM est vide',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return;    
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Le champ NOM & PRÉNOM doit avoir au moins 4 caractères',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        } else if ( !this.verifEmail(email) ) {
+            if(email === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Le champ EMAIL est vide',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return;    
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Merci de taper une adresse mail valide',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        } else if (message.length < 4 ) {
+            if(message === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Le champ MESSAGE est vide',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return;    
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Le champ MESSAGE doit avoir au moins 10 caractères',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        } else if (cvFile === null) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Ajouter votre CV s.v.p',
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+        } else {
+
+            let slugToSend = name.toLowerCase().replace(/ /g, '-');
+            const options = { 
+                headers: {'Content-Type': 'multipart/form-data'}
+            };
+    
+            let data = new FormData();
+            data.append('post_parent', postId);
+            data.append('username', name);
+            data.append('slug', slugToSend);
+            data.append('useremail', email);
+            data.append('usermsg', message);
+            data.append('file', cvFile);
+    
+            axios.post(`${config.url}wl/v1/postulerjob`,data,options)
+            .then(rep => {
+                
+                this.setState({
+                    postId : null,
+                    name: '',
+                    email: '',
+                    message: '',
+                });
+    
+                this.setModalShow(false,0,null,'','');
+    
+                console.log("SERVER RESPONSE =>", rep.data);
+            })
+            .catch(error => {
+                console.log("Erreur =>",error);
+            })
+        };
+
+    }
+
+    
     setModalShow = (show,form,id,title,desc) => {
         this.setState({
             postId : id,
             modalForm : form,
             modalTitle : title,
             modalDesc : desc,
+
+            name: '',
+            email: '',
+            message: '',
+            cvFile: null,
+
             showModal : show,
         });
     }
 
     renderDetailsModal = () => (
         
-        this.state.modalForm === 0 
-        ?
-        <Modal
-            show={this.state.showModal}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    <p className="boxTitle">{this.state.modalTitle}</p>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p className="boxDesc" dangerouslySetInnerHTML={{__html: this.state.modalDesc }}></p>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
-                <Button className="button" onClick={() => this.setState({ modalForm : 1 })} variant="light">Postuler</Button>
-            </Modal.Footer>
-        </Modal>
-        :
-        <Modal
-            show={this.state.showModal}
-            size="xl"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    <p className="boxTitle">{this.state.modalTitle}</p>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p className="boxDesc">Envoyer votre canditature par mail : <a className="mailTo" href="mailto:Webdev@g5sahel.org">Webdev@g5sahel.org</a></p> 
-            </Modal.Body>
-            <Modal.Footer>
-                <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
-                {/* <Button className="button" onClick={() => this.postuler()} variant="light">Envoyer</Button> */}
-            </Modal.Footer>
-        </Modal>
+            this.state.modalForm === 0 
+            ?
+            <Modal
+                show={this.state.showModal}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        <p className="boxTitle">{this.state.modalTitle}</p>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p className="boxDesc" dangerouslySetInnerHTML={{__html: this.state.modalDesc }}></p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
+                    <Button className="button" onClick={() => this.setState({ modalForm : 1 })} variant="light">Postuler</Button>
+                </Modal.Footer>
+            </Modal>
+            :
+            <Modal
+                show={this.state.showModal}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        <p className="boxTitle">{this.state.modalTitle}</p>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="formGridEmail"> 
+                                <Form.Control className="formInput" type="text" placeholder="Nom & Prénom" value={this.state.name} onChange={nameInput => this.setState({name: nameInput.target.value})} />
+                            </Form.Group>
+                        </Form.Row>
+                        
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.Control className="formInput" type="email" placeholder="Votre adresse e-mail" value={this.state.email} onChange={email => this.setState({email: email.target.value})}/>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.File 
+                                    id="cv_file"
+                                    label={this.state.cvFile !== null ? this.state.cvFile.name : "Téléverser votre CV" }
+                                    data-browse="Téléverser"
+                                    custom
+                                    onChange={(event) => 
+                                        this.setState({ cvFile: event.target.files[0] })    
+                                    }
+                                />
+                            </Form.Group>
+                        </Form.Row>
+
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="exampleForm.ControlTextarea1">
+                                <Form.Control as="textarea" className="formInput" placeholder="Votre Message..." rows="3" value={this.state.message} onChange={msgInput => this.setState({message: msgInput.target.value})} />
+                            </Form.Group>
+                        </Form.Row>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
+                    <Button className="button" onClick={() => this.postuler()} variant="light">Envoyer</Button>
+                </Modal.Footer>
+            </Modal>
     );
 
     renderSearchContainer = (jobs) => {
@@ -186,16 +350,19 @@ class Recrutement extends Component {
                                 onChange={pays => this.searchByCountry(pays)} 
                             >
                                 <option value={0}>Tous les pays...</option>
-                                {
+                                {/*
                                     jobs.map((job) => {
-                                        if(job.meta._job_location && job.meta._job_location != this.optionSearch) {
+                                        if(job.meta._job_location.length > 0 && job.meta._job_location !== this.optionSearch) {
                                             this.optionSearch = job.meta._job_location;
                                             return(
                                                 <option>{job.meta._job_location}</option>
                                             );
                                         }
                                     })
-                                }
+                                */}
+                                  {
+                                      this.options.map(option =>  <option>{option}</option> )
+                                  }
                             </Form.Control>
                         </Form.Group>
                     </Col>
@@ -209,11 +376,9 @@ class Recrutement extends Component {
                                 onChange={jobType => this.searchByJobType(jobType)} 
                             >
                                 <option value={0}>Tous types...</option>
-                                <option value={17}>PLEIN TEMPS</option>
-                                <option value={18}>TEMPS PARTIEL</option>
-                                <option value={20}>FREE-LANCE</option>
-                                <option value={19}>TEMPORAIRE</option>
-                                <option value={21}>STAGE</option>
+                                <option value={17}>Plein temps</option>
+                                <option value={18}>Temps partiel</option>
+                                <option value={20}>Freelance</option>
                             </Form.Control>
                         </Form.Group>
                     </Col>
@@ -347,10 +512,6 @@ class Recrutement extends Component {
                                             job.type == 18
                                             ?
                                                 "TEMPS PARTIEL"
-                                            :
-                                            job.type ==  19
-                                            ?
-                                                "TEMPORAIRE"
                                             :
                                             job.type == 20
                                             ?
