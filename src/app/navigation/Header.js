@@ -6,19 +6,16 @@ import {
    Navbar,
    Nav,
    NavDropdown,
-   Button
+   Form,
+   Spinner,
 } from 'react-bootstrap';
-
 
 // Connect Redux :
 import { connect } from 'react-redux';
-// import { toogleSearch } from '../../redux/actions/PostsActions';
-
 
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { IoIosSearch } from 'react-icons/io';
-// import {AutoComplete} from 'primereact/autocomplete';
 
 // IMAGES & STYLING :
 import './Header.css';
@@ -26,15 +23,25 @@ import LOGO from '../../assets/images/Header/logo3.png';
 import LOGO2 from '../../assets/images/Header/logo2.png';
 import ARROW from '../../assets/images/Header/downArrow.png';
 
+import axios from 'axios';
+import { config } from '../../constants/AppConfig';
+import UltimatePagination from '../../components/Paginate';
+
+
 class Header extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            brandSuggestions: null
+            searchInput: '', 
+            searchResults: [],
+            searching: false,   
+            currentPage: 1,
+            totalSearchPosts:0, 
+            totalPages: 3,
         };
-        this.brands = ['Evenements', 'Actualites', 'Presentation', 'Documentation', 'Contact', 'Recrutement'];
+    
     }
 
     render() {
@@ -61,15 +68,18 @@ class Header extends Component {
 
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse inline="true">
-                                <Nav className="ml-auto">
                                 <div className="menuWeb">
-                                    {this.renderWebMenuElements()}   
+                                    <Nav className="ml-auto">
+                                            {this.renderWebMenuElements()}   
+                                    </Nav>
                                 </div>
 
-                                    <div className="menuMobile">
+
+                                <div className="menuMobile">
+                                    <Nav className="mr-auto">
                                         {this.renderMobileMenuElements()}
-                                    </div>
-                                </Nav>
+                                    </Nav>
+                                </div>
                             </Navbar.Collapse>
                         </Navbar>
 
@@ -79,6 +89,49 @@ class Header extends Component {
                 <hr style={{marginTop : -5 + "px", borderColor : '##BCBCBC', marginBottom : 50 + "px"}} />
             </Container>
         )
+    }
+
+
+    searchByTitle = (nextPage = 1) => {
+                
+        this.setState({
+            currentPage: nextPage,
+        });
+
+        if(this.state.searchInput.length > 0) {
+
+            this.setState({
+                searching: true,
+            });
+
+            setTimeout(() => 
+                axios.get(`${config.url}wp/v2/search?search=${this.state.searchInput}&page=${nextPage}&per_page=10&_embed`)
+                .then(response => {
+                    // console.log("Resp", response.data);
+                    
+                    this.setState({
+                        searching: false,
+                        totalSearchPosts: response.headers['x-wp-total'], 
+                        totalPages: response.headers['x-wp-totalpages'],
+                        searchResults: response.data,
+                    });
+    
+                })
+                .catch(err =>
+                    console.log("Error =>", err)
+                )
+            ,1000);
+        };
+
+        // console.log(event.target.value);
+    }
+
+    handleInputChange = (event) => {
+        this.setState({
+            searchInput: event.target.value,
+        });
+
+        this.searchByTitle();
     }
 
     renderWebMenuElements = () => (
@@ -169,30 +222,92 @@ class Header extends Component {
             {/* NESTED LINKS */}
 
         </div>
-        {/* <AutoComplete 
-            value={this.state.brand} 
-            onChange={(e) => this.setState({brand: e.value})}
-            suggestions={this.state.brandSuggestions} 
-            completeMethod={this.suggestBrands.bind(this)} 
-        />
 
-        <IoIosSearch size={25} className="searchIcon" /> */}
+        
+        <IoIosSearch size={25} className="openBtn" onClick={() => this.openSearch()} />
+        
+        {/* FULLSCREEN SEARCH */}
+        <div id="myOverlay" className="overlay">
+            <span className="closebtn" onClick={() => this.closeSearch()} title="Fermer la recherche">×</span>
+            <div className="overlay-content">
+                <Form.Group as={Col} controlId="formGridEmail"> 
+                    <Form.Control 
+                        className="no-border-input-header" 
+                        type="text" 
+                        placeholder="Rechercher..."
+                        value={this.state.searchInput} 
+                        onChange={input => this.handleInputChange(input)} 
+                    />
+                   <IoIosSearch size={40} className="searchIcon" />
+                </Form.Group>
+                
+                <div className={this.state.searchInput.length > 0 && this.state.searchResults.length > 0 ? "searchResults scrollableSearch" : ""}>
+                {
+                this.state.searching 
+                ?
+                    (
+                        
+                        <div className="resultSpinnerContainer"> 
+                            <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> 
+                        </div>
+                        
+                    )
+                :
+                this.state.searchResults.length > 0 && this.state.searchInput.length > 0
+                ?
+                    (
+                        <>
+                        {
+                            this.state.searchResults.map((result,index) => 
+                                <div key={index} className={index > 0 ? "result" : "result-no-border"}>
+                                    <p className="resultTitle">{result.title}</p>
+                                </div>
+                        )
+                        }
+                        <div style={{paddingLeft: '10px'}}>
+                            <UltimatePagination 
+                                currentPage={this.state.currentPage}
+                                totalPages={this.state.totalPages}
+                                boundaryPagesRange={1}
+                                siblingPagesRange={1}
+                                hideEllipsis={false}
+                                hidePreviousAndNextPageLinks
+                                hideFirstAndLastPageLinks
+                                onChange={(current) => this.searchByTitle(current) }
+                            />
+                        </div>
+                       </>
+                    )
+                :
+                this.state.searchResults.length === 0 && this.state.searchInput.length > 0
+                && 
+                    (
+                        <div className="result-no-border">
+                            <p className="resultTitle">Aucun resultat pour cette recherche</p>
+                        </div>
+                    )
+                }
+                </div>
+            </div>
+        </div>
+        {/* FULLSCREEN SEARCH */}
+   
        </>
     );
   
     renderMobileMenuElements = () => (
        <>
-            <div style={{textAlign : 'center'}}>
-                <a style={styles.TopBarLinks} href="/appel-offres"> Appel d'offres </a>
-                <a style={styles.TopBarLinks} href="/recrutement"> Recrutement </a>
-                <a style={styles.TopBarLinks} href="/contact-g5"> Contact </a>
+            <div style={{textAlign : 'left', paddingLeft: '31px',}} >
+                <a  className="topMenuItem" href="/appel-offres"> Appel d'offres </a>
+                <a  className="topMenuItem" href="/recrutement"> Recrutement </a>
+                <a  className="topMenuItem" href="/contact-g5"> Contact </a>
             </div>
             
             <NavDropdown.Divider />
             <Row>
-                <Col />
+                {/* <Col xs={1} md={0} /> */}
 
-                <Col>
+                <Col className="menuMobileContainer">
                     <NavDropdown title="Présentation" style={styles.collapsible}>
                         <a style={styles.navItem} className="dropdown-item" href="/presentation">Présentation</a>
                         <a style={styles.navItem} className="dropdown-item" href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Secrétariat Exécutif</a>
@@ -227,20 +342,25 @@ class Header extends Component {
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation">SDS, PIP</Link> */}
                     </NavDropdown>
                     
+                    <Form inline>
+                        <input type="text" placeholder="Rechercher..." className="searchInput" />
+                        <IoIosSearch size={25} className="searchIcon" onClick={() => this.openSearch()} />
+                    </Form>
                 </Col>
 
-                <Col  />
+                <Col xs={1}  md={2} />
             </Row>
-            
        </>
     );
 
-    // suggestBrands(event) {
-    //     let results = this.brands.filter((brand) => {
-    //          return brand.toLowerCase().startsWith(event.query.toLowerCase());
-    //     });
-    //     this.setState({ brandSuggestions: results });
-    // }   
+
+    closeSearch = () => {
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+    openSearch = () => {
+        document.getElementById("myOverlay").style.display = "block";
+    }
 }
 
 const styles = {
@@ -267,6 +387,8 @@ const styles = {
     },
     navItem : {
         fontSize : 13+"px",
+        textAlign: 'left',
+        fontFamily : 'Poppins Light',
     },
 };
 

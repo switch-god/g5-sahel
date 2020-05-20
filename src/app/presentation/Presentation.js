@@ -285,7 +285,7 @@ class Presentation extends Component {
 
 
 const mapStateToProps = state => ({
-    presentation_bloc_1 : state.postsR.presentation_bloc_1,
+    
 });
 
 export default connect(mapStateToProps,{ })(Presentation);

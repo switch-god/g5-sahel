@@ -71,7 +71,6 @@ class Events extends Component {
                 </Layout>
 
                 <Layout columns={6}>
-                    
                     {
                         searchingEvents.length == 0 && searching &&
                         <div className="noResultContainer">
@@ -172,7 +171,7 @@ class Events extends Component {
                                         <Image src={eventToRender.image.url} fluid className="eventImage" />
                                         :   
                                         <ThumbDoc 
-                                            title="Événement" 
+                                            title="Événements" 
                                             containerClass="thumbEventContainer"
                                             imageClass="thumbEventImage" 
                                             titleClass="thumbEventTitle" 

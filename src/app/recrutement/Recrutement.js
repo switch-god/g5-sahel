@@ -357,7 +357,7 @@ class Recrutement extends Component {
                     <Col xs={12} xl={3} style={{marginTop : 15+"px"}}>
                         <Form.Group as={Col}>
                             <Form.Control 
-                                className="no-border-input-recrutement " 
+                                className="no-border-input-recrutement" 
                                 as="select" 
                                 value={this.state.pays} 
                                 onChange={pays => this.searchByCountry(pays)} 
