@@ -219,6 +219,13 @@ class Recrutement extends Component {
                     sendBtnRefreshing : true
                 });
                 this.setModalShow(false,0,null,'','');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Votre candidature a été envoyé avec succés',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
             })
             .catch(error => {
                 // console.log("Erreur =>",error);
