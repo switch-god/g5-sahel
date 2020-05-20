@@ -10,6 +10,7 @@ import {
     Form,
     Container,
     Modal,
+    Spinner,
 } from 'react-bootstrap';
 
 import {
@@ -41,6 +42,7 @@ class Recrutement extends Component {
             pays : 0,
             jobType : 0,
             searchingJobs : [],
+            sendBtnRefreshing : false,
 
 
             // MODAL DATA:
@@ -70,7 +72,7 @@ class Recrutement extends Component {
   
     render() {
         const { jobs } = this.props;
-        let { searchingJobs,showModal } = this.state;
+        let { searchingJobs } = this.state;
 
         // Clean Options :
         this.props.jobs.map((job) => {
@@ -194,6 +196,8 @@ class Recrutement extends Component {
 
         } else {
 
+            this.setState({ sendBtnRefreshing : true });
+
             let slugToSend = name.toLowerCase().replace(/ /g, '-');
             const options = { 
                 headers: {'Content-Type': 'multipart/form-data'}
@@ -212,23 +216,17 @@ class Recrutement extends Component {
                 
                 this.setState({
                     postId : null,
-                    name: '',
-                    email: '',
-                    message: '',
+                    sendBtnRefreshing : true
                 });
-    
                 this.setModalShow(false,0,null,'','');
-    
-                console.log("SERVER RESPONSE =>", rep.data);
             })
             .catch(error => {
-                console.log("Erreur =>",error);
+                // console.log("Erreur =>",error);
             })
         };
 
     }
 
-    
     setModalShow = (show,form,id,title,desc) => {
         this.setState({
             postId : id,
@@ -315,7 +313,15 @@ class Recrutement extends Component {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button className="button" onClick={() => this.setModalShow(false,0,null,'','')} variant="light">Fermer</Button>
-                    <Button className="button" onClick={() => this.postuler()} variant="light">Envoyer</Button>
+                    <Button className="button" onClick={() => this.postuler()} variant="light">
+                        {
+                            this.state.sendBtnRefreshing
+                            ?
+                            <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                            :
+                            "Envoyer"
+                        }
+                    </Button>
                 </Modal.Footer>
             </Modal>
     );
