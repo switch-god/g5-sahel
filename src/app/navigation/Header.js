@@ -187,7 +187,7 @@ class Header extends Component {
         
         <div className="dropdown">
             {/* <Link style={styles.MainMenuLinks} to="/events">Evenements <img src={ARROW} height={7} /></Link> */}
-            <Link style={styles.MainMenuLinks} to="/events"> Evenements </Link>
+            <Link style={styles.MainMenuLinks} to="/events"> Événements </Link>
             {/* NESTED LINKS */}
              {/* <div className="dropdown-content">
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -340,7 +340,7 @@ class Header extends Component {
                         <a style={styles.navItem} className="dropdown-item" href="/actualites">Nos actualités</a>
                     </NavDropdown>
                     
-                    <NavDropdown title="Evenements" style={styles.collapsible}>
+                    <NavDropdown title="Événements" style={styles.collapsible}>
                         <a style={styles.navItem} className="dropdown-item" href="/events">Nos événements</a>
                         {/* <Link style={styles.navItem} className="dropdown-item" to="/events">Prochains événements</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/events">Événements passés</Link> */}

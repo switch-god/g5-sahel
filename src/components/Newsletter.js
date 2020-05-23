@@ -179,12 +179,14 @@ class Newsletter extends Component {
                 setTimeout(() => {
                     this.setState({
                         loading : false,
+                        email : '',
+                        name : '',
                     });
                     Swal.fire({
                         icon: 'success',
-                        title: 'Subscribed successfuly',
+                        title: 'Merci pour votre inscription',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 2000,
                     });
                 },2000);
             })
@@ -196,7 +198,7 @@ class Newsletter extends Component {
                        icon: 'error',
                        title: 'Cette adresse est déja inscrite',
                        showConfirmButton: false,
-                       timer: 1500
+                       timer: 2000
                     });
                     this.setState({
                         loading : false,
