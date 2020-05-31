@@ -58,10 +58,11 @@
 
 
     /* THUMBS NON DISPONIBLE */
+        
 
-        /* GRID */
-        .thumbGridModeContainer {
-            height: 100px;
+         /* LIST */
+         .thumbListModeContainer {
+            height: 150px;
             width: '100%';
             border: 1px solid #666666;
             display: flex;
@@ -70,37 +71,90 @@
             justify-content: center;
         }
 
-        .thumbListGridImage {
-            max-height: 30px;
-            min-height: 30px;
+        .thumbListImage {
+            max-height: 60px;
+            min-height: 60px;
         }
 
-        .thumbPageGridTitle {
+        .thumbPageTitle {
             font-family: 'Poppins SemiBold';
             font-size: 10px;
             color: #717171;
             margin-top: 7px;
         }
 
-        .thumbGridDesc {
+        .thumbDesc {
             font-family: 'Poppins SemiBold';
-            font-size: 10px;
+            font-size: 9px;
             color: #717171;
         }
-
     /* THUMBS NON DISPONIBLE */
+
+
+     /* LIST MODE */
+     .documentBox {
+        background-color: white;
+        border: 1px solid #E3E3E3;
+        border-radius: 0;
+    }
+
+    .documentBox:hover {
+        border: 0;
+        border-left: 5px solid #0099CC;
+        border-radius: 0;
+        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
+    }
+    .documentBox:hover .documentTitle{
+        color: #0099CC;
+    }
+    
+    .documentBox:hover .documentButton {
+        background-color: transparent;
+        color: #0099CC;
+    } 
+
+
+    .documentThumb {
+        max-height: 150px;
+        min-height: 150px;
+    }
+    
+    .documentTitle {
+        color: #666666;
+        font-family: 'Poppins SemiBold';
+        font-size: 18px;
+        text-decoration: none;
+    }
+    
+    .documentDesc {
+        color: #666666;
+        font-family: 'Poppins Light';
+        font-size: 10px;
+        text-decoration: none;
+    }
+    
+    .documentButton {
+        background-color: white;
+        color: #666666;
+        border: 0;
+        font-family: 'Poppins Light';
+        text-decoration: none;
+    }
+
+    /* LIST MODE */
 
     /* GRID MODE */
     .documentGridBox {
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 150px;
-        max-height: 150px;
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        /* height: 300px; */
+    }
+
+    .documentGridImage {
+        min-width: 100%;
+        height: auto;
+        /* max-height: 160px; */
     }
 
     .documentGridBox:hover {
@@ -328,35 +382,6 @@
 
     /* THUMBS NON DISPONIBLE */
 
-        /* GRID */
-        .thumbGridModeContainer {
-            height: 100px;
-            width: '100%';
-            border: 1px solid #666666;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .thumbListGridImage {
-            max-height: 30px;
-            min-height: 30px;
-        }
-
-        .thumbPageGridTitle {
-            font-family: 'Poppins SemiBold';
-            font-size: 10px;
-            color: #717171;
-            margin-top: 7px;
-        }
-
-        .thumbGridDesc {
-            font-family: 'Poppins SemiBold';
-            font-size: 8px;
-            color: #717171;
-        }
-
          /* LIST */
          .thumbListModeContainer {
             height: 150px;
@@ -386,9 +411,6 @@
             color: #717171;
         }
 
-
-
-
     /* THUMBS NON DISPONIBLE */
 
 
@@ -397,13 +419,9 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 250px;
-        max-height: 250px;
-        padding: 50px;
     }
 
     .documentBox:hover {
-        background-color: white;
         border: 0;
         border-left: 5px solid #0099CC;
         border-radius: 0;
@@ -454,21 +472,19 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 150px;
-        max-height: 150px;
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        /* height: 300px; */
+    }
+
+    .documentGridImage {
+        min-width: 100%;
+        height: auto;
+        /* max-height: 160px; */
     }
 
     .documentGridBox:hover {
-        background-color: white;
         border: 0;
         border-left: 5px solid #0099CC;
-        border-radius: 0;
-        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
-        padding: 30px;  
+        box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);  
     }
     .documentGridBox:hover .documentGridTitle{
         color: #0099CC;
@@ -488,7 +504,7 @@
     .documentGridTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
-        font-size: 12px;
+        font-size: 15px;
     }
   
     .documentGridButtonContainer {
@@ -681,35 +697,6 @@
 
     /* THUMBS NON DISPONIBLE */
 
-        /* GRID */
-        .thumbGridModeContainer {
-            height: 100px;
-            width: '100%';
-            border: 1px solid #666666;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .thumbListGridImage {
-            max-height: 30px;
-            min-height: 30px;
-        }
-
-        .thumbPageGridTitle {
-            font-family: 'Poppins SemiBold';
-            font-size: 10px;
-            color: #717171;
-            margin-top: 7px;
-        }
-
-        .thumbGridDesc {
-            font-family: 'Poppins SemiBold';
-            font-size: 8px;
-            color: #717171;
-        }
-
          /* LIST */
          .thumbListModeContainer {
             height: 150px;
@@ -739,24 +726,19 @@
             color: #717171;
         }
 
-
-
-
     /* THUMBS NON DISPONIBLE */
 
 
-     /* LIST MODE */
-     .documentBox {
+    /* LIST MODE */
+    .documentBox {
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 250px;
-        max-height: 250px;
-        padding: 50px;
     }
 
+    
+
     .documentBox:hover {
-        background-color: white;
         border: 0;
         border-left: 5px solid #0099CC;
         border-radius: 0;
@@ -773,14 +755,14 @@
 
 
     .documentThumb {
-        max-height: 150px;
-        min-height: 150px;
+        max-width: 100%;
+        height: auto;
     }
     
     .documentTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
-        font-size: 20px;
+        font-size: 12px;
         text-decoration: none;
     }
     
@@ -797,7 +779,6 @@
         border: 0;
         font-family: 'Poppins Light';
         text-decoration: none;
-        font-size: 20px;
     }
 
     /* LIST MODE */
@@ -808,12 +789,13 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 150px;
-        max-height: 150px;
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 300px;
+    }
+
+    .documentGridImage {
+        min-width: 100%;
+        height: fit-content;
+        max-height: 130px;
     }
 
     .documentGridBox:hover {
@@ -842,7 +824,7 @@
     .documentGridTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
-        font-size: 13px;
+        font-size: 10px;
     }
   
     .documentGridButtonContainer {
@@ -1032,38 +1014,7 @@
 
 
     /* THUMBS NON DISPONIBLE */
-
-        /* GRID */
-        .thumbGridModeContainer {
-            height: 100px;
-            width: '100%';
-            border: 1px solid #666666;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .thumbListGridImage {
-            max-height: 30px;
-            min-height: 30px;
-        }
-
-        .thumbPageGridTitle {
-            font-family: 'Poppins SemiBold';
-            font-size: 10px;
-            color: #717171;
-            margin-top: 7px;
-        }
-
-        .thumbGridDesc {
-            font-family: 'Poppins SemiBold';
-            font-size: 10px;
-            color: #717171;
-        }
-
-
-        /* LIST */
+    
         .thumbListModeContainer {
             height: 150px;
             width: '100%';
@@ -1075,8 +1026,8 @@
         }
 
         .thumbListImage {
-            max-height: 60px;
-            min-height: 60px;
+            max-height: 70px;
+            min-height: 70px;
         }
 
         .thumbPageTitle {
@@ -1115,21 +1066,20 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 150px;
-        max-height: 150px;
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 300px;
+    }
+
+    .documentGridImage {
+        min-width: 100%;
+        height: fit-content;
+        max-height: 160px;
     }
 
     .documentGridBox:hover {
-        background-color: white;
         border: 0;
         border-left: 5px solid #0099CC;
         border-radius: 0;
         box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2); 
-        padding: 30px;  
     }
     .documentGridBox:hover .documentGridTitle{
         color: #0099CC;
@@ -1149,7 +1099,7 @@
     .documentGridTitle {
         color: #666666;
         font-family: 'Poppins SemiBold';
-        font-size: 13px;
+        font-size: 12px;
     }
   
     .documentGridButtonContainer {
@@ -1176,13 +1126,9 @@
         background-color: white;
         border: 1px solid #E3E3E3;
         border-radius: 0;
-        min-height: 250px;
-        max-height: 250px;
-        padding: 50px;
     }
 
     .documentBox:hover {
-        background-color: white;
         border: 0;
         border-left: 5px solid #0099CC;
         border-radius: 0;
@@ -1199,8 +1145,8 @@
 
 
     .documentThumb {
-        max-height: 150px;
-        min-height: 150px;
+        max-width: 100%;
+        height: auto;
     }
     
     .documentTitle {

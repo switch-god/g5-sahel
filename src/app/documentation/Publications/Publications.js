@@ -47,9 +47,9 @@ class Publications extends Component {
     
     render() {
         const { loading,showMode,showPagination } = this.state;
-        const { publications,pageTitle } = this.props;
+        const { publications,pageTitle,infos } = this.props;
         
-        if(window.innerWidth > 767) {
+        if(window.innerWidth > 992) {
             return (
                 <>
                     { 
@@ -83,7 +83,7 @@ class Publications extends Component {
                                 :
                                 showMode === 'LIST' && publications.length > 0 &&
                                 <Row className="ml-5">
-                                    <Col xs={12} xl={8}>
+                                    <Col xs={12} xl={10}>
                                         {this.props.renderDocumentsListMode(publications,pageTitle)}
                                     </Col>
                                     <Col xs={0} xl={4} />
@@ -108,7 +108,7 @@ class Publications extends Component {
                                     <Col id="page-numbers" xs={12} xl={12}>
                                         <UltimatePagination 
                                             currentPage={this.state.currentPage}
-                                            totalPages={Math.ceil(publications[0].fcategory[0].category_count / 10)}
+                                            totalPages={infos["x-wp-totalpages"] ? infos["x-wp-totalpages"] : 3}
                                             boundaryPagesRange={4}
                                             siblingPagesRange={3}
                                             hideEllipsis={false}
@@ -168,7 +168,7 @@ class Publications extends Component {
                                         <Col id="page-numbers" xs={12} xl={12}>
                                             <UltimatePagination 
                                                 currentPage={this.state.currentPage}
-                                                totalPages={Math.ceil(publications[0].fcategory[0].category_count / 10)}
+                                                totalPages={infos["x-wp-totalpages"] ? infos["x-wp-totalpages"] : 3}
                                                 boundaryPagesRange={4}
                                                 siblingPagesRange={3}
                                                 hideEllipsis={false}
@@ -249,6 +249,7 @@ class Publications extends Component {
 
 const mapStateToProps = state => ({
     publications : state.docsR.publications,
+    infos : state.docsR.infos,
 });
 
 export default connect(mapStateToProps,{ getPublications })(Publications);

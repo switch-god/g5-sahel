@@ -9,7 +9,7 @@ import {
     Image,
     Button,
 } from 'react-bootstrap';
-import moment from 'moment';
+// import moment from 'moment';
 import ThumbDoc from '../../components/ThumbDoc';
 import { IoIosEye } from 'react-icons/io';
 // import { IoIosList,IoMdGrid } from 'react-icons/io';
@@ -87,74 +87,57 @@ export default class Documentation extends Component {
         return (
             <>
             {
-                pubs.map((pub) =>  
-                    <a 
-                        href={ pub.fpdf_url !== false ?  pub.fpdf_url : `/article/${pub.slug}`} 
-                        target={pub.fpdf_url !== false && "_blank"} 
-                        style={{ textDecoration: 'none' }}
-                    >
-                        <Jumbotron className="documentBox">
-                            <Row>
-                                <Col xs={12} md={4} xl={4}>
-                                    <Row className="documentImageContainer">
-                                        {
-                                            pub.fimg_url !== false ?
-                                            <Image src={pub.fimg_url} fluid className="documentThumb" />
-                                            :
-                                            <ThumbDoc 
-                                                title={title} 
-                                                containerClass="thumbListModeContainer" 
-                                                imageClass="thumbListImage" 
-                                                titleClass="thumbPageTitle" 
-                                                descClass="thumbDesc" 
-                                            />
-                                        }
-                                        
-                                    </Row>
-                                </Col>
+                pubs.map((pub,index) => 
+                <> 
+                <Jumbotron className="documentBox">
+                    <Row>
+                    <Col md={6} xl={6}>
+                    {
+                        pub.fimg_url !== false ?
+                        <Image src={pub.fimg_url} fluid style={{minWidth: '100%'}} />
+                        :
+                        <ThumbDoc 
+                            title={title} 
+                            containerClass="thumbListModeContainer" 
+                            imageClass="thumbListImage" 
+                            titleClass="thumbPageTitle" 
+                            descClass="thumbDesc" 
+                        />
+                    }
+                    </Col>
+                    
+                    <Col md={6} xl={6} className="d-flex align-content-between flex-wrap">
+                        <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
+                        
+                        {
+                            pub.fpdf_url !== false 
+                            ?
+                            <a  
+                                className="documentButton"
+                                href={`${pub.fpdf_url}`}
+                                target={pub.fpdf_url !== false && "_blank"} 
+                            >
+                                <AiOutlineDownload size={'20px'} />  Télécharger
+                            </a>
+                            :
+                            <a  
+                                className="documentButton"
+                                href={`/article/${pub.slug}`}
+                            >
+                                <IoIosEye size={'20px'} />  Voir Plus
+                            </a>
+                        }
+                    </Col>
 
-                                <Col xs={12} md={8} xl={8}>
-                                    <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>                                    
-                                    {/*
-                                        pub.excerpt.rendered.length > 0 
-                                        ?
-                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.excerpt.rendered.substr(0,47)+"..."}}></p>
-                                        :
-                                        <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,47)+"..."}}></p>
-                                    */}
-                                    <p className="expirationDateList">Expire le: {pub.meta["xn-wppe-expiration"]}</p>
-                                    
-
-                                    <p style={{float : 'right'}}>
-                                        {
-                                            pub.fpdf_url !== false 
-                                            ?
-                                            <a  
-                                                className="documentButton"
-                                                href={`${pub.fpdf_url}`}
-                                                target={pub.fpdf_url !== false && "_blank"} 
-                                            >
-                                                <AiOutlineDownload size={'20px'} />  Télécharger
-                                            </a>
-                                            :
-                                            <a  
-                                                className="documentButton"
-                                                href={`/article/${pub.slug}`}
-                                            >
-                                                <IoIosEye size={'20px'} />  Voir Plus
-                                            </a>
-                                        }
-                                    </p>
-                                </Col>
-                            </Row>
-                        </Jumbotron>
-                    </a>       
+                    </Row>
+                </Jumbotron>    
+                </>
                 )
             }
             </>
         );
     };
-
+    
     renderDocumentsGridMode = (pubs,title) => {
         
         return (
@@ -162,65 +145,52 @@ export default class Documentation extends Component {
 
             {
                 pubs.map(pub => 
-                    <Col xs={12} md={6} xl={4}>
-                    <a 
-                        href={ pub.fpdf_url !== false ?  pub.fpdf_url : `/article/${pub.slug}`} 
-                        target={pub.fpdf_url !== false && "_blank"} 
-                        style={{ textDecoration: 'none' }}
-                    >
-                        <Jumbotron className="documentGridBox">
-                            <Row>
-                                <Col xs={6} md={5} xl={5}>
-                                    <Row>
-                                        {
-                                            pub.fimg_url 
-                                            ?
-                                            <Image src={pub.fimg_url} fluid className="documentGridThumb" />
-                                            :
-                                            <ThumbDoc title={title} containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
-                                        }
-                                    </Row>
-                                </Col>
+                <Col xs={12} md={12} lg={6} xl={6}>
+                <Jumbotron className="documentGridBox">
+                    <Row>
+                    <Col xs={6} md={6} lg={6} xl={6}>
+                    {
+                        pub.fimg_url !== false ?
+                        <Image src={pub.fimg_url} fluid className={"documentGridImage"} />
+                        :
+                        <ThumbDoc 
+                            title={title} 
+                            containerClass="thumbListModeContainer" 
+                            imageClass="thumbListImage" 
+                            titleClass="thumbPageTitle" 
+                            descClass="thumbDesc" 
+                        />
+                    }
+                    </Col>
+                    
+                    <Col xs={6} md={6} lg={6} xl={6} className="d-flex align-content-between flex-wrap">
+                        <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
+                        
+                        {
+                            pub.fpdf_url !== false 
+                            ?
+                            <a  
+                                className="documentButton"
+                                href={`${pub.fpdf_url}`}
+                                target={pub.fpdf_url !== false && "_blank"} 
+                            >
+                                <AiOutlineDownload size={'20px'} />  Télécharger
+                            </a>
+                            :
+                            <a  
+                                className="documentButton"
+                                href={`/article/${pub.slug}`}
+                            >
+                                <IoIosEye size={'20px'} />  Voir Plus
+                            </a>
+                        }
+                    </Col>
 
-                                <Col xs={6} md={7}  xl={7}>
-                                    {
-                                        window.innerWidth > 767 && pub.title.rendered.length > 30
-                                        ?
-                                        <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered.substr(0,30)+"..."}}></h4>
-                                        :
-                                        <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
-                                    }
-                                    <p className="expirationDateGrid">Expire le: {pub.meta["xn-wppe-expiration"]}</p>
-                                    
-                                    <p className="documentGridButtonContainer">
-                                        {
-                                            pub.fpdf_url !== false 
-                                            ?
-                                            <a  
-                                                className="documentGridButton"
-                                                href={`${pub.fpdf_url}`}
-                                                target={pub.fpdf_url !== false && "_blank"} 
-                                            >
-                                                <AiOutlineDownload size={'20px'} />  Télécharger
-                                            </a>
-                                            :
-                                            <a  
-                                                className="documentGridButton"
-                                                href={`/article/${pub.slug}`}
-                                            >
-                                                <IoIosEye size={'20px'} />  Voir Plus
-                                            </a>
-                                        }
-                                    </p>
-                                </Col>
-                            </Row>
-                        </Jumbotron>
-                    </a>
-                    </Col>            
+                    </Row>
+                </Jumbotron>
+                </Col>            
                 )
             }
-
-
             </Row>
         );
     }

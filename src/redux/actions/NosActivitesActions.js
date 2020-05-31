@@ -27,7 +27,7 @@ export const getDefenseSecurite = () => dispatch => {
         });
       })
       .catch(error => {
-        console.log("erreur axios getDefenseSecurite/PostsActions");
+        // console.log("erreur axios getDefenseSecurite/PostsActions");
       });
 
 };
@@ -42,7 +42,7 @@ export const getGouvernance = () => dispatch => {
         });
       })
       .catch(error => {
-        console.log("erreur axios getGouvernance/PostsActions");
+        // console.log("erreur axios getGouvernance/PostsActions");
       });
 
 };

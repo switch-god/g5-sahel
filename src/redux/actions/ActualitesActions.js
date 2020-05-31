@@ -23,7 +23,7 @@ export const getActualitesInter = () => async (dispatch) => {
           });
         })
         .catch(error => {
-          console.log("erreur axios getActualitesInter/ActualitesActions",error);
+          // console.log("erreur axios getActualitesInter/ActualitesActions",error);
         });
 };
 
@@ -37,7 +37,7 @@ export const getActualitesPaysG5 = () => async (dispatch) => {
           });
         })
         .catch(error => {
-          console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
+          // console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
         });
 };
 
@@ -55,7 +55,7 @@ export const getLatestEvents = () => async (dispatch) => {
 
           })
           .catch(error => {
-            console.log("erreur axios getAllEvents/eventsActions",JSON.stringify(error));
+            // console.log("erreur axios getAllEvents/eventsActions",JSON.stringify(error));
           });
 };
 
@@ -70,7 +70,7 @@ export const getActivities = () => async (dispatch) => {
             });
           })
           .catch(error => {
-            console.log("erreur axios getActivities/PostsActions");
+            // console.log("erreur axios getActivities/PostsActions");
           });
 };
 
@@ -85,7 +85,7 @@ export const getLatestNews = () => async (dispatch) => {
           });
         })
         .catch(error => {
-          console.log("erreur axios getLatestNews/PostsActions");
+          // console.log("erreur axios getLatestNews/PostsActions");
         });
 };
 

@@ -152,7 +152,7 @@ class Header extends Component {
                 </Row>
 
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <Link style={styles.MainMenuLinks} to="/documentation/organigramme">Organigramme</Link>
+                    <Link style={styles.MainMenuLinks} to="/documentations/organigramme">Organigramme</Link>
                 </Row>
                 {/* NESTED LINKS */}
             </div>
@@ -203,7 +203,7 @@ class Header extends Component {
         
         <div className="dropdown">
             {/* <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation <img src={ARROW} height={7} /> </Link> */}
-            <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation </Link>
+            <Link style={styles.MainMenuLinks} to="/documentations/organigramme"> Documentation </Link>
             
             {/* NESTED LINKS */}
             {/* <div className="dropdown-content">
@@ -348,7 +348,7 @@ class Header extends Component {
                     
                        
                     <NavDropdown title="Documentation" style={styles.collapsible}>
-                        <a style={styles.navItem} className="dropdown-item" href="/documentation/organigramme">Nos Documents</a>
+                        <a style={styles.navItem} className="dropdown-item" href="/documentations/organigramme">Nos Documents</a>
                         {/* <Link style={styles.navItem} className="dropdown-item" to="/documentation">Règlementation</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation">Newsletter</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation">SDS, PIP</Link> */}

@@ -87,6 +87,10 @@
     color: #0099CC;
   }
 
+  .topMenuWeb {
+    display: none;
+  }
+
   .menuWeb {
     display: none;
   }
@@ -116,7 +120,6 @@
     color: black;
     text-align: left;
   }
-
 
   .menuWeb {
     display: none;

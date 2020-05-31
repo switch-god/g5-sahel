@@ -91,7 +91,7 @@ export class App extends Component {
                 <Contact />
               </Route>
             
-              <Route path="/documentation">
+              <Route path="/documentations">
                 <Documentation />
               </Route>
               

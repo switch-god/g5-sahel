@@ -125,7 +125,7 @@ export const getAllEvents = (givenDate) => dispatch => {
   
           })
           .catch(error => {
-            console.log("erreur axios getAllEvents/eventsActions",JSON.stringify(error));
+            // console.log("erreur axios getAllEvents/eventsActions",JSON.stringify(error));
           });
   }
 
