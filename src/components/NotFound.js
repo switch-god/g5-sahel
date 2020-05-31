@@ -11,7 +11,9 @@ export default class NotFound extends Component {
                  <LottieLoader 
                      text={"Cette page est est inaccessible"}  
                      devText
-                     HomeButton     
+                     HomeButton  
+                     bottom
+                     logo   
                 />
 
             </div>

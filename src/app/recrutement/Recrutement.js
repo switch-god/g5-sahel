@@ -30,7 +30,17 @@ import moment from 'moment';
     import { IoMdPin } from 'react-icons/io';
     import { FaRegClock } from 'react-icons/fa';
     import Swal from 'sweetalert2/dist/sweetalert2.js';
+    import LottieLoader from '../../components/LottieLoader';
 
+import NOT_FOUND from '../../assets/JSON/notfound.json';
+const notFoundOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: NOT_FOUND,
+    rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice'
+    }
+};
 
 class Recrutement extends Component {
 
@@ -107,6 +117,10 @@ class Recrutement extends Component {
                             this.renderJobs(searchingJobs)
                         :
                             this.renderJobs(jobs)
+                    }
+
+                    {
+                        jobs.length === 0 && <LottieLoader options={notFoundOptions} height={300} devText text={"Aucun job disponible pour le moment"} />
                     }
                        
                     <div style={{marginTop : 50+"px",marginBottom : 50+"px"}}>
@@ -638,17 +652,8 @@ class Recrutement extends Component {
     };
 
     searchByDate = (dateToSearch) => {
-
     };
 }
-
-const styles = {
-    searchTitle : {
-        color : '#666666',
-        
-    },
-}
-
 
 const mapStateToProps = state => ({
     jobs : state.jobsR.jobs1,

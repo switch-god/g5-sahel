@@ -26,20 +26,20 @@ export default class LottieLoader extends Component {
     }
 
     render() {
-        const { devText,text,HomeButton } = this.props;
+        const { devText,text,HomeButton,options,height,width,bottom,logo } = this.props;
         return (
             <Layout style={{textAlign : 'center'}}>
                 <Lottie 
-                    options={loaderOptions}
-                    height={200}
-                    width={400}
+                    options={ options ? options : loaderOptions }
+                    height={height ? height : 200}
+                    width={width ? width : 400}
                     isStopped={false}
                     isPaused={false}
                 />
                 {
                     devText === true && 
                         <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>
-                            <img src={LOGO} height={'200px'} style={{marginBottom: '30px'}} />
+                            {logo && <img src={LOGO} height={'200px'} style={{marginBottom: '30px'}} />}
                             <h1 style={{fontFamily : 'Poppins SemiBold'}}>
                                 {text ? text : "Cette Page en cours de développement, Merci pour votre compréhension"}
                             </h1>
@@ -52,7 +52,7 @@ export default class LottieLoader extends Component {
                             }
                         </div> 
                 }
-                <div style={{height: '600px'}}></div>
+                {bottom && <div style={{height: '600px'}}></div>}
             </Layout>
         )
     }
