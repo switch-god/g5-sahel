@@ -170,7 +170,7 @@ class NosActivites extends Component {
                             defense_securite[0].fimg_url !== false 
                             ? 
                             <Row>
-                                <Image src={defense_securite[0].fimg_url} fluid className="postImageBig" />
+                                <Image src={defense_securite[0].fimg_url} alt={defense_securite[0].title.rendered} fluid className="postImageBig" />
                             </Row>
                             : 
                             <ThumbDoc 
@@ -231,7 +231,7 @@ class NosActivites extends Component {
                                         {
                                             def_sec.fimg_url != false 
                                             ?  
-                                            <Image src={def_sec.fimg_url} fluid className="postImageSmall" />
+                                            <Image src={def_sec.fimg_url} alt={def_sec.title.rendered} fluid className="postImageSmall" />
                                             : 
                                             <ThumbDoc 
                                                 title={solo_title} 
@@ -297,7 +297,7 @@ class NosActivites extends Component {
                         
                         <Row>
                             {
-                                genre[0] && genre[0].status == "publish" &&
+                                genre[0] &&
                                 <>
                                 <Col xs={12} md={12} xl={12}>
                                     <Link
@@ -311,12 +311,9 @@ class NosActivites extends Component {
                                             genre[0].fimg_url !== false
                                             ?
                                             <Row>
-                                            
-                                                <Image src={genre[0].fimg_url} fluid className="genreImage" />
-                                           
+                                                <Image src={genre[0].fimg_url} alt={genre[0].title.rendered} fluid className="genreImage" />
                                             </Row>
                                             :
-                                          
                                             <ThumbDoc 
                                                 title={solo_title}
                                                 containerClass="thumbUlContainer"
@@ -355,7 +352,7 @@ class NosActivites extends Component {
                                                 gouv.fimg_url !== false 
                                                 ? 
                                                 <Row>
-                                                <Image src={gouv.fimg_url} fluid className="gouvImageSmall"  />
+                                                <Image src={gouv.fimg_url} alt={gouv.title.rendered} fluid className="gouvImageSmall"  />
                                                 </Row>
                                                 : 
                                                 <Row>
@@ -412,7 +409,7 @@ class NosActivites extends Component {
                         
                         <Row>
                             {
-                                cellule[0] && cellule[0].status == "publish" &&
+                                cellule[0] &&
                                 <>
                                 <Col xs={12} xl={12}>
                                     <Link
@@ -426,7 +423,7 @@ class NosActivites extends Component {
                                             cellule[0].fimg_url !== false
                                             ?
                                             <>
-                                            <Image src={cellule[0].fimg_url} fluid className="genreImage" />
+                                            <Image src={cellule[0].fimg_url} alt={cellule[0].title.rendered} fluid className="genreImage" />
                                             <div className="content">
                                                 <h5 className="gouvOnImageTitle" dangerouslySetInnerHTML={{__html: cellule[0].title.rendered}}></h5>
                                                 <p className="gouvOnImageDate">{moment(cellule[0].date).format("DD MMMM YYYY")}</p>
@@ -465,7 +462,7 @@ class NosActivites extends Component {
                                             {
                                                 gouv.fimg_url !== false 
                                                 ? 
-                                                <Image src={gouv.fimg_url} fluid className="gouvImageSmall"  />
+                                                <Image src={gouv.fimg_url} alt={gouv.title.rendered} fluid className="gouvImageSmall"  />
                                                 : 
                                                 <ThumbDoc 
                                                     title={solo_title} 
@@ -505,10 +502,6 @@ class NosActivites extends Component {
                 </Row>
             </Col>
 
-            
-
- 
-
         </Row>
         );
     };
@@ -517,7 +510,6 @@ class NosActivites extends Component {
         
         return (
             <>
-            
             <Row className="voirToutButtonRow">
                 <Link 
                     className="btn btn-light infraVoirToutButton"
@@ -541,7 +533,7 @@ class NosActivites extends Component {
                             {
                                 infra.fimg_url !== false
                                 ?
-                                <Image src={infra.fimg_url} fluid className="infraImage" />
+                                <Image src={infra.fimg_url} alt={infra.title.rendered} fluid className="infraImage" />
                                 :
                                 <ThumbDoc 
                                     title={solo_title} 
@@ -617,7 +609,7 @@ class NosActivites extends Component {
                                     resi.fimg_url !== false 
                                     ? 
                                     <Row>
-                                        <Image src={ resi.fimg_url} fluid className="resiImageSmall" />
+                                        <Image src={resi.fimg_url} alt={resi.title.rendered} fluid className="resiImageSmall" />
                                     </Row>
                                     : 
                                     <ThumbDoc 
@@ -674,7 +666,7 @@ class NosActivites extends Component {
                         {
                             resilence[0].fimg_url !== false 
                             ? 
-                            <Image src={resilence[0].fimg_url !== false ? resilence[0].fimg_url : THUMB} fluid className="resiImageBig" />
+                            <Image src={resilence[0].fimg_url !== false ? resilence[0].fimg_url : THUMB} alt={resilence[0].title.rendered} fluid className="resiImageBig" />
                             :
                             <ThumbDoc 
                                 title={solo_title} 

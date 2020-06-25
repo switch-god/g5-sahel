@@ -122,7 +122,7 @@ export default class Documentation extends Component {
                     <Col md={6} xl={6}>
                     {
                         pub.fimg_url !== false ?
-                        <Image src={pub.fimg_url} fluid style={{minWidth: '100%'}} />
+                        <Image src={pub.fimg_url} alt={pub.title.rendered} fluid style={{minWidth: '100%'}} />
                         :
                         <ThumbDoc 
                             title={title} 
@@ -136,7 +136,6 @@ export default class Documentation extends Component {
                     
                     <Col md={6} xl={6} className="d-flex align-content-between flex-wrap">
                         <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
-                        
                         {
                             pub.fpdf_url !== false 
                             ?
@@ -179,7 +178,7 @@ export default class Documentation extends Component {
                     <Col xs={6} md={6} lg={6} xl={6}>
                     {
                         pub.fimg_url !== false ?
-                        <Image src={pub.fimg_url} fluid className={"documentGridImage"} />
+                        <Image src={pub.fimg_url} alt={pub.title.rendered} fluid className={"documentGridImage"} />
                         :
                         <ThumbDoc 
                             title={title} 

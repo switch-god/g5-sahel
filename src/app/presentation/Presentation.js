@@ -90,7 +90,7 @@ class Presentation extends Component {
             <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>
                 
                 <Col xs={12} md={12} xl={6}>
-                    <Image src={Image1} fluid className="presentationImages" />
+                    <Image src={Image1} alt="Présentation G5 SAHEL" fluid className="presentationImages" />
                 </Col>
 
                 <Col xs={12} md={12} xl={6} className="justify-elements">
@@ -133,7 +133,7 @@ class Presentation extends Component {
                 </Col>
             
                 <Col xs={12} md={12} xl={6}>
-                    <Image src={Image2} fluid className="presentationImages" />
+                    <Image src={Image2} alt={"Présentation G5 SAHEL"} fluid className="presentationImages" />
                 </Col>
         </Row>
        );
@@ -156,7 +156,6 @@ class Presentation extends Component {
                     <p className="presentationDesc">
                     La particularité de cette convention est la création d’un Comité de défense et de sécurité qui est l’organe qui regroupe les Chefs d’Etat- major général des armées  et les responsables dument mandatés pour les questions de sécurité par les Etats membres.
                     </p>
-
             </Col>
 
             <Col xs={12} md={12} xl={12} className="justify-elements">

@@ -66,7 +66,7 @@ export default class SoloPage extends Component {
                                 {
                                     publication[0].fimg_url !== false 
                                     ?
-                                    <Image src={publication[0].fimg_url} fluid className="articleImage" />
+                                    <Image src={publication[0].fimg_url} alt={publication[0].title.rendered} fluid className="articleImage" />
                                     :
                                     <ThumbDoc 
                                         title={publication[0].fcategory[0].category_name} 
@@ -135,7 +135,7 @@ export default class SoloPage extends Component {
                         {
                             item.fimg_url !== false
                             ?
-                            <Image src={item.fimg_url !== false ? item.fimg_url : THUMB } fluid className="newsImage" />
+                            <Image src={item.fimg_url} alt={item.title.rendered} fluid className="newsImage" />
                             :
                             <ThumbDoc 
                             title={item.fcategory[0].category_name} 

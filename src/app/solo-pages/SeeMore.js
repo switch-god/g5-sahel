@@ -93,7 +93,7 @@ export default class SeeMore extends Component {
                             {
                                 post.fimg_url !== false
                                 ?
-                                <Image src={post.fimg_url} fluid className="seeMoreImage" />
+                                <Image src={post.fimg_url} alt={post.title.rendered} fluid className="seeMoreImage" />
                                 :
                                 <ThumbDoc 
                                     title={categoryTitle}

@@ -58,7 +58,7 @@ export default class SoloEvent extends Component {
                                 {
                                     publication[0].image !== false 
                                     ?
-                                    <Image src={publication[0].image.url} fluid className="articleImage" />
+                                    <Image src={publication[0].image.url} alt={publication[0].title} fluid className="articleImage" />
                                     :
                                     <ThumbDoc title={"Évenements"} containerClass="thumbSoloContainer" imageClass="thumbSoloImage" titleClass="thumbSoloTitle" descClass="thumbSoloDesc" />
                                             
@@ -110,7 +110,7 @@ export default class SoloEvent extends Component {
             item && item.status == "publish" && index < 4 &&
                 <Col xs={12} xl={3}>
                     
-                    <Image src={item.fimg_url !== false ? item.fimg_url : THUMB } fluid className="newsImage" />
+                    <Image src={item.fimg_url !== false ? item.fimg_url : THUMB } alt={item.title.rendered} fluid className="newsImage" />
                     
                     <div style={{marginTop : 20+"px"}}>
                         

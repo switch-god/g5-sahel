@@ -168,7 +168,7 @@ class Events extends Component {
                                     {
                                         eventToRender.image !== false 
                                         ?
-                                        <Image src={eventToRender.image.url} fluid className="eventImage" />
+                                        <Image src={eventToRender.image.url} alt={eventToRender.title} fluid className="eventImage" />
                                         :   
                                         <ThumbDoc 
                                             title="Événements" 
@@ -213,7 +213,7 @@ class Events extends Component {
                 </>
             )
         );
-    }
+    };
 
     searchByTitle = (evenToSearch) => {
 

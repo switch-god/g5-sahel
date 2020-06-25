@@ -130,7 +130,7 @@ class Actualites extends Component {
                                     {
                                         actualitesG5[0].fimg_url !== false 
                                         ?
-                                        <Image src={actualitesG5[0].fimg_url} fluid className="bigImageBloc1" />
+                                        <Image src={actualitesG5[0].fimg_url} alt={actualitesG5[0].title.rendered} fluid className="bigImageBloc1" />
                                         :
                                         <ThumbDoc 
                                         title="Actualités" 
@@ -213,7 +213,7 @@ class Actualites extends Component {
                                         {
                                             post.fimg_url !== false 
                                             ?
-                                            <Image src={post.fimg_url} fluid className="imageCeMois" />
+                                            <Image src={post.fimg_url} alt={post.title.rendered} fluid className="imageCeMois" />
                                             :
                                             <ThumbDoc 
                                                 title="Ce mois" 
@@ -279,7 +279,7 @@ class Actualites extends Component {
                                 {
                                     actu.fimg_url !== false 
                                     ?
-                                    <Image src={actu.fimg_url} fluid className="midImage" />
+                                    <Image src={actu.fimg_url} alt={actu.title.rendered} fluid className="midImage" />
                                     :
                                     <ThumbDoc 
                                         title={solo_title} 
@@ -332,7 +332,7 @@ class Actualites extends Component {
                                 {
                                     actu.image !== false 
                                     ?
-                                    <Image src={actu.image.url} fluid className="midImage" />
+                                    <Image src={actu.image.url} alt={actu.title.rendered} fluid className="midImage" />
                                     :
                                     <ThumbDoc 
                                         title={solo_title} 

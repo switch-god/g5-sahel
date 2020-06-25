@@ -156,7 +156,7 @@ class Home extends Component {
                                     {
                                         actualitesG5[0].fimg_url !== false 
                                         ?
-                                        <Image src={actualitesG5[0].fimg_url} fluid className="actualitesG5BigImage"  />
+                                        <Image src={actualitesG5[0].fimg_url} alt={actualitesG5[0].title.rendered} fluid className="actualitesG5BigImage"  />
                                         :
                                         <ThumbDoc 
                                             title={solo_title} 
@@ -190,7 +190,7 @@ class Home extends Component {
                                     {
                                         actualitesG5[1].fimg_url !== false 
                                         ?
-                                        <Image src={actualitesG5[1].fimg_url} fluid className="actualitesG5SmallImage"  />
+                                        <Image src={actualitesG5[1].fimg_url} alt={actualitesG5[1].title.rendered} fluid className="actualitesG5SmallImage"  />
                                         :
                                         <ThumbDoc 
                                             title="Actualités" 
@@ -223,7 +223,7 @@ class Home extends Component {
                                     {
                                         actualitesG5[2].fimg_url !== false 
                                         ?
-                                        <Image src={actualitesG5[2].fimg_url} fluid className="actualitesG5SmallImage"  />
+                                        <Image src={actualitesG5[2].fimg_url} alt={actualitesG5[2].title.rendered} fluid className="actualitesG5SmallImage"  />
                                         :
                                         <ThumbDoc 
                                             title="Actualités" 
@@ -282,7 +282,7 @@ class Home extends Component {
                                 {   
                                     posts[0].fimg_url !== false
                                     ?
-                                    <Image src={posts[0].fimg_url} fluid className="bigArticleImage" />
+                                    <Image src={posts[0].fimg_url} alt={posts[0].title.rendered} fluid className="bigArticleImage" />
                                     :
                                     <ThumbDoc 
                                         title={postsTitle} 
@@ -347,7 +347,7 @@ class Home extends Component {
                                     {
                                         post.fimg_url !== false
                                         ?
-                                        <Image src={post.fimg_url} fluid className="smallArticleImage" />
+                                        <Image src={post.fimg_url} alt={post.title.rendered} fluid className="smallArticleImage" />
                                         :
                                         <ThumbDoc 
                                             title={postsTitle} 
@@ -424,7 +424,7 @@ class Home extends Component {
                                 {
                                     posts[0].image !== false
                                     ?
-                                    <Image src={posts[0].image.url} fluid className="bigArticleImage" />
+                                    <Image src={posts[0].image.url} alt={posts[0].title.rendered} fluid className="bigArticleImage" />
                                     :
                                     <ThumbDoc 
                                         title={postsTitle} 
@@ -491,7 +491,7 @@ class Home extends Component {
                                     {
                                         post.image !== false
                                         ?
-                                        <Image src={post.image.url} fluid className="smallArticleImage" />
+                                        <Image src={post.image.url} alt={post.title.rendered} fluid className="smallArticleImage" />
                                         :
                                         <ThumbDoc 
                                             title={postsTitle} 
@@ -569,7 +569,7 @@ class Home extends Component {
                                 }}  
                                 style={{ textDecoration: 'none' }}
                             >
-                            <Image src={activity.fimg_url} fluid className="activityImageSmall" />
+                            <Image src={activity.fimg_url} alt={activity.title.rendered} fluid className="activityImageSmall" />
                                 <p  className="activityTitle" dangerouslySetInnerHTML={{__html: activity.title.rendered}}></p>
                                 {/* <p  className="activityDesc" dangerouslySetInnerHTML={{__html: activity.excerpt.rendered.substr(0,80)+"..." }}></p> */}
                             </Link>

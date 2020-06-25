@@ -44,12 +44,12 @@ export default class Footer extends Component {
                 <Row>
                     <Col md={3} lg={1} xl={1}/>
 
-                    <Col md={6} lg={10} xl={10} style={{textAlign : 'center'}} xs={10}>
+                    <Col xs={10} md={6} lg={10} xl={10} style={{textAlign : 'center'}} >
                         <Row style={{marginTop : 20+"px"}}>
                             
                             <Col md={12} lg={3} xl={3}>
                                 <Link to="/">
-                                    <Image src={LOGO} width={180} style={{marginTop : 20+"px"}}  />
+                                    <Image src={LOGO} width={180} alt={"Logo G5 Sahel"} style={{marginTop : 20+"px"}}  />
                                 </Link>
 
                                 <Grid
