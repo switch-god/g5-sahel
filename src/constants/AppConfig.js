@@ -19,6 +19,10 @@
 
         // Presentation :
         const PRESENTATION = 39;
+            const SECRETARIAT_EXECUTIF= 40;
+            const ORGANES_APPUI = 51; 
+            const DISPOSITIF_DE_PILOTAGE_G5 = 47;
+
         // const Presentation_image_text_1 = 44;
         // const Presentation_image_text_2 = 45;
         // const Presentation_Citation = 46;
@@ -70,6 +74,9 @@ export {
     APPEL_OFFRE,
 
     PRESENTATION,
+    SECRETARIAT_EXECUTIF,
+    ORGANES_APPUI,
+    DISPOSITIF_DE_PILOTAGE_G5,
    
     NOS_ACTIVITES,
         DEFENSE_SECURITE,

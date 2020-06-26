@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
+import './presentation.css';
 
 import {
     Container,
     Row,
     Col,
     Image,
-    Button,
-    Form,
 } from 'react-bootstrap';
 
 // Redux :
 import { connect } from 'react-redux';
+import axios from 'axios';
+
+import {
+    Link
+} from 'react-router-dom';
+
+import {config, DISPOSITIF_DE_PILOTAGE_G5,ORGANES_APPUI} from '../../constants/AppConfig';
 
 import Layout from '../../components/Layout';
 import Newsletter from '../../components/Newsletter';
@@ -21,7 +27,6 @@ import Map from '../../components/Map';
 import Image1 from '../../assets/images/Home/3.png';
 import Image2 from '../../assets/images/Presentation/g5_sahel_map.jpg';
 
-import './presentation.css';
 
 class Presentation extends Component {
 
@@ -29,20 +34,24 @@ class Presentation extends Component {
         super(props);
         
         this.state = {
-            loading : true
+            loading : true,
+            dispositifG5: [],
+            organes: [],
         };
-
-    }
+    };
     
     componentDidMount() {
-        setTimeout(() => {
-             this.setState({loading : false})
-         },2000);
+        this.getListBloc();
+    //     setTimeout(() => {
+    //          this.setState({loading : false})
+    //      },2000);
     };
 
-
     render() {
-        const { loading } = this.state;
+        const { 
+            loading,
+         } = this.state;
+
         return (
             loading 
             ?
@@ -63,8 +72,8 @@ class Presentation extends Component {
 
                         {this.renderDescBloc()}
 
-                        {/* {this.renderObjBloc()} */}
-
+                        {/* {this.renderObjBloc()} */} 
+   
                         {this.renderListBloc()}
 
                         <Newsletter />
@@ -73,7 +82,35 @@ class Presentation extends Component {
                 </Layout>
             </Container>
         )
-    }
+    };
+
+    /* FUNCTIONS  */
+    getListBloc = () => {
+
+        axios.get(`${config.url}wp/v2/posts?categories=${DISPOSITIF_DE_PILOTAGE_G5}&per_page=3`)
+        .then(async response => {
+            
+            await this.setState({
+                dispositifG5: response.data
+            });
+        })
+        .catch(error => {
+          // console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
+        });
+
+        axios.get(`${config.url}wp/v2/posts?categories=${ORGANES_APPUI}&per_page=3`)
+        .then(async response => {
+           
+            await this.setState({
+                organes: response.data,
+                loading: false,
+            });
+        })
+        .catch(error => {
+          // console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
+        });
+    };    
+    /* FUNCTIONS  */
 
     /* RENDERING METHODS */
        renderTitle = () => (
@@ -224,45 +261,81 @@ class Presentation extends Component {
            </Row>
        );
 
-        renderListBloc = () => (
-            <Row style={{marginTop : 40+"px",marginBottom : 40+"px",}}>
-                <Col  xl={2} />
-                <Col xs={12} md={6} xl={4}>
-                    <div>
-                        <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>le Dispositif de pilotage du G5 Sahel</h3>
-                        <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>
-                            <li>La Conférence des Chefs d’Etat</li>
-                            <li>Le Conseil des Ministres</li>
-                            <li>Le Secrétariat Permanent du G5 Sahel</li>
-                        </ul>
-                    </div>
-                </Col>
-
-                <Col xs={12} md={6} xl={4}>
-                    <div>
-                        <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>Les organes d’appui</h3>
-                        <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>
-                            <li type="square">La réunion des Experts</li>
-                            <li type="square">Les Comités Nationaux de Coordination</li>
-                            <li type="square">Comité de Défense et de Sécurité</li>
-                        </ul>
-                    </div>
-                </Col>
-
-                <Col xl={2} />
-                
-                {/* <Col md={4}>
-                    <div>
-                        <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>Le Secrétaire permenant</h3>
-                        <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>
-                            <li type="square">La réunion des Experts</li>
-                            <li type="square">Les Comités Nationaux de Coordination</li>
-                            <li type="square">Comité de Défense et de Sécurité</li>
-                        </ul>
-                    </div>
-                </Col> */}
-            </Row>
-        );
+        renderListBloc = (dispositifG5,organes) => {
+            return(
+                <Row style={{marginTop : 40+"px",marginBottom : 40+"px",}}>
+                    <Col  xl={2} />
+                    <Col xs={12} md={6} xl={4}>
+                        <div>
+                            {/* <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>le Dispositif de pilotage du G5 Sahel</h3> */}
+                            {this.state.dispositifG5[0] &&
+                            <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>
+                                {this.state.dispositifG5[0].fcategory[0].category_name}
+                            </h3>
+                            }
+                            <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>
+                                {
+                                    this.state.dispositifG5.map((d,index) =>
+                                        // <li key={index}>{La Conférence des Chefs d’Etat}</li>
+                                        <Link 
+                                            to={{
+                                                pathname : `/article/${d.slug}`,
+                                            }}  
+                                            className="linkListBloc"
+                                            // style={{ textDecoration: 'none',color:'black' }}
+                                        >
+                                        <li key={index}dangerouslySetInnerHTML={{__html: d.title.rendered }}></li>
+                                        </Link>
+                                    )
+                                }
+                                {/* <li>Le Conseil des Ministres</li>
+                                <li>Le Secrétariat Permanent du G5 Sahel</li> */}
+                            </ul>
+                        </div>
+                    </Col>
+    
+                    <Col xs={12} md={6} xl={4}>
+                        <div>
+                            {/* <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>Les organes d’appui</h3> */}
+                            {this.state.organes[0] &&
+                            <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>
+                                {this.state.organes[0].fcategory[0].category_name}    
+                            </h3>
+                            }
+                            <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>
+                                {
+                                    this.state.organes.map((o,index) => 
+                                    <Link 
+                                        to={{
+                                            pathname : `/article/${o.slug}`,
+                                        }}  
+                                        className="linkListBloc"
+                                    >
+                                    <li key={index}dangerouslySetInnerHTML={{__html: o.title.rendered }}></li>
+                                    </Link>
+                                    )
+                                }
+                                {/* <li type="square">Les Comités Nationaux de Coordination</li> */}
+                                {/* <li type="square">Comité de Défense et de Sécurité</li> */}
+                            </ul>
+                        </div>
+                    </Col>
+    
+                    <Col xl={2} />
+                    
+                    {/* <Col md={4}>
+                        <div>
+                            <h3 style={{fontSize : 22+"px",color : '#0099CC',fontFamily : 'Poppins SemiBold'}}>Le Secrétaire permenant</h3>
+                            <ul className="customBulletList" style={{fontFamily : 'Poppins Medium'}}>
+                                <li type="square">La réunion des Experts</li>
+                                <li type="square">Les Comités Nationaux de Coordination</li>
+                                <li type="square">Comité de Défense et de Sécurité</li>
+                            </ul>
+                        </div>
+                    </Col> */}
+                </Row>
+            );
+        }
 
         renderFormAndMap = () => (
             <Row style={{marginTop : 40+"px",marginBottom : 40+"px"}}>

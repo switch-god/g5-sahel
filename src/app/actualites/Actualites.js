@@ -154,7 +154,7 @@ class Actualites extends Component {
                         <Col xs={12} lg={12} xl={12}>
                             <Row>
                                 <div className="sectionTitleContainerActualites">
-                                    <h4 className="sectionTitleActualites">Social Networks</h4>
+                                    <h4 className="sectionTitleActualites">Réseaux sociaux</h4>
                                 </div>
                                 <hr  className="titleBloc1Seperator" />  
                             </Row>
@@ -165,21 +165,21 @@ class Actualites extends Component {
                         <Col xs={12} lg={12} xl={12}>
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a style={{textDecoration: 'none'}} href="https://www.facebook.com"  className="socialLinka"><h4><FaFacebookF className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://www.facebook.com/g5sahel"  className="socialLinka"><h4><FaFacebookF className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> FACEBOOK </h4></a>
                                 </Col>
 
                                 <Col xs={6} xl={6}>
-                                    <a style={{textDecoration: 'none'}} href="https://twitter.com/"  className="socialLinka"><h4><FaTwitter  className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://twitter.com/g5_sahel_se"  className="socialLinka"><h4><FaTwitter  className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> TWITTER</h4></a>
                                 </Col>
                             </Row>
                             
                             <Row style={{marginBottom : 10+"px"}}>
                                 <Col xs={6} xl={6}>
-                                    <a  style={{textDecoration: 'none'}} href="https://www.youtube.com" className="socialLinka"><h4><FaYoutube className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
+                                    <a  style={{textDecoration: 'none'}} href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" className="socialLinka"><h4><FaYoutube className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> YOUTUBE</h4></a>
                                 </Col>
                                 
                                 <Col xs={6} xl={6}>
-                                    <a style={{textDecoration: 'none'}} href="https://www.linkedin.com"  className="socialLinka"><h4><FaLinkedinIn className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
+                                    <a style={{textDecoration: 'none'}} href="https://www.linkedin.com/in/g5-sahel-00187a188/"  className="socialLinka"><h4><FaLinkedinIn className="socialIcon" color={'black'} style={{marginRight : 10+"px"}} /> LINKEDIN</h4></a>
                                 </Col>
                             </Row>
                         </Col>

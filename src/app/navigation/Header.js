@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Header.css';
 import {
    Container,
    Row,
@@ -8,7 +9,7 @@ import {
    NavDropdown,
    Form,
    Spinner,
-   Button,
+   Image
 } from 'react-bootstrap';
 
 // Connect Redux :
@@ -19,13 +20,16 @@ import { HashLink } from 'react-router-hash-link';
 import { IoIosSearch,IoIosArrowForward } from 'react-icons/io';
 
 // IMAGES & STYLING :
-import './Header.css';
 import LOGO from '../../assets/images/Header/logo3.png';
 import LOGO2 from '../../assets/images/Header/logo2.png';
 import ARROW from '../../assets/images/Header/downArrow.png';
+import fb from '../../assets/images/Footer/fb.png';
+import twitter from '../../assets/images/Footer/twit.png';
+import linkedIn from '../../assets/images/Footer/lin.png';
+import youtube from '../../assets/images/Footer/ytb.png';
 
 import axios from 'axios';
-import { config } from '../../constants/AppConfig';
+import { config,SECRETARIAT_EXECUTIF } from '../../constants/AppConfig';
 import UltimatePagination from '../../components/Paginate';
 
 
@@ -41,8 +45,11 @@ class Header extends Component {
             currentPage: 1,
             totalSearchPosts:0, 
             totalPages: 3,
+
+            linkSecretariat: [],
+
         };
-    
+        this.getDynamicLinks();
     }
 
     render() {
@@ -51,11 +58,27 @@ class Header extends Component {
                 <Row> 
                     <Col />
                     <Col />
-                    <Col />
-                    <Col lg={4} className="topMenuWeb inline-ipad" >
+                    <Col lg={5} xl={5} className="topMenuWeb inline-ipad" >
                         <Link style={styles.TopBarLinks} to="/appel-offres">Appel d'offres</Link>
                         <Link style={styles.TopBarLinks} to="/recrutement">Recrutement</Link>
                         <Link style={styles.TopBarLinks} to="/contact-g5">Contact</Link>
+                        
+                        <a href="https://www.facebook.com/g5sahel" target="_blank">
+                            <Image src={fb} width={15} style={{marginRight : 10+"px",}} />
+                        </a>
+
+                        <a href="https://twitter.com/g5_sahel_se" target="_blank">
+                            <Image src={twitter} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/g5-sahel-00187a188/" target="_blank">
+                            <Image src={linkedIn} width={15} style={{marginRight : 10+"px",}}/>
+                        </a>
+
+                        <a href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" target="_blank">
+                            <Image src={youtube} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/>
+                        </a>
+                        
                     </Col>
                 </Row>
                 <hr style={{marginBottom : -5 + "px",borderColor : '##BCBCBC'}} />
@@ -91,6 +114,19 @@ class Header extends Component {
         )
     }
 
+    getDynamicLinks = async () => {
+        
+        axios.get(`${config.url}wp/v2/posts?categories=${SECRETARIAT_EXECUTIF}&per_page=1`)
+        .then(async response => {
+            console.log("Rep", response.data)
+            await this.setState({
+                linkSecretariat: response.data
+            });
+        })
+        .catch(error => {
+          // console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
+        });   
+    };
 
     searchByTitle = (nextPage = 1) => {
                 
@@ -141,7 +177,9 @@ class Header extends Component {
             <div className="dropdown-content">
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
-                    <a style={styles.MainMenuLinks} href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Secrétariat Exécutif</a>
+                    {this.state.linkSecretariat[0] &&
+                        <a style={styles.MainMenuLinks} href={`/article/${this.state.linkSecretariat[0].slug}`} >Secrétariat Exécutif</a>
+                    }
                 </Row>
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
                     <a style={styles.MainMenuLinks} href="/article/les-comites-nationaux-de-coordination">Comités Nationaux de Coordination</a>
@@ -309,11 +347,71 @@ class Header extends Component {
   
     renderMobileMenuElements = () => (
        <>
-            <div style={{textAlign : 'left', paddingLeft: '31px',}} >
-                <a  className="topMenuItem" href="/appel-offres"> Appel d'offres </a>
-                <a  className="topMenuItem" href="/recrutement"> Recrutement </a>
-                <a  className="topMenuItem" href="/contact-g5"> Contact </a>
-            </div>
+            {/* <div style={{textAlign : 'left', paddingLeft: '31px'}} > */}
+
+            {
+                window.innerWidth > 576
+                ?
+                    (
+                        <div class="d-flex justify-content-between" style={{paddingLeft: '31px'}}>
+                            <div>
+                                <a  className="topMenuItem" href="/appel-offres"> Appel d'offres </a>
+                                <a  className="topMenuItem" href="/recrutement"> Recrutement </a>
+                                <a  className="topMenuItem" href="/contact-g5"> Contact </a>
+                            </div>
+
+                            <div>
+                                <a href="https://www.facebook.com/g5sahel" target="_blank">
+                                    <Image src={fb} width={15} style={{marginRight : 10+"px"}} />
+                                </a>
+
+                                <a href="https://twitter.com/g5_sahel_se" target="_blank">
+                                    <Image src={twitter} width={15} style={{marginTop : 4+"px",marginRight : 10+"px"}}/>
+                                </a>
+
+                                <a href="https://www.linkedin.com/in/g5-sahel-00187a188/" target="_blank">
+                                    <Image src={linkedIn} width={15} style={{marginRight : 10+"px"}}/>
+                                </a>
+
+                                <a href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" target="_blank">
+                                    <Image src={youtube} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/>
+                                </a>
+                            </div>
+                        </div>
+                    )
+                :
+                    (
+                        <>
+                        <Row>
+                            <div class="d-flex justify-content-center" style={{paddingLeft: '31px'}}>
+                                <a  className="topMenuItem" href="/appel-offres"> Appel d'offres </a>
+                                <a  className="topMenuItem" href="/recrutement"> Recrutement </a>
+                                <a  className="topMenuItem" href="/contact-g5"> Contact </a>
+                            </div>
+                        </Row>
+
+                        <Row className="d-flex justify-content-center">
+                            {/* <div class="d-flex justify-content-center" style={{paddingLeft: '31px'}}> */}
+                                <a href="https://www.facebook.com/g5sahel" target="_blank">
+                                    <Image src={fb} width={15} style={{marginRight : 10+"px"}} />
+                                </a>
+
+                                <a href="https://twitter.com/g5_sahel_se" target="_blank">
+                                    <Image src={twitter} width={15} style={{marginTop : 4+"px",marginRight : 10+"px"}}/>
+                                </a>
+
+                                <a href="https://www.linkedin.com/in/g5-sahel-00187a188/" target="_blank">
+                                    <Image src={linkedIn} width={15} style={{marginRight : 10+"px"}}/>
+                                </a>
+
+                                <a href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" target="_blank">
+                                    <Image src={youtube} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/>
+                                </a>
+                            {/* </div> */}
+                        </Row>
+                        </>
+                    )
+            }
             
             <NavDropdown.Divider />
             <Row>

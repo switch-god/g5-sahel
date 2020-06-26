@@ -12,13 +12,12 @@ import Layout from '../../components/Layout';
 import Newsletter from '../../components/Newsletter';
 import ThumbDoc from '../../components/ThumbDoc';
 
-import { config } from '../../constants/AppConfig';
+import { config,APPEL_OFFRE } from '../../constants/AppConfig';
 
 import $ from 'jquery';
 
 // Styling and Images :
-import './SoloPage.css';
-import THUMB from '../../assets/images/Thumbs/content-placeholder.jpg';    
+import './SoloPage.css';  
 import LottieLoader from '../../components/LottieLoader';
 
 export default class SoloPage extends Component {
@@ -57,7 +56,7 @@ export default class SoloPage extends Component {
                 <Layout xs={4} style={{textAlign: 'center',marginBottom: '50px'}}>
                     <p className="soloTitle">{publication[0].fcategory[0].category_name}</p>
                     <p className="articleTitle" dangerouslySetInnerHTML={{__html: publication[0].title.rendered}}></p>
-                    <p className="articleDate">{moment(publication[0].date).format("DD MMMM YYYY")}</p>
+                    {/* <p className="articleDate">{moment(publication[0].date).format("DD MMMM YYYY")}</p> */}
     
                         <Row>
                             <Col xl={1} />
@@ -83,7 +82,8 @@ export default class SoloPage extends Component {
                 </Layout>
                 
                 <Layout columns={8}>
-                    <p className="wordpressData" id="data" dangerouslySetInnerHTML={{__html: publication[0].content.rendered}}></p>
+                    {/* <div id="theDiv" style={{textAlign: 'center'}}></div> */}
+                    <p className="wordpressData" style={{textAlign: 'center'}} id="data" dangerouslySetInnerHTML={{__html: publication[0].content.rendered}}></p>
                 </Layout>
                 
                 {
@@ -121,7 +121,13 @@ export default class SoloPage extends Component {
     };
 
     removeImages = () => {
-        $('#data img').remove();
+        // $('#data img').remove();
+        // $('#theDiv').prepend( $('#data img') )
+        // $('#data img').css("text-align","center");;
+
+        $('#data img').removeAttr('style'); 
+        $('#data img').removeClass(); 
+        $('#data figure').css('text-align','center'); 
     }
     
     renderLatestNews = (news) => (
@@ -172,7 +178,6 @@ export default class SoloPage extends Component {
 
 
     getArticle = async (slug) => {
-
         await axios.get(`${config.url}wp/v2/posts?slug=${slug}`)
         .then( async response => {
             await this.setState({
@@ -186,9 +191,8 @@ export default class SoloPage extends Component {
     }
   
     getLatestNews = async () => {
-        axios.get(`${config.url}wp/v2/posts?per_page=4`)
+        axios.get(`${config.url}wp/v2/posts?per_page=4&categories_exclude=${APPEL_OFFRE}`)
         .then( response => {
-    
             this.setState({
                 news : response.data
             });        

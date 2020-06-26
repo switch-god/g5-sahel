@@ -1,4 +1,14 @@
 
+.linkListBloc{
+    color: black;
+    text-decoration: none;
+    font-family: 'Poppins Medium';
+}
+
+.linkListBloc:hover{
+    color: #0099CC;
+    text-decoration: underline;
+}
 
 /* Extra small devices  */
 @media (max-width: 575.98px) { 

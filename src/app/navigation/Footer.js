@@ -60,26 +60,27 @@ export default class Footer extends Component {
                                     alignItems="center"
                                     style={{marginTop : 10+"px", marginBottom : 20+"px"}}
                                 >
+
                                     <div>
-                                        <a href="https://www.facebook.com" target="_blank">
+                                        <a href="https://www.facebook.com/g5sahel" target="_blank">
                                             <Image src={fb} width={35} />
                                         </a>
                                     </div>
                                    
                                     <div>
-                                        <a href="https://twitter.com" target="_blank">
+                                        <a href="https://twitter.com/g5_sahel_se" target="_blank">
                                             <Image src={twitter} width={35} style={{marginTop : 4+"px"}}/>
                                         </a>
                                     </div>
                                    
                                     <div>
-                                        <a href="https://www.linkedin.com" target="_blank">
+                                        <a href="https://www.linkedin.com/in/g5-sahel-00187a188/" target="_blank">
                                             <Image src={linkedIn} width={35} />
                                         </a>
                                     </div>
                                    
                                     <div>
-                                        <a href="https://www.youtube.com" target="_blank">
+                                        <a href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" target="_blank">
                                             <Image src={youtube} width={35} style={{marginTop : 4+"px"}}/>
                                         </a>
                                     </div>
@@ -94,7 +95,7 @@ export default class Footer extends Component {
                                         <Link to="#" className="links">Conditions d’utilisation</Link>
                                         <Link to="#" className="links">Confidentialité de l’information</Link>
                                         <Link  to="/contact-g5" className="links">Contactez-nous</Link>
-                                        <Link to="#" className="links">Plan de site</Link>
+                                        <Link to="#" className="links">Plan du site</Link>
                                         <Link to="#" className="links">FAQ</Link>
                                     </Nav>
                                 </div>
@@ -102,7 +103,7 @@ export default class Footer extends Component {
 
                             <Col md={12} lg={3} xl={3}>
                                 <div style={{marginTop : 30+"px"}}>
-                                    <h2 className="footerTitle"> SITEMAP </h2>
+                                    <h2 className="footerTitle">PLAN DU SITE</h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
                                         <a href="/presentation" className="links">Présentation</a>

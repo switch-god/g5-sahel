@@ -87,7 +87,7 @@ class Home extends Component {
                     <Col xl={10}>
                         <Row>
                             <Col xl={6} className="postsContainerNews">
-                                {actualitesInter.length > 0 && this.renderPosts(actualitesInter,"A la une")}
+                                {actualitesInter.length > 0 && this.renderPosts(actualitesInter,"Dernières nouvelles")}
                             </Col>
   
                             <Col xl={6} className="postsContainerEvents">
