@@ -4,7 +4,8 @@ import moment from 'moment';
 
 // Global Config :
   import { 
-    config, 
+    config,
+    WELCOME, 
     ACTUALITES_DES_PAYS_G5,
     ACTUALITE_INTERNATIONALE,
     NOS_ACTIVITES,
@@ -29,8 +30,10 @@ export const getActualitesInter = () => async (dispatch) => {
 
 export const getActualitesPaysG5 = () => async (dispatch) => {
   
-  axios.get(`${config.url}wp/v2/posts?categories=${ACTUALITES_DES_PAYS_G5}`)
+  axios.get(`${config.url}wp/v2/posts?categories=${WELCOME}`)
         .then(response => {
+          // console.log(response.data);
+
           dispatch({
               type : 'GET_ACTUALITES_PAYS_G5',
               payload : response.data,

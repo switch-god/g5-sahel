@@ -10,6 +10,9 @@
 //CATEGORIES :
 
     // G5 Categories :
+
+        // Welcome Home PAge
+        const WELCOME = 70;
     
         // Appel d'offres :
         const APPEL_OFFRE = 61 ;
@@ -54,13 +57,16 @@
 
 // Config :
    const config = {
-        url : 'https://g5sahel.switch.tn/wp-json/',
+        // url : 'https://g5sahel.switch.tn/wp-json/',
+        url : 'https://admin.g5sahel.org/wp-json/',
         newsletterApiKey : 'g5-sahel',
    };
 
 export {
     config,
   
+    WELCOME,
+    
     APPEL_OFFRE,
 
     PRESENTATION,

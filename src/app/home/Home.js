@@ -37,7 +37,6 @@ class Home extends Component {
         };
 
         
-
         //Get Actualites Pays G5 : 
         this.props.getActualitesPaysG5();
         
@@ -159,7 +158,7 @@ class Home extends Component {
                                         <Image src={actualitesG5[0].fimg_url} alt={actualitesG5[0].title.rendered} fluid className="actualitesG5BigImage"  />
                                         :
                                         <ThumbDoc 
-                                            title={solo_title} 
+                                            title={actualitesG5[0].fcategory[0].category_name} 
                                             containerClass="thumbActualitesBigContainer" 
                                             imageClass="thumbActualitesBigImage" 
                                             titleClass="thumbActualitesBigTitle" 
@@ -193,7 +192,7 @@ class Home extends Component {
                                         <Image src={actualitesG5[1].fimg_url} alt={actualitesG5[1].title.rendered} fluid className="actualitesG5SmallImage"  />
                                         :
                                         <ThumbDoc 
-                                            title="Actualités" 
+                                        title={actualitesG5[1].fcategory[0].category_name}  
                                             containerClass="thumbActualitesSmallContainer" 
                                             imageClass="thumbActualitesSmallImage" 
                                             titleClass="thumbActualitesSmallTitle" 
@@ -226,7 +225,7 @@ class Home extends Component {
                                         <Image src={actualitesG5[2].fimg_url} alt={actualitesG5[2].title.rendered} fluid className="actualitesG5SmallImage"  />
                                         :
                                         <ThumbDoc 
-                                            title="Actualités" 
+                                            title={actualitesG5[1].fcategory[0].category_name} 
                                             containerClass="thumbActualitesSmallContainer" 
                                             imageClass="thumbActualitesSmallImage" 
                                             titleClass="thumbActualitesSmallTitle" 
