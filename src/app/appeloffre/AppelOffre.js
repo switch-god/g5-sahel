@@ -41,6 +41,10 @@ export default class Documentation extends Component {
         this.state = {
             pathName : '',
         };
+        document.title = `${config.siteName} - Appel d'offre`;
+    };
+
+    componenetDidMount() {
     }
 
     render() {

@@ -13,7 +13,7 @@ import ThumbDoc from '../../components/ThumbDoc';
 // Connect to redux : 
     import { connect } from 'react-redux';
     import { getLatestNews,getActualitesPaysG5,getActualitesInter,getLatestEvents } from '../../redux/actions/ActualitesActions';
-
+    import { config } from '../../constants/AppConfig'; 
 
 // Components :
     import Layout from '../../components/Layout';
@@ -51,6 +51,7 @@ class Actualites extends Component {
     }
 
     componentDidMount() {
+        document.title = `${config.siteName} - Actualités`;
         setTimeout(() => {
              this.setState({loading : false})
          },2000);

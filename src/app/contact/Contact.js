@@ -7,6 +7,11 @@ import {
     Container,
 } from 'react-bootstrap';
 
+
+import { 
+    config, 
+} from '../../constants/AppConfig';
+
 import Layout from '../../components/Layout';
 import Newsletter from '../../components/Newsletter';
 import ContactForm from '../../components/ContactForm';
@@ -16,6 +21,12 @@ import ContactForm from '../../components/ContactForm';
     import './contact.css';
 
 export default class Contact extends Component {
+
+
+    componentDidMount() {
+        document.title = `${config.siteName} - Contact`;
+    }
+
     render() {
         return (
             <Container fluid>

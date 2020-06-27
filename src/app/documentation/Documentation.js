@@ -53,6 +53,10 @@ export default class Documentation extends Component {
         this.getCategories();
     }
 
+    componentDidMount() {
+        document.title = `${config.siteName} - Documentation`;
+    }
+
     render() {
         let { categories } = this.state;
         let { pathname } = window.location;

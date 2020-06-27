@@ -37,6 +37,7 @@ export default class SeeMore extends Component {
         };
 
         this.getArticles(this.props.match.params.category_slug,1);
+        document.title= `${config.siteName} - ${this.props.match.params.category_slug}`;
     };
 
 

@@ -13,7 +13,8 @@ import { Link } from 'react-router-dom';
 // Redux :
     import { connect } from 'react-redux';
     import { getDefenseSecurite,getGouvernance,getInfrastructure,getResilence,getGenre,getCellule } from '../../redux/actions/NosActivitesActions';
-
+    import { config } from '../../constants/AppConfig'; 
+    
 // Components : 
     import Layout from '../../components/Layout';
     import {IoIosArrowForward} from 'react-icons/io';
@@ -58,6 +59,7 @@ class NosActivites extends Component {
     };
 
     componentDidMount() {
+        document.title = `${config.siteName} - Nos Activités`;
         setTimeout(() => {
              this.setState({loading : false})
          },3000);

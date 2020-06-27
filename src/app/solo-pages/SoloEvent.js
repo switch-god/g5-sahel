@@ -42,6 +42,8 @@ export default class SoloEvent extends Component {
         const { publication,news } = this.state;
         // console.log(publication)
         if(publication[0]) {
+            document.title = `${config.siteName} - ${publication[0].title}`;
+            
             return (
                 <Container fluid>
                 <Layout style={{textAlign: 'center',marginBottom: '50px'}}>

@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 
-import {Link} from 'react-router-dom';
+import { config } from '../constants/AppConfig';
 
 import LottieLoader from './LottieLoader';
 
 export default class NotFound extends Component {
+
+    constructor() {
+        document.title= `${config.siteName} - 404 Not found`;
+    }
+
     render() {
         return (
             <div>

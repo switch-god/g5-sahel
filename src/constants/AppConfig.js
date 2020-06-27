@@ -64,6 +64,7 @@
         // url : 'https://g5sahel.switch.tn/wp-json/',
         url : 'https://admin.g5sahel.org/wp-json/',
         newsletterApiKey : 'g5-sahel',
+        siteName: 'G5 SAHEL',
    };
 
 export {

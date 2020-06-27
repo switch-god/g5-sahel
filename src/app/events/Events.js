@@ -15,7 +15,8 @@ import {
 } from '@material-ui/pickers';
 
 import { Link } from 'react-router-dom';
-  
+import { config } from '../../constants/AppConfig';  
+
 // Components : 
     import Layout from '../../components/Layout';
     import Newsletter from '../../components/Newsletter';
@@ -46,6 +47,7 @@ class Events extends Component {
     };
 
     componentDidMount() {
+        document.title = `${config.siteName} - Événements`;
         setTimeout(() => {
              this.setState({loading : false})
          },2000);

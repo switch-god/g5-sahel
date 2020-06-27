@@ -38,6 +38,7 @@ export default class SeeMoreSearch extends Component {
         };
 
         this.getArticles(this.props.match.params.search,1);
+        document.title= `${config.siteName} - Recherche`;
     };
 
 

@@ -18,6 +18,8 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 
+
+
 // Redux & Getting Data : 
     import axios from 'axios';
     import { config } from '../../constants/AppConfig';
@@ -77,7 +79,7 @@ class Recrutement extends Component {
 
 
     componentDidMount() {
-        
+        document.title = `${config.siteName} - Recrutement`;
     }
   
     render() {

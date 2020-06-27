@@ -50,7 +50,7 @@ export default class SoloPage extends Component {
       
      
         if(publication[0]) {
-            
+            document.title = `${config.siteName} - ${publication[0].title.rendered}`;
             return (
                 <Container fluid>
                 <Layout xs={4} style={{textAlign: 'center',marginBottom: '50px'}}>

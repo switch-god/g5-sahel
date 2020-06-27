@@ -41,6 +41,7 @@ class Presentation extends Component {
     };
     
     componentDidMount() {
+        document.title = `${config.siteName} - Présentation`;
         this.getListBloc();
     //     setTimeout(() => {
     //          this.setState({loading : false})

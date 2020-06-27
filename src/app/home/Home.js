@@ -1,5 +1,6 @@
 /* eslint-disable import/first */
 import React, { Component } from 'react'
+import './Home.css';
 
 import {
     Container,
@@ -14,18 +15,17 @@ import { Player, BigPlayButton} from 'video-react';
 import ReactPlayer from 'react-player';
 import moment from 'moment';
 
-
 // Connect to redux : 
     import { connect } from 'react-redux';
     // import { setLoading,getImagesBloc,getActivities,getLatestNews } from '../../redux/actions/PostsActions';
     import { getActualitesPaysG5,getActualitesInter,getLatestEvents,getActivities } from '../../redux/actions/ActualitesActions'; 
 
+import { config } from '../../constants/AppConfig';
+
 // COMPONENTS :
 import Newsletter from '../../components/Newsletter';
 import LottieLoader from '../../components/LottieLoader';
 import ThumbDoc from '../../components/ThumbDoc';
-
-import './Home.css';
 
 class Home extends Component {
 
@@ -56,6 +56,7 @@ class Home extends Component {
 
     
     componentDidMount() {
+        document.title = `${config.siteName} - Accueil`;
         setTimeout(() => {
              this.setState({loading : false})
          },3000);
@@ -74,10 +75,12 @@ class Home extends Component {
         return (
             loading 
             ?
-              <LottieLoader />
+            <>
+            <LottieLoader />
+            </>
             :
             <Container fluid>
-            
+                
                 {actualitesG5.length > 0 && this.renderActualitesG5(actualitesG5,"Actualités des pays du G5")}
 
                 {/* NEW & EVENTS */}
