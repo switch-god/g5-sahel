@@ -118,7 +118,7 @@ class Header extends Component {
         
         axios.get(`${config.url}wp/v2/posts?categories=${SECRETARIAT_EXECUTIF}&per_page=1`)
         .then(async response => {
-            console.log("Rep", response.data)
+            // console.log("Rep", response.data)
             await this.setState({
                 linkSecretariat: response.data
             });

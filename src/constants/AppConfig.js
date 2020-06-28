@@ -57,6 +57,10 @@
             const AUTRES_DOCUMENTS = 32;
             const COMMUNIQUE_DE_PRESSE = 63;
 
+        // Footer SDS & PIP
+        const PIP = 73;
+        const SDS = 74;
+
 
 
 // Config :
@@ -103,4 +107,7 @@ export {
         DISCOURS,
         AUTRES_DOCUMENTS,
         COMMUNIQUE_DE_PRESSE,
+
+    SDS,
+    PIP,
 };

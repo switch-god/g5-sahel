@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Footer.css';
 
 import {
     Container,
@@ -16,7 +17,8 @@ import {
     Grid
 } from '@material-ui/core';
 
-import './Footer.css';
+import axios from 'axios';
+import {config, SDS, PIP} from '../../constants/AppConfig';
 
 // Images : 
     import LOGO from '../../assets/images/Footer/Logo.png';
@@ -35,7 +37,20 @@ import './Footer.css';
      */
 
 export default class Footer extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            sds: [],
+            pip: [],
+        }
+
+        this.getDynamicLinks();
+    }
+
     render() {
+
         return (
             <>
             <span className="d-block p-1 text-white" style={{backgroundColor : '#0099CC'}}></span>
@@ -117,11 +132,42 @@ export default class Footer extends Component {
 
                             <Col md={12} lg={3} xl={3}>
                                 <div style={{marginTop : 30+"px"}}>
-                                    <h2 className="footerTitle"> LIENS UTILES </h2>
+                                    {this.state.pip[0] && this.state.sds[0] &&
+                                        <h2 className="footerTitle"> LIENS UTILES </h2>
+                                    }
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <a href="/article/programme-dinvestissements-prioritaires-pip-g5-sahel" className="links">Programmes d’Investissements Prioritaires (PIP)</a>
-                                        <a href="/article/strategie-de-defense-et-de-securite-sds" className="links">Stratégie de défense et de sécurité (SDS)</a>
+                                        {/* <a href="/article/programme-dinvestissements-prioritaires-pip-g5-sahel" className="links">Programmes d’Investissements Prioritaires (PIP)</a> */}
+                                        {this.state.pip[0] &&
+                                            <a 
+                                                className="links"
+                                                href={
+                                                    this.state.pip[0].fpdf_url !== false 
+                                                    ?
+                                                    `${this.state.pip[0].fpdf_url}`
+                                                    :
+                                                    '/article/programme-dinvestissements-prioritaires-pip-g5-sahel'
+                                                }
+                                            >
+                                               {this.state.pip[0].fcategory[0].category_name}
+                                            </a>
+                                        }
+
+                                        {/* <a href="/article/strategie-de-defense-et-de-securite-sds" className="links">Stratégie de défense et de sécurité (SDS)</a> */}
+                                        {this.state.sds[0] &&
+                                            <a 
+                                                className="links"
+                                                href={
+                                                    this.state.sds[0].fpdf_url !== false 
+                                                    ?
+                                                    `${this.state.sds[0].fpdf_url}`
+                                                    :
+                                                    '/article/strategie-de-defense-et-de-securite-sds'
+                                                }
+                                            >
+                                               {this.state.sds[0].fcategory[0].category_name}
+                                            </a>
+                                        }
                                     </Nav>
                                 </div>
                             </Col>
@@ -145,7 +191,37 @@ export default class Footer extends Component {
             </Container>
         </>
         )
-    }
+    };
+
+
+    getDynamicLinks = async () => {
+
+        axios.get(`${config.url}wp/v2/posts?categories=${PIP}&per_page=1`)
+        .then(async response => {
+            // console.log("Rep PIP", response.data)
+
+            await this.setState({
+                pip: response.data
+            });
+        })
+        .catch(error => {
+          // console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
+        });  
+        
+        axios.get(`${config.url}wp/v2/posts?categories=${SDS}&per_page=1`)
+        .then(async response => {
+            // console.log("Rep SDS", response.data)
+
+            await this.setState({
+                sds: response.data
+            });
+        })
+        .catch(error => {
+          // console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
+        });
+
+         
+    };
 }
 
 const styles = {

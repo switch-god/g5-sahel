@@ -25,12 +25,12 @@ export default class ThumbDoc extends Component {
                 <Row>
                     <Image src={THUMB_LOGO} fluid className={imageClass} />
                 </Row>
-
+{/* 
                 <Row>
                     <h5 className={titleClass}>{title}</h5>
-                </Row>
+                </Row> */}
 
-                <Row>
+                <Row style={{marginTop: '15px'}}>
                     <h6 className={descClass}>Aperçu non disponible</h6>
                 </Row>
             </Col>

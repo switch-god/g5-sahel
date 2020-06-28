@@ -61,7 +61,7 @@ class Events extends Component {
         return (
             loading 
             ?
-              <LottieLoader />
+            <LottieLoader bottom/>
             :
             <Container fluid>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>

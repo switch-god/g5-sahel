@@ -56,7 +56,7 @@ class Presentation extends Component {
         return (
             loading 
             ?
-              <LottieLoader />
+            <LottieLoader bottom/>
             :
             <Container fluid>
                 

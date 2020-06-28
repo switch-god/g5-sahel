@@ -76,7 +76,7 @@ class Home extends Component {
             loading 
             ?
             <>
-            <LottieLoader />
+            <LottieLoader bottom/>
             </>
             :
             <Container fluid>

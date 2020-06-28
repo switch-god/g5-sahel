@@ -71,8 +71,7 @@ class Actualites extends Component {
 
             loading 
             ?
-                // <LottieLoader devText={true} />
-                <LottieLoader  />
+            <LottieLoader bottom/>
             :
             <>
                 <div style={{textAlign : 'center',marginTop : 40+"px", marginBottom : 40+"px"}}>

@@ -33,6 +33,7 @@ import Publications from './Publications/Publications';
 import { 
     config, 
     DOCUMENTATIONS,
+    AUTRES_DOCUMENTS,
 } from '../../constants/AppConfig';
 
 
@@ -110,9 +111,9 @@ export default class Documentation extends Component {
             this.setState({ categories: rep.data });
         })
         .catch(err => {
-
+            
         });
-    }
+    };
     
     renderDocumentsListMode = (pubs,title) => {
      

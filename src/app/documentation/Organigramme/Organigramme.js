@@ -9,7 +9,8 @@ import {
 
 
 import LottieLoader from '../../../components/LottieLoader';
-import ORGANIGRAMME from '../../../assets/pdf/organigramme.pdf';
+// import ORGANIGRAMME from '../../../assets/pdf/organigramme.pdf';
+import ORGANIGRAMME from '../../../assets/pdf/organigramme_form_1.pdf';
 
 export default class Organigramme extends Component {
     
@@ -45,7 +46,7 @@ export default class Organigramme extends Component {
                         file={ORGANIGRAMME}
                         className="organigrammePdf"
                         loading={null}
-                        // onLoadSuccess={this.onDocumentLoadSuccess}
+                        externalLinkTarget={"_blank"}
                     >
                         <Page 
                             pageNumber={pageNumber} 

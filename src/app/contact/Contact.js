@@ -152,7 +152,7 @@ export default class Contact extends Component {
                 <div className="centerMap">   
                     <div className="mapouter">
                         <div className="gmap_canvas">
-                            <iframe width={ window.innerWidth > 1199 ? '100%' : '90%' } height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Route%20des%20Ambassades%20%E2%80%93%20Nouakchott%20-%20Mauritanie&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <iframe width={ window.innerWidth > 1199 ? '100%' : '90%' } height="350" id="gmap_canvas" src="https://maps.google.com/maps?saddr=18.094950,-15.963531&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </div>
                 </div>
