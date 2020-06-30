@@ -18,7 +18,7 @@ import moment from 'moment';
 
 export const getActualitesInter = () => async (dispatch) => {
   
-  axios.get(`${config.url}wp/v2/posts?categories=${ACTUALITE_INTERNATIONALE}`)
+  axios.get(`${config.url}wp/v2/posts?categories=${ACTUALITE_INTERNATIONALE}&per_page=4`)
         .then(response => {
           dispatch({
               type : 'GET_ACTUALITES_INTERNATIONALE',
@@ -32,12 +32,28 @@ export const getActualitesInter = () => async (dispatch) => {
 
 export const getActualitesPaysG5 = () => async (dispatch) => {
   
-  axios.get(`${config.url}wp/v2/posts?categories=${WELCOME}`)
+  axios.get(`${config.url}wp/v2/posts?categories=${ACTUALITES_DES_PAYS_G5}&per_page=5`)
         .then(response => {
           // console.log(response.data);
 
           dispatch({
               type : 'GET_ACTUALITES_PAYS_G5',
+              payload : response.data,
+          });
+        })
+        .catch(error => {
+          // console.log("erreur axios getActualitesPaysG5/ActualitesActions",error);
+        });
+};
+
+export const getWelcomeHomePage = () => async (dispatch) => {
+  
+  axios.get(`${config.url}wp/v2/posts?categories=${WELCOME}&per_page=4`)
+        .then(response => {
+          // console.log(response.data);
+
+          dispatch({
+              type : 'GET_WELCOME_HOME_PAGE',
               payload : response.data,
           });
         })

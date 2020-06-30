@@ -13,7 +13,7 @@ import Newsletter from '../../components/Newsletter';
 import ThumbDoc from '../../components/ThumbDoc';
 import LottieLoader from '../../components/LottieLoader';
 
-import { config } from '../../constants/AppConfig';
+import { config,APPEL_OFFRE, SDS, PIP, UNCATEGORIZED} from '../../constants/AppConfig';
 
 // Styling and Images :
 import './SoloPage.css';
@@ -81,7 +81,7 @@ export default class SoloEvent extends Component {
                         {/* TITLE */}
                         <Row id="infrastructure" style={{paddingLeft: '15px',paddingRight : '15px'}}>
                             <div className="sectionTitleContainer">
-                                <h4 className="sectionTitle">A la une</h4>
+                                <h4 className="sectionTitle">Dernières nouvelles</h4>
                             </div>
                             <hr  className="titleSeperator" />  
                         </Row>
@@ -150,9 +150,8 @@ export default class SoloEvent extends Component {
     }
   
     getLatestNews = async () => {
-        axios.get(`${config.url}wp/v2/posts?per_page=4`)
+        axios.get(`${config.url}wp/v2/posts?per_page=4&categories_exclude=${APPEL_OFFRE}+${SDS}+${PIP}+${UNCATEGORIZED}`)
         .then( response => {
-    
             this.setState({
                 news : response.data
             });        

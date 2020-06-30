@@ -273,7 +273,7 @@ class Actualites extends Component {
                 <Row className="midArticlesBloc">
                     {
                         actualites.map((actu,index) =>
-                            index > 0 && index <= 4 && 
+                            index < 4 && 
                             <Col xs={12} xl={3}>
                                 <Link style={{textDecoration: 'none'}} to={{ pathname : `/article/${actu.slug}`, }}>
                                 {

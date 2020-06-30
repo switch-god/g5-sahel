@@ -78,7 +78,7 @@ export default class SeeMore extends Component {
             )
         } else {
             return (
-                <LottieLoader />
+                <LottieLoader bottom/>
             )
         }
     }

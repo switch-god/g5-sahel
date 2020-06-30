@@ -1,6 +1,6 @@
 const initialState = {
     posts : [],
-
+    welcomeG5: [],
     actualitesG5 : [],
     actualitesInter : [],
     events : [],
@@ -21,6 +21,12 @@ const actualitesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 actualitesG5 : action.payload,
+            }
+
+        case 'GET_WELCOME_HOME_PAGE' :
+            return {
+                ...state,
+                welcomeG5 : action.payload,
             }
 
             

@@ -18,7 +18,7 @@ import moment from 'moment';
 // Connect to redux : 
     import { connect } from 'react-redux';
     // import { setLoading,getImagesBloc,getActivities,getLatestNews } from '../../redux/actions/PostsActions';
-    import { getActualitesPaysG5,getActualitesInter,getLatestEvents,getActivities } from '../../redux/actions/ActualitesActions'; 
+    import { getWelcomeHomePage,getActualitesInter,getLatestEvents,getActivities } from '../../redux/actions/ActualitesActions'; 
 
 import { config } from '../../constants/AppConfig';
 
@@ -38,7 +38,7 @@ class Home extends Component {
 
         
         //Get Actualites Pays G5 : 
-        this.props.getActualitesPaysG5();
+        this.props.getWelcomeHomePage();
         
         //Get Actualites Internationale : 
         this.props.getActualitesInter();
@@ -636,11 +636,11 @@ const styles = {
 
 
 const mapStateToProps = state => ({
-    actualitesG5 : state.actualitesR.actualitesG5,
+    actualitesG5 : state.actualitesR.welcomeG5,
     actualitesInter : state.actualitesR.actualitesInter,
     events : state.actualitesR.events,
     activities : state.actualitesR.activities,
 });
 
-export default connect(mapStateToProps,{ getActualitesPaysG5,getActualitesInter,getLatestEvents,getActivities })(Home);
+export default connect(mapStateToProps,{ getWelcomeHomePage,getActualitesInter,getLatestEvents,getActivities })(Home);
 
