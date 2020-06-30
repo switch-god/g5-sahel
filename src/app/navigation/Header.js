@@ -178,7 +178,7 @@ class Header extends Component {
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
                     {this.state.linkSecretariat[0] &&
-                        <a style={styles.MainMenuLinks} href={`/article/${this.state.linkSecretariat[0].slug}`} >Secrétariat Exécutif</a>
+                        <a style={styles.MainMenuLinks} href={`/article/${this.state.linkSecretariat[0].slug}`} >Mot du Secrétariat Exécutif</a>
                     }
                 </Row>
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -420,7 +420,7 @@ class Header extends Component {
                 <Col className="menuMobileContainer">
                     <NavDropdown title="Présentation" style={styles.collapsible}>
                         <a style={styles.navItem} className="dropdown-item" href="/presentation">Présentation</a>
-                        <a style={styles.navItem} className="dropdown-item" href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Secrétariat Exécutif</a>
+                        <a style={styles.navItem} className="dropdown-item" href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Mot du Secrétariat Exécutif</a>
                         <a style={styles.navItem} className="dropdown-item" href="/article/les-comites-nationaux-de-coordination">Comités Nationaux de Coordination</a>
                         <a style={styles.navItem} className="dropdown-item" href="/presentation">Structures Rattachées</a>
                         <a style={styles.navItem} className="dropdown-item" href="/documentation/organigramme">Organigramme</a>
@@ -434,19 +434,18 @@ class Header extends Component {
                         <HashLink style={styles.navItem} className="dropdown-item" to="/nos-activites#resilence">Résilience & Développement humain</HashLink>
                     </NavDropdown>
                     
-                    <NavDropdown title="Actualités" style={styles.collapsible}>
-                        <a style={styles.navItem} className="dropdown-item" href="/actualites">Nos actualités</a>
+                    <NavDropdown title="Actualités" style={styles.collapsible} onClick={() =>  window.location.replace('/actualites') }>
+                        {/* <a style={styles.navItem} className="dropdown-item" href="/actualites">Nos actualités</a> */}
                     </NavDropdown>
                     
-                    <NavDropdown title="Événements" style={styles.collapsible}>
-                        <a style={styles.navItem} className="dropdown-item" href="/events">Nos événements</a>
+                    <NavDropdown title="Événements" style={styles.collapsible} onClick={() => window.location.replace('/events')}>
+                        {/* <a style={styles.navItem} className="dropdown-item" href="/events">Nos événements</a> */}
                         {/* <Link style={styles.navItem} className="dropdown-item" to="/events">Prochains événements</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/events">Événements passés</Link> */}
                     </NavDropdown>
                     
-                       
-                    <NavDropdown title="Documentation" style={styles.collapsible}>
-                        <a style={styles.navItem} className="dropdown-item" href="/documentations/organigramme">Nos Documents</a>
+                    <NavDropdown title="Documentation" style={styles.collapsible} onClick={() => window.location.replace('/documentations/organigramme')}>
+                        {/* <a style={styles.navItem} className="dropdown-item" href="/documentations/organigramme">Nos Documents</a> */}
                         {/* <Link style={styles.navItem} className="dropdown-item" to="/documentation">Règlementation</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation">Newsletter</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation">SDS, PIP</Link> */}

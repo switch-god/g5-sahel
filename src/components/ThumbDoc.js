@@ -31,7 +31,7 @@ export default class ThumbDoc extends Component {
                 </Row> */}
 
                 <Row style={{marginTop: '15px'}}>
-                    <h6 className={descClass}>Aperçu non disponible</h6>
+                    {/* <h6 className={descClass}>Aperçu non disponible</h6> */}
                 </Row>
             </Col>
         )

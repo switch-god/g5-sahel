@@ -183,7 +183,7 @@ export default class Footer extends Component {
                     <Col />
                     <Col style={{textAlign : 'center'}} xs={11}>
                         <hr style={{borderWidth : 1+"px", borderColor : '#BCBCBC'}} />
-                        <h4 style={styles.footerSign}>Secrétariat exécutif G5 Sahel 2020. © Tous droits réservés</h4>
+                        <h4 style={styles.footerSign}>Secrétariat exécutif du G5 Sahel 2020 © Tous droits réservés</h4>
                     </Col>
                     <Col />
                 </Row>

@@ -10,6 +10,7 @@
 //CATEGORIES :
 
     // G5 Categories :
+        const UNCATEGORIZED = 1;
 
         // Welcome Home PAge
         const WELCOME = 70;
@@ -73,6 +74,8 @@
 
 export {
     config,
+
+    UNCATEGORIZED,
   
     WELCOME,
     

@@ -108,12 +108,13 @@
 
     .bg-overlay {
         margin-top: -50px;
-        background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png);
+        /* background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png); */
+        background: linear-gradient(rgba(0, 153, 204, 1), rgba(0, 153, 204, 1));
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
         color: #fff;
-        height: 450px;
+        height: 250px;
         padding-top: 50px;
     }
 
@@ -250,12 +251,13 @@
 
     .bg-overlay {
         margin-top: -50px;
-        background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png);
+        /* background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png); */
+        background: linear-gradient(rgba(0, 153, 204, 1), rgba(0, 153, 204, 1));
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
         color: #fff;
-        height: 450px;
+        height: 250px;
         padding-top: 50px;
     }
 
@@ -389,12 +391,13 @@
 
     .bg-overlay {
         margin-top: -50px;
-        background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png);
+        /* background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png); */
+        background: linear-gradient(rgba(0, 153, 204, 1), rgba(0, 153, 204, 1));
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
         color: #fff;
-        height: 450px;
+        height: 250px;
         padding-top: 50px;
     }
 
@@ -527,12 +530,13 @@
 
     .bg-overlay {
         margin-top: -50px;
-        background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png);
+        /* background: linear-gradient(rgba(0, 153, 204, .6), rgba(0, 153, 204, .7)), url(../../assets/images/Recrutement/job.png); */
+        background: linear-gradient(rgba(0, 153, 204, 1), rgba(0, 153, 204, 1));
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
         color: #fff;
-        height: 450px;
+        height: 250px;
         padding-top: 50px;
     }
 
