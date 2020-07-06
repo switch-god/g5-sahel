@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import './Cgu.css';  
+import $ from 'jquery';
 
 import {
     Col,
@@ -14,10 +16,8 @@ import ThumbDoc from '../../components/ThumbDoc';
 
 import { config,APPEL_OFFRE, SDS, PIP, UNCATEGORIZED,SANS_CATEGORIE,CGU} from '../../constants/AppConfig';
 
-import $ from 'jquery';
 
 // Styling and Images :
-import './SoloPage.css';  
 import LottieLoader from '../../components/LottieLoader';
 
 export default class SoloPage extends Component {
@@ -30,7 +30,7 @@ export default class SoloPage extends Component {
             news : [],
         };
 
-        this.getArticle(this.props.match.params.slug);
+        this.getCgu();
     };
     
     componentDidMount() {
@@ -62,7 +62,7 @@ export default class SoloPage extends Component {
                             <Col xl={1} />
     
                             <Col>
-                                {
+                                {/*
                                     publication[0].fimg_url !== false 
                                     ?
                                     <Image src={publication[0].fimg_url} alt={publication[0].title.rendered} fluid className="articleImage" />
@@ -73,7 +73,7 @@ export default class SoloPage extends Component {
                                         imageClass="thumbSoloImage" 
                                         titleClass="thumbSoloTitle" 
                                         descClass="thumbSoloDesc" />     
-                                }
+                                */}
                             </Col>
                             
                             <Col xl={1} />
@@ -177,8 +177,8 @@ export default class SoloPage extends Component {
     );
 
 
-    getArticle = async (slug) => {
-        await axios.get(`${config.url}wp/v2/posts?slug=${slug}`)
+    getCgu = async () => {
+        await axios.get(`${config.url}wp/v2/posts?categories=${CGU}&per_page=1`)
         .then( async response => {
             await this.setState({
                 publication : response.data,
@@ -188,7 +188,7 @@ export default class SoloPage extends Component {
             // console.log("erreur axios getArticle/SoloPage");
         });
 
-    }
+    };
   
     getLatestNews = async () => {
         axios.get(`${config.url}wp/v2/posts?per_page=4&categories_exclude=${APPEL_OFFRE}+${SDS}+${PIP}+${UNCATEGORIZED}+${SANS_CATEGORIE}+${CGU}`)
@@ -200,5 +200,5 @@ export default class SoloPage extends Component {
         .catch(error => {
             console.log("erreur axios getLatestNews/SoloPage",error);
         });
-    }
+    };
 }

@@ -32,6 +32,7 @@ import Footer from './app/navigation/Footer';
    import Documentation from './app/documentation/Documentation';
    import Recrutement from './app/recrutement/Recrutement';
    import AppelOffre from './app/appeloffre/AppelOffre';
+   import Cgu from './app/cgu/Cgu';
 
    import SoloPage from './app/solo-pages/SoloPage';
    import SeeMore from './app/solo-pages/SeeMore';
@@ -102,6 +103,10 @@ export class App extends Component {
 
               <Route exact path="/recrutement">
                 <Recrutement />
+              </Route>
+
+              <Route exact path="/cgu">
+                <Cgu />
               </Route>
 
              

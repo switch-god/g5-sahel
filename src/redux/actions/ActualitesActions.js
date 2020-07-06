@@ -10,8 +10,10 @@ import moment from 'moment';
     ACTUALITE_INTERNATIONALE,
     NOS_ACTIVITES,
     UNCATEGORIZED,
+    SANS_CATEGORIE,
     SDS,
     PIP,
+    CGU,
 } from '../../constants/AppConfig';
 
 // Actualites FUNCTIONS //
@@ -98,7 +100,7 @@ export const getActivities = () => async (dispatch) => {
 
 export const getLatestNews = () => async (dispatch) => {
   
-  axios.get(`${config.url}wp/v2/posts?per_page=4&categories_exclude=${UNCATEGORIZED}+${SDS}+${PIP}`)
+  axios.get(`${config.url}wp/v2/posts?per_page=4&categories_exclude=${UNCATEGORIZED}+${SDS}+${PIP}+${SANS_CATEGORIE}+${CGU}`)
         .then(response => {
           dispatch({
               type : 'GET_LATEST_POSTS',

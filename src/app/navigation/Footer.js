@@ -107,7 +107,7 @@ export default class Footer extends Component {
                                     <h2 className="footerTitle"> ACCÈS RAPIDES </h2>
 
                                     <Nav style={{textAlign : 'left',marginLeft : 30+"px"}} className="flex-column">
-                                        <Link to="#" className="links">Conditions d’utilisation</Link>
+                                        <Link to="/cgu" className="links">Conditions d’utilisation</Link>
                                         <Link to="#" className="links">Confidentialité de l’information</Link>
                                         <Link  to="/contact-g5" className="links">Contactez-nous</Link>
                                         <Link to="#" className="links">Plan du site</Link>

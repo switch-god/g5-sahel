@@ -93,7 +93,7 @@ class Newsletter extends Component {
                 alignItems="center"
                 style={{backgroundColor : 'black',padding : 30+"px"}} 
             >
-                <div><h4 style={{color : 'white', fontFamily : 'Poppins SemiBold'}}> Subscribe to our newsletter </h4></div>
+                <div><h4 style={{color : 'white', fontFamily : 'Poppins SemiBold'}}>Abonnez-vous à notre newsletter</h4></div>
             
                 <div>
                 <Grid container direction="column" justify="space-between" alignItems="center">
@@ -209,12 +209,12 @@ class Newsletter extends Component {
              });
         };
         
-    }
+    };
 
     verifEmail = (email) => {
         let verifExpression = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return verifExpression.test(email);
-    }
+    };
 
 }
 

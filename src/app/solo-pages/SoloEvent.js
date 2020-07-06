@@ -13,7 +13,7 @@ import Newsletter from '../../components/Newsletter';
 import ThumbDoc from '../../components/ThumbDoc';
 import LottieLoader from '../../components/LottieLoader';
 
-import { config,APPEL_OFFRE, SDS, PIP, UNCATEGORIZED} from '../../constants/AppConfig';
+import { config,APPEL_OFFRE, SDS, PIP, UNCATEGORIZED,SANS_CATEGORIE, CGU} from '../../constants/AppConfig';
 
 // Styling and Images :
 import './SoloPage.css';
@@ -150,7 +150,7 @@ export default class SoloEvent extends Component {
     }
   
     getLatestNews = async () => {
-        axios.get(`${config.url}wp/v2/posts?per_page=4&categories_exclude=${APPEL_OFFRE}+${SDS}+${PIP}+${UNCATEGORIZED}`)
+        axios.get(`${config.url}wp/v2/posts?per_page=4&categories_exclude=${APPEL_OFFRE}+${SDS}+${PIP}+${UNCATEGORIZED}+${SANS_CATEGORIE}+${CGU}`)
         .then( response => {
             this.setState({
                 news : response.data

@@ -11,6 +11,7 @@
 
     // G5 Categories :
         const UNCATEGORIZED = 1;
+        const SANS_CATEGORIE = 22;
 
         // Welcome Home PAge
         const WELCOME = 70;
@@ -62,6 +63,9 @@
         const PIP = 73;
         const SDS = 74;
 
+        // CGU
+        const CGU = 76;
+
 
 
 // Config :
@@ -76,6 +80,7 @@ export {
     config,
 
     UNCATEGORIZED,
+    SANS_CATEGORIE,
   
     WELCOME,
     
@@ -113,4 +118,6 @@ export {
 
     SDS,
     PIP,
+
+    CGU,
 };
