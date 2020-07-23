@@ -79,6 +79,13 @@ export default class Documentation extends Component {
                             <Organigramme />
                         </Route>
 
+                        <Route path={`/documentations/last-4`}>
+                            <Publications 
+                                pageTitle={"Derniers documents"} 
+                                renderDocumentsListMode={this.renderDocumentsListMode.bind(this)} 
+                                renderDocumentsGridMode={this.renderDocumentsGridMode.bind(this)}
+                            />
+                        </Route>                
                         {
                             categories.map((cat,index) =>
                                 <Route key={index} path={`/documentations/${cat.slug}`}>
@@ -235,166 +242,30 @@ export default class Documentation extends Component {
 
         return (
             <>
-           
             <Nav className="flex-column mtNavbar">
                 
                 <Col  className="pageTitleContainer">
                     <p className="pageTitle">DOCUMENTATIONS</p>
                 </Col>
+
+                <Link  
+                    to={`/documentations/last-4`}
+                    className={activePathName == `/documentations/last-4` ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                    onClick={() => this.setState({ pathName : window.location.pathname })}
+                >
+                Derniers documents
+                </Link>
                 {
-                    categories.map((cat,index) => 
-                        <Link key={index} to={`/documentations/${cat.slug}`}
-                            className={activePathName == `/documentations/${cat.slug}` ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
-                            onClick={() => this.setState({ pathName : window.location.pathname })}
-                        >{cat.name}</Link>
-                    )
+                categories.map((cat,index) => 
+                    <Link key={index} to={`/documentations/${cat.slug}`}
+                        className={activePathName == `/documentations/${cat.slug}` ? "stickyNavbarLinkActive nav-link" : "stickyNavbarLink nav-link"} 
+                        onClick={() => this.setState({ pathName : window.location.pathname })}
+                    >{cat.name}</Link>
+                )
                 }
-            
             </Nav>
             </>
         );
     };  
-
-    // renderDocumentsGridMode = (pubs,title) => {
-        
-    //     return (
-    //         <Row>
-
-    //         {
-    //             pubs.map(pub => 
-    //                 <Col xs={12} md={6} xl={6}>
-    //                 <a 
-    //                     href={ pub.fpdf_url !== false ?  pub.fpdf_url : `/article/${pub.slug}`} 
-    //                     target={pub.fpdf_url !== false && "_blank"} 
-    //                     style={{ textDecoration: 'none' }}
-    //                 >
-    //                     <Jumbotron className="documentGridBox">
-    //                         <Row>
-    //                             <Col xs={6} md={5} xl={5}>
-    //                                 <Row>
-    //                                     {
-    //                                         pub.fimg_url 
-    //                                         ?
-    //                                         <Image src={pub.fimg_url} fluid className="documentGridThumb" />
-    //                                         :
-    //                                         <ThumbDoc title={title} containerClass="thumbGridModeContainer" imageClass="thumbListGridImage" titleClass="thumbPageGridTitle" descClass="thumbGridDesc" />
-    //                                     }
-    //                                 </Row>
-    //                             </Col>
-
-    //                             <Col xs={6} md={7}  xl={7}>
-    //                                 {/* {
-    //                                     window.innerWidth > 767 && pub.title.rendered.length >= 40
-    //                                     ?
-    //                                     <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered.substr(0,40)+"..."}}></h4>
-    //                                     :
-    //                                     <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
-    //                                 } */}
-    //                                 <h4 className="documentGridTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>
-                                    
-    //                                 <p className="documentGridButtonContainer">
-    //                                     {
-    //                                         pub.fpdf_url !== false 
-    //                                         ?
-    //                                         <a  
-    //                                             className="documentGridButton"
-    //                                             href={`${pub.fpdf_url}`}
-    //                                             target={pub.fpdf_url !== false && "_blank"} 
-    //                                         >
-    //                                             <AiOutlineDownload size={'20px'} />  Télécharger
-    //                                         </a>
-    //                                         :
-    //                                         <a  
-    //                                             className="documentGridButton"
-    //                                             href={`/article/${pub.slug}`}
-    //                                         >
-    //                                             <IoIosEye size={'20px'} />  Voir Plus
-    //                                         </a>
-    //                                     }
-    //                                 </p>
-    //                             </Col>
-    //                         </Row>
-    //                     </Jumbotron>
-    //                 </a>
-    //                 </Col>            
-    //             )
-    //         }
-    //         </Row>
-    //     );
-    // }
-
-
-    // renderDocumentsListMode = (pubs,title) => {
-     
-    //     return (
-    //         <>
-    //         {
-    //             pubs.map((pub) =>  
-    //                 <a 
-    //                     href={ pub.fpdf_url !== false ?  pub.fpdf_url : `/article/${pub.slug}`} 
-    //                     target={pub.fpdf_url !== false && "_blank"} 
-    //                     style={{ textDecoration: 'none' }}
-    //                 >
-    //                     <Jumbotron className="documentBox">
-    //                         <Row>
-    //                             <Col xs={12} md={4} xl={5}>
-    //                                 <Row className="documentImageContainer">
-    //                                     {
-    //                                         pub.fimg_url !== false ?
-    //                                         <Image src={pub.fimg_url} fluid className="documentThumb" />
-    //                                         :
-    //                                         <ThumbDoc 
-    //                                             title={title} 
-    //                                             containerClass="thumbListModeContainer" 
-    //                                             imageClass="thumbListImage" 
-    //                                             titleClass="thumbPageTitle" 
-    //                                             descClass="thumbDesc" 
-    //                                         />
-    //                                     }
-                                        
-    //                                 </Row>
-    //                             </Col>
-
-    //                             <Col xs={12} md={8} xl={7}>
-    //                                 <h4 className="documentTitle" dangerouslySetInnerHTML={{__html: pub.title.rendered}}></h4>                                    
-    //                                 {/*
-    //                                     pub.excerpt.rendered.length > 0 
-    //                                     ?
-    //                                     <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.excerpt.rendered.substr(0,47)+"..."}}></p>
-    //                                     :
-    //                                     <p className="documentDesc" dangerouslySetInnerHTML={{__html: pub.content.rendered.substr(0,47)+"..."}}></p>
-    //                                 */}
-                                    
-
-    //                                 <p style={{float : 'right'}}>
-                                        // {
-                                        //     pub.fpdf_url !== false 
-                                        //     ?
-                                        //     <a  
-                                        //         className="documentButton"
-                                        //         href={`${pub.fpdf_url}`}
-                                        //         target={pub.fpdf_url !== false && "_blank"} 
-                                        //     >
-                                        //         <AiOutlineDownload size={'20px'} />  Télécharger
-                                        //     </a>
-                                        //     :
-                                        //     <a  
-                                        //         className="documentButton"
-                                        //         href={`/article/${pub.slug}`}
-                                        //     >
-                                        //         <IoIosEye size={'20px'} />  Voir Plus
-                                        //     </a>
-                                        // }
-    //                                 </p>
-    //                             </Col>
-    //                         </Row>
-    //                     </Jumbotron>
-    //                 </a>       
-    //             )
-    //         }
-    //         </>
-    //     );
-    // };
-
 }
 

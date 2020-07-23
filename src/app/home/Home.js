@@ -214,7 +214,7 @@ class Home extends Component {
 
                             <Link 
                                 to={{
-                                    pathname : `/article/${actualitesG5[1].slug}`,
+                                    pathname : `/article/${actualitesG5[2].slug}`,
                                 }} 
                                 style={{ textDecoration: 'none' }}
                             >
@@ -228,7 +228,7 @@ class Home extends Component {
                                         <Image src={actualitesG5[2].fimg_url} alt={actualitesG5[2].title.rendered} fluid className="actualitesG5SmallImage"  />
                                         :
                                         <ThumbDoc 
-                                            title={actualitesG5[1].fcategory[0].category_name} 
+                                            title={actualitesG5[2].fcategory[0].category_name} 
                                             containerClass="thumbActualitesSmallContainer" 
                                             imageClass="thumbActualitesSmallImage" 
                                             titleClass="thumbActualitesSmallTitle" 

@@ -1,17 +1,17 @@
 /* eslint-disable import/first */
 import React, { Component } from 'react'
 
-
 import {
     Col,
     Row,
     Button,
+    Form,
     Container,
 } from 'react-bootstrap';
 
 // Redux :
  import { connect } from 'react-redux';
- import { getPublications } from '../../../redux/actions/DocumentationActions';
+ import { getPublications, getLastDocs, filterDocs } from '../../../redux/actions/DocumentationActions';
 
 // Components : 
 import Loader from '../../loading/Loader';
@@ -31,9 +31,14 @@ class Publications extends Component {
             showPagination : false,
             currentPage: 1,
             articlesPerPage: 10,
+            filteredDocs : [],
         }
         // Get Publications :
-        this.props.getPublications(this.props.category,1);
+        if(this.props.category !== undefined) {
+            this.props.getPublications(this.props.category,1);
+        } else {
+            this.props.getLastDocs();
+        }
     }
     
     componentDidMount() {
@@ -43,11 +48,11 @@ class Publications extends Component {
                 showPagination : true,
             })
         ,2000);
-    }
+    };
     
     render() {
-        const { loading,showMode,showPagination } = this.state;
-        const { publications,pageTitle,infos } = this.props;
+        const { loading,showMode,showPagination,filteredDocs } = this.state;
+        const { publications,pageTitle,infos,category } = this.props;
         
         if(window.innerWidth > 992) {
             return (
@@ -57,6 +62,10 @@ class Publications extends Component {
                             <Row className="ml-5">
                                 {this.renderShowMode()}
                             </Row>
+                            
+                            {/* <Row className="ml-5">
+                                {this.renderFilterMode()}
+                            </Row> */}
     
                             {
                                 loading 
@@ -101,9 +110,10 @@ class Publications extends Component {
     
                             {
                                 publications.length > 0 && 
+                                category !== undefined &&
                                 showPagination && 
                                 Math.ceil(publications[0].fcategory[0].category_count / 10 ) > 1 &&
-                                   
+
                                 <Row className="ml-5">
                                     <Col id="page-numbers" xs={12} xl={12}>
                                         <UltimatePagination 
@@ -186,7 +196,7 @@ class Publications extends Component {
                 )
 
         }
-    }
+    };
 
     callPage = (current) => {
         this.setState({ 
@@ -203,47 +213,91 @@ class Publications extends Component {
                 showPagination : true,
             });
         },3000);
-    }
+    };
+
+
+    activeFilter = async (type) => {
+        if(type === 0) {
+            console.log("Lets get the voir plus");
+            await this.setState({filteredDocs : this.props.publications});
+            this.props.filterDocs(this.props.publications,type);
+        } else {
+            console.log("lets get the docs with attachements");
+            await this.setState({filteredDocs : this.props.publications});
+            this.props.filterDocs(this.props.publications,type);
+        }
+    };
+
+
+    renderFilterMode = () => {
+       
+        return (
+            <Col xs={12} className="mr-auto" style={{marginBottom : '20px'}}>
+                <Row className="alignBlocShow">   
+                    <Col lg={2} xl={2} className="d-flex">
+                        <p className="showModeText">Filtrer par</p>
+                    </Col>
+                    
+                    <Col lg={5} xl={6}>
+                        <Row className="d-flex">
+                            <Form.Group className="my-auto mr-3">
+                                <Form.Check type="radio" name="filterCheck" label="sans pièces jointes" onChange={() => this.activeFilter(0)} />
+                            </Form.Group>
+
+                            <Form.Group className="my-auto">
+                                <Form.Check type="radio" name="filterCheck" label="avec pièces jointes" onChange={() => this.activeFilter(1)} />
+                            </Form.Group>
+                        </Row>
+                    </Col>
+                </Row>
+
+            </Col>
+        );
+    };
 
     renderShowMode = () => {
        
         return (
             <Col xl={12} style={{marginBottom : '20px'}}>
                 <Row className="alignBlocShow">   
-                    <p className="showModeText">OPTIONS D'AFFICHAGE</p>
+                    <Col lg={4} xl={3}>
+                        <p className="showModeText">OPTIONS D'AFFICHAGE</p>
+                    </Col>
 
-                    {
-                        this.state.showMode === 'LIST'
-                        ?
-                            (
-                                <>
-                                <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'GRID' })}>
-                                    <IoMdGrid size={'30px'} /> Grid
-                                </Button>
+                    <Col lg={5} xl={6}>
+                        {
+                            this.state.showMode === 'LIST'
+                            ?
+                                (
+                                    <>
+                                    <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'GRID' })}>
+                                        <IoMdGrid size={'30px'} /> Grid
+                                    </Button>
 
-                                <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'LIST' })}>
-                                    <IoIosList size={'30px'} /> Liste
-                                </Button>
-                            
-                                </>
-                            )
-                        :
-                            (
-                                <>
-                                <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'GRID' })}>
-                                    <IoMdGrid size={'30px'} /> Grid
-                                </Button>
+                                    <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'LIST' })}>
+                                        <IoIosList size={'30px'} /> Liste
+                                    </Button>
+                                
+                                    </>
+                                )
+                            :
+                                (
+                                    <>
+                                    <Button className="showModeButtonActive" onClick={() => this.setState({ showMode : 'GRID' })}>
+                                        <IoMdGrid size={'30px'} /> Grid
+                                    </Button>
 
-                                <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'LIST' })}>
-                                    <IoIosList size={'30px'} /> Liste
-                                </Button>
-                                </>
-                            )
-                    }
+                                    <Button className="showModeButton" variant="light" onClick={() => this.setState({ showMode : 'LIST' })}>
+                                        <IoIosList size={'30px'} /> Liste
+                                    </Button>
+                                    </>
+                                )
+                        }
+                    </Col>
                 </Row>
             </Col>
         );
-    }
+    };
     
 }
 
@@ -252,6 +306,6 @@ const mapStateToProps = state => ({
     infos : state.docsR.infos,
 });
 
-export default connect(mapStateToProps,{ getPublications })(Publications);
+export default connect(mapStateToProps,{ getPublications, getLastDocs, filterDocs })(Publications);
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+import ScrollUpButton from "react-scroll-up-button"; //Add this line Here
 import {
   BrowserRouter as Router,
   Switch,
@@ -116,8 +116,14 @@ export class App extends Component {
               <Route path="/search/:search" component={SeeMoreSearch} />
               
               <Route component={NotFound}/>
+
+
             </Switch>
 
+            <div>
+              <ScrollUpButton />
+            
+            </div>
             {/* FOOTER */}
               <Footer />
             {/* ./FOOTER */}

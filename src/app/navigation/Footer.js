@@ -125,7 +125,7 @@ export default class Footer extends Component {
                                         <a href="/nos-activites" className="links">Nos activités</a>
                                         <a href="/actualites" className="links">Actualités</a>
                                         <a href="/events" className="links">Evénements</a>
-                                        <a href="/documentations/organigramme" className="links">Documentation</a>
+                                        <a href="/documentations/last-4" className="links">Documentation</a>
                                     </Nav>
                                 </div>
                             </Col>
