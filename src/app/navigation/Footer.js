@@ -26,6 +26,8 @@ import {config, SDS, PIP} from '../../constants/AppConfig';
     import twitter from '../../assets/images/Footer/twit.png';
     import linkedIn from '../../assets/images/Footer/lin.png';
     import youtube from '../../assets/images/Footer/ytb.png';
+    import { AiFillFacebook,AiOutlineTwitter,AiFillLinkedin,AiFillYoutube } from 'react-icons/ai';
+
 
     /*
      * 
@@ -78,25 +80,29 @@ export default class Footer extends Component {
 
                                     <div>
                                         <a href="https://www.facebook.com/g5sahel" target="_blank">
-                                            <Image src={fb} width={35} />
+                                            {/* <Image src={fb} width={35} /> */}
+                                            <AiFillFacebook size={35} className={"FooterIconFb"} />
                                         </a>
                                     </div>
                                    
                                     <div>
                                         <a href="https://twitter.com/g5_sahel_se" target="_blank">
-                                            <Image src={twitter} width={35} style={{marginTop : 4+"px"}}/>
+                                            {/* <Image src={twitter} width={35} style={{marginTop : 4+"px"}}/> */}
+                                            <AiOutlineTwitter size={35} className={"FooterIconTw"} />
                                         </a>
                                     </div>
                                    
                                     <div>
                                         <a href="https://www.linkedin.com/in/g5-sahel-00187a188/" target="_blank">
-                                            <Image src={linkedIn} width={35} />
+                                            {/* <Image src={linkedIn} width={35} /> */}
+                                            <AiFillLinkedin size={35} className={"FooterIconLn"} />
                                         </a>
                                     </div>
                                    
                                     <div>
                                         <a href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" target="_blank">
-                                            <Image src={youtube} width={35} style={{marginTop : 4+"px"}}/>
+                                            {/* <Image src={youtube} width={35} style={{marginTop : 4+"px"}}/> */}
+                                            <AiFillYoutube size={35} className={"FooterIconYt"} />
                                         </a>
                                     </div>
                                 </Grid>

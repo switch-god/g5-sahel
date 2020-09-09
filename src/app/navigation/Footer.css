@@ -1,4 +1,38 @@
-
+.FooterIconFb:hover {
+    color : #4267B2;
+  }
+  
+  .FooterIconFb {
+    color : #bcbcbc;
+    margin-right: 10px;
+  }
+  
+  .FooterIconTw:hover {
+    color : #1DA1F2;
+  }
+  
+  .FooterIconTw {
+    color : #bcbcbc;
+    margin-right: 10px;
+  }
+  
+  .FooterIconLn:hover {
+    color : #2867B2;
+  }
+  
+  .FooterIconLn {
+    color : #bcbcbc;
+    margin-right: 10px;
+  }
+  
+  .FooterIconYt:hover {
+    color : #c4302b;
+  }
+  
+  .FooterIconYt {
+    color : #bcbcbc;
+    margin-right: 10px;
+  }
 
 /* Extra small devices  */
 @media (max-width: 575.98px) { 

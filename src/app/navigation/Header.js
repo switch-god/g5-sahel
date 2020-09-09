@@ -18,6 +18,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { IoIosSearch,IoIosArrowForward } from 'react-icons/io';
+import { AiFillFacebook,AiOutlineTwitter,AiFillLinkedin,AiFillYoutube } from 'react-icons/ai';
 
 // IMAGES & STYLING :
 import LOGO from '../../assets/images/Header/logo3.png';
@@ -63,20 +64,26 @@ class Header extends Component {
                         <Link style={styles.TopBarLinks} to="/recrutement">Recrutement</Link>
                         <Link style={styles.TopBarLinks} to="/contact-g5">Contact</Link>
                         
+                        {/* AiFillFacebook,AiOutlineTwitter,AiFillLinkedin,AiFillYoutube */}
+                        
                         <a href="https://www.facebook.com/g5sahel" target="_blank">
-                            <Image src={fb} width={15} style={{marginRight : 10+"px",}} />
+                            {/* <Image src={fb} width={15} style={{marginRight : 10+"px",}} /> */}
+                            <AiFillFacebook size={15} className={"topBarIconFb"} />
                         </a>
 
                         <a href="https://twitter.com/g5_sahel_se" target="_blank">
-                            <Image src={twitter} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/>
+                            {/* <Image src={twitter} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/> */}
+                            <AiOutlineTwitter size={15} className={"topBarIconTw"} />
                         </a>
 
                         <a href="https://www.linkedin.com/in/g5-sahel-00187a188/" target="_blank">
-                            <Image src={linkedIn} width={15} style={{marginRight : 10+"px",}}/>
+                            {/* <Image src={linkedIn} width={15} style={{marginRight : 10+"px",}}/> */}
+                            <AiFillLinkedin size={15} className={"topBarIconLn"} />
                         </a>
 
                         <a href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" target="_blank">
-                            <Image src={youtube} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/>
+                            {/* <Image src={youtube} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/> */}
+                            <AiFillYoutube size={15} className={"topBarIconYt"} />
                         </a>
                         
                     </Col>
@@ -172,8 +179,12 @@ class Header extends Component {
 
     renderWebMenuElements = () => (
        <div>   
+        <div className="dropdown">
+            <a className={"menuLink"} href="/">Accueil</a>
+       </div>
+       
        <div className="dropdown">
-            <Link style={styles.MainMenuLinks} to="/presentation"> Présentation <img src={ARROW} height={7} /></Link>
+            <Link className={"menuLink"} to="/presentation"> Présentation <img src={ARROW} height={7} /></Link>
             <div className="dropdown-content">
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -197,7 +208,7 @@ class Header extends Component {
         </div>
         
         <div className="dropdown">
-            <Link style={styles.MainMenuLinks} to="/nos-activites"> Nos Activités <img src={ARROW} height={7} /></Link>
+            <Link className={"menuLink"} to="/nos-activites"> Nos Activités <img src={ARROW} height={7} /></Link>
             <div className="dropdown-content">
                 {/* NESTED LINKS */}
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -220,12 +231,12 @@ class Header extends Component {
         </div>
         
         <div className="dropdown">
-            <Link style={styles.MainMenuLinks} to="/actualites">Actualités</Link>
+            <Link className={"menuLink"} to="/actualites">Actualités</Link>
         </div>
         
         <div className="dropdown">
             {/* <Link style={styles.MainMenuLinks} to="/events">Evenements <img src={ARROW} height={7} /></Link> */}
-            <Link style={styles.MainMenuLinks} to="/events"> Événements </Link>
+            <Link className={"menuLink"} to="/events"> Événements </Link>
             {/* NESTED LINKS */}
              {/* <div className="dropdown-content">
                 <Row style={{paddingTop : 10+"px",paddingBottom : 10+"px",paddingLeft : 10+"px"}}>
@@ -241,7 +252,7 @@ class Header extends Component {
         
         <div className="dropdown">
             {/* <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation <img src={ARROW} height={7} /> </Link> */}
-            <Link style={styles.MainMenuLinks} to="/documentations/organigramme"> Documentation </Link>
+            <Link className={"menuLink"} to="/documentations/organigramme"> Documentation </Link>
             
             {/* NESTED LINKS */}
             {/* <div className="dropdown-content">
@@ -362,19 +373,24 @@ class Header extends Component {
 
                             <div>
                                 <a href="https://www.facebook.com/g5sahel" target="_blank">
-                                    <Image src={fb} width={15} style={{marginRight : 10+"px"}} />
+                                    {/* <Image src={fb} width={15} style={{marginRight : 10+"px"}} /> */}
+                                    <AiFillFacebook size={15} className={"topBarIconFb"} />
                                 </a>
 
                                 <a href="https://twitter.com/g5_sahel_se" target="_blank">
-                                    <Image src={twitter} width={15} style={{marginTop : 4+"px",marginRight : 10+"px"}}/>
+                                    {/* <Image src={twitter} width={15} style={{marginTop : 4+"px",marginRight : 10+"px"}}/> */}
+                                    <AiOutlineTwitter size={15} className={"topBarIconTw"} />
                                 </a>
 
                                 <a href="https://www.linkedin.com/in/g5-sahel-00187a188/" target="_blank">
-                                    <Image src={linkedIn} width={15} style={{marginRight : 10+"px"}}/>
+                                    {/* <Image src={linkedIn} width={15} style={{marginRight : 10+"px"}}/> */}
+                                    <AiFillLinkedin size={15} className={"topBarIconLn"} />
                                 </a>
 
                                 <a href="https://www.youtube.com/channel/UC3CqmhBt9mTvd6Lx3bf3OMg/featured" target="_blank">
-                                    <Image src={youtube} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/>
+                                    {/* <Image src={youtube} width={15} style={{marginTop : 4+"px",marginRight : 10+"px",}}/> */}
+                                    <AiFillYoutube size={15} className={"topBarIconYt"} />
+
                                 </a>
                             </div>
                         </div>
@@ -418,6 +434,11 @@ class Header extends Component {
                 {/* <Col xs={1} md={0} /> */}
 
                 <Col className="menuMobileContainer">
+
+                    <NavDropdown title="Accueil" style={styles.collapsible} onClick={() =>  window.location.replace('/') }>
+                        {/* <a style={styles.navItem} className="dropdown-item" href="/actualites">Nos actualités</a> */}
+                    </NavDropdown>
+
                     <NavDropdown title="Présentation" style={styles.collapsible}>
                         <a style={styles.navItem} className="dropdown-item" href="/presentation">Présentation</a>
                         <a style={styles.navItem} className="dropdown-item" href="/article/un-nouveau-secretaire-permanent-pour-le-g5-sahel">Mot du Secrétariat Exécutif</a>

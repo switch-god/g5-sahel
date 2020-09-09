@@ -9,6 +9,12 @@ import {
 } from "react-router-dom";
 
 
+import {
+  Row,
+  Container,
+  Col
+} from "react-bootstrap";
+
 /* =================== APP COMPONENTS =================== */ 
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './components/NotFound';
@@ -41,6 +47,7 @@ import Footer from './app/navigation/Footer';
    
 /* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
 
+import { FaArrowCircleUp } from 'react-icons/fa';
 
 /* =================== ./APP COMPONENTS =================== */ 
 export class App extends Component {
@@ -117,6 +124,12 @@ export class App extends Component {
               
               <Route component={NotFound}/>
             </Switch>
+
+            <Container fluid>
+              <Col style={{backgroundColor : "red"}} className={"d-flex justify-content-end"}>
+              <FaArrowCircleUp  color={"black"} style={{marginRight : "30px"}} size={35} />
+              </Col>
+            </Container>
 
             {/* FOOTER */}
               <Footer />
