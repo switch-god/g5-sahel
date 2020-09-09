@@ -34,6 +34,7 @@
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.4.1",
+    "react-scroll-up-button": "^1.6.4",
     "react-scrollable-anchor": "^0.6.1",
     "react-transition-group": "^2.5.1",
     "react-ultimate-pagination": "^1.2.0",

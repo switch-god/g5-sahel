@@ -252,7 +252,7 @@ class Header extends Component {
         
         <div className="dropdown">
             {/* <Link style={styles.MainMenuLinks} to="/documentation/organigramme"> Documentation <img src={ARROW} height={7} /> </Link> */}
-            <Link className={"menuLink"} to="/documentations/organigramme"> Documentation </Link>
+            <Link style={styles.MainMenuLinks} to="/documentations/last-4"> Documentation </Link>
             
             {/* NESTED LINKS */}
             {/* <div className="dropdown-content">
@@ -465,7 +465,7 @@ class Header extends Component {
                         <Link style={styles.navItem} className="dropdown-item" to="/events">Événements passés</Link> */}
                     </NavDropdown>
                     
-                    <NavDropdown title="Documentation" style={styles.collapsible} onClick={() => window.location.replace('/documentations/organigramme')}>
+                    <NavDropdown title="Documentation" style={styles.collapsible} onClick={() => window.location.replace('/documentations/last-4')}>
                         {/* <a style={styles.navItem} className="dropdown-item" href="/documentations/organigramme">Nos Documents</a> */}
                         {/* <Link style={styles.navItem} className="dropdown-item" to="/documentation">Règlementation</Link>
                         <Link style={styles.navItem} className="dropdown-item" to="/documentation">Newsletter</Link>
