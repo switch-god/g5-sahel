@@ -44,10 +44,14 @@ import Footer from './app/navigation/Footer';
    import SeeMore from './app/solo-pages/SeeMore';
    import SeeMoreSearch from './app/solo-pages/SeeMoreSearch';
    import SoloEvent from './app/solo-pages/SoloEvent';
+
+   import LottieLoader from './components/LottieLoader';
    
 /* $$$$$$$$$$$$$$$$$$$ ./PAGES $$$$$$$$$$$$$$$$$$$ */ 
 
 import { FaArrowCircleUp } from 'react-icons/fa';
+
+
 
 /* =================== ./APP COMPONENTS =================== */ 
 export class App extends Component {
@@ -69,17 +73,23 @@ export class App extends Component {
         <Router >
             <ScrollToTop />
             {/* NAVBAR */}
-              <Header />
+              {/* <Header /> */}
             {/* ./NAVBAR */}
     
             {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
             <Switch>
               
               <Route exact path="/">
-                <Home />
+                {/* <Home /> */}
+                <LottieLoader 
+                     text={"Le site est en cours de maintenance"}  
+                     devText  
+                     bottom
+                     logo   
+                />
               </Route>
               
-              <Route exact path="/presentation">
+              {/* <Route exact path="/presentation">
                 <Presentation />
               </Route>
 
@@ -120,19 +130,19 @@ export class App extends Component {
               <Route path="/article/:slug" component={SoloPage} />
               <Route path="/event/:slug" component={SoloEvent} />
               <Route path="/voir-plus/:category_slug" component={SeeMore} />
-              <Route path="/search/:search" component={SeeMoreSearch} />
+              <Route path="/search/:search" component={SeeMoreSearch} /> */}
               
               <Route component={NotFound}/>
 
 
             </Switch>
             
-            <div>
+            {/* <div>
               <ScrollUpButton />
-            </div>
+            </div> */}
 
             {/* FOOTER */}
-              <Footer />
+              {/* <Footer /> */}
             {/* ./FOOTER */}
           
         </Router>

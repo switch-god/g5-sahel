@@ -6,7 +6,8 @@ import LottieLoader from './LottieLoader';
 
 export default class NotFound extends Component {
 
-    constructor() {
+    constructor(props) {
+        super(props);
         document.title= `${config.siteName} - 404 Not found`;
     }
 
@@ -14,13 +15,13 @@ export default class NotFound extends Component {
         return (
             <div>
                  <LottieLoader 
-                     text={"Cette page est est inaccessible"}  
+                    //  text={"Cette page est est inaccessible"}  
+                    text={"Le site est en cours de maintenance"}  
                      devText
-                     HomeButton  
+                    //  HomeButton  
                      bottom
                      logo   
                 />
-
             </div>
         )
     }
