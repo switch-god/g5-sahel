@@ -62,34 +62,24 @@ export class App extends Component {
     this.state = {
       loading : true,
     };
-
   }
-  
 
   render() {
     
-
     return (
         <Router >
             <ScrollToTop />
             {/* NAVBAR */}
-              {/* <Header /> */}
+              <Header />
             {/* ./NAVBAR */}
     
-            {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL.*/}
             <Switch>
               
               <Route exact path="/">
-                {/* <Home /> */}
-                <LottieLoader 
-                     text={"Le site est en cours de maintenance"}  
-                     devText  
-                     bottom
-                     logo   
-                />
+                <Home />
               </Route>
               
-              {/* <Route exact path="/presentation">
+              <Route exact path="/presentation">
                 <Presentation />
               </Route>
 
@@ -130,19 +120,19 @@ export class App extends Component {
               <Route path="/article/:slug" component={SoloPage} />
               <Route path="/event/:slug" component={SoloEvent} />
               <Route path="/voir-plus/:category_slug" component={SeeMore} />
-              <Route path="/search/:search" component={SeeMoreSearch} /> */}
+              <Route path="/search/:search" component={SeeMoreSearch} />
               
               <Route component={NotFound}/>
 
 
             </Switch>
             
-            {/* <div>
+            <div>
               <ScrollUpButton />
-            </div> */}
+            </div>
 
             {/* FOOTER */}
-              {/* <Footer /> */}
+              <Footer />
             {/* ./FOOTER */}
           
         </Router>
