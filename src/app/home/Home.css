@@ -27,11 +27,16 @@
         /* A LA UNE + EVENTS */
 
             .bigArticleImage {
-                margin-bottom: 30px;
+                /* margin-bottom: 30px;
                 margin-top: 30px;
                 min-height: 250px;
                 max-height: 250px; 
-                min-width: 100%;
+                min-width: 100%; */
+                height: 350px;
+                background-position: center; /* Center the image */
+                background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: center;
+
             }
         
             .articleTitleContainer {
@@ -64,9 +69,13 @@
             }
         
             .smallArticleImage {
-                min-height: 250px;
+                /* min-height: 250px;
                 max-height: 250px; 
-                min-width: 100%;
+                min-width: 100%; */
+                height: 350px;
+                background-position: center; /* Center the image */
+                background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: center;
             }
         
             .smallArticleTitle {
@@ -93,26 +102,31 @@
         /* A LA UNE + EVENTS */
 
         .actualitesG5SmallImage {
-            max-height: 250px;
-            min-height: 250px;
-            width: 100%;
+            height: 350px;
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: center;
         }
 
         .actualitesG5SmallTitle {
             font-family: 'Poppins Bold';
             font-size: 14px;
+            color: #fff;
         }
 
         .actualitesG5SmallDate {
             font-family: 'Poppins Light';
             font-size: 10px;
             padding-left: 5px;
+            color: #fff
         }
         
         .actualitesG5BigImage {
-            max-height: 250px;
-            min-height: 250px;
-            width: 100%;
+            height: 350px;
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: center;
+            margin-bottom: 10px; 
         }
 
         .actualitesG5BigTitle {
@@ -343,6 +357,16 @@
 }
 
 
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+
+
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) { 
 }
@@ -528,9 +552,10 @@
         }
 
         .actualitesG5BigImage {
-            max-height: 400px;
             min-height: 400px;
-            width: 100%;
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; 
         }
 
         .actualitesG5BigTitle {
@@ -641,11 +666,15 @@
     
 
     .bigArticleImage {
-       margin-bottom: 30px;
+       /* margin-bottom: 30px;
        margin-top: 30px;
        min-height: 400px;
        max-height: 400px; 
-       min-width: 100%;
+       min-width: 100%; */
+        height: 350px;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: center; 
     }
 
     .articleTitleContainer {
@@ -705,6 +734,15 @@
     }
 
 }
+
+
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
+/* ******************************************************************************************************************************************************************************************************* */
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) { 
@@ -888,9 +926,10 @@
         }
 
         .actualitesG5BigImage {
-            max-height: 600px;
-            min-height: 600px;
-            width: 100%;
+            min-height: 525px;
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; 
         }
 
         .actualitesG5BigTitle {
@@ -1237,26 +1276,30 @@
         /* THUMBS */
 
         .actualitesG5SmallImage {
-            max-height: 250px;
-            min-height: 250px;
-            width: 100%;
+            height: 280px;
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; 
         }
 
         .actualitesG5SmallTitle {
             font-family: 'Poppins Bold';
             font-size: 14px;
+            color: #fff;
         }
 
         .actualitesG5SmallDate {
             font-family: 'Poppins Light';
             font-size: 10px;
             padding-left: 5px;
+            color: #fff;
         }
 
         .actualitesG5BigImage {
-            max-height: 526px;
-            min-height: 526px;
-            width: 100%;
+            height: 600px; 
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: auto; 
         }
 
         .actualitesG5BigTitle {
@@ -1382,11 +1425,16 @@
     
 
     .bigArticleImage {
-       margin-bottom: 30px;
+       /* margin-bottom: 30px;
        margin-top: 30px;
        min-height: 400px;
        max-height: 400px; 
-       min-width: 100%;
+       min-width: 100%; */
+       margin-bottom: 30px;
+       height: 400px;
+       background-position: left; /* Center the image */
+       background-repeat: no-repeat; /* Do not repeat the image */
+       background-size: center;
     }
 
     .articleTitleContainer {
@@ -1416,9 +1464,13 @@
     }
 
     .smallArticleImage {
-       min-height: 150px;
+       /* min-height: 150px;
        max-height: 150px; 
-       min-width: 100%;
+       min-width: 100%; */
+        height: 170px;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover;
     }
 
     .smallArticleTitle {
