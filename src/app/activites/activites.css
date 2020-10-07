@@ -1375,9 +1375,9 @@
         background: rgb(0, 0, 0); /* Fallback color */
         background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
         color: white; /* Grey text */
-        width: 106%; /* Full width */
+        width: 104%; /* Full width */
         margin-left: -15px;
-        padding: 30px; /* Some padding */
+        padding: 18px; /* Some padding */
     }
 
     .gouvOnImageTitle {
@@ -1399,13 +1399,13 @@
         margin-top: 8px;
     }
 
-    .divider {
+    .nos-activites-divider {
         border: 0;
         clear:both;
         display:block;
         width: 100%;               
-        margin-top: 50px;
-        margin-bottom: 20px;
+        margin-top: 25px;
+        /* margin-bottom: 20px; */
         margin-left: 15px;
         background-color:#DEDEDE;
         height: 1px;
@@ -1582,6 +1582,7 @@
         min-height: 420px;
         max-height: 420px;
         width: 100%;
+        object-fit: cover;
     }
 
     .resiTitleBig {
@@ -1610,6 +1611,7 @@
         min-height: 200px;
         max-height: 200px;
         width: 100%;
+        object-fit: cover;
     }
   
     .resi-justify-elements {
@@ -1678,9 +1680,9 @@
             
         }
         .infraImage {
-            min-height: 250px;
-            max-height: 250px;
+            height: 250px;
             width: 100%;
+            object-fit: cover;
         }
 
         .infraTitle {
@@ -1737,15 +1739,16 @@
         }
 
         .gouvImageSmall {
-            min-height: 120px;
-            max-height: 120px;
+            height: 150px;
             width: 100%;
+            object-fit: cover;
         }
 
         .genreImage {
             width: 100%;
             min-height: 420px;
             max-height: 420px;
+            object-fit: cover;
         }
     
     
@@ -1767,6 +1770,8 @@
     .postImageBig {
         min-height: 396px;
         max-height: 396px; 
+        width: 90%;
+        object-fit: cover;
     }
 
     .postTitleBig {

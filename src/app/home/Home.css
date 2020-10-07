@@ -1277,9 +1277,12 @@
 
         .actualitesG5SmallImage {
             height: 280px;
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-size: cover; 
+            width: 100%;
+            /* object-fit: cover;
+            object-position: center center; */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; 
         }
 
         .actualitesG5SmallTitle {
@@ -1297,9 +1300,10 @@
 
         .actualitesG5BigImage {
             height: 600px; 
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-size: auto; 
+            background-position: center; 
+            background-repeat: no-repeat;
+             background-size: cover; 
+            width: 100%;
         }
 
         .actualitesG5BigTitle {
@@ -1432,9 +1436,10 @@
        min-width: 100%; */
        margin-bottom: 30px;
        height: 400px;
-       background-position: left; /* Center the image */
+       width: 100%;
+       background-position: center; /* Center the image */
        background-repeat: no-repeat; /* Do not repeat the image */
-       background-size: center;
+       background-size: cover;
     }
 
     .articleTitleContainer {

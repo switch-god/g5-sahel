@@ -760,8 +760,8 @@
 
         .midImage {
             width: 100%;
-            min-height: 170px;
-            max-height: 170px;
+            height: 250px;
+            object-fit: cover;
         }
 
         .midTitle {
@@ -812,6 +812,7 @@
         max-height: 100px;
         min-height: 100px;
         width: 100%;
+        object-fit: cover;
     }
 
     .titleCeMois {
@@ -830,6 +831,7 @@
         max-height: 611px;
         min-height: 611px;
         width: 100%;
+        object-fit: cover;
     }
 
     .news-big-img {

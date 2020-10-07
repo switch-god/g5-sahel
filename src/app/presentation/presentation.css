@@ -174,9 +174,9 @@
         }
 
         .presentationImages {
-            min-height: 400px;
-            max-height: 400px;
+            height: 400px;
             width: 100%;
+            object-fit: cover;
         }
     /* ./PRSEENATATION BLOC 1 */
 

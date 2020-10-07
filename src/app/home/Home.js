@@ -81,6 +81,9 @@ class Home extends Component {
             <LottieLoader bottom/>
             </>
             :
+
+            <>
+            
             <Container fluid>
                 
                 {/* Dernieres actualités */}
@@ -131,8 +134,7 @@ class Home extends Component {
                     <Col />
                 </Row>
             </Container>
-
-
+            </>
         )
     }
 
@@ -177,7 +179,8 @@ class Home extends Component {
                                     </>
                                 }
                             </div> */}
-                            <div className="d-flex actualitesG5BigImage"  style={{ backgroundImage: `url(${actualitesG5[0].fimg_url})` }}>
+                            
+                             <div className="d-flex actualitesG5BigImage"  style={{ backgroundImage: `url(${actualitesG5[0].fimg_url})` }}>
                                 <Row>
                                     <Col className="d-flex" xs={12}>
                                         <div className="mt-auto p-2" style={{background: 'rgba(0, 0, 0, 0.5)'}}>

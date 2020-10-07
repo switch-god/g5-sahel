@@ -1070,9 +1070,10 @@
     }
 
     .documentGridImage {
-        min-width: 100%;
-        height: fit-content;
-        max-height: 160px;
+        width: 100%;
+        /* height: fit-content; */
+        height: 180px;
+        object-fit: cover;
     }
 
     .documentGridBox:hover {

@@ -215,7 +215,7 @@ class NosActivites extends Component {
                     </Link>
                 </Col>
                 
-                <Col className={ window.innerWidth > 1199 ? "ml-5" : ""} xs={12} md={12} xl={5}>
+                <Col className={ window.innerWidth > 1199 ? "pr-2" : ""} xs={12} md={12} xl={6}>
 
                     <Row>
                         {
@@ -259,7 +259,7 @@ class NosActivites extends Component {
                                     
                                     </Col>
                                     
-                                    { index < 3 && <hr className="divider" /> }
+                                    { index < 3 && <hr className="nos-activites-divider" /> }
                                     
                                 </Row>
                                 </Link>
